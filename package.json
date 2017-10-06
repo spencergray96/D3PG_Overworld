@@ -1,0 +1,25 @@
+{
+  "name": "d4pg",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spencergray96/D4PG.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/spencergray96/D4PG/issues"
+  },
+  "homepage": "https://github.com/spencergray96/D4PG#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "phaser": "^2.6.2"
+  },
+  "devDependencies": {}
+}
