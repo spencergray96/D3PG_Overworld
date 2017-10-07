@@ -18,7 +18,8 @@ class testLevel extends abstractLevel {
 
     static updatables() {
         return [
-            new door()
+            new door(),
+            new spawn()
         ]
     }
 
@@ -29,6 +30,8 @@ class testLevel extends abstractLevel {
     create() {
         super.create();
     }
+    
+    
 
 
 }
