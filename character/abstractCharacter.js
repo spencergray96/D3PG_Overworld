@@ -1,4 +1,4 @@
-class abstractCharacter {
+class abstractObject {
 
     constructor() {
     }
