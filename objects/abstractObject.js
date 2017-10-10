@@ -25,7 +25,6 @@ class abstractObject {
         map.objects[layer].forEach(function(element){
             if(element.properties.type === type) {
                 //Phaser uses top left, Tiled bottom left so we have to adjust
-                //also keep in mind that the cup images are a bit smaller than the tile which is 16x16
                 //so they might not be placed in the exact position as in Tiled
                 element.y -= map.tileHeight;
                 result.push(element);
@@ -33,12 +32,6 @@ class abstractObject {
         });
         return result;
     }
-
-
-    //startDialouge(text) {
-    //    alert(text);
-    //}
-
 
 
 }

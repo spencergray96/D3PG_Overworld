@@ -1,5 +1,9 @@
-class door extends abstractObject {
+var doorDes = {
+    theDestination: null,
+    from: null
+};
 
+class door extends abstractObject {
 
     constructor() {
         super();
@@ -20,33 +24,35 @@ class door extends abstractObject {
         super.updateThis(game, player);
         this.game.physics.arcade.overlap(this.player, this.doors.children, this.enterDoor, null, this);
 
-
     }
 
     enterDoor() {
         var theDoor = [];
         for (var i=0; i < this.doors.children.length; i++) {
             theDoor[i] = this.doors.children[i];
+            
             if (this.game.physics.arcade.overlap(theDoor[i], this.player)){
 
                 if (theDoor[i].destination == "se14"){                    
                     console.log(theDoor[i]);
+                    doorDes.theDestination = theDoor[i].destination;
+                    doorDes.from = 1;
                     
-                    this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
                     TopDownGame.game.state.start('TestLevel2');
                 }
                 else if(theDoor[i].destination == "theStart"){
                     console.log(theDoor[i]);
+                    doorDes.theDestination = theDoor[i].destination;
                     TopDownGame.game.state.start('TestLevel');
                 }
                 else if(theDoor[i].destination == "bl"){
                     console.log(theDoor[i]);
-                    console.log(theDoor[i].destination);
+                    doorDes.theDestination = theDoor[i].destination;
                     TopDownGame.game.state.start('TestLevel3');
                 }
             }
-
         }
+
     }
 
 

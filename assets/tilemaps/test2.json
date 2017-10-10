@@ -168,12 +168,14 @@
                  "name":"",
                  "properties":
                     {
-                     "arriveTo":"se14",
+                     "arriveTo":"se14_1",
+                     "from":"1",
                      "type":"playerStart"
                     },
                  "propertytypes":
                     {
                      "arriveTo":"string",
+                     "from":"string",
                      "type":"string"
                     },
                  "rotation":0,
@@ -182,6 +184,27 @@
                  "width":16,
                  "x":64,
                  "y":256
+                }, 
+                {
+                 "height":16,
+                 "id":23,
+                 "name":"",
+                 "properties":
+                    {
+                     "arriveFrom":"theStart",
+                     "type":"playerStart"
+                    },
+                 "propertytypes":
+                    {
+                     "arriveFrom":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":16,
+                 "x":224,
+                 "y":240
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -200,7 +223,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":23,
+ "nextobjectid":24,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
