@@ -33,7 +33,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
                      "type":"item"
                     },
                  "propertytypes":
@@ -55,7 +55,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"player",
+                     "sprite":"watermelon",
                      "type":"item"
                     },
                  "propertytypes":
@@ -77,7 +77,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
                      "type":"item"
                     },
                  "propertytypes":
@@ -99,7 +99,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
                      "type":"item"
                     },
                  "propertytypes":
