@@ -169,12 +169,14 @@
                  "properties":
                     {
                      "arriveTo":"se14_1",
+                     "destination":"theStart",
                      "from":"1",
                      "type":"playerStart"
                     },
                  "propertytypes":
                     {
                      "arriveTo":"string",
+                     "destination":"string",
                      "from":"string",
                      "type":"string"
                     },
@@ -191,20 +193,24 @@
                  "name":"",
                  "properties":
                     {
-                     "arriveFrom":"theStart",
+                     "arriveFrom":"theEnd",
+                     "destination":"theEnd",
+                     "from":"2",
                      "type":"playerStart"
                     },
                  "propertytypes":
                     {
                      "arriveFrom":"string",
+                     "destination":"string",
+                     "from":"string",
                      "type":"string"
                     },
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":224,
-                 "y":240
+                 "x":272,
+                 "y":288
                 }],
          "opacity":1,
          "type":"objectgroup",

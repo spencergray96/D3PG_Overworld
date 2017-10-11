@@ -19,12 +19,6 @@ class spawn extends abstractObject {
 
         }, this);
         spawnLoc = (this.spawns.children);
-        for (var i = 0; i < this.spawns.children.length; i++){
-            if (doorDes.from == 1){
-                this.player = this.game.add.sprite(result[i].x, result[i].y, 'player');
-                
-            }
-        }
     }
 
     updateThis(game, player) {

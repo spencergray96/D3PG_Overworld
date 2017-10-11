@@ -34,20 +34,30 @@ class door extends abstractObject {
             if (this.game.physics.arcade.overlap(theDoor[i], this.player)){
 
                 if (theDoor[i].destination == "se14"){                    
-                    console.log(theDoor[i]);
-                    doorDes.theDestination = theDoor[i].destination;
-                    doorDes.from = 1;
+                    if (doorDes.from == null || doorDes.from == 0){        
+                        console.log(theDoor[i]);
+                        doorDes.theDestination = theDoor[i].destination;
+                        doorDes.from = 1;
+                    }
+                    else if (doorDes.from == 2){
+                        console.log(theDoor[i]);
+                        doorDes.theDestination = theDoor[i].destination;
+                        doorDes.from = 2;                        
+                    }
                     
-                    TopDownGame.game.state.start('TestLevel2');
+                    
+                        TopDownGame.game.state.start('TestLevel2');
                 }
                 else if(theDoor[i].destination == "theStart"){
                     console.log(theDoor[i]);
                     doorDes.theDestination = theDoor[i].destination;
+                    doorDes.from = 0;
                     TopDownGame.game.state.start('TestLevel');
                 }
                 else if(theDoor[i].destination == "bl"){
                     console.log(theDoor[i]);
                     doorDes.theDestination = theDoor[i].destination;
+                    doorDes.from = 2;
                     TopDownGame.game.state.start('TestLevel3');
                 }
             }

@@ -37,7 +37,23 @@ class abstractLevel extends Phaser.State {
 
     generatePlayer() {
         var result = this.findObjectsByType('playerStart', this.game.map, 'objectsLayer');
-        this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
+        if (doorDes.theDestination == "se14"){
+            if (doorDes.from == 1){
+                this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
+                console.log("came from theStart");
+                console.log(doorDes.from);
+            }
+            if (doorDes.from == 2){
+                this.player = this.game.add.sprite(result[1].x, result[1].y, 'player');
+                console.log("second door");
+                console.log(doorDes.from);
+            }
+        }
+        else {
+            this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
+            console.log("not se14");
+                console.log(doorDes.from);
+        }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
     }

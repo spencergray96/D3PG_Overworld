@@ -122,12 +122,14 @@
                  "properties":
                     {
                      "destination":"se14",
+                     "from":"theEnd",
                      "sprite":"browndoor",
                      "type":"door"
                     },
                  "propertytypes":
                     {
                      "destination":"string",
+                     "from":"string",
                      "sprite":"string",
                      "type":"string"
                     },
@@ -156,8 +158,8 @@
                  "type":"",
                  "visible":true,
                  "width":16,
-                 "x":192,
-                 "y":192
+                 "x":267,
+                 "y":281
                 }],
          "opacity":1,
          "type":"objectgroup",
