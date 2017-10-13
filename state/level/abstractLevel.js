@@ -86,20 +86,27 @@ class abstractLevel extends Phaser.State {
     createControls() {
         if(this.cursors.up.isDown) {
             if(this.player.body.velocity.y === 0)
-                this.player.body.velocity.y -= 150;
+//                this.player.body.velocity.y -= 150;
+                this.player.y = this.player.y - 5;
         }
         else if(this.cursors.down.isDown) {
             if(this.player.body.velocity.y === 0)
-                this.player.body.velocity.y += 150;
+//                this.player.body.velocity.y += 150;
+                this.player.y = this.player.y + 5;
+
         }
         else {
-            this.player.body.velocity.y = 0;
+//            this.player.body.velocity.y = 0;
         }
         if(this.cursors.left.isDown) {
-            this.player.body.velocity.x -= 150;
+//            this.player.body.velocity.x -= 150;
+            this.player.x = this.player.x - 5;
+            
         }
         else if(this.cursors.right.isDown) {
-            this.player.body.velocity.x += 150;
+//            this.player.body.velocity.x += 150;
+            this.player.x = this.player.x + 5;
+            
         }
     }
 
