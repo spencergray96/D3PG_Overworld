@@ -33,13 +33,15 @@ class testEvent extends abstractObject {
     readText() {
 
         if (this.enterBut.isDown){
-            text = this.game.add.text(0, 0, person1text[3], style);
+
+            if(this.textEvents.children[1].text == "1"){
+               }
+            text = this.game.add.text(0, 0, person1text[2], style);
             text.fixedToCamera = true;
             text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
             //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-            text.setTextBounds(0, 100, 800, 100);
-            
+            text.setTextBounds(0, 50, 100, 100);
         }
     }
     
@@ -47,7 +49,7 @@ class testEvent extends abstractObject {
 
         var letter = 0;
         var id = setInterval(frame, 20);
-        function frame() {
+        function frame() {  
             if (letter >= person[lineNum].length) {
                 clearInterval(id);
             } else {
