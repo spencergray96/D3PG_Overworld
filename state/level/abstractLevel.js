@@ -1,3 +1,5 @@
+var blockedLayerBounds;
+
 class abstractLevel extends Phaser.State {
 
     constructor(getGame, params, updatables) {
@@ -25,13 +27,23 @@ class abstractLevel extends Phaser.State {
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
+            console.log(this.layerObj[this.params.layers[i]].tiles);
         }
         this.game.map.setCollisionBetween(
             this.params.collisionRange.min,
             this.params.collisionRange.max,
             this.params.collisionRange.visible,
             this.params.collisionRange.name);
-
+        
+        blockedLayerBounds = this.layerObj.blockedLayer_c;
+        console.log(blockedLayerBounds);
+        
+//        console.log(blockedLayerBounds.tiles);
+        
+//        this.layerObj.forEach((layer) => {
+//            console.log(layer);
+//        });
+        
         this.layerObj["backgroundLayer"].resizeWorld();
     }
 
@@ -56,6 +68,9 @@ class abstractLevel extends Phaser.State {
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
+        
+        this.player.anchor.setTo(0.5, 0.5);
+
     }
 
     findObjectsByType(type, map, layer) {
@@ -71,6 +86,8 @@ class abstractLevel extends Phaser.State {
         });
         return result;
     }
+    
+    
 
     update() {
         this.generateCollision();
@@ -79,8 +96,11 @@ class abstractLevel extends Phaser.State {
 
         this.updatables.forEach((o) => {
             o.updateThis(this.game, this.player);
-        })
-
+        });
+        
+        if(checkOverlap(this.player, blockedLayerBounds)){
+//            console.log("wow spencer is so cool");
+        }
     }
 
     createControls() {
@@ -126,4 +146,11 @@ class abstractLevel extends Phaser.State {
         });
     }
 
+}
+
+function checkOverlap(thingA, thingB){
+        var boundsA = thingA.getBounds();
+        var boundsB = thingB.getBounds();
+        
+        return Phaser.Rectangle.intersects(boundsA, boundsB);
 }
