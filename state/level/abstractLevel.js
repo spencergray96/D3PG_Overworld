@@ -1,4 +1,8 @@
-var blockedLayerBounds;
+var blockedLayer_c;
+var backgroundLayer;
+
+var playX;
+var playY;
 
 class abstractLevel extends Phaser.State {
 
@@ -35,8 +39,15 @@ class abstractLevel extends Phaser.State {
             this.params.collisionRange.visible,
             this.params.collisionRange.name);
         
-        blockedLayerBounds = this.layerObj.blockedLayer_c;
-        console.log(blockedLayerBounds);
+        console.log(this.game.map.getTile(10, 10, blockedLayer_c, true).index);
+        
+        blockedLayer_c = this.layerObj.blockedLayer_c;
+
+        
+//        console.log(this.game.map.layers[1].data);
+        
+//        blockedLayerBounds = this.layerObj.blockedLayer_c;
+//        console.log(blockedLayerBounds);
         
 //        console.log(blockedLayerBounds.tiles);
         
@@ -98,36 +109,65 @@ class abstractLevel extends Phaser.State {
             o.updateThis(this.game, this.player);
         });
         
-        if(checkOverlap(this.player, blockedLayerBounds)){
-//            console.log("wow spencer is so cool");
-        }
+//        console.log(this.player.x);
+//        console.log(this.player.y);
+        
+        playX = Math.floor((this.player.x / 32));
+        playY = Math.floor((this.player.y / 32));
+        
+//        console.log(playX);
+        
+        console.log(this.game.map.getTile(playX, playY, blockedLayer_c, true).index);
+
+        
+//        if(checkOverlap(this.player, blockedLayerBounds)){
+////            console.log("wow spencer is so cool");
+//        }
     }
 
     createControls() {
         if(this.cursors.up.isDown) {
             if(this.player.body.velocity.y === 0)
 //                this.player.body.velocity.y -= 150;
-                this.player.y = this.player.y - 5;
+                
+                if((this.game.map.getTile((playX), (playY - 1), blockedLayer_c, true).index) != -1){
+                    console.log("hello hahahaha");
+                } else (this.player.y = this.player.y - 5);
+                    
         }
+        
         else if(this.cursors.down.isDown) {
             if(this.player.body.velocity.y === 0)
 //                this.player.body.velocity.y += 150;
-                this.player.y = this.player.y + 5;
+                
+                if((this.game.map.getTile((playX), (playY + 1), blockedLayer_c, true).index) != -1){
+                    console.log("hello hahahaha");
+                } else (this.player.y = this.player.y + 5);
 
         }
+        
         else {
 //            this.player.body.velocity.y = 0;
         }
+        
         if(this.cursors.left.isDown) {
 //            this.player.body.velocity.x -= 150;
-            this.player.x = this.player.x - 5;
+            
+            if((this.game.map.getTile((playX - 1), (playY), blockedLayer_c, true).index) != -1){
+                    console.log("hello hahahaha");
+                } else (this.player.x = this.player.x - 5);
             
         }
+        
         else if(this.cursors.right.isDown) {
 //            this.player.body.velocity.x += 150;
-            this.player.x = this.player.x + 5;
+            
+            if((this.game.map.getTile((playX + 1), (playY), blockedLayer_c, true).index) != -1){
+                    console.log("hello hahahaha");
+                } else (this.player.x = this.player.x + 5);
             
         }
+        
     }
 
     generateCollision() {
