@@ -1,11 +1,3 @@
-var person1text = ["This is bullshit", 
-            "I can't believe I have to do this again for another semester", 
-            "Please make it stop", 
-            "It's already dead!"
-           ];
-        var style = { font: "24px Arial", fill: "#ffffff", align: "center" };        
-        var text = null;
-
 class testEvent extends abstractObject {
 
     constructor() {
@@ -34,41 +26,52 @@ class testEvent extends abstractObject {
 
         if (this.enterBut.isDown){
 
-            if(this.textEvents.children[1].text == "1"){
-               }
             text = this.game.add.text(0, 0, person1text[2], style);
             text.fixedToCamera = true;
             text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+            makeABox();
 
             //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
             text.setTextBounds(0, 50, 100, 100);
         }
     }
     
-    printing(person, lineNum) {
-
-        var letter = 0;
-        var id = setInterval(frame, 20);
-        function frame() {  
-            if (letter >= person[lineNum].length) {
-                clearInterval(id);
-            } else {
-                var addLetters = text.substring(0,letter);
-                tester.innerText = addLetters;
-                letter++; 
-
-            }
-          }
-    }    
+//    printing(person, lineNum) {
+//
+//        var letter = 0;
+//        var id = setInterval(frame, 20);
+//        function frame() {  
+//            if (letter >= person[lineNum].length) {
+//                clearInterval(id);
+//            } else {
+//                var addLetters = text.substring(0,letter);
+//                tester.innerText = addLetters;
+//                letter++; 
+//
+//            }
+//          }
+//    }    
    
 }
 
-var theBody = document.getElementById("container");
+var person1text = ["This is bs", 
+            "I can't believe I have to do this again", 
+            "Please make it stop", 
+            "It's already dead!"
+           ];
 
+var style = { font: "24px Arial", fill: "#ffffff", align: "center" };        
+
+var text = null;
+
+var theBody = document.getElementById("container");
+console.log(theBody, "body");
 function makeABox(){
     var tBox = document.createElement("div");
-    tBox.width = "90vw";
-    tBox.height = "20vw";
+    tBox.style.width = "90vw";
+    tBox.style.height = "20vw";
+    tBox.style.color = "fff";
+    //console.log(tBox, theBody);
     theBody.appendChild(tBox); 
 }
 
