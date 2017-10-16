@@ -4,6 +4,8 @@ var backgroundLayer;
 var playX;
 var playY;
 
+var walking = false;
+
 class abstractLevel extends Phaser.State {
 
     constructor(getGame, params, updatables) {
@@ -80,7 +82,7 @@ class abstractLevel extends Phaser.State {
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
         
-        this.player.anchor.setTo(0.5, 0.5);
+//        this.player.anchor.setTo(0.25, 0.25);
 
     }
 
@@ -103,7 +105,10 @@ class abstractLevel extends Phaser.State {
     update() {
         this.generateCollision();
         this.player.body.velocity.x = 0;
-        this.createControls();
+        
+        if(!walking){
+            this.createControls();
+        }
 
         this.updatables.forEach((o) => {
             o.updateThis(this.game, this.player);
@@ -117,8 +122,9 @@ class abstractLevel extends Phaser.State {
         
 //        console.log(playX);
         
-        console.log(this.game.map.getTile(playX, playY, blockedLayer_c, true).index);
+//        console.log(this.game.map.getTile(playX, playY, blockedLayer_c, true).index);
 
+//        this.player.anchor.setTo(0.25, 0.25);
         
 //        if(checkOverlap(this.player, blockedLayerBounds)){
 ////            console.log("wow spencer is so cool");
@@ -126,13 +132,20 @@ class abstractLevel extends Phaser.State {
     }
 
     createControls() {
+//        if();
         if(this.cursors.up.isDown) {
             if(this.player.body.velocity.y === 0)
 //                this.player.body.velocity.y -= 150;
                 
                 if((this.game.map.getTile((playX), (playY - 1), blockedLayer_c, true).index) != -1){
-                    console.log("hello hahahaha");
-                } else (this.player.y = this.player.y - 5);
+//                    console.log("hello hahahaha");
+                } else {
+                    this.player.y = this.player.y - 32;
+                    walking = true;
+                    setTimeout(function(){
+                        walking = false;
+                    }, 500);
+                }
                     
         }
         
@@ -141,8 +154,14 @@ class abstractLevel extends Phaser.State {
 //                this.player.body.velocity.y += 150;
                 
                 if((this.game.map.getTile((playX), (playY + 1), blockedLayer_c, true).index) != -1){
-                    console.log("hello hahahaha");
-                } else (this.player.y = this.player.y + 5);
+//                    console.log("hello hahahaha");
+                } else {
+                    this.player.y = this.player.y + 32;
+                    walking = true;
+                    setTimeout(function(){
+                        walking = false;
+                    }, 500);
+                };
 
         }
         
@@ -154,8 +173,14 @@ class abstractLevel extends Phaser.State {
 //            this.player.body.velocity.x -= 150;
             
             if((this.game.map.getTile((playX - 1), (playY), blockedLayer_c, true).index) != -1){
-                    console.log("hello hahahaha");
-                } else (this.player.x = this.player.x - 5);
+//                    console.log("hello hahahaha");
+                } else {
+                    this.player.x = this.player.x - 32;
+                    walking = true;
+                    setTimeout(function(){
+                        walking = false;
+                    }, 500);
+                };
             
         }
         
@@ -163,8 +188,14 @@ class abstractLevel extends Phaser.State {
 //            this.player.body.velocity.x += 150;
             
             if((this.game.map.getTile((playX + 1), (playY), blockedLayer_c, true).index) != -1){
-                    console.log("hello hahahaha");
-                } else (this.player.x = this.player.x + 5);
+//                    console.log("hello hahahaha");
+                } else {
+                    this.player.x = this.player.x + 32;
+                    walking = true;
+                    setTimeout(function(){
+                        walking = false;
+                    }, 500);
+                };
             
         }
         
