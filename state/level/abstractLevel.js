@@ -4,7 +4,8 @@ var backgroundLayer;
 var playX;
 var playY;
 
-var walking = false;
+var walkingLR = false;
+var walkingUD = false;
 
 class abstractLevel extends Phaser.State {
 
@@ -13,6 +14,10 @@ class abstractLevel extends Phaser.State {
         this.getGame = getGame;
         this.params = params;
         this.updatables = updatables;
+        
+        this.events = {
+            curEvents:0
+        }
     }
 
     create() {
@@ -62,6 +67,7 @@ class abstractLevel extends Phaser.State {
 
     generatePlayer() {
         var result = this.findObjectsByType('playerStart', this.game.map, 'objectsLayer');
+        var x,y;
         if (doorDes.theDestination == "se14"){
             if (doorDes.from == 1){
                 this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
@@ -81,6 +87,15 @@ class abstractLevel extends Phaser.State {
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
+        
+        this.player.mymove = {
+            x:this.player.x,
+            y:this.player.y,
+            x2:this.player.x,
+            y2:this.player.y
+        }
+        
+        console.log(this.player.mymove.x);
         
 //        this.player.anchor.setTo(0.25, 0.25);
 
@@ -104,12 +119,51 @@ class abstractLevel extends Phaser.State {
 
     update() {
         this.generateCollision();
-        this.player.body.velocity.x = 0;
+//        this.player.body.velocity.x = 0;
+//        this.player.body.velocity.y = 0;
         
-        if(!walking){
-            this.createControls();
+//        console.log("this.player.x is " + this.player.x);
+//        console.log("this.player.x2 is " + this.player.mymove.x2);
+        
+        if(this.player.body.velocity.x != 0){
+            walkingLR = true;
+        } else {
+            walkingLR = false;
         }
-
+        
+        if(this.player.body.velocity.y != 0){
+            walkingUD = true;
+        } else {
+            walkingUD = false;
+        }
+        
+        if(this.player.x == this.player.mymove.x2){
+            this.player.body.velocity.x = 0;
+            this.player.mymove.x = this.player.x;
+//            console.log("x and x2 the same stop");
+        }
+        
+//        console.log("this.player.y is " + this.player.y);
+//        console.log("this.player.y2 is " + this.player.mymove.y2);
+        
+        if(this.player.y == this.player.mymove.y2){
+            this.player.body.velocity.y = 0;
+            this.player.mymove.y = this.player.y;
+        }
+        
+        this.createControls();
+//        if(!walking){
+//            this.createControls();
+//        }
+        
+//        switch(this.events.curEvent){
+//            case 1:
+//                //event 1
+//                this.events.curEvent = 0;
+//                break
+//        }
+        
+        
         this.updatables.forEach((o) => {
             o.updateThis(this.game, this.player);
         });
@@ -131,13 +185,45 @@ class abstractLevel extends Phaser.State {
 //        }
     }
 
+    playerMoveX(){
+        console.log("this.player.x: " + this.player.x, "destination: " + this.player.mymove.x2);
+        
+        if(this.player.x < this.player.mymove.x2){
+            this.player.body.velocity.x = 60;
+        } else if(this.player.x > this.player.mymove.x2) {
+            this.player.body.velocity.x = -60;
+        } else {
+//            this.player.mymove.x2 = null;
+            this.player.body.velocity.x = 0;
+
+        }
+    }
+    
+    playerMoveY(){
+        console.log(this.player.y, this.player.mymove.y2);
+        
+        if(this.player.y < this.player.mymove.y2){
+            this.player.body.velocity.y = 60;
+        } else if(this.player.y > this.player.mymove.y2){
+            this.player.body.velocity.y = -60;
+        } else {
+//            this.player.mymove.y2 = null;
+            this.player.body.velocity.y = 0;
+
+        }
+    }
+    
     createControls() {
-//        if();
-        if(this.cursors.up.isDown) {
-            if(this.player.body.velocity.y === 0)
+        if(this.cursors.up.isDown && !walkingLR) {
+            if(this.player.mymove.y == this.player.mymove.y2){
+                this.player.mymove.y2 = this.player.y - 32;
+                this.playerMoveY();
+            }
+//            console.log(this.player.mymove);
+            //if(this.player.body.velocity.y === 0)
 //                this.player.body.velocity.y -= 150;
                 
-                if((this.game.map.getTile((playX), (playY - 1), blockedLayer_c, true).index) != -1){
+                /*if((this.game.map.getTile((playX), (playY - 1), blockedLayer_c, true).index) != -1){
 //                    console.log("hello hahahaha");
                 } else {
                     this.player.y = this.player.y - 32;
@@ -145,23 +231,27 @@ class abstractLevel extends Phaser.State {
                     setTimeout(function(){
                         walking = false;
                     }, 500);
-                }
+                }*/
                     
         }
         
-        else if(this.cursors.down.isDown) {
-            if(this.player.body.velocity.y === 0)
+        else if(this.cursors.down.isDown && !walkingLR) {
+            if(this.player.mymove.y == this.player.mymove.y2){
+                this.player.mymove.y2 = this.player.y + 32;
+                this.playerMoveY();
+            }
+//            if(this.player.body.velocity.y === 0)
 //                this.player.body.velocity.y += 150;
                 
-                if((this.game.map.getTile((playX), (playY + 1), blockedLayer_c, true).index) != -1){
-//                    console.log("hello hahahaha");
-                } else {
-                    this.player.y = this.player.y + 32;
-                    walking = true;
-                    setTimeout(function(){
-                        walking = false;
-                    }, 500);
-                };
+//                if((this.game.map.getTile((playX), (playY + 1), blockedLayer_c, true).index) != -1){
+////                    console.log("hello hahahaha");
+//                } else {
+//                    this.player.y = this.player.y + 32;
+//                    walking = true;
+//                    setTimeout(function(){
+//                        walking = false;
+//                    }, 500);
+//                };
 
         }
         
@@ -169,33 +259,41 @@ class abstractLevel extends Phaser.State {
 //            this.player.body.velocity.y = 0;
         }
         
-        if(this.cursors.left.isDown) {
+        if(this.cursors.left.isDown && !walkingUD) {
+            if(this.player.mymove.x == this.player.mymove.x2){
+                this.player.mymove.x2 = this.player.mymove.x - 32;
+                this.playerMoveX();
+            }
 //            this.player.body.velocity.x -= 150;
             
-            if((this.game.map.getTile((playX - 1), (playY), blockedLayer_c, true).index) != -1){
-//                    console.log("hello hahahaha");
-                } else {
-                    this.player.x = this.player.x - 32;
-                    walking = true;
-                    setTimeout(function(){
-                        walking = false;
-                    }, 500);
-                };
+//            if((this.game.map.getTile((playX - 1), (playY), blockedLayer_c, true).index) != -1){
+////                    console.log("hello hahahaha");
+//                } else {
+//                    this.player.x = this.player.x - 32;
+//                    walking = true;
+//                    setTimeout(function(){
+//                        walking = false;
+//                    }, 500);
+//                };
             
         }
         
-        else if(this.cursors.right.isDown) {
+        else if(this.cursors.right.isDown && !walkingUD) {
+            if(this.player.mymove.x == this.player.mymove.x2){
+                this.player.mymove.x2 = this.player.mymove.x + 32;
+                this.playerMoveX();
+            }
 //            this.player.body.velocity.x += 150;
             
-            if((this.game.map.getTile((playX + 1), (playY), blockedLayer_c, true).index) != -1){
-//                    console.log("hello hahahaha");
-                } else {
-                    this.player.x = this.player.x + 32;
-                    walking = true;
-                    setTimeout(function(){
-                        walking = false;
-                    }, 500);
-                };
+//            if((this.game.map.getTile((playX + 1), (playY), blockedLayer_c, true).index) != -1){
+////                    console.log("hello hahahaha");
+//                } else {
+//                    this.player.x = this.player.x + 32;
+//                    walking = true;
+//                    setTimeout(function(){
+//                        walking = false;
+//                    }, 500);
+//                };
             
         }
         
