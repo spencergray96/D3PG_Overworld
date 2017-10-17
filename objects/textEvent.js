@@ -2,6 +2,10 @@ class testEvent extends abstractObject {
 
     constructor() {
         super();
+        this.person1text = ["This is bs", 
+            "I can't believe I have to do this again", 
+            "Please make it stop", 
+            "It's already dead!"];
     }
 
     createThis(game) {
@@ -25,52 +29,39 @@ class testEvent extends abstractObject {
     readText() {
 
         if (this.enterBut.isDown){
-
-            text = this.game.add.text(0, 0, person1text[2], style);
-            text.fixedToCamera = true;
-            text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             makeABox();
 
-            //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-            text.setTextBounds(0, 50, 100, 100);
         }
     }
     
-//    printing(person, lineNum) {
-//
-//        var letter = 0;
-//        var id = setInterval(frame, 20);
-//        function frame() {  
-//            if (letter >= person[lineNum].length) {
-//                clearInterval(id);
-//            } else {
-//                var addLetters = text.substring(0,letter);
-//                tester.innerText = addLetters;
-//                letter++; 
-//
-//            }
-//          }
-//    }    
+    printing(person, lineNum) {
+
+        var letter = 0;
+        var id = setInterval(frame, 20);
+        function frame() {  
+            if (letter >= person[lineNum].length) {
+                clearInterval(id);
+            } else {
+                var addLetters = text.substring(0,letter);
+                tester.innerText = addLetters;
+                letter++; 
+
+            }
+          }
+    }    
    
-}
-
-var person1text = ["This is bs", 
-            "I can't believe I have to do this again", 
-            "Please make it stop", 
-            "It's already dead!"
-           ];
-
-var style = { font: "24px Arial", fill: "#ffffff", align: "center" };        
+}      
 
 var text = null;
 
 var theBody = document.getElementById("container");
 console.log(theBody, "body");
+
 function makeABox(){
     var tBox = document.createElement("div");
-    tBox.style.width = "90vw";
-    tBox.style.height = "20vw";
-    tBox.style.color = "fff";
+    tBox.style.position = "absolute";
+    tBox.style.bottom = "0";
+    tBox.style.left = "0";
     //console.log(tBox, theBody);
     theBody.appendChild(tBox); 
 }
