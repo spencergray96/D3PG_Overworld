@@ -26,31 +26,27 @@ class testEvent extends abstractObject {
 
         if (this.enterBut.isDown){
 
-            text = this.game.add.text(0, 0, person1text[2], style);
-            text.fixedToCamera = true;
-            text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
             makeABox();
 
             //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-            text.setTextBounds(0, 50, 100, 100);
         }
     }
     
-//    printing(person, lineNum) {
-//
-//        var letter = 0;
-//        var id = setInterval(frame, 20);
-//        function frame() {  
-//            if (letter >= person[lineNum].length) {
-//                clearInterval(id);
-//            } else {
-//                var addLetters = text.substring(0,letter);
-//                tester.innerText = addLetters;
-//                letter++; 
-//
-//            }
-//          }
-//    }    
+    printing(person, lineNum) {
+
+        var letter = 0;
+        var id = setInterval(frame, 20);
+        function frame() {  
+            if (letter >= person[lineNum].length) {
+                clearInterval(id);
+            } else {
+                var addLetters = text.substring(0,letter);
+                tBox.innerText = addLetters;
+                letter++; 
+
+            }
+          }
+    }    
    
 }
 
@@ -67,11 +63,14 @@ var text = null;
 var theBody = document.getElementById("container");
 console.log(theBody, "body");
 function makeABox(){
+    console.log("hi");
     var tBox = document.createElement("div");
     tBox.style.width = "90vw";
+    tBox.style.width = "90vw";
     tBox.style.height = "20vw";
+    tBox.style.position = "absolute";
     tBox.style.color = "fff";
-    //console.log(tBox, theBody);
+    tBox
     theBody.appendChild(tBox); 
 }
 
