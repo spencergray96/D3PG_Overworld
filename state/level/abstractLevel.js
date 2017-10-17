@@ -52,7 +52,7 @@ class abstractLevel extends Phaser.State {
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
             console.log("not se14");
-                console.log(doorDes.from);
+            console.log(doorDes.from);
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
