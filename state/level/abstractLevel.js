@@ -7,6 +7,30 @@ var playY;
 var walkingLR = false;
 var walkingUD = false;
 
+var lastWalkingDirection;
+
+var nextToWallUp = false;
+var nextToWallDown = false;
+var nextToWallLeft = false;
+var nextToWallRight = false;
+
+var nextToWall = false;
+
+var yAbove;
+var yBelow;
+var xLeft;
+var xRight;
+
+var xCurrent;
+var yCurrent;
+
+var yUpdatingAbove;
+var yUpdatingBelow;
+var xUpdatingLeft;
+var xUpdatingRight;
+
+var movementOffset = 0;
+
 class abstractLevel extends Phaser.State {
 
     constructor(getGame, params, updatables) {
@@ -38,7 +62,6 @@ class abstractLevel extends Phaser.State {
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
-            console.log(this.layerObj[this.params.layers[i]].tiles);
         }
         this.game.map.setCollisionBetween(
             this.params.collisionRange.min,
@@ -46,23 +69,12 @@ class abstractLevel extends Phaser.State {
             this.params.collisionRange.visible,
             this.params.collisionRange.name);
         
-        console.log(this.game.map.getTile(10, 10, blockedLayer_c, true).index);
-        
         blockedLayer_c = this.layerObj.blockedLayer_c;
+        backgroundLayer = this.layerObj.backgroundLayer;
 
-        
-//        console.log(this.game.map.layers[1].data);
-        
-//        blockedLayerBounds = this.layerObj.blockedLayer_c;
-//        console.log(blockedLayerBounds);
-        
-//        console.log(blockedLayerBounds.tiles);
-        
-//        this.layerObj.forEach((layer) => {
-//            console.log(layer);
-//        });
-        
         this.layerObj["backgroundLayer"].resizeWorld();
+        
+//        console.log(this.game.map.getTile(0, 9, backgroundLayer, true).index);
     }
 
     generatePlayer() {
@@ -82,23 +94,25 @@ class abstractLevel extends Phaser.State {
         }
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
-            console.log("not se14");
-            console.log(doorDes.from);
+//            console.log("not se14");
+//            console.log(doorDes.from);
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
         
         this.player.mymove = {
+            speed:60,
+            state:0,
             x:this.player.x,
             y:this.player.y,
             x2:this.player.x,
             y2:this.player.y
         }
         
-        console.log(this.player.mymove.x);
+        xCurrent = Math.floor((this.player.mymove.x / 32));
+        yCurrent = Math.floor((this.player.mymove.y / 32));
         
-//        this.player.anchor.setTo(0.25, 0.25);
-
+        console.log(this.player.x, this.player.y, (this.player.x / 32), (this.player.y / 32));
     }
 
     findObjectsByType(type, map, layer) {
@@ -118,193 +132,217 @@ class abstractLevel extends Phaser.State {
     
 
     update() {
-        this.generateCollision();
-//        this.player.body.velocity.x = 0;
-//        this.player.body.velocity.y = 0;
         
-//        console.log("this.player.x is " + this.player.x);
-//        console.log("this.player.x2 is " + this.player.mymove.x2);
+        yUpdatingAbove = Math.floor(((this.player.mymove.y - 32) / 32));
+        yUpdatingBelow = Math.floor(((this.player.mymove.y + 32) / 32));
+        xUpdatingLeft = Math.floor(((this.player.mymove.x - 32) / 32));
+        xUpdatingRight = Math.floor(((this.player.mymove.x + 32) / 32));
         
-        if(this.player.body.velocity.x != 0){
-            walkingLR = true;
-        } else {
-            walkingLR = false;
-        }
-        
-        if(this.player.body.velocity.y != 0){
-            walkingUD = true;
-        } else {
-            walkingUD = false;
-        }
-        
-        if(this.player.x == this.player.mymove.x2){
-            this.player.body.velocity.x = 0;
-            this.player.mymove.x = this.player.x;
-//            console.log("x and x2 the same stop");
-        }
-        
-//        console.log("this.player.y is " + this.player.y);
-//        console.log("this.player.y2 is " + this.player.mymove.y2);
-        
-        if(this.player.y == this.player.mymove.y2){
-            this.player.body.velocity.y = 0;
-            this.player.mymove.y = this.player.y;
-        }
+//        this.generateCollision();
         
         this.createControls();
-//        if(!walking){
-//            this.createControls();
-//        }
         
-//        switch(this.events.curEvent){
-//            case 1:
-//                //event 1
-//                this.events.curEvent = 0;
-//                break
-//        }
-        
+        switch(this.player.mymove.state){
+            case 1:
+                this.playerMoveX(true);
+                break;
+            case 2:
+                this.playerMoveX(false);
+                break;
+            case 3:
+                this.playerMoveY(true);
+                break;
+            case 4:
+                this.playerMoveY(false);
+                break;
+        }
         
         this.updatables.forEach((o) => {
             o.updateThis(this.game, this.player);
-        });
-        
-//        console.log(this.player.x);
-//        console.log(this.player.y);
-        
-        playX = Math.floor((this.player.x / 32));
-        playY = Math.floor((this.player.y / 32));
-        
-//        console.log(playX);
-        
-//        console.log(this.game.map.getTile(playX, playY, blockedLayer_c, true).index);
-
-//        this.player.anchor.setTo(0.25, 0.25);
-        
-//        if(checkOverlap(this.player, blockedLayerBounds)){
-////            console.log("wow spencer is so cool");
-//        }
+        });   
     }
 
-    playerMoveX(){
-        console.log("this.player.x: " + this.player.x, "destination: " + this.player.mymove.x2);
-        
-        if(this.player.x < this.player.mymove.x2){
-            this.player.body.velocity.x = 60;
-        } else if(this.player.x > this.player.mymove.x2) {
-            this.player.body.velocity.x = -60;
-        } else {
-//            this.player.mymove.x2 = null;
-            this.player.body.velocity.x = 0;
+    playerMoveX(isDown){
+//        this.player.y = this.player.mymove.y2;
+        if(isDown){
+            if(Math.floor(this.player.x) < (this.player.mymove.x2)){
+                this.player.body.velocity.x = this.player.mymove.speed;
+            } else {
+                this.player.body.velocity.x = 0;
+                this.player.mymove.x = this.player.mymove.x2;
+                this.player.x = this.player.mymove.x2 - movementOffset;
+                this.player.mymove.state = 0;
+                
+                console.log(this.player.world);
+                console.log("x right: " + ((this.player.x + 32) / 32) + ", y above: " + yUpdatingAbove + ", y below: " + yUpdatingBelow);
+                
+                xCurrent = Math.floor((this.player.x / 32));
+//                yAbove = Math.floor(((this.player.y - 32) / 32));
+//                yBelow = Math.floor(((this.player.y + 32) / 32));
+//                
+//                if(this.game.map.getTile(xCurrent, yAbove, blockedLayer_c, true).index == -1){
+//                    nextToWallUp = false;
+//                } 
+//                
+//                if(this.game.map.getTile(xCurrent, yBelow, blockedLayer_c, true).index == -1){
+//                    nextToWallDown = false;
+//                }
+            }
+            lastWalkingDirection = "right";
 
+//            nextToWallLeft = false;
+        } else {
+            if(Math.floor(this.player.x) > (this.player.mymove.x2)){
+                this.player.body.velocity.x = this.player.mymove.speed*-1;
+            } else {
+                this.player.body.velocity.x = 0;
+                this.player.mymove.x = this.player.mymove.x2;
+                this.player.x = this.player.mymove.x2 + movementOffset;
+                this.player.mymove.state = 0;
+                
+                console.log(this.player.world);
+                console.log("x left: " + ((this.player.x - 32) / 32) + ", y above: " + yUpdatingAbove + ", y below: " + yUpdatingBelow);
+                
+                xCurrent = Math.floor((this.player.x / 32));
+//                yAbove = Math.floor(((this.player.y - 32) / 32));
+//                yBelow = Math.floor(((this.player.y + 32) / 32));
+//                
+//                if(this.game.map.getTile(xCurrent, yAbove, blockedLayer_c, true).index == -1){
+//                    nextToWallUp = false;
+//                }
+//                if(this.game.map.getTile(xCurrent, yBelow, blockedLayer_c, true).index == -1){
+//                    nextToWallDown = false;
+//                }
+            }
+            lastWalkingDirection = "left";
+
+//            nextToWallRight = false;
         }
     }
-    
-    playerMoveY(){
-        console.log(this.player.y, this.player.mymove.y2);
-        
-        if(this.player.y < this.player.mymove.y2){
-            this.player.body.velocity.y = 60;
-        } else if(this.player.y > this.player.mymove.y2){
-            this.player.body.velocity.y = -60;
-        } else {
-//            this.player.mymove.y2 = null;
-            this.player.body.velocity.y = 0;
 
+    
+    playerMoveY(isDown){
+//        this.player.x = this.player.mymove.x2;
+        if(isDown){
+            if(Math.floor(this.player.y) < (this.player.mymove.y2)){
+                this.player.body.velocity.y = this.player.mymove.speed;
+            } else {
+                this.player.body.velocity.y = 0;
+                this.player.mymove.y = this.player.mymove.y2;
+                this.player.y = this.player.mymove.y2 - movementOffset;
+                this.player.mymove.state = 0;
+                
+//                this.player.x = this.player.mymove.x;
+                console.log(this.player.world);
+                console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y below: " + ((this.player.y + 32) / 32));
+                
+                yCurrent = Math.floor((this.player.y / 32));
+//                xLeft = Math.floor(((this.player.x - 32) / 32));
+//                xRight = Math.floor(((this.player.x + 32) / 32));
+//                
+//                if(this.game.map.getTile(xLeft, yCurrent, blockedLayer_c, true).index == -1){
+//                    nextToWallLeft = false;
+//                }
+//                if(this.game.map.getTile(xRight, yCurrent, blockedLayer_c, true).index == -1){
+//                    nextToWallRight = false;
+//                }
+            }
+            lastWalkingDirection = "down";
+
+//            nextToWallUp = false;
+        } else {
+            if(Math.floor(this.player.y) > (this.player.mymove.y2)){
+                this.player.body.velocity.y = this.player.mymove.speed*-1;
+            } else {
+                this.player.body.velocity.y = 0;
+                this.player.mymove.y = this.player.mymove.y2;
+                this.player.y = this.player.mymove.y2 + movementOffset;
+                this.player.mymove.state = 0;
+                
+                console.log(this.player.world);
+                console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y above: " + ((this.player.y - 32) / 32));
+                
+                yCurrent = Math.floor((this.player.y / 32));
+//                xLeft = Math.floor(((this.player.x - 32) / 32));
+//                xRight = Math.floor(((this.player.x + 32) / 32));
+//                
+//                if(this.game.map.getTile(xLeft, yCurrent, blockedLayer_c, true).index == -1){
+//                    nextToWallLeft = false;
+//                }
+//                if(this.game.map.getTile(xRight, yCurrent, blockedLayer_c, true).index == -1){
+//                    nextToWallRight = false;
+//                }
+            }
+            lastWalkingDirection = "up";
+
+//            nextToWallDown = false;
         }
     }
     
     createControls() {
         if(this.cursors.up.isDown && !walkingLR) {
-            if(this.player.mymove.y == this.player.mymove.y2){
-                this.player.mymove.y2 = this.player.y - 32;
-                this.playerMoveY();
-            }
-//            console.log(this.player.mymove);
-            //if(this.player.body.velocity.y === 0)
-//                this.player.body.velocity.y -= 150;
-                
-                /*if((this.game.map.getTile((playX), (playY - 1), blockedLayer_c, true).index) != -1){
-//                    console.log("hello hahahaha");
-                } else {
-                    this.player.y = this.player.y - 32;
-                    walking = true;
-                    setTimeout(function(){
-                        walking = false;
-                    }, 500);
-                }*/
-                    
+            if(this.player.mymove.state === 0){
+                if(this.game.map.getTile(xCurrent, yUpdatingAbove, blockedLayer_c, true).index == -1){
+                    this.player.mymove.state = 4;
+                    this.player.mymove.y2 = Math.floor(this.player.mymove.y) - 32;
+                }
+            }      
         }
         
         else if(this.cursors.down.isDown && !walkingLR) {
-            if(this.player.mymove.y == this.player.mymove.y2){
-                this.player.mymove.y2 = this.player.y + 32;
-                this.playerMoveY();
+            if(this.player.mymove.state === 0){
+                if(this.game.map.getTile(xCurrent, yUpdatingBelow, blockedLayer_c, true).index == -1){
+                    this.player.mymove.state = 3;
+                    this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 32;
+                }
             }
-//            if(this.player.body.velocity.y === 0)
-//                this.player.body.velocity.y += 150;
-                
-//                if((this.game.map.getTile((playX), (playY + 1), blockedLayer_c, true).index) != -1){
-////                    console.log("hello hahahaha");
-//                } else {
-//                    this.player.y = this.player.y + 32;
-//                    walking = true;
-//                    setTimeout(function(){
-//                        walking = false;
-//                    }, 500);
-//                };
-
-        }
-        
-        else {
-//            this.player.body.velocity.y = 0;
         }
         
         if(this.cursors.left.isDown && !walkingUD) {
-            if(this.player.mymove.x == this.player.mymove.x2){
-                this.player.mymove.x2 = this.player.mymove.x - 32;
-                this.playerMoveX();
+            if(this.player.mymove.state === 0){
+                if(this.game.map.getTile(xUpdatingLeft, yCurrent, blockedLayer_c, true).index == -1){
+                    this.player.mymove.state = 2;
+                    this.player.mymove.x2 = Math.floor(this.player.mymove.x) - 32;
+                }
             }
-//            this.player.body.velocity.x -= 150;
-            
-//            if((this.game.map.getTile((playX - 1), (playY), blockedLayer_c, true).index) != -1){
-////                    console.log("hello hahahaha");
-//                } else {
-//                    this.player.x = this.player.x - 32;
-//                    walking = true;
-//                    setTimeout(function(){
-//                        walking = false;
-//                    }, 500);
-//                };
-            
         }
         
         else if(this.cursors.right.isDown && !walkingUD) {
-            if(this.player.mymove.x == this.player.mymove.x2){
-                this.player.mymove.x2 = this.player.mymove.x + 32;
-                this.playerMoveX();
+            if(this.player.mymove.state === 0){
+                if(this.game.map.getTile(xUpdatingRight, yCurrent, blockedLayer_c, true).index == -1){
+                    this.player.mymove.state = 1;
+                    this.player.mymove.x2 = Math.floor(this.player.mymove.x) + 32;
+                }
             }
-//            this.player.body.velocity.x += 150;
-            
-//            if((this.game.map.getTile((playX + 1), (playY), blockedLayer_c, true).index) != -1){
-////                    console.log("hello hahahaha");
-//                } else {
-//                    this.player.x = this.player.x + 32;
-//                    walking = true;
-//                    setTimeout(function(){
-//                        walking = false;
-//                    }, 500);
-//                };
-            
         }
-        
     }
 
-    generateCollision() {
-        this.params.layers.forEach((layer) => {
-            if (layer[layer.length-2] === "_" && layer[layer.length-1] === "c")
-                this.game.physics.arcade.collide(this.player, this.layerObj[layer]);
-        })
-    }
+//    generateCollision() {
+//        this.params.layers.forEach((layer) => {
+//            if (layer[layer.length-2] === "_" && layer[layer.length-1] === "c"){
+//                this.game.physics.arcade.collide(this.player, this.layerObj[layer], this.setNextToWall, null, this);
+//            }
+//        })
+//    }
+    
+//    setNextToWall() {
+//        console.log("hit the wall");
+//        
+//        switch(lastWalkingDirection){
+//            case "up":
+//                nextToWallUp = true;
+//                break;
+//            case "down":
+//                nextToWallDown = true;
+//                break;
+//            case "left":
+//                nextToWallLeft = true;
+//                break;
+//            case "right":
+//                nextToWallRight = true;
+//                break;
+//        }
+//    }
 
     createFromTiledObject(element, group) {
         var sprite = group.create(element.x, element.y, element.properties.sprite);
@@ -314,12 +352,11 @@ class abstractLevel extends Phaser.State {
             sprite[key] = element.properties[key];
         });
     }
-
 }
 
-function checkOverlap(thingA, thingB){
-        var boundsA = thingA.getBounds();
-        var boundsB = thingB.getBounds();
-        
-        return Phaser.Rectangle.intersects(boundsA, boundsB);
-}
+//function checkOverlap(thingA, thingB){
+//        var boundsA = thingA.getBounds();
+//        var boundsB = thingB.getBounds();
+//        
+//        return Phaser.Rectangle.intersects(boundsA, boundsB);
+//}
