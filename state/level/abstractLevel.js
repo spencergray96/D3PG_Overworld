@@ -1,25 +1,10 @@
 var blockedLayer_c;
 var backgroundLayer;
 
-var playX;
-var playY;
-
 var walkingLR = false;
 var walkingUD = false;
 
 var lastWalkingDirection;
-
-var nextToWallUp = false;
-var nextToWallDown = false;
-var nextToWallLeft = false;
-var nextToWallRight = false;
-
-var nextToWall = false;
-
-var yAbove;
-var yBelow;
-var xLeft;
-var xRight;
 
 var xCurrent;
 var yCurrent;
@@ -32,9 +17,6 @@ var xUpdatingRight;
 var movementOffset = 0;
 
 var walkingAnimFPS = 7;
-
-var walkThisDirection;
-var isWalking = false;
 
 class abstractLevel extends Phaser.State {
 
@@ -111,7 +93,6 @@ class abstractLevel extends Phaser.State {
         this.player.animations.add("right", [3, 12, 2, 12], walkingAnimFPS, true);
         this.player.animations.add("up", [4, 6, 5, 6], walkingAnimFPS, true);
         this.player.animations.add("down", [8, 7, 11, 7], walkingAnimFPS, true);
-//        this.player.animations.play("left");
         
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -178,7 +159,6 @@ class abstractLevel extends Phaser.State {
     }
 
     playerMoveX(isDown){
-//        this.player.y = this.player.mymove.y2;
         if(isDown){
             if(Math.floor(this.player.x) < (this.player.mymove.x2)){
                 this.player.body.velocity.x = this.player.mymove.speed;
@@ -193,13 +173,11 @@ class abstractLevel extends Phaser.State {
                 
                 xCurrent = Math.floor((this.player.x / 32));
                 
-//                isWalking = false;
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
             }
             lastWalkingDirection = "right";
 
-//            nextToWallLeft = false;
         } else {
             if(Math.floor(this.player.x) > (this.player.mymove.x2)){
                 this.player.body.velocity.x = this.player.mymove.speed*-1;
@@ -214,19 +192,15 @@ class abstractLevel extends Phaser.State {
                 
                 xCurrent = Math.floor((this.player.x / 32));
                 
-//                isWalking = false;
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
             }
             lastWalkingDirection = "left";
 
-//            nextToWallRight = false;
         }
     }
-
     
     playerMoveY(isDown){
-//        this.player.x = this.player.mymove.x2;
         if(isDown){
             if(Math.floor(this.player.y) < (this.player.mymove.y2)){
                 this.player.body.velocity.y = this.player.mymove.speed;
@@ -236,19 +210,16 @@ class abstractLevel extends Phaser.State {
                 this.player.y = this.player.mymove.y2 - movementOffset;
                 this.player.mymove.state = 0;
                 
-//                this.player.x = this.player.mymove.x;
                 console.log(this.player.world);
                 console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y below: " + ((this.player.y + 32) / 32));
                 
                 yCurrent = Math.floor((this.player.y / 32));
                 
-//                isWalking = false;
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
             }
             lastWalkingDirection = "down";
 
-//            nextToWallUp = false;
         } else {
             if(Math.floor(this.player.y) > (this.player.mymove.y2)){
                 this.player.body.velocity.y = this.player.mymove.speed*-1;
@@ -263,13 +234,11 @@ class abstractLevel extends Phaser.State {
                 
                 yCurrent = Math.floor((this.player.y / 32));
                 
-//                isWalking = false;
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
             }
             lastWalkingDirection = "up";
 
-//            nextToWallDown = false;
         }
     }
     
@@ -279,10 +248,7 @@ class abstractLevel extends Phaser.State {
                 if(this.game.map.getTile(xCurrent, yUpdatingAbove, blockedLayer_c, true).index == -1){
                     this.player.mymove.state = 4;
                     this.player.mymove.y2 = Math.floor(this.player.mymove.y) - 32;
-                    
                     this.player.animations.play("up");
-//                    walkThisDirection = "up";
-//                    this.startWalking();
                 } else {
                     lastWalkingDirection = "up";
                     this.setSpriteDirectionAfterWalking();
@@ -295,10 +261,7 @@ class abstractLevel extends Phaser.State {
                 if(this.game.map.getTile(xCurrent, yUpdatingBelow, blockedLayer_c, true).index == -1){
                     this.player.mymove.state = 3;
                     this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 32;
-                    
                     this.player.animations.play("down");
-//                    walkThisDirection = "down";
-//                    this.startWalking();
                 } else {
                     lastWalkingDirection = "down";
                     this.setSpriteDirectionAfterWalking();
@@ -311,10 +274,7 @@ class abstractLevel extends Phaser.State {
                 if(this.game.map.getTile(xUpdatingLeft, yCurrent, blockedLayer_c, true).index == -1){
                     this.player.mymove.state = 2;
                     this.player.mymove.x2 = Math.floor(this.player.mymove.x) - 32;
-                    
                     this.player.animations.play("left");
-//                    walkThisDirection = "left";
-//                    this.startWalking();
                 } else {
                     lastWalkingDirection = "left";
                     this.setSpriteDirectionAfterWalking();
@@ -327,36 +287,12 @@ class abstractLevel extends Phaser.State {
                 if(this.game.map.getTile(xUpdatingRight, yCurrent, blockedLayer_c, true).index == -1){
                     this.player.mymove.state = 1;
                     this.player.mymove.x2 = Math.floor(this.player.mymove.x) + 32;
-
                     this.player.animations.play("right");
-//                    walkThisDirection = "right";
-//                    this.startWalking();
                 } else {
                     lastWalkingDirection = "right";
                     this.setSpriteDirectionAfterWalking();
                 }
             }
-        }
-    }
-    
-    startWalking(){
-        if(!isWalking){
-            switch(walkThisDirection){
-                case "up":
-                    this.player.animations.play("up");
-                    break;
-                case "down":
-                    this.player.animations.play("down");
-                    break;
-                case "left":
-                    this.player.animations.play("left");
-                    break;
-                case "right":
-                    this.player.animations.play("right");
-                    break;
-            }
-            
-            isWalking = true;
         }
     }
     
@@ -384,25 +320,6 @@ class abstractLevel extends Phaser.State {
 //            }
 //        })
 //    }
-    
-//    setNextToWall() {
-//        console.log("hit the wall");
-//        
-//        switch(lastWalkingDirection){
-//            case "up":
-//                nextToWallUp = true;
-//                break;
-//            case "down":
-//                nextToWallDown = true;
-//                break;
-//            case "left":
-//                nextToWallLeft = true;
-//                break;
-//            case "right":
-//                nextToWallRight = true;
-//                break;
-//        }
-//    }
 
     createFromTiledObject(element, group) {
         var sprite = group.create(element.x, element.y, element.properties.sprite);
@@ -413,10 +330,3 @@ class abstractLevel extends Phaser.State {
         });
     }
 }
-
-//function checkOverlap(thingA, thingB){
-//        var boundsA = thingA.getBounds();
-//        var boundsB = thingB.getBounds();
-//        
-//        return Phaser.Rectangle.intersects(boundsA, boundsB);
-//}
