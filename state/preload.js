@@ -23,6 +23,8 @@ TopDownGame.Preload.prototype = {
         this.load.image("gameTiles", "/assets/images/tiles.png");
         this.load.image("player", "/assets/characters/spritesheet/spencer/spencer-facing-forward.png");
         this.load.image("browndoor", "/assets/images/browndoor.png");
+        
+        this.load.spritesheet("spencer_spritesheet", "/assets/characters/compiledCharacterSpritesheets/spencer_spritesheet.png", 32, 32);
 
     },
     create: function () {
