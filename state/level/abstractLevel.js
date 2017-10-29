@@ -39,11 +39,14 @@ class abstractLevel extends Phaser.State {
 
         this.updatables.forEach((o) => {
             o.createThis(this.game);
-        })
+        });
+        
+        this.createItems();
 
     }
 
     generateMap() {
+        console.log("sgdfgdfgdfgdfg");
         this.game.map = this.game.add.tilemap(this.params.tilemap);
         this.game.map.addTilesetImage(this.params.tileSetImage["1"], this.params.tileSetImage["2"]);
         this.layerObj = {};
@@ -130,6 +133,7 @@ class abstractLevel extends Phaser.State {
     
 
     update() {
+        this.game.physics.arcade.overlap(this.player, this.items, null, this);
         
         yUpdatingAbove = Math.floor(((this.player.mymove.y - 32) / 32));
         yUpdatingBelow = Math.floor(((this.player.mymove.y + 32) / 32));
@@ -321,9 +325,23 @@ class abstractLevel extends Phaser.State {
 //        })
 //    }
 
+    createItems() {
+        //create items
+        this.items = this.game.add.group();
+        this.items.enableBody = true;
+        var item;
+        var result;
+        result = this.findObjectsByType('testingObj', this.game.map, 'objectsLayer');
+        result.forEach(function(element){
+            this.createFromTiledObject(element, this.items);
+            this.game.physics.arcade.enable(this.items);
+        }, this);
+        console.log(this.items);
+    }
+    
     createFromTiledObject(element, group) {
         var sprite = group.create(element.x, element.y, element.properties.sprite);
-
+        
         //copy all properties to the sprite
         Object.keys(element.properties).forEach(function(key){
             sprite[key] = element.properties[key];
