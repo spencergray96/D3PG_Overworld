@@ -67,63 +67,63 @@ class testEvent extends abstractObject {
         
         this.game.time.events.loop(this.lineDelay, this.nextText, this);
         
-        var mainScreenJSON = {
-            id: 'main',
-            component: 'Window',
-            draggable: true,
-            padding: 4,
-            position: { x: 0, y: 0 },
-            width: 200,
-            height: 140,
-
-
-            layout: [1, 3],
-            children: [
-                {
-                    id: 'label1',
-                    text: 'This text is using native Arial font',
-                    font: {
-                        size: '10px',
-                        family: 'Arial'
-                    },
-                    component: 'Label',
-                    position: 'center',
-                    width: 200,
-                    height: 80
-                },
-                {
-                    id: 'label1',
-                    text: 'This text is using \nSkranji bitmap font',
-                    font: {
-                        size: '10px',
-                        family: 'Skranji',
-                        color:'white'
-                    },
-                    component: 'Label',
-                    position: 'center',
-                    width: 200,
-                    height: 80
-                },
-                {
-                    id: 'label1',
-                    text: 'This text is using \nTinted Skranji bitmap font',
-                    font: {
-                        size: '10px',
-                        family: 'Skranji',
-                        color: 'red'
-                    },
-                    component: 'Label',
-                    position: 'center',
-                    width: 200,
-                    height: 80
-                }
-            ]
-        }
-        
-        EZGUI.Theme.load(['/ezgui/assets/metalworks-theme/metalworks-theme.json'], function () {
-
-            var mainScreen = EZGUI.create(mainScreenJSON, 'metalworks');
-        });
+//        var mainScreenJSON = {
+//            id: 'main',
+//            component: 'Window',
+//            draggable: true,
+//            padding: 4,
+//            position: { x: 0, y: 0 },
+//            width: 200,
+//            height: 140,
+//
+//
+//            layout: [1, 3],
+//            children: [
+//                {
+//                    id: 'label1',
+//                    text: 'This text is using native Arial font',
+//                    font: {
+//                        size: '10px',
+//                        family: 'Arial'
+//                    },
+//                    component: 'Label',
+//                    position: 'center',
+//                    width: 200,
+//                    height: 80
+//                },
+//                {
+//                    id: 'label1',
+//                    text: 'This text is using \nSkranji bitmap font',
+//                    font: {
+//                        size: '10px',
+//                        family: 'Skranji',
+//                        color:'white'
+//                    },
+//                    component: 'Label',
+//                    position: 'center',
+//                    width: 200,
+//                    height: 80
+//                },
+//                {
+//                    id: 'label1',
+//                    text: 'This text is using \nTinted Skranji bitmap font',
+//                    font: {
+//                        size: '10px',
+//                        family: 'Skranji',
+//                        color: 'red'
+//                    },
+//                    component: 'Label',
+//                    position: 'center',
+//                    width: 200,
+//                    height: 80
+//                }
+//            ]
+//        }
+//        
+//        EZGUI.Theme.load(['/ezgui/assets/metalworks-theme/metalworks-theme.json'], function () {
+//
+//            var mainScreen = EZGUI.create(mainScreenJSON, 'metalworks');
+//        });
     
     }
 
