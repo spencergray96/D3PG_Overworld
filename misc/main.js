@@ -1,6 +1,6 @@
 var TopDownGame = TopDownGame || {};
 
-var theGameZoom = 400;
+var theGameZoom = 200;
 
 TopDownGame.game = new Phaser.Game(theGameZoom, theGameZoom, Phaser.AUTO, "container");
 

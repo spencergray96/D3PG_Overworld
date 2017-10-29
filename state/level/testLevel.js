@@ -19,7 +19,7 @@ class testLevel extends abstractLevel {
     static updatables() {
         return [
             new door(),
-            new testEvent(),
+            new textEvent(),
             new spawn()
         ]
     }

@@ -1,5 +1,5 @@
 
-class testEvent extends abstractObject {
+class textEvent extends abstractObject {
     
     constructor() {
         super();
@@ -7,11 +7,17 @@ class testEvent extends abstractObject {
         this.textScreen;
         this.startText = false;
         this.text;
+        
         this.person1text = ["This is bs", 
             "I can't believe I have to do this again", 
             "Please make it stop", 
             "It's already dead!"
             ];
+        this.person2text = ["more talking etc.", 
+            "yup", 
+            "this is a thing", 
+            "...."
+        ];    
         
         this.style = { font: "8pt Arial", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
@@ -35,12 +41,14 @@ class testEvent extends abstractObject {
         this.textEvents            = this.game.add.group();
         this.textEvents.enableBody = true;
         this.textEvents.immovable = true;
+        this.textEvents.enableBodyDebug = true;
+//        console.log(this.textEvents);
         
         var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
-        result.forEach(function (element) {
+        result.forEach(function(element) {
             this.createFromTiledObject(element, this.textEvents);
             this.game.physics.enable(element, Phaser.Physics.ARCADE);
-        }, this);
+            console.log(element);        }, this);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
@@ -65,65 +73,7 @@ class testEvent extends abstractObject {
         this.isText = 0;
         this.isDown = false;
         
-        this.game.time.events.loop(this.lineDelay, this.nextText, this);
-        
-//        var mainScreenJSON = {
-//            id: 'main',
-//            component: 'Window',
-//            draggable: true,
-//            padding: 4,
-//            position: { x: 0, y: 0 },
-//            width: 200,
-//            height: 140,
-//
-//
-//            layout: [1, 3],
-//            children: [
-//                {
-//                    id: 'label1',
-//                    text: 'This text is using native Arial font',
-//                    font: {
-//                        size: '10px',
-//                        family: 'Arial'
-//                    },
-//                    component: 'Label',
-//                    position: 'center',
-//                    width: 200,
-//                    height: 80
-//                },
-//                {
-//                    id: 'label1',
-//                    text: 'This text is using \nSkranji bitmap font',
-//                    font: {
-//                        size: '10px',
-//                        family: 'Skranji',
-//                        color:'white'
-//                    },
-//                    component: 'Label',
-//                    position: 'center',
-//                    width: 200,
-//                    height: 80
-//                },
-//                {
-//                    id: 'label1',
-//                    text: 'This text is using \nTinted Skranji bitmap font',
-//                    font: {
-//                        size: '10px',
-//                        family: 'Skranji',
-//                        color: 'red'
-//                    },
-//                    component: 'Label',
-//                    position: 'center',
-//                    width: 200,
-//                    height: 80
-//                }
-//            ]
-//        }
-//        
-//        EZGUI.Theme.load(['/ezgui/assets/metalworks-theme/metalworks-theme.json'], function () {
-//
-//            var mainScreen = EZGUI.create(mainScreenJSON, 'metalworks');
-//        });
+        this.game.time.events.loop(this.lineDelay, this.printText, this);
     
     }
 
@@ -147,7 +97,7 @@ class testEvent extends abstractObject {
                 this.isDown = false;
                 switch (this.isText) {
                     case 0:
-                        this.printText();
+                        this.showText();
                         this.isText = 1;
                         break;
                     case 1:
@@ -164,15 +114,14 @@ class testEvent extends abstractObject {
         }
     }  
     
-    printText() {
+    showText() {
         this.textScreen.visible = true;
         this.textProfile.visible = true;
         this.text.visible = true;
-        
-        
+      
     }
     
-    nextText() {
+    printText() {
         
         if(this.isText <= 0 || this.isText >=2){
             return false;
@@ -181,11 +130,10 @@ class testEvent extends abstractObject {
             this.addLetters = this.person1text[this.lineState].substring(0,this.letter);
             this.text.text = this.addLetters; 
             this.letter = this.letter + 1;
-            //console.log(this.person1text[this.lineState].length);
 
         }
         else if (this.letter >= this.person1text[this.lineState].length){ 
-            //this.checkDial();
+
             this.lineState++;
             this.letter = 0;
             this.isText = 0;
