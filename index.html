@@ -6,6 +6,8 @@
         <title>D3PG</title>
         
         <script type="text/javascript" src="/phaser/build/phaser.js"></script>
+        <script type="text/javascript" src="/ezgui/dist/phaser-compat-2.4.js"></script>
+        <script type="text/javascript" src="/ezgui/dist/EZGUI.js"></script>
         <script type="text/javascript" src="/objects/abstractObject.js"></script>
         <script type="text/javascript" src="/objects/spawn.js"></script>
         <script type="text/javascript" src="/objects/door.js"></script>
@@ -23,6 +25,17 @@
             body {
                 padding: 0px;
                 margin: 0px;
+            }
+            
+            #container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+                width: 600px;
+                height: 600px;
             }
         </style>
 </head>

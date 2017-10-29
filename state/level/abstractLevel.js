@@ -84,6 +84,7 @@ class abstractLevel extends Phaser.State {
     }
 
     createControls() {
+        
         if(this.cursors.up.isDown) {
             if(this.player.body.velocity.y === 0)
                 this.player.body.velocity.y -= 150;

@@ -14,7 +14,7 @@ TopDownGame.Boot.prototype = {
     this.game.stage.backgroundColor = '#fff';
 
     //scaling options
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
 
     //have the game centered horizontally
     this.scale.pageAlignHorizontally = true;
