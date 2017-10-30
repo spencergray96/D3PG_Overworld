@@ -1,3 +1,4 @@
+var texting = false;
 
 class textEvent extends abstractObject {
     
@@ -7,14 +8,12 @@ class textEvent extends abstractObject {
         this.textScreen;
         this.startText = false;
         this.text;
-        this.texting = false;
         
-        // Put the dialogue here //
+        // Put the dialogue here. Eventually we need to put the dialogue somewhere else and push it to this parameter   //
         this.theDialogue = [
             this.person1text = ["This is bs", 
-            "I can't believe I have to do this again", 
-            "Please make it stop", 
-            "It's already dead!"
+            "doing it again.", 
+            "lol dingdong"
             ],
             this.person2text = ["????", 
             "huh.", 
@@ -27,8 +26,7 @@ class textEvent extends abstractObject {
             "...."
             ],
             this.person4text = ["short dialogue.", 
-            "yup", 
-            "this is a thing"
+            "yup."
             ]
         ];
         
@@ -45,14 +43,11 @@ class textEvent extends abstractObject {
         this.lineState = 0;
 
         this.contDial = true;
-        this.makeCont = false;
-        this.dialEnd = this.person1text.length;
-        
+        this.makeCont = false;        
     }
     
     createThis(game) {
         super.createThis(game);
-        
         this.textEvents            = this.game.add.group();
         this.textEvents.enableBody = true;
         this.textEvents.immovable = true;
@@ -86,13 +81,14 @@ class textEvent extends abstractObject {
         this.text.visible = false; 
         this.isText = 0;
         this.isDown = false;
-        
+        //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
     
     }
 
     updateThis(game, player) {
         super.updateThis(game, player);
+        //  current solution on event handling  //
         this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
         
     }   
@@ -101,7 +97,6 @@ class textEvent extends abstractObject {
         for (var i = 0; i < this.textEvents.length; i++){
             if (this.game.physics.arcade.overlap(this.textEvents.children[i], this.player)){
                 this.person = this.theDialogue[i];
-                
             }
         }        
     }    
@@ -109,14 +104,10 @@ class textEvent extends abstractObject {
     readText() {  
         if (this.enterBut.isDown){
             
-
-            
             if(!this.isDown){
                 this.isDown = true;
                 
                 this.checkOverlap();
-                console.log(this.player);
-            
             }
             
         }
@@ -126,8 +117,8 @@ class textEvent extends abstractObject {
                 this.isDown = false;
                 switch (this.isText) {
                     case 0:
-                        this.texting = true;
-                        console.log(this.texting);
+                        texting = true;
+
                         this.showText();
                         this.isText = 1;
                         break;
@@ -138,8 +129,8 @@ class textEvent extends abstractObject {
                         this.textProfile.visible = false;
                         this.text.visible = false;
 
-                        this.texting = false;
-                        console.log(this.texting);
+                        texting = false;
+
                         this.isText = 0;
                         break;
                 }

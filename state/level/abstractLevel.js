@@ -15,7 +15,8 @@ class abstractLevel extends Phaser.State {
 
         this.updatables.forEach((o) => {
             o.createThis(this.game);
-        });
+        })
+
     }
 
     generateMap() {
@@ -51,6 +52,7 @@ class abstractLevel extends Phaser.State {
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
             console.log("not se14");
+            console.log(doorDes.from);
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -82,7 +84,7 @@ class abstractLevel extends Phaser.State {
     }
 
     createControls() {
-        if (!this.texting){
+        if(!texting){
             if(this.cursors.up.isDown) {
                 if(this.player.body.velocity.y === 0)
                     this.player.body.velocity.y -= 150;
@@ -99,7 +101,7 @@ class abstractLevel extends Phaser.State {
             }
             else if(this.cursors.right.isDown) {
                 this.player.body.velocity.x += 150;
-            }
+            }   
         }
     }
 
