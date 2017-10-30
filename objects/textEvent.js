@@ -7,17 +7,30 @@ class textEvent extends abstractObject {
         this.textScreen;
         this.startText = false;
         this.text;
+        this.texting = false;
         
-        this.person1text = ["This is bs", 
+        // Put the dialogue here //
+        this.theDialogue = [
+            this.person1text = ["This is bs", 
             "I can't believe I have to do this again", 
             "Please make it stop", 
             "It's already dead!"
-            ];
-        this.person2text = ["more talking etc.", 
+            ],
+            this.person2text = ["????", 
+            "huh.", 
+            "yeah...", 
+            "this is a cup."
+            ],
+            this.person3text = ["more talking etc.", 
             "yup", 
             "this is a thing", 
             "...."
-        ];    
+            ],
+            this.person4text = ["short dialogue.", 
+            "yup", 
+            "this is a thing"
+            ]
+        ];
         
         this.style = { font: "8pt Arial", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
@@ -25,6 +38,8 @@ class textEvent extends abstractObject {
             boundsAlignV: "top", 
             wordWrap: true, wordWrapWidth: 120 };
     
+        this.targetText = null;
+        
         this.lineDelay = 10;
         this.letter = 0;
         this.lineState = 0;
@@ -42,13 +57,12 @@ class textEvent extends abstractObject {
         this.textEvents.enableBody = true;
         this.textEvents.immovable = true;
         this.textEvents.enableBodyDebug = true;
-//        console.log(this.textEvents);
         
         var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
         result.forEach(function(element) {
             this.createFromTiledObject(element, this.textEvents);
-            this.game.physics.enable(element, Phaser.Physics.ARCADE);
-            console.log(element);        }, this);
+            this.game.physics.enable(element, Phaser.Physics.ARCADE);       
+        }, this);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
@@ -81,13 +95,28 @@ class textEvent extends abstractObject {
         super.updateThis(game, player);
         this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
         
-    }
-
+    }   
+    
+    checkOverlap(){
+        for (var i = 0; i < this.textEvents.length; i++){
+            if (this.game.physics.arcade.overlap(this.textEvents.children[i], this.player)){
+                this.person = this.theDialogue[i];
+                
+            }
+        }        
+    }    
+    
     readText() {  
         if (this.enterBut.isDown){
             
+
+            
             if(!this.isDown){
                 this.isDown = true;
+                
+                this.checkOverlap();
+                console.log(this.player);
+            
             }
             
         }
@@ -97,16 +126,20 @@ class textEvent extends abstractObject {
                 this.isDown = false;
                 switch (this.isText) {
                     case 0:
+                        this.texting = true;
+                        console.log(this.texting);
                         this.showText();
                         this.isText = 1;
                         break;
                     case 1:
-
                         break;
                     case 2:
                         this.textScreen.visible = false;
                         this.textProfile.visible = false;
                         this.text.visible = false;
+
+                        this.texting = false;
+                        console.log(this.texting);
                         this.isText = 0;
                         break;
                 }
@@ -122,23 +155,22 @@ class textEvent extends abstractObject {
     }
     
     printText() {
-        
-        if(this.isText <= 0 || this.isText >=2){
+        if(this.isText <= 0 || this.isText >= 2){
             return false;
         }
-        if (this.letter <= this.person1text[this.lineState].length){
-            this.addLetters = this.person1text[this.lineState].substring(0,this.letter);
+        if (this.letter <= this.person[this.lineState].length){
+            this.addLetters = this.person[this.lineState].substring(0,this.letter);
             this.text.text = this.addLetters; 
             this.letter = this.letter + 1;
 
         }
-        else if (this.letter >= this.person1text[this.lineState].length){ 
+        else if (this.letter >= this.person[this.lineState].length){ 
 
             this.lineState++;
             this.letter = 0;
             this.isText = 0;
             
-            if(this.lineState >= this.person1text.length){
+            if(this.lineState >= this.person.length){
                 
                 this.lineState = 0;
                 this.isText = 2;
