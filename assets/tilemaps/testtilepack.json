@@ -6,7 +6,7 @@
          "name":"backgroundLayer",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":30,
          "x":0,
          "y":0
@@ -17,7 +17,7 @@
          "name":"blockedLayer_c",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":30,
          "x":0,
          "y":0
@@ -65,12 +65,12 @@
                  "type":"",
                  "visible":true,
                  "width":32,
-                 "x":640,
-                 "y":448
+                 "x":352,
+                 "y":256
                 }, 
                 {
                  "height":32,
-                 "id":49,
+                 "id":69,
                  "name":"",
                  "properties":
                     {
@@ -89,7 +89,76 @@
                  "visible":true,
                  "width":32,
                  "x":416,
-                 "y":384
+                 "y":352
+                }, 
+                {
+                 "height":32,
+                 "id":77,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"dov",
+                     "spritesheet":"spencer_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":416,
+                 "y":480
+                }, 
+                {
+                 "height":32,
+                 "id":79,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"dov",
+                     "spritesheet":"spencer_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":544,
+                 "y":352
+                }, 
+                {
+                 "height":32,
+                 "id":84,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"dov",
+                     "spritesheet":"spencer_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":544,
+                 "y":480
                 }],
          "offsetx":-160,
          "offsety":64,
@@ -99,7 +168,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":50,
+ "nextobjectid":94,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

@@ -29,8 +29,8 @@ var hitNPC = false;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 900;
-var delayOnMovingAgain = 1500;
+var RNGaboveThisNumberToMove = 1;
+var delayOnMovingAgain = 1000;
 
 //ABSTRACT LEVEL CLASS
 
@@ -180,10 +180,10 @@ class abstractLevel extends Phaser.State {
             o.updateThis(this.game, this.player);
         });
         
-        this.tryToMakeNPCsMove((Math.random() * 1001), Math.floor(Math.random() * (NPCs.length - 1)), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
+        this.tryToMakeNPCsMove((Math.random() * 1000), Math.floor(Math.random() * (NPCs.length - 1)), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
         
-        for(var i = 1; i < (NPCs.length); i++){
-            NPCs[i].cantMove = false;
+        for(var i = 1; i < (NPCs.length - 1); i++){
+            NPCs[i].hismove.cantMove = false;
             switch(NPCs[i].walkingState){
                 case 1:
                     this.NPCmoveX(true, i);
@@ -497,8 +497,8 @@ class abstractLevel extends Phaser.State {
             originalY: element.y,
             xMin: Math.floor((element.x - 32) / 32),
             yMin: Math.floor((element.y - 32) / 32),
-            xMax: Math.floor((element.x + 64) / 32),
-            yMax: Math.floor((element.y + 64) / 32),
+            xMax: Math.floor((element.x + 32) / 32),
+            yMax: Math.floor((element.y + 32) / 32),
             x: element.x,
             y: element.y,
             x2: element.x,
@@ -520,6 +520,7 @@ class abstractLevel extends Phaser.State {
     }
     
     tryToMakeNPCsMove(randomNumber, randomNPC, randomDirection, positiveOrNegative){
+        console.log(randomNumber, NPCs[randomNPC].hismove);
         var directionMultiplier;
         if(positiveOrNegative == 0){
             directionMultiplier = 1;
@@ -541,7 +542,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(this.player.x / 32)) != thisNPCsXValue){
                                 for(var i = 0; i < NPCs.length - 1; i++){
                                     if((Math.round(NPCs[i].x / 32) == thisNPCsXValue)){
-                                        NPCs[randomNPC].cantMove = true;
+                                        NPCs[randomNPC].hismove.cantMove = true;
                                         break;
                                     }
                                 }
@@ -567,7 +568,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(this.player.y / 32)) != thisNPCsYValue){
                                 for(var i = 0; i < NPCs.length - 1; i++){
                                     if((Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
-                                        NPCs[randomNPC].cantMove = true;
+                                        NPCs[randomNPC].hismove.cantMove = true;
                                         break;
                                     }
                                 }
@@ -586,7 +587,8 @@ class abstractLevel extends Phaser.State {
                     }
                 }
                 setTimeout(function(){
-                     NPCs[randomNPC].hismove.isWalking = false;
+                    NPCs[randomNPC].hismove.isWalking = false;
+                    NPCs[randomNPC].hismove.cantMove = false;
                 }, delayOnMovingAgain);
             }
         }
