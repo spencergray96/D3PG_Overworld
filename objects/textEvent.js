@@ -9,24 +9,34 @@ class textEvent extends abstractObject {
         this.startText = false;
         this.text;
         
-        // Put the dialogue here. Eventually we need to put the dialogue somewhere else and push it to this parameter   //
+        // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
+        this.theProfile = [     
+            "player",
+            "watermelon",
+            "browndoor",
+            "player"
+            ]
         this.theDialogue = [
-            this.person1text = ["This is bs", 
-            "doing it again.", 
-            "lol dingdong"
+            this.person1text = [
+                "This is bs", 
+                "doing it again.", 
+                "lol dingdong"
             ],
-            this.person2text = ["????", 
-            "huh.", 
-            "yeah...", 
-            "this is a cup."
+            this.person2text = [
+                "????", 
+                "huh.", 
+                "yeah...", 
+                "this is a cup."
             ],
-            this.person3text = ["more talking etc.", 
-            "yup", 
-            "this is a thing", 
-            "...."
+            this.person3text = [
+                "more talking etc.", 
+                "yup", 
+                "this is a thing", 
+                "...."
             ],
-            this.person4text = ["short dialogue.", 
-            "yup."
+            this.person4text = [
+                "short dialogue.", 
+                "yup."
             ]
         ];
         
@@ -38,12 +48,12 @@ class textEvent extends abstractObject {
     
         this.targetText = null;
         
-        this.lineDelay = 10;
-        this.letter = 0;
-        this.lineState = 0;
+        this.lineDelay  = 10;
+        this.letter     = 0;
+        this.lineState  = 0;
 
-        this.contDial = true;
-        this.makeCont = false;        
+        this.contDial   = true;
+        this.makeCont   = false;        
     }
     
     createThis(game) {
@@ -67,8 +77,8 @@ class textEvent extends abstractObject {
         this.textScreen.height = this.game.height/4;
         
         this.textScreen.visible = false;
-        
-        this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), 'player'); 
+        //  this line is for the profile pic. currently does not change/update this.profilePic    //
+        this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
         this.textProfile.fixedToCamera = true;
         
         this.textProfile.visible = false;
@@ -93,13 +103,25 @@ class textEvent extends abstractObject {
         
     }   
     
-    checkOverlap(){
+    checkTextBoxContent(){
         for (var i = 0; i < this.textEvents.length; i++){
             if (this.game.physics.arcade.overlap(this.textEvents.children[i], this.player)){
                 this.person = this.theDialogue[i];
+                //  currently, this does not change the profile pic //
+                this.profilePic = this.theProfile[i];
+
             }
         }        
-    }    
+    }
+    
+    //      Currently not used; function to check if there is more text to display   // 
+    charProfile() {
+        this.textProfile.destroy();
+        this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic);
+        this.textProfile.fixedToCamera = true;
+        console.log(this.profilePic);
+
+    }
     
     readText() {  
         if (this.enterBut.isDown){
@@ -107,7 +129,7 @@ class textEvent extends abstractObject {
             if(!this.isDown){
                 this.isDown = true;
                 
-                this.checkOverlap();
+                this.checkTextBoxContent();
             }
             
         }
@@ -142,6 +164,7 @@ class textEvent extends abstractObject {
         this.textScreen.visible = true;
         this.textProfile.visible = true;
         this.text.visible = true;
+        this.charProfile();
       
     }
     
@@ -160,7 +183,7 @@ class textEvent extends abstractObject {
             this.lineState++;
             this.letter = 0;
             this.isText = 0;
-            
+
             if(this.lineState >= this.person.length){
                 
                 this.lineState = 0;
