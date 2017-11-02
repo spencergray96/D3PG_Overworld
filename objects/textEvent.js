@@ -8,6 +8,7 @@ class textEvent extends abstractObject {
         this.textScreen;
         this.startText = false;
         this.text;
+        this.continueIcon;
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         this.theProfile = [     
@@ -184,10 +185,20 @@ class textEvent extends abstractObject {
             this.letter = 0;
             this.isText = 0;
 
-            if(this.lineState >= this.person.length){
-                
+            if(this.lineState < this.person.length){
+                if (!this.continueIcon){
+                    this.continueIcon = true;
+//                    this line makes the continue text icon. maybe replace with an animated sprite?
+                    this.continueThing = this.game.add.image((this.game.width - (this.game.width/10)), (this.game.height - (this.game.height/10)), this.profilePic);
+                    this.continueThing.fixedToCamera = true;                   
+                }
+            }
+               
+            else if(this.lineState >= this.person.length){
                 this.lineState = 0;
                 this.isText = 2;
+                this.continueIcon = false;
+                this.continueThing.destroy();
             }
             console.log('lineState: ' + this.lineState);
 
