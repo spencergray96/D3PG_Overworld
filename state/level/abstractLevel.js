@@ -29,8 +29,10 @@ var hitNPC = false;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 1;
+var RNGaboveThisNumberToMove = 600;
 var delayOnMovingAgain = 1000;
+
+var NPCindex = 0;
 
 //ABSTRACT LEVEL CLASS
 
@@ -43,8 +45,11 @@ class abstractLevel extends Phaser.State {
         this.updatables = updatables;
         
         this.events = {
-            curEvents:0
+            curEvents:0,
+//            NPCindex: 0
         }
+        
+        
     }
 
     create() {
@@ -62,7 +67,6 @@ class abstractLevel extends Phaser.State {
     }
 
     generateMap() {
-        console.log("sgdfgdfgdfgdfg");
         this.game.map = this.game.add.tilemap(this.params.tilemap);
         this.game.map.addTilesetImage(this.params.tileSetImage["1"], this.params.tileSetImage["2"]);
         this.layerObj = {};
@@ -180,26 +184,59 @@ class abstractLevel extends Phaser.State {
             o.updateThis(this.game, this.player);
         });
         
-        this.tryToMakeNPCsMove((Math.random() * 1000), Math.floor(Math.random() * (NPCs.length - 1)), Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
+        var rand =  Math.floor(Math.random() * (NPCs.length - 1));
+        this.tryToMakeNPCsMove((Math.random() * 1000), rand, Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
+       
+        
+//this should be changed instead of a for loop
         
         for(var i = 1; i < (NPCs.length - 1); i++){
-            NPCs[i].hismove.cantMove = false;
-            switch(NPCs[i].walkingState){
-                case 1:
-                    this.NPCmoveX(true, i);
-                    break;
-                case 2:
-                    this.NPCmoveX(false, i);
-                    break;
-                case 3:
-                    this.NPCmoveY(true, i);
-                    break;
-                case 4:
-                    this.NPCmoveY(false, i);
-                    break;
+//            NPCs[i].hismove.cantMove = false;
+            if(NPCs[i].hismove.walkingState > 0){
+                
+                switch(NPCs[i].hismove.walkingState){
+                    case 1:
+                        this.NPCmoveX(true, i);
+                        break;
+                    case 2:
+                        this.NPCmoveX(false, i);
+                        break;
+                    case 3:
+                        this.NPCmoveY(true, i);
+                        break;
+                    case 4:
+                        this.NPCmoveY(false, i);
+                        break;
+                }
             }
         }
+        
+        
+        //console.log(NPCs[NPCindex].hismove.cantMove);
+        //NPCs[NPCindex].hismove.cantMove = false;
+        
+       // console.log(NPCindex, NPCs[NPCindex].hismove.isWalking);
+//        switch(NPCs[NPCindex].hismove.walkingState){
+//            case 1:
+//                this.NPCmoveX(true, NPCindex);
+//                break;
+//            case 2:
+//                this.NPCmoveX(false, NPCindex);
+//                break;
+//            case 3:
+//                this.NPCmoveY(true, NPCindex);
+//                break;
+//            case 4:
+//                this.NPCmoveY(false, NPCindex);
+//                break;
+//        }
+//        NPCindex++;
+//        if(NPCindex == NPCs.length - 1){
+//            NPCindex = 0;
+//        }
+        
     }
+
 
     playerMoveX(isDown){
         if(isDown){
@@ -296,6 +333,18 @@ class abstractLevel extends Phaser.State {
                             hitNPC = true;
                             break;
                         }
+                        if((Math.round(NPCs[i].hismove.x2 / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
+                        if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].hismove.y2 / 32) == Math.round((this.player.y - 32) / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
                     }
                     if(!hitNPC){
                         this.player.mymove.state = 4;
@@ -315,6 +364,18 @@ class abstractLevel extends Phaser.State {
                     for(var i = 0; i < NPCs.length - 1; i++){
                         if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
                             lastWalkingDirection = "down";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
+                        if((Math.round(NPCs[i].hismove.x2 / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
+                        if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].hismove.y2 / 32) == Math.round((this.player.y + 32) / 32))){
+                            lastWalkingDirection = "up";
                             this.setSpriteDirectionAfterWalking();
                             hitNPC = true;
                             break;
@@ -342,6 +403,18 @@ class abstractLevel extends Phaser.State {
                             hitNPC = true;
                             break;
                         }
+                        if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x  - 32) / 32)) && (Math.round(NPCs[i].hismove.y2 / 32) == Math.round(this.player.y / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
+                        if((Math.round(NPCs[i].hismove.x2 / 32) == Math.round((this.player.x - 32)/ 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
                     }
                     if(!hitNPC){
                         this.player.mymove.state = 2;
@@ -365,6 +438,18 @@ class abstractLevel extends Phaser.State {
                             hitNPC = true;
                             break;
                         }
+                        if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x  + 32) / 32)) && (Math.round(NPCs[i].hismove.y2 / 32) == Math.round(this.player.y / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
+                        if((Math.round(NPCs[i].hismove.x2 / 32) == Math.round((this.player.x + 32)/ 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
+                            lastWalkingDirection = "up";
+                            this.setSpriteDirectionAfterWalking();
+                            hitNPC = true;
+                            break;
+                        }
                     }
                     if(!hitNPC){
                         this.player.mymove.state = 1;
@@ -383,34 +468,42 @@ class abstractLevel extends Phaser.State {
         if(this.enterKey.isDown){
             switch(lastWalkingDirection){
                 case "up":
-                    for(var i = 0; i < NPCs.length; i++){
-                        if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
-                            NPCs[i].frame = 7;
-                            console.log("talked ABOVE");
+                    for(var i = 0; i < NPCs.length - 1; i++){
+                        if(NPCs[i].hismove.walkingState == 0){
+                            if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
+                                NPCs[i].frame = 7;
+                                console.log("talked ABOVE");
+                            }
                         }
                     }
                     break;
                 case "down":
-                    for(var i = 0; i < NPCs.length; i++){
-                        if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
-                            NPCs[i].frame = 6;
-                            console.log("talked BELOW");
+                    for(var i = 0; i < NPCs.length - 1; i++){
+                        if(NPCs[i].hismove.walkingState == 0){
+                            if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
+                                NPCs[i].frame = 6;
+                                console.log("talked BELOW");
+                            }
                         }
                     }
                     break;
                 case "left":
-                    for(var i = 0; i < NPCs.length; i++){
-                        if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
-                            NPCs[i].frame = 12;
-                            console.log("talked LEFT");
+                    for(var i = 0; i < NPCs.length - 1; i++){
+                        if(NPCs[i].hismove.walkingState == 0){
+                            if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
+                                NPCs[i].frame = 12;
+                                console.log("talked LEFT");
+                            }
                         }
                     }
                     break;
                 case "right":
-                    for(var i = 0; i < NPCs.length; i++){
-                        if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
-                            NPCs[i].frame = 9;
-                            console.log("talked RIGHT");
+                    for(var i = 0; i < NPCs.length - 1; i++){
+                        if(NPCs[i].hismove.walkingState == 0){
+                            if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
+                                NPCs[i].frame = 9;
+                                console.log("talked RIGHT");
+                            }
                         }
                     }
                     break;
@@ -514,13 +607,13 @@ class abstractLevel extends Phaser.State {
         NPCs[i].animations.add("up", [4, 6, 5, 6], walkingAnimFPS, true);
         NPCs[i].animations.add("down", [8, 7, 11, 7], walkingAnimFPS, true);
         
-        console.log(NPCs[i].hismove);
+//        console.log(NPCs[i].hismove);
         
         this.game.physics.arcade.enable(NPCs[i]);
     }
     
     tryToMakeNPCsMove(randomNumber, randomNPC, randomDirection, positiveOrNegative){
-        console.log(randomNumber, NPCs[randomNPC].hismove);
+        //console.log(randomNumber, NPCs[randomNPC].hismove);
         var directionMultiplier;
         if(positiveOrNegative == 0){
             directionMultiplier = 1;
@@ -529,71 +622,97 @@ class abstractLevel extends Phaser.State {
         }
         
         if(randomNumber > RNGaboveThisNumberToMove){
-            if(!NPCs[randomNPC].hismove.isWalking){
+            if(!NPCs[randomNPC].hismove.isWalking && !NPCs[randomNPC].hismove.cantMove && (NPCs[randomNPC].hismove.walkingState == 0)){
                 NPCs[randomNPC].hismove.isWalking = true;
+                
                 if(randomDirection == 0){
-                    var thisNPCsXValue = Math.floor((NPCs[randomNPC].hismove.x + (32 * directionMultiplier)) / 32);
-                    var thisNPCsYValue = Math.floor(NPCs[randomNPC].hismove.y / 32);
-                    console.log(thisNPCsXValue);
-                    console.log(NPCs[randomNPC].hismove.xMin);
+                    var thisNPCsXValue = Math.round((NPCs[randomNPC].hismove.x + (32 * directionMultiplier)) / 32);
+                    var thisNPCsYValue = Math.round(NPCs[randomNPC].hismove.y / 32);
                     if(thisNPCsXValue < NPCs[randomNPC].hismove.xMin || thisNPCsXValue > NPCs[randomNPC].hismove.xMax){
                     } else {
                         if(this.game.map.getTile(thisNPCsXValue, thisNPCsYValue, blockedLayer_c, true).index == -1){
-                            if((Math.round(this.player.x / 32)) != thisNPCsXValue){
-                                for(var i = 0; i < NPCs.length - 1; i++){
-                                    if((Math.round(NPCs[i].x / 32) == thisNPCsXValue)){
-                                        NPCs[randomNPC].hismove.cantMove = true;
-                                        break;
-                                    }
+                            if((Math.round(this.player.x / 32)) == thisNPCsXValue && (Math.round(this.player.y / 32)) == thisNPCsYValue){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                            }
+                            if((Math.round(this.player.mymove.x2) / 32) == thisNPCsXValue && (Math.round(this.player.y / 32)) == thisNPCsYValue){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                            }
+                            if((Math.round(this.player.mymove.y2 / 32) == thisNPCsYValue) && (Math.round(this.player.x / 32) == thisNPCsXValue)){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                            }
+                            for(var i = 0; i < NPCs.length - 1; i++){
+                                if((Math.round(NPCs[i].x / 32) == thisNPCsXValue) && (Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
                                 }
-                                if(!NPCs[randomNPC].hismove.cantMove){
-                                    NPCs[randomNPC].hismove.x2 = (NPCs[randomNPC].hismove.x + (32 * directionMultiplier));
-                                    if(directionMultiplier == 1){
-                                        NPCs[randomNPC].walkingState = 1;
-                                        NPCs[randomNPC].animations.play("right");
-                                    } else if(directionMultiplier == -1){
-                                        NPCs[randomNPC].walkingState = 2;
-                                        NPCs[randomNPC].animations.play("left");
-                                    }
+                                if((Math.round(NPCs[i].hismove.x2 / 32) == thisNPCsXValue) && (Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
+                                }
+                                if((Math.round(NPCs[i].x / 32) == thisNPCsXValue) && (Math.round(NPCs[i].hismove.y2 / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
                                 }
                             }
-                        }
-                    }
-                } else if(randomDirection == 1){
-                    var thisNPCsXValue = Math.floor(NPCs[randomNPC].hismove.x / 32);
-                    var thisNPCsYValue = Math.floor((NPCs[randomNPC].hismove.y + (32 * directionMultiplier)) / 32);
-                    if(thisNPCsYValue < NPCs[randomNPC].hismove.yMin || thisNPCsYValue > NPCs[randomNPC].hismove.yMax){
-                    } else {
-                        if(this.game.map.getTile(thisNPCsXValue, thisNPCsYValue, blockedLayer_c, true).index == -1){
-                            if((Math.round(this.player.y / 32)) != thisNPCsYValue){
-                                for(var i = 0; i < NPCs.length - 1; i++){
-                                    if((Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
-                                        NPCs[randomNPC].hismove.cantMove = true;
-                                        break;
-                                    }
-                                }
-                                if(!NPCs[randomNPC].hismove.cantMove){
-                                    NPCs[randomNPC].hismove.y2 = (NPCs[randomNPC].hismove.y + (32 * directionMultiplier));
-                                    if(directionMultiplier == 1){
-                                        NPCs[randomNPC].walkingState = 3;
-                                        NPCs[randomNPC].animations.play("down");
-                                    } else if(directionMultiplier == -1){
-                                        NPCs[randomNPC].walkingState = 4;
-                                        NPCs[randomNPC].animations.play("up");
-                                    }
+                            if(!NPCs[randomNPC].hismove.cantMove){
+                                NPCs[randomNPC].hismove.x2 = (NPCs[randomNPC].hismove.x + (32 * directionMultiplier));
+                                if(directionMultiplier == 1){
+                                    NPCs[randomNPC].hismove.walkingState = 1;
+                                    NPCs[randomNPC].animations.play("right");
+                                } else if(directionMultiplier == -1){
+                                    NPCs[randomNPC].hismove.walkingState = 2;
+                                    NPCs[randomNPC].animations.play("left");
                                 }
                             }
                         }
                     }
                 }
-                setTimeout(function(){
-                    NPCs[randomNPC].hismove.isWalking = false;
-                    NPCs[randomNPC].hismove.cantMove = false;
-                }, delayOnMovingAgain);
+                else if(randomDirection == 1){
+                    var thisNPCsXValue = Math.round(NPCs[randomNPC].hismove.x / 32);
+                    var thisNPCsYValue = Math.round((NPCs[randomNPC].hismove.y + (32 * directionMultiplier)) / 32);
+                    if(thisNPCsYValue < NPCs[randomNPC].hismove.yMin || thisNPCsYValue > NPCs[randomNPC].hismove.yMax){
+                    } else {
+                        if(this.game.map.getTile(thisNPCsXValue, thisNPCsYValue, blockedLayer_c, true).index == -1){
+                            if((Math.round(this.player.x / 32)) == thisNPCsXValue && (Math.round(this.player.y / 32)) == thisNPCsYValue){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                            }
+                            if((Math.round(this.player.mymove.x2) / 32) == thisNPCsXValue && (Math.round(this.player.y / 32)) == thisNPCsYValue){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                                console.log("tried to move onto player");
+                            }
+                            if((Math.round(this.player.mymove.y2 / 32) == thisNPCsYValue) && (Math.round(this.player.x / 32) == thisNPCsXValue)){
+                                NPCs[randomNPC].hismove.cantMove = true;
+                                console.log("tried to move onto player v2");
+                            }
+                            for(var i = 0; i < NPCs.length - 1; i++){
+                                if((Math.round(NPCs[i].x / 32) == thisNPCsXValue) && (Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
+                                }
+                                if((Math.round(NPCs[i].hismove.x2 / 32) == thisNPCsXValue) && (Math.round(NPCs[i].y / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
+                                }
+                                if((Math.round(NPCs[i].x / 32) == thisNPCsXValue) && (Math.round(NPCs[i].hismove.y2 / 32) == thisNPCsYValue)){
+                                    NPCs[randomNPC].hismove.cantMove = true;
+                                }
+                            }
+                            if(!NPCs[randomNPC].hismove.cantMove){
+                                NPCs[randomNPC].hismove.y2 = (NPCs[randomNPC].hismove.y + (32 * directionMultiplier));
+                                if(directionMultiplier == 1){
+                                    NPCs[randomNPC].hismove.walkingState = 3;
+                                    NPCs[randomNPC].animations.play("down");
+                                } else if(directionMultiplier == -1){
+                                    NPCs[randomNPC].hismove.walkingState = 4;
+                                    NPCs[randomNPC].animations.play("up");
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-    }
-    
+                    setTimeout(function(){
+                        NPCs[randomNPC].hismove.isWalking = false;
+                        NPCs[randomNPC].hismove.cantMove = false;
+                    }, 1000);
+                }
+
     NPCmoveX(isDown, i){
         if(isDown){
             if(Math.round(NPCs[i].x) < (NPCs[i].hismove.x2)){
@@ -603,9 +722,10 @@ class abstractLevel extends Phaser.State {
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
                 NPCs[i].x = NPCs[i].hismove.x2 - movementOffset;
                 NPCs[i].hismove.walkingState = 0;
-                
+                NPCs[i].hismove.isWalking = false;
                 NPCs[i].animations.stop();
                 this.setNPCDirectionAfterWalking(NPCs[i].hismove.lastwalkingDirection, i);
+//                console.log("Fin",NPCs[i].hismove.isWalking);
             }
             NPCs[i].hismove.lastwalkingDirection = "right";
 
@@ -617,9 +737,10 @@ class abstractLevel extends Phaser.State {
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
                 NPCs[i].x = NPCs[i].hismove.x2 + movementOffset;
                 NPCs[i].hismove.walkingState = 0;
-                
+                NPCs[i].hismove.isWalking = false;
                 NPCs[i].animations.stop();
                 this.setNPCDirectionAfterWalking(NPCs[i].hismove.lastwalkingDirection, i);
+//                console.log("Fin",NPCs[i].hismove.isWalking);
             }
             NPCs[i].hismove.lastwalkingDirection = "left";
 
@@ -635,9 +756,10 @@ class abstractLevel extends Phaser.State {
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
                 NPCs[i].y = NPCs[i].hismove.y2 - movementOffset;
                 NPCs[i].hismove.walkingState = 0;
-                
+                NPCs[i].hismove.isWalking = false;
                 NPCs[i].animations.stop();
                 this.setNPCDirectionAfterWalking(NPCs[i].hismove.lastwalkingDirection, i);
+//                console.log("Fin",NPCs[i].hismove.isWalking);
             }
             NPCs[i].hismove.lastwalkingDirection = "down";
 
@@ -649,9 +771,10 @@ class abstractLevel extends Phaser.State {
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
                 NPCs[i].y = NPCs[i].hismove.y2 + movementOffset;
                 NPCs[i].hismove.walkingState = 0;
-                
+                NPCs[i].hismove.isWalking = false;
                 NPCs[i].animations.stop();
                 this.setNPCDirectionAfterWalking(NPCs[i].hismove.lastwalkingDirection, i);
+//                console.log("Fin",NPCs[i].hismove.isWalking);
             }
             NPCs[i].hismove.lastwalkingDirection = "up";
 
