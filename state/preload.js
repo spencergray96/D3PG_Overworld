@@ -17,8 +17,13 @@ TopDownGame.Preload.prototype = {
         this.load.tilemap("test2", "/assets/tilemaps/test2.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.tilemap("test3", "/assets/tilemaps/test3.json", null, Phaser.Tilemap.TILED_JSON);
         
+        //grid movement velocity testing
         this.load.tilemap("testtilepack", "/assets/tilemaps/testtilepack.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("testtilepack", "/assets/images/testtilepack.png");
+        
+        //se14
+        this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("task13", "/assets/images/task13.png");
         
         this.load.image("gameTiles", "/assets/images/tiles.png");
         this.load.image("player", "/assets/characters/spritesheet/spencer/spencer-facing-forward.png");
@@ -30,6 +35,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {
 
-        this.state.start("gridtestmovement");
+        this.state.start("se14");
     }
 };

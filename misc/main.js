@@ -10,5 +10,6 @@ TopDownGame.game.state.add("TestLevel2", TopDownGame.testLevel2);
 TopDownGame.game.state.add("TestLevel3", TopDownGame.testLevel3);
 
 TopDownGame.game.state.add("gridtestmovement", TopDownGame.gridtestmovement);
+TopDownGame.game.state.add("se14", TopDownGame.se14);
 
 TopDownGame.game.state.start("Boot");

@@ -1,5 +1,4 @@
 //Variables representing the layers from Tiled
-
 var blockedLayer_c;
 var backgroundLayer;
 
@@ -106,7 +105,7 @@ class abstractLevel extends Phaser.State {
         }
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'spencer_spritesheet');
-            
+            this.game.world.addAt(this.player, 3);
 //            console.log("not se14");
 //            console.log(doorDes.from);
         }
@@ -121,7 +120,7 @@ class abstractLevel extends Phaser.State {
         this.game.camera.follow(this.player);
         
         this.player.mymove = {
-            speed:60,
+            speed:120,
             state:0,
             x:this.player.x,
             y:this.player.y,
