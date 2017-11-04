@@ -102,6 +102,12 @@ class textEvent extends abstractObject {
         //  current solution on event handling  //
         this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
         
+        if (this.enterBut.isDown){
+            if(!this.isDown){
+                this.readText();
+            }
+        }
+        
     }   
     
     checkTextBoxContent(){
@@ -124,15 +130,13 @@ class textEvent extends abstractObject {
 
     }
     
-    readText() {  
+    readText() {
         if (this.enterBut.isDown){
-            
             if(!this.isDown){
                 this.isDown = true;
                 
                 this.checkTextBoxContent();
             }
-            
         }
         
         if(this.enterBut.isUp){
