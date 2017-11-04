@@ -52,7 +52,7 @@ class abstractLevel extends Phaser.State {
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
             console.log("not se14");
-                console.log(doorDes.from);
+            console.log(doorDes.from);
         }
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -84,22 +84,24 @@ class abstractLevel extends Phaser.State {
     }
 
     createControls() {
-        if(this.cursors.up.isDown) {
-            if(this.player.body.velocity.y === 0)
-                this.player.body.velocity.y -= 150;
-        }
-        else if(this.cursors.down.isDown) {
-            if(this.player.body.velocity.y === 0)
-                this.player.body.velocity.y += 150;
-        }
-        else {
-            this.player.body.velocity.y = 0;
-        }
-        if(this.cursors.left.isDown) {
-            this.player.body.velocity.x -= 150;
-        }
-        else if(this.cursors.right.isDown) {
-            this.player.body.velocity.x += 150;
+        if(!texting){
+            if(this.cursors.up.isDown) {
+                if(this.player.body.velocity.y === 0)
+                    this.player.body.velocity.y -= 150;
+            }
+            else if(this.cursors.down.isDown) {
+                if(this.player.body.velocity.y === 0)
+                    this.player.body.velocity.y += 150;
+            }
+            else {
+                this.player.body.velocity.y = 0;
+            }
+            if(this.cursors.left.isDown) {
+                this.player.body.velocity.x -= 150;
+            }
+            else if(this.cursors.right.isDown) {
+                this.player.body.velocity.x += 150;
+            }   
         }
     }
 

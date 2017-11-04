@@ -7,4 +7,5 @@ class player extends abstractObject {
         super(game,imageDataName ,health);
     }
 
+
 }
