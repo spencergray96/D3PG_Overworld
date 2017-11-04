@@ -331,23 +331,6 @@ class abstractLevel extends Phaser.State {
     
     createControls() {
         if(!texting){
-            if(this.cursors.up.isDown) {
-                if(this.player.body.velocity.y === 0)
-                    this.player.body.velocity.y -= 150;
-            }
-            else if(this.cursors.down.isDown) {
-                if(this.player.body.velocity.y === 0)
-                    this.player.body.velocity.y += 150;
-            }
-            else {
-                this.player.body.velocity.y = 0;
-            }
-            if(this.cursors.left.isDown) {
-                this.player.body.velocity.x -= 150;
-            }
-            else if(this.cursors.right.isDown) {
-                this.player.body.velocity.x += 150;
-            }
             
             if(this.cursors.up.isDown && !walkingLR) {
                 if(this.player.mymove.state === 0){
@@ -500,6 +483,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
                                 NPCs[i].frame = 7;
                                 console.log("talked ABOVE");
+                                
                             }
                         }
                     }
@@ -510,6 +494,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
                                 NPCs[i].frame = 6;
                                 console.log("talked BELOW");
+                                
                             }
                         }
                     }
@@ -520,6 +505,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 12;
                                 console.log("talked LEFT");
+                                
                             }
                         }
                     }
@@ -530,6 +516,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 9;
                                 console.log("talked RIGHT");
+                                
                             }
                         }
                     }
