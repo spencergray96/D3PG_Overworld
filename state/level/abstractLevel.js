@@ -20,7 +20,7 @@ var xUpdatingRight;
 var movementOffset = 0;
 
 var walkingAnimFPS = 7;
-
+var playerSpeed = 60;
 //NPC / object interaction
 
 var NPCs = [];
@@ -57,6 +57,7 @@ class abstractLevel extends Phaser.State {
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         this.generateMap();
         this.generatePlayer();
+        this.generateMap2();
 
         this.updatables.forEach((o) => {
             o.createThis(this.game);
@@ -120,7 +121,7 @@ class abstractLevel extends Phaser.State {
         this.game.camera.follow(this.player);
         
         this.player.mymove = {
-            speed:120,
+            speed:playerSpeed,
             state:0,
             x:this.player.x,
             y:this.player.y,
@@ -135,35 +136,13 @@ class abstractLevel extends Phaser.State {
         console.log(this.player);
     }
     
-//    generateMap2() {
-//        for (let i = 0; i < this.params.layers.length; i ++) {
-//            if(){
-//                
-//            }
-//            this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
-//        }
-//        this.game.map.setCollisionBetween(
-//            this.params.collisionRange.min,
-//            this.params.collisionRange.max,
-//            this.params.collisionRange.visible,
-//            this.params.collisionRange.name);
-//        
-//        blockedLayer_c = this.layerObj.blockedLayer_c;
-//        backgroundLayer = this.layerObj.backgroundLayer;
-//
-//        this.layerObj["backgroundLayer"].resizeWorld();
-//        
-////        console.log(this.game.map.getTile(0, 9, backgroundLayer, true).index);
-//    }
+    generateMap2() {
+        this.layerObj2 = {};
+        for (let i = 0; i < this.params.renderAboveLayers.length; i ++) {
+            this.layerObj2[this.params.renderAboveLayers[i]] = this.game.map.createLayer(this.params.renderAboveLayers[i]);
+        }
+    }
     
-    //    generateCollision() {
-//        this.params.layers.forEach((layer) => {
-//            if (layer[layer.length-2] === "_" && layer[layer.length-1] === "c"){
-//                this.game.physics.arcade.collide(this.player, this.layerObj[layer], this.setNextToWall, null, this);
-//            }
-//        })
-//    }
-
     findObjectsByType(type, map, layer) {
         let result = [];
         map.objects[layer].forEach(function(element){
@@ -340,7 +319,7 @@ class abstractLevel extends Phaser.State {
 //                console.log(this.player.world);
 //                console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y above: " + ((this.player.y - 32) / 32));
                 
-                yCurrent = Math.floor((this.player.y / 32), );
+                yCurrent = Math.floor((this.player.y / 32));
                 
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
