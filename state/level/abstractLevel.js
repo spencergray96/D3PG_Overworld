@@ -105,9 +105,13 @@ class abstractLevel extends Phaser.State {
             }
         }
         else {
-            this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'spencer_spritesheet');
+            this.game.world.addAt(this.player, 3);
+//            console.log("not se14");
+//            console.log(doorDes.from);
         }
+        
+        this.player.frame = 7;
         this.player.animations.add("left", [0, 9, 1, 9], walkingAnimFPS, true);
         this.player.animations.add("right", [3, 12, 2, 12], walkingAnimFPS, true);
         this.player.animations.add("up", [4, 6, 5, 6], walkingAnimFPS, true);
@@ -347,6 +351,7 @@ class abstractLevel extends Phaser.State {
             
             if(this.cursors.up.isDown && !walkingLR) {
                 if(this.player.mymove.state === 0){
+                    if(this.game.map.getTile(xCurrent, yUpdatingAbove, blockedLayer_c, true).index == -1){
                         for(var i = 0; i < NPCs.length - 1; i++){
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
                                 lastWalkingDirection = "up";
