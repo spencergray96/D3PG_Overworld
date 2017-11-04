@@ -134,6 +134,35 @@ class abstractLevel extends Phaser.State {
         console.log(this.player.x, this.player.y, (this.player.x / 32), (this.player.y / 32));
         console.log(this.player);
     }
+    
+//    generateMap2() {
+//        for (let i = 0; i < this.params.layers.length; i ++) {
+//            if(){
+//                
+//            }
+//            this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
+//        }
+//        this.game.map.setCollisionBetween(
+//            this.params.collisionRange.min,
+//            this.params.collisionRange.max,
+//            this.params.collisionRange.visible,
+//            this.params.collisionRange.name);
+//        
+//        blockedLayer_c = this.layerObj.blockedLayer_c;
+//        backgroundLayer = this.layerObj.backgroundLayer;
+//
+//        this.layerObj["backgroundLayer"].resizeWorld();
+//        
+////        console.log(this.game.map.getTile(0, 9, backgroundLayer, true).index);
+//    }
+    
+    //    generateCollision() {
+//        this.params.layers.forEach((layer) => {
+//            if (layer[layer.length-2] === "_" && layer[layer.length-1] === "c"){
+//                this.game.physics.arcade.collide(this.player, this.layerObj[layer], this.setNextToWall, null, this);
+//            }
+//        })
+//    }
 
     findObjectsByType(type, map, layer) {
         let result = [];

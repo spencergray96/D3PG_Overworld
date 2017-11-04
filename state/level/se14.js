@@ -7,18 +7,20 @@ class se14 extends abstractLevel {
                 "1": "task13",
             },
             layers: [
-                "decorationLayer",
                 "backgroundLayer",
                 "backgroundLayer2",
                 "blockedLayer_c",
-                "blockedLayer2"
+                "blockedLayer2",
             ],
             collisionRange: {
                 min: 1,
                 max: 100,
                 visible: true,
                 name: "blockedLayer_c"
-            }
+            },
+            renderAboveLayers: [
+                "decorationLayer"
+            ]
         }};
 
     static updatables() {
