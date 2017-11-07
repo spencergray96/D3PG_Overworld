@@ -58,17 +58,17 @@ class textEvent extends abstractObject {
     }
     
     createThis(game) {
-        super.createThis(game);
-        this.textEvents            = this.game.add.group();
-        this.textEvents.enableBody = true;
-        this.textEvents.immovable = true;
-        this.textEvents.enableBodyDebug = true;
-        
-        var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
-        result.forEach(function(element) {
-            this.createFromTiledObject(element, this.textEvents);
-            this.game.physics.enable(element, Phaser.Physics.ARCADE);       
-        }, this);
+//        super.createThis(game);
+//        this.textEvents            = this.game.add.group();
+//        this.textEvents.enableBody = true;
+//        this.textEvents.immovable = true;
+//        this.textEvents.enableBodyDebug = true;
+//        
+//        var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
+//        result.forEach(function(element) {
+//            this.createFromTiledObject(element, this.textEvents);
+//            this.game.physics.enable(element, Phaser.Physics.ARCADE);       
+//        }, this);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
@@ -100,7 +100,7 @@ class textEvent extends abstractObject {
     updateThis(game, player) {
         super.updateThis(game, player);
         //  current solution on event handling  //
-        this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
+//        this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
         
         if (this.enterBut.isDown){
             if(!this.isDown){
@@ -111,8 +111,8 @@ class textEvent extends abstractObject {
     }   
     
     checkTextBoxContent(){
-        for (var i = 0; i < this.textEvents.length; i++){
-            if (this.game.physics.arcade.overlap(this.textEvents.children[i], this.player)){
+        for (var i = 0; i < NPCs.length; i++){
+            if (this.game.physics.arcade.overlap(NPCs.children[i], this.player)){
                 this.person = this.theDialogue[i];
                 //  currently, this does not change the profile pic //
                 this.profilePic = this.theProfile[i];

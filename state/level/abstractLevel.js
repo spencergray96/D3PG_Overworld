@@ -26,6 +26,8 @@ var playerSpeed = 60;
 var NPCs = [];
 var hitNPC = false;
 
+var currentNPC = null;
+
 //NPC movement
 
 var RNGaboveThisNumberToMove = 600;
@@ -483,7 +485,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
                                 NPCs[i].frame = 7;
                                 console.log("talked ABOVE");
-                                
+                                currentNPC = NPCs[i].hismove;
                             }
                         }
                     }
