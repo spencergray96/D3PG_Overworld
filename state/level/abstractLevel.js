@@ -135,7 +135,7 @@ class abstractLevel extends Phaser.State {
         yCurrent = Math.floor((this.player.mymove.y / 32));
         
         console.log(this.player.x, this.player.y, (this.player.x / 32), (this.player.y / 32));
-        console.log(this.player);
+//        console.log(this.player);
     }
     
     generateMap2() {
@@ -485,7 +485,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
                                 NPCs[i].frame = 7;
                                 console.log("talked ABOVE");
-                                currentNPC = NPCs[i].hismove;
+                                currentNPC = NPCs[i];
                             }
                         }
                     }
@@ -496,6 +496,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
                                 NPCs[i].frame = 6;
                                 console.log("talked BELOW");
+                                currentNPC = NPCs[i];
                                 
                             }
                         }
@@ -507,6 +508,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 12;
                                 console.log("talked LEFT");
+                                currentNPC = NPCs[i];
                                 
                             }
                         }
@@ -518,6 +520,7 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 9;
                                 console.log("talked RIGHT");
+                                currentNPC = NPCs[i];
                                 
                             }
                         }
@@ -588,7 +591,7 @@ class abstractLevel extends Phaser.State {
             NPCs.push(element);
             i++;
         }, this);
-        console.log(NPCs);
+//        console.log(NPCs);
     }
     
     createFromTiledObject(element, group, i) {
@@ -615,7 +618,9 @@ class abstractLevel extends Phaser.State {
             walkingState: 0,
             lastwalkingDirection: null,
             isWalking: false,
-            cantMove: false
+            cantMove: false,
+            
+            NPCkey: i
         }
         
         NPCs[i].animations.add("left", [0, 9, 1, 9], walkingAnimFPS, true);
@@ -636,12 +641,13 @@ class abstractLevel extends Phaser.State {
         } else if(positiveOrNegative == 1){
             directionMultiplier = -1;
         }
-        
-        if(randomNumber > RNGaboveThisNumberToMove){
-            if(!NPCs[randomNPC].hismove.isWalking && !NPCs[randomNPC].hismove.cantMove && (NPCs[randomNPC].hismove.walkingState == 0)){
+
+        if(randomNumber > RNGaboveThisNumberToMove && !texting){
+
+            if(!NPCs[randomNPC].hismove.isWalking && !NPCs[randomNPC].hismove.cantMove && (NPCs[randomNPC].hismove.walkingState == 0) && !texting){
                 NPCs[randomNPC].hismove.isWalking = true;
                 
-                if(randomDirection == 0){
+                if(randomDirection == 0  && !texting){
                     var thisNPCsXValue = Math.round((NPCs[randomNPC].hismove.x + (32 * directionMultiplier)) / 32);
                     var thisNPCsYValue = Math.round(NPCs[randomNPC].hismove.y / 32);
                     if(thisNPCsXValue < NPCs[randomNPC].hismove.xMin || thisNPCsXValue > NPCs[randomNPC].hismove.xMax){
@@ -680,7 +686,7 @@ class abstractLevel extends Phaser.State {
                         }
                     }
                 }
-                else if(randomDirection == 1){
+                else if(randomDirection == 1  && !texting){
                     var thisNPCsXValue = Math.round(NPCs[randomNPC].hismove.x / 32);
                     var thisNPCsYValue = Math.round((NPCs[randomNPC].hismove.y + (32 * directionMultiplier)) / 32);
                     if(thisNPCsYValue < NPCs[randomNPC].hismove.yMin || thisNPCsYValue > NPCs[randomNPC].hismove.yMax){

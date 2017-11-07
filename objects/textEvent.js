@@ -15,6 +15,7 @@ class textEvent extends abstractObject {
             "player",
             "watermelon",
             "browndoor",
+            "player",
             "player"
             ]
         this.theDialogue = [
@@ -38,7 +39,11 @@ class textEvent extends abstractObject {
             this.person4text = [
                 "short dialogue.", 
                 "yup."
-            ]
+            ],
+            this.person4text = [
+                "short dialogue.", 
+                "yup."
+            ]            
         ];
         
         this.style = { font: "8pt Arial", fill: "#fff", 
@@ -58,17 +63,17 @@ class textEvent extends abstractObject {
     }
     
     createThis(game) {
-//        super.createThis(game);
-//        this.textEvents            = this.game.add.group();
-//        this.textEvents.enableBody = true;
-//        this.textEvents.immovable = true;
-//        this.textEvents.enableBodyDebug = true;
-//        
-//        var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
-//        result.forEach(function(element) {
-//            this.createFromTiledObject(element, this.textEvents);
-//            this.game.physics.enable(element, Phaser.Physics.ARCADE);       
-//        }, this);
+        super.createThis(game);
+        this.textEvents            = this.game.add.group();
+        this.textEvents.enableBody = true;
+        this.textEvents.immovable = true;
+        this.textEvents.enableBodyDebug = true;
+        
+        var result            = this.findObjectsByType('item', this.game.map, 'objectsLayer');
+        result.forEach(function(element) {
+            this.createFromTiledObject(element, this.textEvents);
+            this.game.physics.enable(element, Phaser.Physics.ARCADE);       
+        }, this);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
@@ -102,24 +107,26 @@ class textEvent extends abstractObject {
         //  current solution on event handling  //
 //        this.game.physics.arcade.overlap(this.player, this.textEvents.children, this.readText, null, this);
         
-        if (this.enterBut.isDown){
-            if(!this.isDown){
-                this.readText();
-            }
-        }
+        this.readText();
         
     }   
     
     checkTextBoxContent(){
-        for (var i = 0; i < NPCs.length; i++){
-            if (this.game.physics.arcade.overlap(NPCs.children[i], this.player)){
-                this.person = this.theDialogue[i];
-                //  currently, this does not change the profile pic //
-                this.profilePic = this.theProfile[i];
-
+        if(currentNPC == null){
+            
+        } else{
+            
+            for (var i = 0; i < NPCs.length-1; i++){
+//                console.log(NPCs[i].hismove.NPCkey);
+                if (NPCs[i].hismove.NPCkey == currentNPC.hismove.NPCkey && currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
+                    this.person = this.theDialogue[i];
+                    //  currently, this does not change the profile pic //
+                    this.profilePic = this.theProfile[i];
+                }
             }
-        }        
-    }
+            
+        }
+    }        
     
     //      Currently not used; function to check if there is more text to display   // 
     charProfile() {
@@ -131,10 +138,10 @@ class textEvent extends abstractObject {
     }
     
     readText() {
-        if (this.enterBut.isDown){
+        if (this.enterBut.isDown && currentNPC != null){
+            texting = true;
             if(!this.isDown){
                 this.isDown = true;
-                
                 this.checkTextBoxContent();
             }
         }
@@ -144,8 +151,7 @@ class textEvent extends abstractObject {
                 this.isDown = false;
                 switch (this.isText) {
                     case 0:
-                        texting = true;
-
+                        
                         this.showText();
                         this.isText = 1;
                         break;
@@ -157,6 +163,7 @@ class textEvent extends abstractObject {
                         this.text.visible = false;
 
                         texting = false;
+                        currentNPC = null;
 
                         this.isText = 0;
                         break;
@@ -177,36 +184,41 @@ class textEvent extends abstractObject {
         if(this.isText <= 0 || this.isText >= 2){
             return false;
         }
-        if (this.letter <= this.person[this.lineState].length){
-            this.addLetters = this.person[this.lineState].substring(0,this.letter);
-            this.text.text = this.addLetters; 
-            this.letter = this.letter + 1;
+        
+        if(currentNPC == null){
+            
+        } else if(currentNPC != null){
+            if (this.letter <= this.person[this.lineState].length){
+                this.addLetters = this.person[this.lineState].substring(0,this.letter);
+                this.text.text = this.addLetters; 
+                this.letter = this.letter + 1;
 
-        }
-        else if (this.letter >= this.person[this.lineState].length){ 
+            }
+            else if (this.letter >= this.person[this.lineState].length){ 
 
-            this.lineState++;
-            this.letter = 0;
-            this.isText = 0;
+                this.lineState++;
+                this.letter = 0;
+                this.isText = 0;
 
-            if(this.lineState < this.person.length){
-                if (!this.continueIcon){
-                    this.continueIcon = true;
-//                    this line makes the continue text icon. maybe replace with an animated sprite?
-                    this.continueThing = this.game.add.image((this.game.width - (this.game.width/10)), (this.game.height - (this.game.height/10)), this.profilePic);
-                    this.continueThing.fixedToCamera = true;                   
+                if(this.lineState < this.person.length){
+                    if (!this.continueIcon){
+                        this.continueIcon = true;
+    //                    this line makes the continue text icon. maybe replace with an animated sprite?
+                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/10)), (this.game.height - (this.game.height/10)), this.profilePic);
+                        this.continueThing.fixedToCamera = true;                   
+                    }
                 }
-            }
-               
-            else if(this.lineState >= this.person.length){
-                this.lineState = 0;
-                this.isText = 2;
-                this.continueIcon = false;
-                this.continueThing.destroy();
-            }
-            console.log('lineState: ' + this.lineState);
 
-        }        
+                else if(this.lineState >= this.person.length){
+                    this.lineState = 0;
+                    this.isText = 2;
+                    this.continueIcon = false;
+                    this.continueThing.destroy();
+                }
+                console.log('lineState: ' + this.lineState);
+
+            }        
+        }
     }
 }
 
