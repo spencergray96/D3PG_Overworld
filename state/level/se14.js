@@ -27,7 +27,8 @@ class se14 extends abstractLevel {
     static updatables() {
         return [
             new door(),
-            new spawn()
+            new spawn(),
+            new pauseMenu()
         ]
     }
 

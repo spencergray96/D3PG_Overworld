@@ -161,7 +161,6 @@ class abstractLevel extends Phaser.State {
 
     update() {
 //        this.game.physics.arcade.overlap(this.player, this.items, null, this);
-        
         hitNPC = false;
         
         yUpdatingAbove = Math.floor(((this.player.mymove.y - 32) / 32));

@@ -10,6 +10,7 @@ class abstractObject {
     updateThis(game, player) {
         this.game = game;
         this.player = player;
+//        console.log("hello");
     }
 
     createFromTiledObject(element, group) {
