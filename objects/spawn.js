@@ -1,7 +1,5 @@
 var spawnLoc = [];
 
-//if (doorDes.theDestination == "se14_1")
-
 class spawn extends abstractObject {
 
 

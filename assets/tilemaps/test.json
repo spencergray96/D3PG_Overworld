@@ -33,12 +33,14 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
+                     "text":"3",
                      "type":"item"
                     },
                  "propertytypes":
                     {
                      "sprite":"string",
+                     "text":"string",
                      "type":"string"
                     },
                  "rotation":0,
@@ -55,12 +57,14 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"player",
+                     "sprite":"watermelon",
+                     "text":"2",
                      "type":"item"
                     },
                  "propertytypes":
                     {
                      "sprite":"string",
+                     "text":"string",
                      "type":"string"
                     },
                  "rotation":0,
@@ -77,12 +81,14 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
+                     "text":"1",
                      "type":"item"
                     },
                  "propertytypes":
                     {
                      "sprite":"string",
+                     "text":"string",
                      "type":"string"
                     },
                  "rotation":0,
@@ -99,12 +105,14 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"bluecup",
+                     "sprite":"watermelon",
+                     "text":"4",
                      "type":"item"
                     },
                  "propertytypes":
                     {
                      "sprite":"string",
+                     "text":"string",
                      "type":"string"
                     },
                  "rotation":0,
