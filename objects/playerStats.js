@@ -32,15 +32,15 @@ var playerItems = [
         targets: 1,
         energy: 5,
         healing: 0,
-        description: "Heals 5 energy for 1 person"
+        description: "Energy Drink"
     },
     hotdog = {
         name: "7-11 Hotdog",
-        quantity: 1,
+        quantity: 2,
         targets: 1,
         energy: 0,
         healing: 20,
-        description: "Heals 20 hp for 1 person"
+        description: "7-11 Hotdog"
     },
     candy = {
         name: "Sour Candy",
@@ -48,7 +48,7 @@ var playerItems = [
         targets: 1,
         energy: 3,
         healing: 10,
-        description: "Heals 10 hp and 3 energy for 1 person"
+        description: "Sour Candy"
     },
     kitkat = {
         name: "KitKat Bar",
@@ -56,7 +56,7 @@ var playerItems = [
         targets: 1,
         energy: 6,
         healing: 0,
-        description: "Heals 6 energy for 1 person"
+        description: "KitKat Bar"
     },
     instaNoodles = {
         name: "Instant Noodles",
@@ -64,7 +64,7 @@ var playerItems = [
         targets: 1,
         energy: 0,
         healing: 25,
-        description: "Heals 25 hp for 1 person"
+        description: "Instant Noodles"
     },
     chips = {
         name: "Doritos",
@@ -72,15 +72,15 @@ var playerItems = [
         targets: 1,
         energy: 0,
         healing: 30,
-        description: "Heals 30 hp for 1 person"
+        description: "Doritos"
     },
     soup = {
         name: "Hot Soup",
-        quantity: 1,
+        quantity: 2,
         targets: 1,
         energy: 0,
         healing: 1,
-        description: "Heals 1 hp for 1 person"
+        description: "Hot Soup"
     },
     test = {
         name: "test product 1",
@@ -88,7 +88,7 @@ var playerItems = [
         targets: 1,
         energy: 100,
         healing: 100,
-        description: "Heals a shit ton, yo 1"
+        description: "test product 1"
     },
     test = {
         name: "test product 2",
@@ -96,22 +96,22 @@ var playerItems = [
         targets: 1,
         energy: 100,
         healing: 100,
-        description: "Heals a shit ton, yo 2"
+        description: "test product 2"
     },
     test = {
         name: "test product 3",
-        quantity: 0,
+        quantity: 1,
         targets: 1,
         energy: 100,
         healing: 100,
-        description: "Heals a shit ton, yo 3"
+        description: "test product 3"
     },
     test = {
         name: "test product 4",
-        quantity: 0,
+        quantity: 1,
         targets: 1,
         energy: 100,
         healing: 100,
-        description: "Heals a shit ton, yo 4"
+        description: "test product 4"
     }
 ]

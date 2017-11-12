@@ -26,6 +26,9 @@ var movingItemsArr = 0;
 var uphandExists = false;
 var downhandExists = false;
 
+var justUsedItem = false;
+var itemDispayOffset = 0;
+
 class pauseMenu extends abstractObject {
 
     constructor() {
@@ -61,7 +64,7 @@ class pauseMenu extends abstractObject {
             boundsAlignV: "top", 
             wordWrap: true, wordWrapWidth: 200 };
         
-        console.log(isPaused);
+//        console.log(isPaused);
         
         isPaused = true;
         
@@ -168,7 +171,7 @@ class pauseMenu extends abstractObject {
     
     destroyPauseMenu(parm){
         if(!backKeyIsPushed){
-            console.log(isPaused);
+//            console.log(isPaused);
             if(!disableControls && isPaused && !itemScreenOn){
                 isPaused = false;
 
@@ -218,8 +221,10 @@ class pauseMenu extends abstractObject {
                 itemScreenOn = false;
                 this.itemsScreen.destroy();
                 this.itemsTitle.destroy();
-                this.itemDescription.destroy();
-                this.itemsHand.destroy();
+                if(itemsArr.length > 0){
+                    this.itemDescription.destroy();
+                    this.itemsHand.destroy();
+                }
                 
                 for(var i = 0; i < visibleItems.length; i++){
                     visibleItems[i].destroy();
@@ -241,6 +246,8 @@ class pauseMenu extends abstractObject {
                 this.selectingCharHand.destroy();
                 selectableItems = [];
                 itemsArr = [];
+                visibleItems = [];
+                justUsedItem = true;
                 this.itemsMenu();
             }
         }
@@ -514,7 +521,7 @@ class pauseMenu extends abstractObject {
                     }
                     break;
                 case 6:
-                    if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr + 1] === 'undefined'){
+                    if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr + 1] === 'undefined' && selectableItems.length > 7){
                         this.downhand.destroy();
                     }
                     if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr] === 'undefined') {
@@ -708,6 +715,7 @@ class pauseMenu extends abstractObject {
     }
     
     itemsMenu(){
+        
         itemScreenOn = true;
         this.itemsScreen = this.game.add.image(0, 0, 'textBox');
         this.itemsScreen.fixedToCamera = true;
@@ -724,40 +732,42 @@ class pauseMenu extends abstractObject {
                 selectableItems.push(playerItems[i]);
             }
         }
-        console.log(selectableItems);
+//        console.log(selectableItems);
             
         for(var i = 0; i < howManyItemsToDisplay; i++){
+//            if(itemsArr.length < howManyItemsToDisplay && movingItemsArr > 0){
+//                console.log("its less");
+//                movingItemsArr--;
+//            }
             if(typeof selectableItems[i + movingItemsArr] !== 'undefined'){
                 itemsArr.push(selectableItems[i + movingItemsArr]);
                }
         }
         
-        console.log(itemsArr);
+//        console.log(itemsArr.length);
         
         var yValue = 50;
         
         if(itemsArr.length != 0){
-        
+//        console.log(cursorPosItems);
             for(var i = 0; i < itemsArr.length; i++){
                 if(typeof selectableItems[i + movingItemsArr] !== 'undefined'){
                     this.itemName = this.game.add.text(30, yValue, itemsArr[i].name + " (" + itemsArr[i].quantity + ")", this.style);
                     this.itemName.fixedToCamera = true;
 
                     visibleItems.push(this.itemName);
-                    console.log(visibleItems.length);
+//                    console.log(visibleItems.length);
                     yValue += 20;
 
                 }
-            }
+//            }
             
-            if(typeof itemsArr[cursorPosItems] !== 'undefined'){
-                this.itemDescription = this.game.add.text(10, 30, selectableItems[cursorPosItems].description, this.style);
-                this.itemDescription.fixedToCamera = true;
-            } else {
-                cursorPosItems--;
-                this.itemDescription = this.game.add.text(10, 30, selectableItems[cursorPosItems].description, this.style);
-                this.itemDescription.fixedToCamera = true;
+                if(typeof itemsArr[cursorPosItems] === 'undefined'){
+                    cursorPosItems--;
+                }
             }
+            this.itemDescription = this.game.add.text(10, 30, itemsArr[cursorPosItems].description, this.style);
+            this.itemDescription.fixedToCamera = true;
         }
         
         
@@ -840,7 +850,7 @@ class pauseMenu extends abstractObject {
     }
     
     useItem(parm){
-        console.log(parm);
+//        console.log(parm);
         
         if(selectedItem.targets == 1 && selectedItem.quantity > 0){
             
@@ -896,9 +906,16 @@ class pauseMenu extends abstractObject {
             this.raymondEN.fixedToCamera = true;
             enArray.push(this.raymondEN);
             
-            console.log(playerStats[parm]);
+//            console.log(playerStats[parm]);
             
             if(selectedItem.quantity == 0){
+//                console.log("the selected item's quantity has reached 0");
+                
+                movingItemsArr--;
+                if(movingItemsArr < 0){
+                    movingItemsArr = 0;
+                }
+                
                 for(var i = 0; i < itemsArr.length; i++){
                     if(itemsArr[i].quantity == 0){
                         playerItems[i].quantity == 0;
@@ -935,7 +952,7 @@ class pauseMenu extends abstractObject {
             if(itemsArr[howManyItemsToDisplay - 1] == selectableItems[selectableItems.length - 1]){
                 this.downhand.destroy();
                 downhandExists = false;
-                console.log("the down hand should have been destroyed");
+//                console.log("the down hand should have been destroyed");
             }
             
             if(itemsArr[0] != selectableItems[0]){
@@ -967,8 +984,7 @@ class pauseMenu extends abstractObject {
             }
             
             if(itemsArr[howManyItemsToDisplay - 1] != selectableItems[howManyItemsToDisplay - 1] || itemsArr[0] == selectableItems[0]){
-                console.log(" 904");
-                console.log(downhandExists);
+//                console.log(downhandExists);
                 if(!downhandExists){
                     this.downhand = this.game.add.image(this.game.width - 20, this.game.height - 30, "hand-down");
                     this.downhand.smoothed = false;
