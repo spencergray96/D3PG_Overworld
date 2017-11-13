@@ -19,7 +19,7 @@ var theDialogue = {
             profile:
                 "player",
             txt:{
-                0:"????;;!!!!;;blah",
+                0:"guy1;;!!!!;;blah",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
@@ -29,7 +29,7 @@ var theDialogue = {
             profile:
                 "watermelon",            
             txt:{
-                0:"blah;;blah;;blah",
+                0:"guy2;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
@@ -39,7 +39,7 @@ var theDialogue = {
             profile:
                 "browndoor",           
             txt:{
-                0:"blah;;blah;;blah",
+                0:"guy3;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
@@ -49,42 +49,173 @@ var theDialogue = {
             profile:
                 "player",            
             txt:{
-                0:"blah;;blah;;blah",
+                0:"guy4;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
             }
-        }
+        },
+        guy5:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy5;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        }, 
+        guy6:{
+            profile:
+                "player",
+            txt:{
+                0:"guy6;;!!!!;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy7:{
+            profile:
+                "watermelon",            
+            txt:{
+                0:"guy7;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy8:{
+            profile:
+                "browndoor",           
+            txt:{
+                0:"guy8;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy9:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy9;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy10:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy10;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },   
+        guy11:{
+            profile:
+                "player",
+            txt:{
+                0:"guy11;;!!!!;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy12:{
+            profile:
+                "watermelon",            
+            txt:{
+                0:"guy12;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy13:{
+            profile:
+                "browndoor",           
+            txt:{
+                0:"guy13;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy14:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy14;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy15:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy15;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        }, 
+        guy16:{
+            profile:
+                "player",
+            txt:{
+                0:"guy16;;!!!!;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy17:{
+            profile:
+                "watermelon",            
+            txt:{
+                0:"guy17;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy18:{
+            profile:
+                "browndoor",           
+            txt:{
+                0:"guy18;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy19:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy19;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy20:{
+            profile:
+                "player",            
+            txt:{
+                0:"guy20;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        }        
     }
 }
 
 //window.dialog.defaults[this.npcid].txt[gameState].split(";;");
-
-//        this.theDialogue = [
-//            this.person1text = [
-//                "This is bs", 
-//                "doing it again.", 
-//                "lol dingdong"
-//            ],
-//            this.person2text = [
-//                "????", 
-//                "huh.", 
-//                "yeah...", 
-//                "this is a cup."
-//            ],
-//            this.person3text = [
-//                "more talking etc.", 
-//                "yup", 
-//                "this is a thing", 
-//                "...."
-//            ],
-//            this.person4text = [
-//                "short dialogue.", 
-//                "yup.",
-//                "666666666"
-//            ],
-//            this.person5text = [
-//                "short dialogue.", 
-//                "yup."
-//            ]            
-//        ];

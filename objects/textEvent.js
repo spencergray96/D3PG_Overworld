@@ -38,6 +38,7 @@ class textEvent extends abstractObject {
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
     
+        console.log(Object.values(theDialogue.defaults)[0].txt[0]);
     }
 
     updateThis(game, player) {
@@ -84,35 +85,42 @@ class textEvent extends abstractObject {
     
     checkTextBoxContent(){
         if(currentNPC == null){
-            console.log(theDialogue[defaults]);
+            console.log("how did this happen?");
         } 
         else{    
             if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
-                this.person = (theDialogue.defaults.guy1.txt[0]).split(";;");
-                this.profilePic = theDialogue.defaults.guy1.profile;
+                for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
+                    if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
+                        this.person = (Object.values(theDialogue.defaults)[i].txt[0]).split(";;");
+                        this.profilePic = theDialogue.defaults.guy1.profile;
+                    }
+                }
             }
             
-        }
-            
         
+        }
     }
     
     showText() {
-        this.textScreen = this.game.add.image(0, (this.game.height - (this.game.height/4)), 'textBox'); 
-        this.textScreen.fixedToCamera = true;
-        this.textScreen.width = this.game.width;
-        this.textScreen.height = this.game.height/4;
-        
-        this.text = this.game.add.text(0, 0, this.text, this.style);
-        this.text.fixedToCamera = true;
-        this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 300, 240);        
-      
-        this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
-        this.textProfile.fixedToCamera = true;
+        if(!this.startText){
+            this.startText = true;
+            
+            this.textScreen = this.game.add.image(0, (this.game.height - (this.game.height/4)), 'textBox'); 
+            this.textScreen.fixedToCamera = true;
+            this.textScreen.width = this.game.width;
+            this.textScreen.height = this.game.height/4;
+
+            this.text = this.game.add.text(0, 0, this.text, this.style);
+            this.text.fixedToCamera = true;
+            this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 300, 240);        
+
+            this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
+            this.textProfile.fixedToCamera = true;
+        }
     }
     
     eraseText(){
-        console.log("this happened");
+        this.startText = false;
         this.textScreen.destroy();
         this.textProfile.destroy();
         this.text.destroy();                
@@ -137,7 +145,12 @@ class textEvent extends abstractObject {
                 this.letter = 0;
                 this.isText = 0;
                 this.lineState++;
-
+                if(this.enterBut.isDown){
+                    if(!this.isDown){
+                        this.eraseText();
+                    }
+                }
+                
                 if(this.lineState < this.person.length){
                     console.log(this.lineState);
                     if (!this.continueIcon){
@@ -153,6 +166,7 @@ class textEvent extends abstractObject {
                     this.isText = 2;
                     this.continueIcon = false;
                     this.continueThing.destroy();
+
                 }
                 console.log('lineState: ' + this.lineState);
 
