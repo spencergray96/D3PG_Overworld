@@ -620,8 +620,10 @@ class abstractLevel extends Phaser.State {
             isWalking: false,
             cantMove: false,
             
-            NPCkey: i
+            NPCkey: i,
+            npcName: element.npcName
         }
+//        console.log(NPCs[i].hismove);
         
         NPCs[i].animations.add("left", [0, 9, 1, 9], walkingAnimFPS, true);
         NPCs[i].animations.add("right", [3, 12, 2, 12], walkingAnimFPS, true);
