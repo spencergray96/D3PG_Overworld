@@ -1,25 +1,36 @@
 var theDialogue = {
     events:{
-        eventid:[
+        raminFirstContact:[
             {
-                name:"npcid1",
-                txt:"blah;;yeah"
+                profile:
+                    "watermelon",
+                txt:
+                    "event;;yeah"
             },
             
             {
-                name:"npcid2",
-                txt:"blah2;;yeah2"
-            },
+                profile:
+                    "player",
+                txt:
+                    "This thing;;yeah2"
+            }
             
         ],
-        eventid2:[]
+        eventid2:[
+            {
+                profile:
+                    "npcid2",
+                txt:
+                    "This thing;;yeah2"
+            }            
+        ]
     },
     defaults:{
-        guy1:{
+        ramin:{
             profile:
                 "player",
             txt:{
-                0:"guy1;;!!!!;;blah",
+                0:"Ramin,;;Ramin?;;Ramin.",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"

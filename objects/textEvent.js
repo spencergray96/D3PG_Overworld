@@ -1,4 +1,9 @@
 var texting = false;
+var chapter = 0;
+var eventTrigger = false;
+var eventNumber = 0;
+var eventTextNumber = 0;
+var raminFirstContact = false;
 
 class textEvent extends abstractObject {
     
@@ -20,12 +25,12 @@ class textEvent extends abstractObject {
     
         this.targetText = null;
         
-        this.lineDelay  = 10;
+        this.lineDelay  = 30;
         this.letter     = 0;
         this.lineState  = 0;
 
         this.contDial   = true;
-        this.makeCont   = false;        
+        this.makeCont   = false; 
     }
     
     createThis(game) {
@@ -37,8 +42,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
-    
-        console.log(Object.values(theDialogue.defaults)[0].txt[0]);
+        console.log(Object.values(theDialogue.events)[eventNumber].length - 1);
     }
 
     updateThis(game, player) {
@@ -56,7 +60,6 @@ class textEvent extends abstractObject {
             if(!this.isDown){
                 this.checkTextBoxContent();
                 this.isDown = true;
-
             }
         }
         
@@ -71,12 +74,7 @@ class textEvent extends abstractObject {
                     case 1:
                         break;
                     case 2:
-                        this.eraseText();
-
-                        texting = false;
-                        currentNPC = null;
-
-                        this.isText = 0;
+                        this.checkEventFinish();                        
                         break;
                 }
             }
@@ -89,16 +87,73 @@ class textEvent extends abstractObject {
         } 
         else{    
             if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
-                for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
-                    if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
-                        this.person = (Object.values(theDialogue.defaults)[i].txt[0]).split(";;");
-                        this.profilePic = theDialogue.defaults.guy1.profile;
+                
+                if(eventNumber == false){
+                    if (currentNPC.hismove.npcName == "ramin" && eventNumber == 0 && !eventTrigger){
+
+                        eventTrigger = true;
+
+                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+
+                    }
+                    else if (currentNPC.hismove.npcName == "ramin" && raminFirstContact == true){
+                        console.log("this happens once");
+                        this.person = Object.values(theDialogue.defaults)[0].txt[chapter].split(";;");
+                        this.profilePic = Object.values(theDialogue.defaults)[0].profile;   
+                    }
+                }
+                
+                else{
+                    for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
+                        if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
+
+                            this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
+                            this.profilePic = Object.values(theDialogue.defaults)[i].profile;
+                        }
                     }
                 }
             }
-            
-        
         }
+    }
+    checkEventFinish(){
+        if (eventTrigger){
+            
+            if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0){
+                eventTextNumber++;
+
+                if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
+                    this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+                    this.textProfile.destroy();
+
+                    this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+                    this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
+                    this.textProfile.fixedToCamera = true;
+
+                    this.isText = 1;
+                }
+            }
+            else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0){
+                this.isText = 2;
+                this.eraseText();   
+
+                eventTrigger = false;
+                eventNumber++;           
+
+                texting = false;
+                currentNPC = null;            
+            }
+            
+        }
+        
+        else {
+            this.isText = 0;
+            this.eraseText();            
+            texting = false;
+            currentNPC = null;
+            console.log();
+        }
+
     }
     
     showText() {
@@ -127,6 +182,7 @@ class textEvent extends abstractObject {
     }
     
     printText() {
+        
         if(this.isText <= 0 || this.isText >= 2){
             return false;
         }
@@ -135,6 +191,7 @@ class textEvent extends abstractObject {
             
         } 
         else if(currentNPC != null){
+            console.log(this.person[this.lineState]);
             if (this.letter <= this.person[this.lineState].length){
                 this.addLetters = this.person[this.lineState].substring(0,this.letter);
                 this.text.text = this.addLetters; 
@@ -145,14 +202,9 @@ class textEvent extends abstractObject {
                 this.letter = 0;
                 this.isText = 0;
                 this.lineState++;
-                if(this.enterBut.isDown){
-                    if(!this.isDown){
-                        this.eraseText();
-                    }
-                }
                 
                 if(this.lineState < this.person.length){
-                    console.log(this.lineState);
+
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
@@ -162,10 +214,24 @@ class textEvent extends abstractObject {
                 }
 
                 else if(this.lineState >= this.person.length){
-                    this.lineState = 0;
-                    this.isText = 2;
-                    this.continueIcon = false;
-                    this.continueThing.destroy();
+                    if (eventTrigger){
+                        this.lineState = 0;
+                        this.isText = 2;
+                        if(eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
+                            this.lineState = 0;
+                            this.isText = 2;
+                        }
+                        else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1){
+                            this.continueIcon = false;
+                            this.continueThing.destroy();  
+                        }
+                    }
+                    else{
+                        this.lineState = 0;
+                        this.isText = 2;
+                        this.continueIcon = false;
+                        this.continueThing.destroy();
+                    }
 
                 }
                 console.log('lineState: ' + this.lineState);

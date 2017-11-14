@@ -96,7 +96,7 @@
                  "name":"",
                  "properties":
                     {
-                     "npcName":"guy1",
+                     "npcName":"ramin",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"

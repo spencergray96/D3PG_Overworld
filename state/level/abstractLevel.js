@@ -484,7 +484,7 @@ class abstractLevel extends Phaser.State {
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
                                 NPCs[i].frame = 7;
-                                console.log("talked ABOVE");
+
                                 currentNPC = NPCs[i];
                             }
                         }
@@ -495,7 +495,7 @@ class abstractLevel extends Phaser.State {
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
                                 NPCs[i].frame = 6;
-                                console.log("talked BELOW");
+
                                 currentNPC = NPCs[i];
                                 
                             }
@@ -507,7 +507,7 @@ class abstractLevel extends Phaser.State {
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 12;
-                                console.log("talked LEFT");
+
                                 currentNPC = NPCs[i];
                                 
                             }
@@ -519,7 +519,7 @@ class abstractLevel extends Phaser.State {
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
                                 NPCs[i].frame = 9;
-                                console.log("talked RIGHT");
+
                                 currentNPC = NPCs[i];
                                 
                             }
