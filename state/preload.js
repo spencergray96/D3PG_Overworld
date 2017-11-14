@@ -34,6 +34,7 @@ TopDownGame.Preload.prototype = {
         
         this.load.image("textBox", "/assets/ui/menuBar.png");
         this.load.image("hand", "/assets/ui/cursor.png");
+        this.load.image("hand-left", "/assets/ui/cursor-left.png");
         this.load.image("hand-down", "/assets/ui/cursor-down.png");
         this.load.image("hand-up", "/assets/ui/cursor-up.png");
         
@@ -42,8 +43,8 @@ TopDownGame.Preload.prototype = {
         //chat heads
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
         this.load.image("dovCH", "/assets/characters/chatHeads/Doveflipped.png");
-        this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
+        this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
 
     },
     create: function () {

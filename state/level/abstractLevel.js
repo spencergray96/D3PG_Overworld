@@ -106,7 +106,7 @@ class abstractLevel extends Phaser.State {
         }
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'spencer_spritesheet');
-            this.game.world.addAt(this.player, 3);
+//            this.game.world.addAt(this.player, 3);
 //            console.log("not se14");
 //            console.log(doorDes.from);
         }
@@ -329,7 +329,7 @@ class abstractLevel extends Phaser.State {
     }
     
     createControls() {
-        if(!texting){
+        if(!texting && !isPaused){
             
             if(this.cursors.up.isDown && !walkingLR) {
                 if(this.player.mymove.state === 0){
@@ -634,7 +634,7 @@ class abstractLevel extends Phaser.State {
             directionMultiplier = -1;
         }
         
-        if(randomNumber > RNGaboveThisNumberToMove){
+        if(randomNumber > RNGaboveThisNumberToMove && !isPaused){
             if(!NPCs[randomNPC].hismove.isWalking && !NPCs[randomNPC].hismove.cantMove && (NPCs[randomNPC].hismove.walkingState == 0)){
                 NPCs[randomNPC].hismove.isWalking = true;
                 

@@ -14,6 +14,8 @@
     
     <script type="text/javascript" src="/objects/pauseMenu.js"></script>
     <script type="text/javascript" src="/objects/playerStats.js"></script>
+    <script type="text/javascript" src="/objects/playerItems.js"></script>
+    <script type="text/javascript" src="/objects/playerObjectives.js"></script>
 
     <script type="text/javascript" src="/state/level/abstractLevel.js"></script>
     <script type="text/javascript" src="/state/boot.js"></script>
@@ -64,5 +66,15 @@
 <script src="/misc/main.js"></script>
     <div id="testdiv">
     </div>
+    
+    <script>
+    
+        var butt1 = document.getElementById("butt1");
+        
+        Array.prototype.move = function (from, to) {
+          this.splice(to, 0, this.splice(from, 1)[0]);
+        };
+
+    </script>
 </body>
 </html>
