@@ -105,17 +105,18 @@ class abstractLevel extends Phaser.State {
             }
         }
         else {
-            this.player = this.game.add.sprite(result[0].x, result[0].y, 'spencer_spritesheet');
+            this.player = this.game.add.sprite(result[0].x, result[0].y, playerSpriteSheet);
 //            this.game.world.addAt(this.player, 3);
 //            console.log("not se14");
 //            console.log(doorDes.from);
+//            playerSpriteSheet = "spencer_spritesheet";
         }
         
-        this.player.frame = 7;
-        this.player.animations.add("left", [0, 9, 1, 9], walkingAnimFPS, true);
-        this.player.animations.add("right", [3, 12, 2, 12], walkingAnimFPS, true);
-        this.player.animations.add("up", [4, 6, 5, 6], walkingAnimFPS, true);
-        this.player.animations.add("down", [8, 7, 11, 7], walkingAnimFPS, true);
+        this.player.frame = 5;
+        this.player.animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
+        this.player.animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
+        this.player.animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
+        this.player.animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
         
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -134,6 +135,13 @@ class abstractLevel extends Phaser.State {
         
         console.log(this.player.x, this.player.y, (this.player.x / 32), (this.player.y / 32));
         console.log(this.player);
+    }
+    
+    generatePlayer2(){
+        console.log(playerSpriteSheet);
+        this.player.loadTexture(playerSpriteSheet);
+        this.player.frame = 5;
+        this.setSpriteDirectionAfterWalking();
     }
     
     generateMap2() {
@@ -160,6 +168,10 @@ class abstractLevel extends Phaser.State {
     
 
     update() {
+        if(playerSpriteSheet != null){
+            this.generatePlayer2();
+            playerSpriteSheet = null;
+        }
 //        this.game.physics.arcade.overlap(this.player, this.items, null, this);
         hitNPC = false;
         
@@ -480,7 +492,7 @@ class abstractLevel extends Phaser.State {
                     for(var i = 0; i < NPCs.length - 1; i++){
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y - 32) / 32))){
-                                NPCs[i].frame = 7;
+                                NPCs[i].frame = 5;
                                 console.log("talked ABOVE");
                                 
                             }
@@ -491,7 +503,7 @@ class abstractLevel extends Phaser.State {
                     for(var i = 0; i < NPCs.length - 1; i++){
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round(this.player.x / 32)) && (Math.round(NPCs[i].y / 32) == Math.round((this.player.y + 32) / 32))){
-                                NPCs[i].frame = 6;
+                                NPCs[i].frame = 2;
                                 console.log("talked BELOW");
                                 
                             }
@@ -502,7 +514,7 @@ class abstractLevel extends Phaser.State {
                     for(var i = 0; i < NPCs.length - 1; i++){
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x - 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
-                                NPCs[i].frame = 12;
+                                NPCs[i].frame = 11;
                                 console.log("talked LEFT");
                                 
                             }
@@ -513,7 +525,7 @@ class abstractLevel extends Phaser.State {
                     for(var i = 0; i < NPCs.length - 1; i++){
                         if(NPCs[i].hismove.walkingState == 0){
                             if((Math.round(NPCs[i].x / 32) == Math.round((this.player.x + 32) / 32)) && (Math.round(NPCs[i].y / 32) == Math.round(this.player.y / 32))){
-                                NPCs[i].frame = 9;
+                                NPCs[i].frame = 8;
                                 console.log("talked RIGHT");
                                 
                             }
@@ -527,16 +539,16 @@ class abstractLevel extends Phaser.State {
     setSpriteDirectionAfterWalking(){
         switch(lastWalkingDirection){
             case "up":
-                this.player.frame = 6;
+                this.player.frame = 2;
                 break;
             case "down":
-                this.player.frame = 7;
+                this.player.frame = 5;
                 break;
             case "left":
-                this.player.frame = 9;
+                this.player.frame = 8;
                 break;
             case "right":
-                this.player.frame = 12;
+                this.player.frame = 11;
                 break;
         }
     }
@@ -544,16 +556,16 @@ class abstractLevel extends Phaser.State {
     setNPCDirectionAfterWalking(thingy, i){
         switch(thingy){
             case "up":
-                NPCs[i].frame = 6;
+                NPCs[i].frame = 2;
                 break;
             case "down":
-                NPCs[i].frame = 7;
+                NPCs[i].frame = 5;
                 break;
             case "left":
-                NPCs[i].frame = 9;
+                NPCs[i].frame = 8;
                 break;
             case "right":
-                NPCs[i].frame = 12;
+                NPCs[i].frame = 11;
                 break;
         }
     }
@@ -615,10 +627,10 @@ class abstractLevel extends Phaser.State {
             cantMove: false
         }
         
-        NPCs[i].animations.add("left", [0, 9, 1, 9], walkingAnimFPS, true);
-        NPCs[i].animations.add("right", [3, 12, 2, 12], walkingAnimFPS, true);
-        NPCs[i].animations.add("up", [4, 6, 5, 6], walkingAnimFPS, true);
-        NPCs[i].animations.add("down", [8, 7, 11, 7], walkingAnimFPS, true);
+        NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
+        NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
+        NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
+        NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
         
 //        console.log(NPCs[i].hismove);
         

@@ -1,3 +1,7 @@
+var playerSpriteSheet = "spencer_spritesheet";
+var tempX;
+var tempY;
+
 var levels = [
     level0 = {
         
@@ -38,6 +42,7 @@ var experiencePoints = [
 var playerStats = [
     spencer = {
         name: "Spencer",
+        spritesheet: "spencer_spritesheet",
         ch: "spencerCH",
         currentHP: 80,
         maxHP: 100,
@@ -56,6 +61,7 @@ var playerStats = [
     },
     dov = {
         name: "Dov",
+        spritesheet: "dov_spritesheet",
         ch: "dovCH",
         currentHP: 80,
         maxHP: 100,
@@ -74,6 +80,7 @@ var playerStats = [
     },
     james = {
         name: "James",
+        spritesheet: "james_spritesheet",
         ch: "jamesCH",
         currentHP: 80,
         maxHP: 100,
@@ -92,6 +99,7 @@ var playerStats = [
     },
     raymond = {
         name: "Raymond",
+        spritesheet: "raymond_spritesheet",
         ch: "raymondCH",
         currentHP: 80,
         maxHP: 100,

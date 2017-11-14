@@ -1,6 +1,7 @@
 class abstractObject {
 
     constructor() {
+        
     }
 
     createThis(game) {

@@ -38,7 +38,10 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-down", "/assets/ui/cursor-down.png");
         this.load.image("hand-up", "/assets/ui/cursor-up.png");
         
-        this.load.spritesheet("spencer_spritesheet", "/assets/characters/compiledCharacterSpritesheets/spencer_spritesheet.png", 32, 32);
+        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 32, 32);
+        this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 32, 32);
+        this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 32, 32);
+        this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 32, 32);
         
         //chat heads
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");

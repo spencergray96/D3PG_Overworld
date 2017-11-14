@@ -904,7 +904,9 @@ class pauseMenu extends abstractObject {
             this.selectedCharHand.destroy();
             
             playerStats.move(firstChosenNPC, secondChosenNPC);
-            console.log(playerStats);
+            
+            this.updateCharSprite();
+            console.log(playerSpriteSheet);
             
             for(var i = 0; i < playerStats.length; i++){
                 this.characterFacesArr[i].destroy();
@@ -1340,12 +1342,19 @@ class pauseMenu extends abstractObject {
         this.newSpecDesc.fixedToCamera = true;
         tempDisplayArray.push(this.newSpecDesc);
         
-        this.newSprite = this.game.add.sprite(this.game.width - 60, 55, 'spencer_spritesheet');
-        this.newSprite.frame = 7;
-        this.newSprite.animations.add("down", [8, 7, 11, 7], walkingAnimFPS / 2, true);
+        this.newSprite = this.game.add.sprite(this.game.width - 60, 55, selectedCharToViewStatus.spritesheet);
+//        this.newSprite.frame = 5;
+        this.newSprite.animations.add("down", [3, 5, 4, 5], walkingAnimFPS / 2, true);
         this.newSprite.animations.play("down");
         this.newSprite.fixedToCamera = true;
         tempDisplayArray.push(this.newSprite);
+    }
+    
+    updateCharSprite(){
+        playerSpriteSheet = playerStats[0].spritesheet;
+//        this.player.destroy();
+        tempX = this.player.x;
+        tempY = this.player.y;
     }
     
 }
