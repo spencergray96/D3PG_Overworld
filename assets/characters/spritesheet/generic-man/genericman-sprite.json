@@ -1,0 +1,108 @@
+{"frames": [
+
+{
+	"filename": "genericman-back-left-foot-up.psd",
+	"frame": {"x":1,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-back-right-foot-up.psd",
+	"frame": {"x":24,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-back-still.psd",
+	"frame": {"x":93,"y":1,"w":20,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-front-left-foot-up.psd",
+	"frame": {"x":47,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-front-right-foot-up.psd",
+	"frame": {"x":70,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-front-still.psd",
+	"frame": {"x":115,"y":1,"w":20,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-leftside-left-arm-back.psd",
+	"frame": {"x":173,"y":1,"w":15,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":15,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-leftside-left-arm-forward.psd",
+	"frame": {"x":137,"y":1,"w":16,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-leftside-still.psd",
+	"frame": {"x":207,"y":1,"w":14,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-rightside-right-arm-back.psd",
+	"frame": {"x":190,"y":1,"w":15,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":15,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-rightside-right-arm-forward.psd",
+	"frame": {"x":155,"y":1,"w":16,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "genericman-rightside-still.psd",
+	"frame": {"x":223,"y":1,"w":14,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
+	"sourceSize": {"w":32,"h":32}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "genericman-sprite.png",
+	"format": "RGBA8888",
+	"size": {"w":238,"h":32},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f30cd29c5ec0886092be547624036147:9e286666f1ee13ba17885731b5ed6874:15019722d52be871ab6426bcc118a319$"
+}
+}
