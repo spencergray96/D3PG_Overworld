@@ -37,7 +37,7 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("spencer_spritesheet", "/assets/characters/compiledCharacterSpritesheets/spencer_spritesheet.png", 32, 32);
 
     },
-    create: function () {
+    create: function () {      
 
         this.state.start("se14");
     }

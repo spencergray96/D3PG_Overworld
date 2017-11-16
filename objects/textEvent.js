@@ -3,7 +3,6 @@ var chapter = 0;
 var eventTrigger = false;
 var eventNumber = 0;
 var eventTextNumber = 0;
-var raminFirstContact = false;
 
 class textEvent extends abstractObject {
     
@@ -17,7 +16,7 @@ class textEvent extends abstractObject {
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         
-        this.style = { font: "8pt Arial", fill: "#fff", 
+        this.style = { font: "8pt Final-Fantasy-36-Font", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
             boundsAlignV: "top", 
@@ -45,7 +44,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
-        console.log(Object.values(theDialogue.events)[eventNumber].length - 1);
+        console.log("leaving this here to check variables");
     }
 
     updateThis(game, player) {
@@ -90,20 +89,8 @@ class textEvent extends abstractObject {
         else{    
             if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
                 
-                if(eventNumber == false){
-                    if (currentNPC.hismove.npcName == "ramin" && eventNumber == 0 && !eventTrigger){
-
-                        eventTrigger = true;
-
-                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
-                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-
-                    }
-                    else if (currentNPC.hismove.npcName == "ramin" && raminFirstContact == true){
-                        console.log("this happens once");
-                        this.person = Object.values(theDialogue.defaults)[0].txt[chapter].split(";;");
-                        this.profilePic = Object.values(theDialogue.defaults)[0].profile;   
-                    }
+                if(eventNumber == 0){
+                    this.callEvent("ramin", 0);
                 }
                 
                 else{
@@ -151,12 +138,10 @@ class textEvent extends abstractObject {
         }
         
         else {
-            console.log("hello");
             this.isText = 0;
             this.eraseText();            
             texting = false;
             currentNPC = null;
-            console.log();
         }
 
     }
@@ -196,7 +181,6 @@ class textEvent extends abstractObject {
         if(currentNPC == null){
         } 
         else if(currentNPC != null){
-            console.log(this.person[this.lineState]);
             if (this.letter <= this.person[this.lineState].length){
                 this.addLetters = this.person[this.lineState].substring(0,this.letter);
                 this.text.text = this.addLetters; 
@@ -222,16 +206,14 @@ class textEvent extends abstractObject {
                     if (eventTrigger){
                         this.lineState = 0;
                         this.isText = 2;
-                        if(eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
-                            this.lineState = 0;
-                            this.isText = 2;
-                        }
-                        else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1){
+                    
+                        if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1){
                             this.continueIcon = false;
                             this.continueThing.destroy();  
                         }
                     }
                     else{
+                        eventTextNumber = 0;
                         this.lineState = 0;
                         this.isText = 2;
                         this.continueIcon = false;
@@ -243,6 +225,16 @@ class textEvent extends abstractObject {
 
             }        
         }
+    }
+    
+    callEvent(sprite, event){
+                    if (currentNPC.hismove.npcName == String(sprite) && eventNumber == event && !eventTrigger){
+
+                        eventTrigger = true;
+
+                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+                    }     
     }
 }
 

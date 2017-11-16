@@ -6,14 +6,21 @@ var theDialogue = {
                 profile:
                     "dov",
                 txt:
-                    "Event Event Event Event Event Event Event Event Event Event Event ;;The first one"
+                    "Event ;;The first one"
             },            
+            
+            {
+                profile:
+                    "bluecup",
+                txt:
+                    ""
+            },
             
             {
                 profile:
                     "player",
                 txt:
-                    "This is my Text;;yup."
+                    "That was a cup;;yup."
             }
             
         ],
@@ -31,7 +38,7 @@ var theDialogue = {
             profile:
                 "player",
             txt:{
-                0:"Ramin,;;Ramin?;;Ramin.",
+                0:"I'm Ramin,;;What do you want?;;Get back to work.",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
