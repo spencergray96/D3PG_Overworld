@@ -21,7 +21,10 @@ class textEvent extends abstractObject {
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
             boundsAlignV: "top", 
-            wordWrap: true, wordWrapWidth: 120 };
+            wordWrap: true, wordWrapWidth: 120, 
+            };
+        
+        this.profileXValue = 8;
     
         this.targetText = null;
         
@@ -52,7 +55,6 @@ class textEvent extends abstractObject {
         this.readText();
         
     }   
-    
     
     readText() {
         if (this.enterBut.isDown && currentNPC != null){
@@ -116,6 +118,7 @@ class textEvent extends abstractObject {
             }
         }
     }
+    
     checkEventFinish(){
         if (eventTrigger){
             
@@ -127,7 +130,7 @@ class textEvent extends abstractObject {
                     this.textProfile.destroy();
 
                     this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-                    this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
+                    this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
                     this.textProfile.fixedToCamera = true;
 
                     this.isText = 1;
@@ -141,12 +144,14 @@ class textEvent extends abstractObject {
                 eventNumber++;           
 
                 texting = false;
-                currentNPC = null;            
+                currentNPC = null;
+                this.isText = 0;
             }
             
         }
         
         else {
+            console.log("hello");
             this.isText = 0;
             this.eraseText();            
             texting = false;
@@ -167,9 +172,10 @@ class textEvent extends abstractObject {
 
             this.text = this.game.add.text(0, 0, this.text, this.style);
             this.text.fixedToCamera = true;
-            this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 300, 240);        
+            this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 300, 240);
+            this.text.lineSpacing = -5;
 
-            this.textProfile = this.game.add.image(16, (this.game.height - (this.game.height/6)), this.profilePic); 
+            this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
             this.textProfile.fixedToCamera = true;
         }
     }
@@ -188,7 +194,6 @@ class textEvent extends abstractObject {
         }
         
         if(currentNPC == null){
-            
         } 
         else if(currentNPC != null){
             console.log(this.person[this.lineState]);
@@ -208,7 +213,7 @@ class textEvent extends abstractObject {
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
-                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/10)), (this.game.height - (this.game.height/10)), this.profilePic);
+                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'bluecup');
                         this.continueThing.fixedToCamera = true;                   
                     }
                 }

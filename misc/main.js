@@ -1,6 +1,6 @@
 var TopDownGame = TopDownGame || {};
 
-var theGameZoom = 200;
+var theGameZoom = 250;
 
 TopDownGame.game = new Phaser.Game(theGameZoom, theGameZoom, Phaser.AUTO, "testdiv");
 

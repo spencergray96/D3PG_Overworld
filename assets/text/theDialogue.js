@@ -1,18 +1,19 @@
 var theDialogue = {
     events:{
-        raminFirstContact:[
+        raminFirstContact:[           
+            
             {
                 profile:
-                    "watermelon",
+                    "dov",
                 txt:
-                    "event;;yeah"
-            },
+                    "Event Event Event Event Event Event Event Event Event Event Event ;;The first one"
+            },            
             
             {
                 profile:
                     "player",
                 txt:
-                    "This thing;;yeah2"
+                    "This is my Text;;yup."
             }
             
         ],
@@ -38,7 +39,7 @@ var theDialogue = {
         },
         guy2:{
             profile:
-                "watermelon",            
+                "bluecup",            
             txt:{
                 0:"guy2;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -58,7 +59,7 @@ var theDialogue = {
         },
         guy4:{
             profile:
-                "player",            
+                "dov",            
             txt:{
                 0:"guy4;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -78,7 +79,7 @@ var theDialogue = {
         }, 
         guy6:{
             profile:
-                "player",
+                "dov",
             txt:{
                 0:"guy6;;!!!!;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -88,7 +89,7 @@ var theDialogue = {
         },
         guy7:{
             profile:
-                "watermelon",            
+                "bluecup",            
             txt:{
                 0:"guy7;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -118,7 +119,7 @@ var theDialogue = {
         },
         guy10:{
             profile:
-                "player",            
+                "bluecup",            
             txt:{
                 0:"guy10;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -138,7 +139,7 @@ var theDialogue = {
         },
         guy12:{
             profile:
-                "watermelon",            
+                "bluecup",            
             txt:{
                 0:"guy12;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -168,7 +169,7 @@ var theDialogue = {
         },
         guy15:{
             profile:
-                "player",            
+                "dov",            
             txt:{
                 0:"guy15;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -188,7 +189,7 @@ var theDialogue = {
         },
         guy17:{
             profile:
-                "watermelon",            
+                "bluecup",            
             txt:{
                 0:"guy17;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -218,7 +219,7 @@ var theDialogue = {
         },
         guy20:{
             profile:
-                "player",            
+                "dov",            
             txt:{
                 0:"guy20;;blah;;blah",
                 1:"blah1;;blah1;;blah1",

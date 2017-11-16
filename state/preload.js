@@ -30,7 +30,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("dov", "/assets/characters/spritesheet/dove/dove-front-still.png");
         this.load.image("browndoor", "/assets/images/browndoor.png");
         
-        this.load.image("watermelon", "/assets/images/bluecup.png");
+        this.load.image("bluecup", "/assets/images/bluecup.png");
         
         this.load.image("textBox", "/assets/ui/menuBar.png");
         
