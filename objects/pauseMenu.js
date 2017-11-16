@@ -47,12 +47,12 @@ var tempDisplayArray = [];
 //x and y variables for placing things
 
 //Main Menu items and main cursor
-var mainMenuRightIndent = 180;
+var mainMenuRightIndent = 200;
 var mainMenuHeightItem1 = 100,
     mainMenuHeightItem2 = 150,
     mainMenuHeightItem3 = 200,
     mainMenuHeightItem4 = 250;
-var mainMenuHandRightIndent = 240;
+var mainMenuHandRightIndent = 260;
 var mainMenuHandHeightItem1 = 105,
     mainMenuHandHeightItem2 = 155,
     mainMenuHandHeightItem3 = 205,
@@ -79,6 +79,10 @@ var selectingHandLeftIndent = 25,
     selectingHandy1 = 330,
     selectingHandy2 = 500,
     selectingHandy3 = 670;
+var selectedCharHandx = 155;
+
+//status screen
+var descY = characterHeady + 40;
 
 class pauseMenu extends abstractObject {
 
@@ -115,7 +119,16 @@ class pauseMenu extends abstractObject {
 
     createPauseMenu(){
         this.style = {
-            font: "28pt Arial",
+            font: "18pt Final-Fantasy-36-Font",
+            fill: "#fff", 
+            align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
+            boundsAlignH: "left", 
+            boundsAlignV: "top", 
+            wordWrap: true, wordWrapWidth: 2000
+        };
+        
+        this.styleHeader = {
+            font: "22pt Final-Fantasy-36-Font",
             fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
@@ -162,18 +175,6 @@ class pauseMenu extends abstractObject {
     
     printCharacterInfo(){
         
-        if(characterHeady != characterHeadyOriginal){
-            characterHeady = characterHeadyOriginal;
-        }
-        
-        if(charInfoY2 != charInfoY2Original){
-            charInfoY2 = charInfoY2Original;
-        }
-        
-        if(charInfoY3 != charInfoY3Original){
-            charInfoY3 = charInfoY3Original;
-        }
-        
         for(var i = 0; i < playerStats.length; i++){
             
             if(this.characterFacesArr.length < 4){
@@ -190,7 +191,7 @@ class pauseMenu extends abstractObject {
             }
             
             if(this.characterNamesArr.length < 4){
-                this.newName = this.game.add.text(charInfoX, characterHeady, playerStats[i].name, this.style);
+                this.newName = this.game.add.text(charInfoX, characterHeady, playerStats[i].name, this.styleHeader);
                 this.newName.fixedToCamera = true;
                 this.characterNamesArr.push(this.newName);
             }
@@ -198,18 +199,30 @@ class pauseMenu extends abstractObject {
             
             
             if(this.hpArray.length < 4){
-                this.newHP = this.game.add.text(charInfoX, charInfoY2, "HP: " + (playerStats[i].currentHP + " / " + playerStats[i].maxHP), this.style);
+                this.newHP = this.game.add.text(charInfoX, charInfoY2, "HP: " + (playerStats[i].currentHP + "/" + playerStats[i].maxHP), this.style);
                 this.hpArray.push(this.newHP);
                 this.newHP.fixedToCamera = true;
             }
             charInfoY2 += charInfoIncrement;
             
             if(this.enArray.length < 4){
-                this.newEN = this.game.add.text(charInfoX, charInfoY3, "Energy: " + (playerStats[i].currentEN + " / " + playerStats[i].maxEN), this.style);
+                this.newEN = this.game.add.text(charInfoX, charInfoY3, "Energy: " + (playerStats[i].currentEN + "/" + playerStats[i].maxEN), this.style);
                 this.enArray.push(this.newEN);
                 this.newEN.fixedToCamera = true;
             }
             charInfoY3 += charInfoIncrement;
+        }
+        
+        if(characterHeady != characterHeadyOriginal){
+            characterHeady = characterHeadyOriginal;
+        }
+        
+        if(charInfoY2 != charInfoY2Original){
+            charInfoY2 = charInfoY2Original;
+        }
+        
+        if(charInfoY3 != charInfoY3Original){
+            charInfoY3 = charInfoY3Original;
         }
     }
     
@@ -451,55 +464,55 @@ class pauseMenu extends abstractObject {
                 case 1:
                     cursorPosItems = 0;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 55, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 55, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
                 case 2:
                     cursorPosItems = 1;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 75, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
                 case 3:
                     cursorPosItems = 2;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 95, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 95, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
                 case 4:
                     cursorPosItems = 3;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 115, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 115, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
                 case 5:
                     cursorPosItems = 4;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 135, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 135, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
                 case 6:
                     cursorPosItems = 5;
                     this.itemsHand.destroy();
-                    this.itemsHand = this.game.add.image(5, 155, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     this.itemsHand.smoothed = false;
-                    this.itemsHand.width = 15;
-                    this.itemsHand.height = 7;
+                    this.itemsHand.width = mainMenuHandWidth;
+                    this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
                     break;
             }
@@ -513,10 +526,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[1] !== 'undefined'){
                         cursorPosItems = 1;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 75, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -524,10 +537,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[2] !== 'undefined'){
                         cursorPosItems = 2;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 95, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, 95, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -535,10 +548,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[3] !== 'undefined'){
                         cursorPosItems = 3;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 115, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, 115, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -546,10 +559,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[4] !== 'undefined'){
                         cursorPosItems = 4;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 135, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, 135, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -557,10 +570,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[5] !== 'undefined'){
                         cursorPosItems = 5;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 155, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -568,10 +581,10 @@ class pauseMenu extends abstractObject {
                     if(typeof itemsArr[6] !== 'undefined'){
                         cursorPosItems = 6;
                         this.itemsHand.destroy();
-                        this.itemsHand = this.game.add.image(5, 175, "hand");
+                        this.itemsHand = this.game.add.image(selectingHandLeftIndent, 175, "hand");
                         this.itemsHand.smoothed = false;
-                        this.itemsHand.width = 15;
-                        this.itemsHand.height = 7;
+                        this.itemsHand.width = mainMenuHandWidth;
+                        this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
                     }
                     break;
@@ -673,28 +686,28 @@ class pauseMenu extends abstractObject {
                 case 1:
                     cursorPosSelectingCharsToReOrder = 0;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 2:
                     cursorPosSelectingCharsToReOrder = 1;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 3:
                     cursorPosSelectingCharsToReOrder = 2;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
             }
@@ -706,28 +719,28 @@ class pauseMenu extends abstractObject {
                 case 0:
                     cursorPosSelectingCharsToReOrder = 1;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 1:
                     cursorPosSelectingCharsToReOrder = 2;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 2:
                     cursorPosSelectingCharsToReOrder = 3;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 3:
@@ -744,28 +757,28 @@ class pauseMenu extends abstractObject {
                 case 1:
                     cursorPosSelectingCharsToViewStatus = 0;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 2:
                     cursorPosSelectingCharsToViewStatus = 1;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 3:
                     cursorPosSelectingCharsToViewStatus = 2;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
             }
@@ -777,28 +790,28 @@ class pauseMenu extends abstractObject {
                 case 0:
                     cursorPosSelectingCharsToViewStatus = 1;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 1:
                     cursorPosSelectingCharsToViewStatus = 2;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 2:
                     cursorPosSelectingCharsToViewStatus = 3;
                     this.selectingCharHand.destroy();
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     this.selectingCharHand.smoothed = false;
-                    this.selectingCharHand.width = 15;
-                    this.selectingCharHand.height = 7;
+                    this.selectingCharHand.width = mainMenuHandWidth;
+                    this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
                     break;
                 case 3:
@@ -892,22 +905,22 @@ class pauseMenu extends abstractObject {
             
             switch(cursorPosSelectingChars){
                 case 0:
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     break;
                 case 1:
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     break;
                 case 2:
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     break;
                 case 3:
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     break;
             }
             
             this.selectingCharHand.smoothed = false;
-            this.selectingCharHand.width = 15;
-            this.selectingCharHand.height = 7;
+            this.selectingCharHand.width = mainMenuHandWidth;
+            this.selectingCharHand.height = mainMenuHandHeight;
             this.selectingCharHand.fixedToCamera = true;
         }
         
@@ -917,26 +930,26 @@ class pauseMenu extends abstractObject {
             console.log('shouldnt make it');
             switch(cursorPosSelectingCharsToReOrder){
                 case 0:
-                    this.selectedCharHand = this.game.add.image(35, 30, "hand-left");
+                    this.selectedCharHand = this.game.add.image(selectedCharHandx, selectingHandy0, "hand-left");
                     firstChosenNPC = 0
                     break;
                 case 1:
-                    this.selectedCharHand = this.game.add.image(35, 75, "hand-left");
+                    this.selectedCharHand = this.game.add.image(selectedCharHandx, selectingHandy1, "hand-left");
                     firstChosenNPC = 1
                     break;
                 case 2:
-                    this.selectedCharHand = this.game.add.image(35, 110, "hand-left");
+                    this.selectedCharHand = this.game.add.image(selectedCharHandx, selectingHandy2, "hand-left");
                     firstChosenNPC = 2
                     break;
                 case 3:
-                    this.selectedCharHand = this.game.add.image(35, 155, "hand-left");
+                    this.selectedCharHand = this.game.add.image(selectedCharHandx, selectingHandy3, "hand-left");
                     firstChosenNPC = 3
                     break;
             }
             
             this.selectedCharHand.smoothed = false;
-            this.selectedCharHand.width = 15;
-            this.selectedCharHand.height = 7;
+            this.selectedCharHand.width = mainMenuHandWidth;
+            this.selectedCharHand.height = mainMenuHandHeight;
             this.selectedCharHand.fixedToCamera = true;
             
             console.log(firstChosenNPC);
@@ -974,22 +987,22 @@ class pauseMenu extends abstractObject {
             
             switch(cursorPosSelectingCharsToReOrder){
                 case 0:
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     break;
                 case 1:
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     break;
                 case 2:
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     break;
                 case 3:
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     break;
             }
             
             this.selectingCharHand.smoothed = false;
-            this.selectingCharHand.width = 15;
-            this.selectingCharHand.height = 7;
+            this.selectingCharHand.width = mainMenuHandWidth;
+            this.selectingCharHand.height = mainMenuHandHeight;
             this.selectingCharHand.fixedToCamera = true;
         }
         
@@ -1046,7 +1059,7 @@ class pauseMenu extends abstractObject {
                     cursorPosItems--;
                 }
             }
-            this.itemDescription = this.game.add.text(10, 30, itemsArr[cursorPosItems].description, this.style);
+            this.itemDescription = this.game.add.text(10, selectingHandy0, itemsArr[cursorPosItems].description, this.style);
             this.itemDescription.fixedToCamera = true;
         }
         
@@ -1054,7 +1067,7 @@ class pauseMenu extends abstractObject {
         if(itemsArr[howManyItemsToDisplay - 1] != selectableItems[selectableItems.length - 1]){
             if(itemsArr.length == howManyItemsToDisplay){
                 if(!downhandExists){
-                    this.downhand = this.game.add.image(this.game.width - 20, this.game.height - 30, "hand-down");
+                    this.downhand = this.game.add.image(this.game.width - 20, this.game.height - selectingHandy0, "hand-down");
                     this.downhand.smoothed = false;
                     this.downhand.width = 7;
                     this.downhand.height = 15;
@@ -1080,31 +1093,31 @@ class pauseMenu extends abstractObject {
         if(itemsArr.length != 0){
             switch(cursorPosItems){
                 case 0:
-                    this.itemsHand = this.game.add.image(5, 55, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 55, "hand");
                     break;
                 case 1:
-                    this.itemsHand = this.game.add.image(5, 75, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     break;
                 case 2:
-                    this.itemsHand = this.game.add.image(5, 95, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 95, "hand");
                     break;
                 case 3:
-                    this.itemsHand = this.game.add.image(5, 115, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 115, "hand");
                     break;
                 case 4:
-                    this.itemsHand = this.game.add.image(5, 135, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 135, "hand");
                     break;
                 case 5:
-                    this.itemsHand = this.game.add.image(5, 155, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     break;
                 case 6:
-                    this.itemsHand = this.game.add.image(5, 175, "hand");
+                    this.itemsHand = this.game.add.image(selectingHandLeftIndent, 175, "hand");
                     break;
             }
 
             this.itemsHand.smoothed = false;
-            this.itemsHand.width = 15;
-            this.itemsHand.height = 7;
+            this.itemsHand.width = mainMenuHandWidth;
+            this.itemsHand.height = mainMenuHandHeight;
             this.itemsHand.fixedToCamera = true;
             
         }
@@ -1112,7 +1125,7 @@ class pauseMenu extends abstractObject {
     
     updateItemDesc(){
         this.itemDescription.destroy();
-        this.itemDescription = this.game.add.text(10, 30, itemsArr[cursorPosItems].description, this.style);
+        this.itemDescription = this.game.add.text(10, selectingHandy0, itemsArr[cursorPosItems].description, this.style);
         this.itemDescription.fixedToCamera = true;
     }
     
@@ -1229,7 +1242,7 @@ class pauseMenu extends abstractObject {
             if(itemsArr[howManyItemsToDisplay - 1] != selectableItems[howManyItemsToDisplay - 1] || itemsArr[0] == selectableItems[0]){
 //                console.log(downhandExists);
                 if(!downhandExists){
-                    this.downhand = this.game.add.image(this.game.width - 20, this.game.height - 30, "hand-down");
+                    this.downhand = this.game.add.image(this.game.width - 20, this.game.height - selectingHandy0, "hand-down");
                     this.downhand.smoothed = false;
                     this.downhand.width = 7;
                     this.downhand.height = 15;
@@ -1263,22 +1276,22 @@ class pauseMenu extends abstractObject {
         
         switch(cursorPosSelectingCharsToReOrder){
                 case 0:
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     break;
                 case 1:
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     break;
                 case 2:
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     break;
                 case 3:
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     break;
             }
         
         this.selectingCharHand.smoothed = false;
-        this.selectingCharHand.width = 15;
-        this.selectingCharHand.height = 7;
+        this.selectingCharHand.width = mainMenuHandWidth;
+        this.selectingCharHand.height = mainMenuHandHeight;
         this.selectingCharHand.fixedToCamera = true;
     }
     
@@ -1304,22 +1317,22 @@ class pauseMenu extends abstractObject {
         
         switch(cursorPosSelectingCharsToViewStatus){
                 case 0:
-                    this.selectingCharHand = this.game.add.image(5, 30, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy0, "hand");
                     break;
                 case 1:
-                    this.selectingCharHand = this.game.add.image(5, 75, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy1, "hand");
                     break;
                 case 2:
-                    this.selectingCharHand = this.game.add.image(5, 110, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy2, "hand");
                     break;
                 case 3:
-                    this.selectingCharHand = this.game.add.image(5, 155, "hand");
+                    this.selectingCharHand = this.game.add.image(selectingHandLeftIndent, selectingHandy3, "hand");
                     break;
             }
         
         this.selectingCharHand.smoothed = false;
-        this.selectingCharHand.width = 15;
-        this.selectingCharHand.height = 7;
+        this.selectingCharHand.width = mainMenuHandWidth;
+        this.selectingCharHand.height = mainMenuHandHeight;
         this.selectingCharHand.fixedToCamera = true;
     }
     
@@ -1335,58 +1348,62 @@ class pauseMenu extends abstractObject {
         this.itemsScreen.height = this.game.height;
         tempDisplayArray.push(this.itemsScreen);
         
-        this.newChar = this.game.add.image(10, 10, selectedCharToViewStatus.ch);
+        this.newChar = this.game.add.image(characterHeadx, characterHeady, selectedCharToViewStatus.ch);
         this.newChar.smoothed = false;
         this.newChar.fixedToCamera = true;
-        this.newChar.width = 35;
-        this.newChar.height = 35;
+        if(selectedCharToViewStatus.name == "Dov"){
+            this.newChar.width = dovCharWidth;
+        } else {
+            this.newChar.width = normalCharWidth;
+        }
+        this.newChar.height = normalCharWidth;
         tempDisplayArray.push(this.newChar);
         
-        this.newName = this.game.add.text(50, 10, selectedCharToViewStatus.name, this.style);
+        this.newName = this.game.add.text(charInfoX, characterHeady, selectedCharToViewStatus.name, this.styleHeader);
         this.newName.fixedToCamera = true;
         tempDisplayArray.push(this.newName);
         
-        this.newDesc = this.game.add.text(50, 20, selectedCharToViewStatus.description, this.style);
+        this.newDesc = this.game.add.text(charInfoX, charInfoY2, selectedCharToViewStatus.description, this.style);
         this.newDesc.fixedToCamera = true;
         tempDisplayArray.push(this.newDesc);
 
-        this.newHP = this.game.add.text(10, 55, "HP: " + (selectedCharToViewStatus.currentHP + " / " + selectedCharToViewStatus.maxHP), this.style);
+        this.newHP = this.game.add.text(characterHeadx, 280, "HP: " + (selectedCharToViewStatus.currentHP + "/" + selectedCharToViewStatus.maxHP), this.style);
         this.newHP.fixedToCamera = true;
         tempDisplayArray.push(this.newHP);
 
-        this.newEN = this.game.add.text(10, 65, "Energy: " + (selectedCharToViewStatus.currentEN + " / " + selectedCharToViewStatus.maxEN), this.style);
+        this.newEN = this.game.add.text(characterHeadx, 65, "Energy: " + (selectedCharToViewStatus.currentEN + "/" + selectedCharToViewStatus.maxEN), this.style);
         this.newEN.fixedToCamera = true;
         tempDisplayArray.push(this.newEN);
         
-        this.newLV = this.game.add.text(10, 85, "Level: " + (selectedCharToViewStatus.level), this.style);
+        this.newLV = this.game.add.text(characterHeadx, 85, "Level: " + (selectedCharToViewStatus.level), this.style);
         this.newLV.fixedToCamera = true;
         tempDisplayArray.push(this.newLV);
         
-        this.newXP = this.game.add.text(10, 95, "Next level: " + (selectedCharToViewStatus.nextLevel), this.style);
+        this.newXP = this.game.add.text(characterHeadx, 95, "Next level: " + (selectedCharToViewStatus.nextLevel), this.style);
         this.newXP.fixedToCamera = true;
         tempDisplayArray.push(this.newXP);
         
-        this.newattack = this.game.add.text(10, 115, "Attack: " + (selectedCharToViewStatus.attack), this.style);
+        this.newattack = this.game.add.text(characterHeadx, 115, "Attack: " + (selectedCharToViewStatus.attack), this.style);
         this.newattack.fixedToCamera = true;
         tempDisplayArray.push(this.newattack);
         
-        this.newweapon = this.game.add.text(10, 125, "Weapon: " + (selectedCharToViewStatus.weapon), this.style);
+        this.newweapon = this.game.add.text(characterHeadx, 125, "Weapon: " + (selectedCharToViewStatus.weapon), this.style);
         this.newweapon.fixedToCamera = true;
         tempDisplayArray.push(this.newweapon);
         
-        this.newweaponMult = this.game.add.text(10, 135, "Weapon Multiplier: " + (selectedCharToViewStatus.weaponMult), this.style);
+        this.newweaponMult = this.game.add.text(characterHeadx, 135, "Weapon Multiplier: " + (selectedCharToViewStatus.weaponMult), this.style);
         this.newweaponMult.fixedToCamera = true;
         tempDisplayArray.push(this.newweaponMult);
         
-        this.newdefence = this.game.add.text(10, 155, "Defence: " + (selectedCharToViewStatus.defence), this.style);
+        this.newdefence = this.game.add.text(characterHeadx, selectingHandy3, "Defence: " + (selectedCharToViewStatus.defence), this.style);
         this.newdefence.fixedToCamera = true;
         tempDisplayArray.push(this.newdefence);
         
-        this.newevasion = this.game.add.text(10, 165, "Evasion chance: " + (selectedCharToViewStatus.evasion), this.style);
+        this.newevasion = this.game.add.text(characterHeadx, 165, "Evasion chance: " + (selectedCharToViewStatus.evasion), this.style);
         this.newevasion.fixedToCamera = true;
         tempDisplayArray.push(this.newevasion);
         
-        this.newSpecDesc = this.game.add.text(10, 175, "Special attack: " + (selectedCharToViewStatus.specDesc), this.style);
+        this.newSpecDesc = this.game.add.text(characterHeadx, 175, "Special attack: " + (selectedCharToViewStatus.specDesc), this.style);
         this.newSpecDesc.fixedToCamera = true;
         tempDisplayArray.push(this.newSpecDesc);
         
