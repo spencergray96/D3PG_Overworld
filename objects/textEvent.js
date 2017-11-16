@@ -16,7 +16,7 @@ class textEvent extends abstractObject {
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         
-        this.style = { font: "8pt Final-Fantasy-36-Font", fill: "#fff", 
+        this.style = { font: "12pt Final-Fantasy-36-Font", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
             boundsAlignV: "top", 
