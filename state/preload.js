@@ -25,6 +25,10 @@ TopDownGame.Preload.prototype = {
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
         
+        //TESTING 128
+        this.load.tilemap("testmap-128", "/assets/testing128/testmap-128.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("testtilepack-128", "/assets/testing128/testtilepack-128.png");
+        
         this.load.image("gameTiles", "/assets/images/tiles.png");
         this.load.image("player", "/assets/characters/spritesheet/spencer/spencer-facing-forward.png");
         this.load.image("dov", "/assets/characters/spritesheet/dove/dove-front-still.png");
@@ -38,7 +42,8 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-down", "/assets/ui/cursor-down.png");
         this.load.image("hand-up", "/assets/ui/cursor-up.png");
         
-        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 32, 32);
+//        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 32, 32);
+        this.load.spritesheet("spencer_spritesheet", "/assets/testing128/spencer-spritesheet.png", 128, 128);
         this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 32, 32);
         this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 32, 32);
         this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 32, 32);
@@ -52,6 +57,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {
 
-        this.state.start("se14");
+        this.state.start("testing128");
     }
 };
