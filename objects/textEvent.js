@@ -44,7 +44,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
-        console.log("leaving this here to check variables");
+        console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
     }
 
     updateThis(game, player) {
@@ -96,7 +96,6 @@ class textEvent extends abstractObject {
                 else{
                     for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
                         if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
-
                             this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
                             this.profilePic = Object.values(theDialogue.defaults)[i].profile;
                         }
@@ -106,24 +105,36 @@ class textEvent extends abstractObject {
         }
     }
     
+    testEvent(){
+        alert("lol bewbs XD");
+    }
+    
     checkEventFinish(){
         if (eventTrigger){
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0){
-                eventTextNumber++;
+                
+                if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
+                    this.testEvent();
+                    Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                }
+                else{
+                    eventTextNumber++;
 
-                if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
-                    this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
-                    this.textProfile.destroy();
+                    if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
+                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+                        this.textProfile.destroy();
 
-                    this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-                    this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
-                    this.textProfile.fixedToCamera = true;
+                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+                        this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
+                        this.textProfile.fixedToCamera = true;
 
-                    this.isText = 1;
+                        this.isText = 1;
+                    }                    
                 }
             }
-            else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0){
+            else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
+                
                 this.isText = 2;
                 this.eraseText();   
 

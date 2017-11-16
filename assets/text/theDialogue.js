@@ -18,9 +18,19 @@ var theDialogue = {
             
             {
                 profile:
+                    "dov",
+                txt:
+                    "event",
+                event:"action"
+
+            },
+            
+            {
+                profile:
                     "player",
                 txt:
-                    "That was a cup;;yup."
+                    "That was a cup;;yup.",
+                event:"end"
             }
             
         ],
