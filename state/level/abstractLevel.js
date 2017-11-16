@@ -28,7 +28,7 @@ var hitNPC = false;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 600;
+var RNGaboveThisNumberToMove = 990;
 var delayOnMovingAgain = 1000;
 
 var NPCindex = 0;
@@ -389,13 +389,13 @@ class abstractLevel extends Phaser.State {
                                 break;
                             }
                             if((Math.round(NPCs[i].hismove.x2 / 128) == Math.round(this.player.x / 128)) && (Math.round(NPCs[i].y / 128) == Math.round((this.player.y + 128) / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "down";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
                             }
                             if((Math.round(NPCs[i].x / 128) == Math.round(this.player.x / 128)) && (Math.round(NPCs[i].hismove.y2 / 128) == Math.round((this.player.y + 128) / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "down";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
@@ -424,13 +424,13 @@ class abstractLevel extends Phaser.State {
                                 break;
                             }
                             if((Math.round(NPCs[i].x / 128) == Math.round((this.player.x  - 128) / 128)) && (Math.round(NPCs[i].hismove.y2 / 128) == Math.round(this.player.y / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "left";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
                             }
                             if((Math.round(NPCs[i].hismove.x2 / 128) == Math.round((this.player.x - 128)/ 128)) && (Math.round(NPCs[i].y / 128) == Math.round(this.player.y / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "left";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
@@ -459,13 +459,13 @@ class abstractLevel extends Phaser.State {
                                 break;
                             }
                             if((Math.round(NPCs[i].x / 128) == Math.round((this.player.x  + 128) / 128)) && (Math.round(NPCs[i].hismove.y2 / 128) == Math.round(this.player.y / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "right";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
                             }
                             if((Math.round(NPCs[i].hismove.x2 / 128) == Math.round((this.player.x + 128)/ 128)) && (Math.round(NPCs[i].y / 128) == Math.round(this.player.y / 128))){
-                                lastWalkingDirection = "up";
+                                lastWalkingDirection = "right";
                                 this.setSpriteDirectionAfterWalking();
                                 hitNPC = true;
                                 break;
@@ -609,7 +609,7 @@ class abstractLevel extends Phaser.State {
         });
         
         NPCs[i] = this.game.add.sprite(element.x, element.y, element.spritesheet);
-        NPCs[i].frame = 7;
+        NPCs[i].frame = 5;
         NPCs[i].hismove = {
             originalX: element.x,
             originalY: element.y,
@@ -730,12 +730,12 @@ class abstractLevel extends Phaser.State {
                         }
                     }
                 }
+                setTimeout(function(){
+                    NPCs[randomNPC].hismove.isWalking = false;
+                    NPCs[randomNPC].hismove.cantMove = false;
+                }, 3000);
             }
         }
-                    setTimeout(function(){
-                        NPCs[randomNPC].hismove.isWalking = false;
-                        NPCs[randomNPC].hismove.cantMove = false;
-                    }, 1000);
                 }
 
     NPCmoveX(isDown, i){
