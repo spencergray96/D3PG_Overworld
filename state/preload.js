@@ -23,11 +23,11 @@ TopDownGame.Preload.prototype = {
         
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.image("task13", "/assets/images/task13.png");
+        this.load.image("task13", "/assets/images/task13_copy.png");
         
-        //TESTING 128
-        this.load.tilemap("testmap-128", "/assets/testing128/testmap-128.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.image("testtilepack-128", "/assets/testing128/testtilepack-128.png");
+        //TESTING 64
+//        this.load.tilemap("se14", "/assets/tilemaps/testing64/se14-64.json", null, Phaser.Tilemap.TILED_JSON);
+//        this.load.image("task13", "/assets/images/64testing/task13_copy64.png");
         
         this.load.image("gameTiles", "/assets/images/tiles.png");
         this.load.image("player", "/assets/characters/spritesheet/spencer/spencer-facing-forward.png");
@@ -42,11 +42,10 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-down", "/assets/ui/cursor-down.png");
         this.load.image("hand-up", "/assets/ui/cursor-up.png");
         
-//        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 32, 32);
-        this.load.spritesheet("spencer_spritesheet", "/assets/testing128/spencer-spritesheet.png", 128, 128);
-        this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 32, 32);
-        this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 32, 32);
-        this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 32, 32);
+        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
+        this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
+        this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 128, 128);
+        this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
         
         //chat heads
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
@@ -57,6 +56,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {
 
-        this.state.start("testing128");
+        this.state.start("se14");
     }
 };

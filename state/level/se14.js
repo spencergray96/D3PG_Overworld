@@ -18,8 +18,8 @@ class se14 extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
-                "decorationLayer_d",
                 "blockedLayer_c",
+                "decorationLayer_d",
                 "blockedLayer2"
             ]
         }};

@@ -20,7 +20,7 @@ var xUpdatingRight;
 var movementOffset = 0;
 
 var walkingAnimFPS = 7;
-var playerSpeed = 240;
+var playerSpeed = 360;
 //NPC / object interaction
 
 var NPCs = [];
@@ -28,7 +28,7 @@ var hitNPC = false;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 990;
+var RNGaboveThisNumberToMove = 900;
 var delayOnMovingAgain = 1000;
 
 var NPCindex = 0;
@@ -733,7 +733,7 @@ class abstractLevel extends Phaser.State {
                 setTimeout(function(){
                     NPCs[randomNPC].hismove.isWalking = false;
                     NPCs[randomNPC].hismove.cantMove = false;
-                }, 3000);
+                }, 2000);
             }
         }
                 }
