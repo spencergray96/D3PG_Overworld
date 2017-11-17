@@ -1,10 +1,10 @@
-class se14 extends abstractLevel {
+class testing128 extends abstractLevel {
 
     static params() {
         return {
-            tilemap: "se14",
+            tilemap: "testmap-128",
             tileSetImage: {
-                "1": "task13",
+                "1": "testtilepack-128",
             },
             layers: [
                 "backgroundLayer",
@@ -33,7 +33,7 @@ class se14 extends abstractLevel {
     }
 
     constructor() {
-        super(() => (TopDownGame), se14.params(), se14.updatables());
+        super(() => (TopDownGame), testing128.params(), testing128.updatables());
     }
 
     create() {
@@ -42,4 +42,4 @@ class se14 extends abstractLevel {
 
 }
 
-TopDownGame.se14 = se14;
+TopDownGame.testing128 = testing128;
