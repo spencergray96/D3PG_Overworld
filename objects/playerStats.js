@@ -54,7 +54,7 @@ var playerStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "Uses 3 energy, hits a lot",
+        specDesc: "hits a lot",
         
         level: experiencePoints[0].level,
         nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp
@@ -73,7 +73,7 @@ var playerStats = [
         defence: 10,
         evasion: "5%",
         description: "You know him well",
-        specDesc: "Uses 3 energy, hits a lot",
+        specDesc: "hits a lot",
         
         level: experiencePoints[1].level,
         nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp
@@ -92,7 +92,7 @@ var playerStats = [
         defence: 10,
         evasion: "5%",
         description: "He's finally back",
-        specDesc: "Uses 3 energy, hits a lot",
+        specDesc: "hits a lot",
         
         level: experiencePoints[2].level,
         nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp
@@ -111,7 +111,7 @@ var playerStats = [
         defence: 10,
         evasion: "5%",
         description: "To kick some tail!",
-        specDesc: "Uses 3 energy, hits a lot",
+        specDesc: "hits a lot",
         
         level: experiencePoints[3].level,
         nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp
