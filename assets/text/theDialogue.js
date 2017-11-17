@@ -1,20 +1,6 @@
 var theDialogue = {
     events:{
-        raminFirstContact:[           
-            
-            {
-                profile:
-                    "dov",
-                txt:
-                    "Event ;;The first one"
-            },            
-            
-            {
-                profile:
-                    "bluecup",
-                txt:
-                    ""
-            },
+        raminFirstContact:[                    
             
             {
                 profile:
