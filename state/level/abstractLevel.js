@@ -19,7 +19,7 @@ var xUpdatingRight;
 
 var movementOffset = 0;
 
-var walkingAnimFPS = 7;
+var walkingAnimFPS = 8;
 var playerSpeed = 360;
 //NPC / object interaction
 
@@ -613,10 +613,10 @@ class abstractLevel extends Phaser.State {
         NPCs[i].hismove = {
             originalX: element.x,
             originalY: element.y,
-            xMin: Math.floor((element.x - 128) / 128),
-            yMin: Math.floor((element.y - 128) / 128),
-            xMax: Math.floor((element.x + 128) / 128),
-            yMax: Math.floor((element.y + 128) / 128),
+            xMin: Math.floor((element.x - 256) / 128),
+            yMin: Math.floor((element.y - 256) / 128),
+            xMax: Math.floor((element.x + 256) / 128),
+            yMax: Math.floor((element.y + 256) / 128),
             x: element.x,
             y: element.y,
             x2: element.x,
@@ -741,7 +741,7 @@ class abstractLevel extends Phaser.State {
     NPCmoveX(isDown, i){
         if(isDown){
             if(Math.round(NPCs[i].x) < (NPCs[i].hismove.x2)){
-                NPCs[i].body.velocity.x = this.player.mymove.speed;
+                NPCs[i].body.velocity.x = 240;
             } else {
                 NPCs[i].body.velocity.x = 0;
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
@@ -756,7 +756,7 @@ class abstractLevel extends Phaser.State {
 
         } else {
             if(Math.round(NPCs[i].x) > (NPCs[i].hismove.x2)){
-                NPCs[i].body.velocity.x = this.player.mymove.speed*-1;
+                NPCs[i].body.velocity.x = 240*-1;
             } else {
                 NPCs[i].body.velocity.x = 0;
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
@@ -775,7 +775,7 @@ class abstractLevel extends Phaser.State {
     NPCmoveY(isDown, i){
         if(isDown){
             if(Math.round(NPCs[i].y) < (NPCs[i].hismove.y2)){
-                NPCs[i].body.velocity.y = this.player.mymove.speed;
+                NPCs[i].body.velocity.y = 240;
             } else {
                 NPCs[i].body.velocity.y = 0;
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
@@ -790,7 +790,7 @@ class abstractLevel extends Phaser.State {
 
         } else {
             if(Math.round(NPCs[i].y) > (NPCs[i].hismove.y2)){
-                NPCs[i].body.velocity.y = this.player.mymove.speed*-1;
+                NPCs[i].body.velocity.y = 240*-1;
             } else {
                 NPCs[i].body.velocity.y = 0;
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
