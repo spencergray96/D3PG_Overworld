@@ -11,6 +11,11 @@
     <script type="text/javascript" src="/objects/spawn.js"></script>
     <script type="text/javascript" src="/objects/door.js"></script>
     <script type="text/javascript" src="/objects/textEvent.js"></script>
+    
+    <script type="text/javascript" src="/objects/pauseMenu.js"></script>
+    <script type="text/javascript" src="/objects/playerStats.js"></script>
+    <script type="text/javascript" src="/objects/playerItems.js"></script>
+    <script type="text/javascript" src="/objects/playerObjectives.js"></script>
 
     <script type="text/javascript" src="/state/level/abstractLevel.js"></script>
     <script type="text/javascript" src="/state/boot.js"></script>
@@ -22,33 +27,32 @@
     
     <script type="text/javascript" src="/state/level/se14.js"></script>
     <script type="text/javascript" src="/state/level/gridtestmovement.js"></script>
+    
+    <!--Testing 128 -->
+    <script type="text/javascript" src="/state/level/testing-128.js"></script>
 
 
 
     <style>
+/*
         body {
             padding: 0px;
             margin: 0px;
             background-color: black;
         }
+*/
         
         #testdiv {
             width: 800px;
             height: 800px;
         }
         
-/*
-         #container {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                margin: auto;
-                width: 600px;
-                height: 600px;
+        #dumbText {
+            left: -10000px;
+            position: absolute;
+            color: white;
         }
-*/
+        
     </style>
 </head>
 
@@ -61,5 +65,18 @@
 <script src="/misc/main.js"></script>
     <div id="testdiv">
     </div>
+    <div id="dumbText">
+        sd;lfks;lkf;sldfk
+    </div>
+    
+    <script>
+    
+        var butt1 = document.getElementById("butt1");
+        
+        Array.prototype.move = function (from, to) {
+          this.splice(to, 0, this.splice(from, 1)[0]);
+        };
+
+    </script>
 </body>
 </html>
