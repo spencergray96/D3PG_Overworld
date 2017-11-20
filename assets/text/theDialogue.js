@@ -4,35 +4,36 @@ var theDialogue = {
             
             {
                 profile:
-                    "dov",
+                    "dovCH",
                 txt:
-                    "event",
+                    "Ramin: test test test test test. yup.;;huh?",
                 event:"action"
 
             },
             
             {
                 profile:
-                    "player",
+                    "spencerCH",
                 txt:
-                    "That was a cup;;yup.",
+                    "That was me.;;yup.",
                 event:"end"
             }
             
         ],
-        eventid2:[
+        jamesAfterRamin:[
             {
                 profile:
-                    "npcid2",
+                    "jamesCH",
                 txt:
-                    "This thing;;yeah2"
+                    "This thing;;yeah2",
+                event: "end"
             }            
         ]
     },
     defaults:{
         ramin:{
             profile:
-                "player",
+                "dovCH",
             txt:{
                 0:"I'm Ramin,;;What do you want?;;Get back to work.",
                 1:"blah1;;blah1;;blah1",
@@ -40,9 +41,9 @@ var theDialogue = {
                 10:"blah;;blah;;blah"
             }
         },
-        guy2:{
+        james:{
             profile:
-                "bluecup",            
+                "jamesCH",            
             txt:{
                 0:"guy2;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -52,7 +53,7 @@ var theDialogue = {
         },
         guy3:{
             profile:
-                "browndoor",           
+                "raymondCH",           
             txt:{
                 0:"guy3;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -62,7 +63,7 @@ var theDialogue = {
         },
         guy4:{
             profile:
-                "dov",            
+                "dovCH",            
             txt:{
                 0:"guy4;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -72,7 +73,7 @@ var theDialogue = {
         },
         guy5:{
             profile:
-                "player",            
+                "spencerCH",            
             txt:{
                 0:"guy5;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -82,7 +83,7 @@ var theDialogue = {
         }, 
         guy6:{
             profile:
-                "dov",
+                "dovCH",
             txt:{
                 0:"guy6;;!!!!;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -92,7 +93,7 @@ var theDialogue = {
         },
         guy7:{
             profile:
-                "bluecup",            
+                "jamesCH",            
             txt:{
                 0:"guy7;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -102,7 +103,7 @@ var theDialogue = {
         },
         guy8:{
             profile:
-                "browndoor",           
+                "raymondCH",           
             txt:{
                 0:"guy8;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -112,7 +113,7 @@ var theDialogue = {
         },
         guy9:{
             profile:
-                "player",            
+                "spencerCH",            
             txt:{
                 0:"guy9;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -122,7 +123,7 @@ var theDialogue = {
         },
         guy10:{
             profile:
-                "bluecup",            
+                "jamesCH",            
             txt:{
                 0:"guy10;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -132,7 +133,7 @@ var theDialogue = {
         },   
         guy11:{
             profile:
-                "player",
+                "spencerCH",
             txt:{
                 0:"guy11;;!!!!;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -142,7 +143,7 @@ var theDialogue = {
         },
         guy12:{
             profile:
-                "bluecup",            
+                "jamesCH",            
             txt:{
                 0:"guy12;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -152,7 +153,7 @@ var theDialogue = {
         },
         guy13:{
             profile:
-                "browndoor",           
+                "raymondCH",           
             txt:{
                 0:"guy13;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -162,7 +163,7 @@ var theDialogue = {
         },
         guy14:{
             profile:
-                "player",            
+                "spencerCH",            
             txt:{
                 0:"guy14;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -172,7 +173,7 @@ var theDialogue = {
         },
         guy15:{
             profile:
-                "dov",            
+                "dovCH",            
             txt:{
                 0:"guy15;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -182,7 +183,7 @@ var theDialogue = {
         }, 
         guy16:{
             profile:
-                "player",
+                "spencerCH",
             txt:{
                 0:"guy16;;!!!!;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -192,7 +193,7 @@ var theDialogue = {
         },
         guy17:{
             profile:
-                "bluecup",            
+                "jamesCH",            
             txt:{
                 0:"guy17;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -202,7 +203,7 @@ var theDialogue = {
         },
         guy18:{
             profile:
-                "browndoor",           
+                "raymondCH",           
             txt:{
                 0:"guy18;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -212,7 +213,7 @@ var theDialogue = {
         },
         guy19:{
             profile:
-                "player",            
+                "spencerCH",            
             txt:{
                 0:"guy19;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
@@ -222,7 +223,7 @@ var theDialogue = {
         },
         guy20:{
             profile:
-                "dov",            
+                "dovCH",            
             txt:{
                 0:"guy20;;blah;;blah",
                 1:"blah1;;blah1;;blah1",

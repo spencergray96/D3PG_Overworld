@@ -138,7 +138,6 @@ class abstractLevel extends Phaser.State {
     }
     
     generatePlayer2(){
-        console.log(playerSpriteSheet);
         this.player.loadTexture(playerSpriteSheet);
         this.player.frame = 5;
         this.setSpriteDirectionAfterWalking();
@@ -495,7 +494,6 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 128) == Math.round(this.player.x / 128)) && (Math.round(NPCs[i].y / 128) == Math.round((this.player.y - 128) / 128))){
                                 NPCs[i].frame = 5;
                                 currentNPC = NPCs[i];
-                                console.log("talked ABOVE");
                             }
                         }
                     }
@@ -507,7 +505,6 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 128) == Math.round(this.player.x / 128)) && (Math.round(NPCs[i].y / 128) == Math.round((this.player.y + 128) / 128))){
                                 NPCs[i].frame = 2;
                                 currentNPC = NPCs[i];
-                                console.log("talked BELOW");
                             }
                         }
                     }
@@ -519,7 +516,6 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 128) == Math.round((this.player.x - 128) / 128)) && (Math.round(NPCs[i].y / 128) == Math.round(this.player.y / 128))){
                                 NPCs[i].frame = 11;
                                 currentNPC = NPCs[i];
-                                console.log("talked LEFT");
                             }
                         }
                     }
@@ -531,7 +527,6 @@ class abstractLevel extends Phaser.State {
                             if((Math.round(NPCs[i].x / 128) == Math.round((this.player.x + 128) / 128)) && (Math.round(NPCs[i].y / 128) == Math.round(this.player.y / 128))){
                                 NPCs[i].frame = 8;
                                 currentNPC = NPCs[i];
-                                console.log("talked RIGHT");                                
                             }
                         }
                     }

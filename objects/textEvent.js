@@ -20,14 +20,16 @@ class textEvent extends abstractObject {
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
             boundsAlignV: "top" , 
-            wordWrap: true, wordWrapWidth: 400, 
+            wordWrap: true, wordWrapWidth: 600, 
             };
         
-        this.profileXValue = 8;
+        this.profileXValue = 30;
+        this.profileYValue = 4.5;
+        this.profileScale = 0.05;
     
         this.targetText = null;
         
-        this.lineDelay  = 30;
+        this.lineDelay  = 10;
         this.letter     = 0;
         this.lineState  = 0;
 
@@ -64,8 +66,9 @@ class textEvent extends abstractObject {
             }
         }
         
-        if(this.enterBut.isUp){
+        if(this.enterBut.isUp && !disableControls){
             if(this.isDown){
+                console.log("event number: " + eventNumber);
                 this.isDown = false;
                 switch (this.isText) {
                     case 0:
@@ -88,12 +91,16 @@ class textEvent extends abstractObject {
         } 
         else{    
             if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
-                
-                if(eventNumber == 0){
+
+                if(eventNumber == 0 && currentNPC.hismove.npcName == "ramin" && !eventTrigger){
                     this.callEvent("ramin", 0);
                 }
                 
-                else{
+                else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
+                    this.callEvent("james", 1);
+                }                
+                
+                else if (!eventTrigger){
                     for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
                         if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
                             this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
@@ -107,60 +114,76 @@ class textEvent extends abstractObject {
     
     goBackTest(){
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'hand-down');
+        this.continueThing.fixedToCamera = true;        
         this.checkEventFinish();
     }
     
     testEvent(){
-        alert("lol alert XD");
+
+        this.continueThing.destroy();
         this.game.camera.follow(NPCs[5], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
         this.eraseText();
         this.game.time.events.add(Phaser.Timer.SECOND * 2,this.goBackTest, this);
-
     }
     
     checkEventFinish(){
         if (eventTrigger){
             
-            if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0){
+            if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
                 
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
-                    this.testEvent();
-                    Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                    
+                    if (currentNPC.hismove.npcName == "ramin" && eventNumber == 0){
+                        this.testEvent();
+                        Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                        disableControls = true;
+                    }
                 }
                 else{
-                    eventTextNumber++;
-//                    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+                    disableControls = false;
+                    eventTextNumber++;                     
+                    
                     this.showText();
                     if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
                         this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
                         this.textProfile.destroy();
 
                         this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-                        this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
+                        this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
+                        this.textProfile.scale.setTo(this.profileScale, this.profileScale);
                         this.textProfile.fixedToCamera = true;
 
                         this.isText = 1;
                     }                    
                 }
             }
-            else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
+            else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
                 
+                eventNumber++;           
+                                
+                console.log("event number: " + eventNumber);
                 this.game.camera.follow(this.player);
                 
                 this.isText = 2;
                 this.eraseText();   
 
                 eventTrigger = false;
-                eventNumber++;           
 
                 texting = false;
                 currentNPC = null;
                 this.isText = 0;
+                // I need to do something here to fix the event //
+                console.log("dskfjhsdlfkjsdhflk");
+                eventTextNumber = 0;
+
             }
             
         }
         
         else {
+            eventTextNumber = 0;
+            eventTrigger = false;
             this.isText = 0;
             this.eraseText();            
             texting = false;
@@ -178,12 +201,13 @@ class textEvent extends abstractObject {
             this.textScreen.width = this.game.width;
             this.textScreen.height = this.game.height/4;
 
-            this.text = this.game.add.text(0, 0, this.text, this.style);
+            this.text = this.game.add.text(150, 25, this.text, this.style);
             this.text.fixedToCamera = true;
-            this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 300, 240);
+            this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 2000, 360);
             this.text.lineSpacing = -5;
 
-            this.textProfile = this.game.add.image(this.profileXValue, (this.game.height - (this.game.height/6)), this.profilePic); 
+            this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
+            this.textProfile.scale.setTo(this.profileScale, this.profileScale);
             this.textProfile.fixedToCamera = true;
         }
     }
@@ -202,6 +226,7 @@ class textEvent extends abstractObject {
         }
         
         if(currentNPC == null){
+            console.log("lol it broke");
         } 
         else if(currentNPC != null){
             if (this.letter <= this.person[this.lineState].length){
@@ -220,7 +245,7 @@ class textEvent extends abstractObject {
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
-                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'bluecup');
+                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'hand-down');
                         this.continueThing.fixedToCamera = true;                   
                     }
                 }
@@ -242,22 +267,18 @@ class textEvent extends abstractObject {
                         this.continueIcon = false;
                         this.continueThing.destroy();
                     }
-
                 }
-                console.log('lineState: ' + this.lineState);
-
             }        
         }
     }
     
     callEvent(sprite, event){
-                    if (currentNPC.hismove.npcName == String(sprite) && eventNumber == event && !eventTrigger){
-
-                        eventTrigger = true;
-
-                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
-                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-                    }     
+        if (currentNPC.hismove.npcName == String(sprite) && eventNumber == event && !eventTrigger){
+            eventTrigger = true;
+            console.log(sprite);
+            this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+            this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+        }     
     }
 }
 

@@ -10,12 +10,7 @@ TopDownGame.Preload.prototype = {
         this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
         this.preloadBar.anchor.setTo(0.5);
 
-        this.load.setPreloadSprite(this.preloadBar);
-
-        //load game assets
-        this.load.tilemap("test", "/assets/tilemaps/test.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.tilemap("test2", "/assets/tilemaps/test2.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.tilemap("test3", "/assets/tilemaps/test3.json", null, Phaser.Tilemap.TILED_JSON);     
+        this.load.setPreloadSprite(this.preloadBar);   
         
         //grid movement velocity testing
         this.load.tilemap("testtilepack", "/assets/tilemaps/testtilepack.json", null, Phaser.Tilemap.TILED_JSON);
@@ -40,6 +35,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("mainBox", "/assets/ui/containers/mainMenu-container.png");
         this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
         this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");
+        this.load.image("textBox", "/assets/ui/containers/textBox-container.png");
         
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
