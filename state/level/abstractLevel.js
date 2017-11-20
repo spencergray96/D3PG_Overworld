@@ -30,7 +30,7 @@ var currentNPC = null;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 900;
+var RNGaboveThisNumberToMove = 500;
 var delayOnMovingAgain = 1000;
 
 var NPCindex = 0;
@@ -59,13 +59,13 @@ class abstractLevel extends Phaser.State {
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         this.generateMap();
         this.generatePlayer();
-        this.generateMap2();
 
         this.updatables.forEach((o) => {
             o.createThis(this.game);
         });
         
         this.createNPCs();
+        this.generateMap2();
     }
 
     generateMap() {
@@ -617,10 +617,10 @@ class abstractLevel extends Phaser.State {
         NPCs[i].hismove = {
             originalX: element.x,
             originalY: element.y,
-            xMin: Math.floor((element.x - 256) / 128),
-            yMin: Math.floor((element.y - 256) / 128),
-            xMax: Math.floor((element.x + 256) / 128),
-            yMax: Math.floor((element.y + 256) / 128),
+            xMin: Math.round((element.x - 128) / 128),
+            yMin: Math.round((element.y - 128) / 128),
+            xMax: Math.round((element.x + 128) / 128),
+            yMax: Math.round((element.y + 128) / 128),
             x: element.x,
             y: element.y,
             x2: element.x,

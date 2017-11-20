@@ -36,11 +36,15 @@ TopDownGame.Preload.prototype = {
         
         this.load.image("bluecup", "/assets/images/bluecup.png");
         
-        this.load.image("textBox", "/assets/ui/menuBar.png");
+        //ui
+        this.load.image("mainBox", "/assets/ui/containers/mainMenu-container.png");
+        this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
+        this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");
+        
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
-        this.load.image("hand-down", "/assets/ui/cursor-down.png");
-        this.load.image("hand-up", "/assets/ui/cursor-up.png");
+        this.load.image("hand-down", "/assets/ui/triangle-down.png");
+        this.load.image("hand-up", "/assets/ui/triangle-up.png");
         
         this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
         this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
