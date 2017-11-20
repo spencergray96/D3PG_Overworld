@@ -106,7 +106,7 @@ class textEvent extends abstractObject {
     }
     
     testEvent(){
-        alert("lol bewbs XD");
+        alert("lol alert XD");
         this.game.camera.follow(NPCs[5], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
         this.eraseText();
 
