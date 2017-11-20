@@ -25,6 +25,10 @@ TopDownGame.Preload.prototype = {
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
         
+        //TESTING 64
+//        this.load.tilemap("se14", "/assets/tilemaps/testing64/se14-64.json", null, Phaser.Tilemap.TILED_JSON);
+//        this.load.image("task13", "/assets/images/64testing/task13_copy64.png");
+        
         this.load.image("gameTiles", "/assets/images/tiles.png");
         this.load.image("player", "/assets/characters/spritesheet/spencer/spencer-facing-forward.png");
         this.load.image("dov", "/assets/characters/spritesheet/dove/dove-front-still.png");
@@ -33,8 +37,21 @@ TopDownGame.Preload.prototype = {
         this.load.image("bluecup", "/assets/images/bluecup.png");
         
         this.load.image("textBox", "/assets/ui/menuBar.png");
+        this.load.image("hand", "/assets/ui/cursor.png");
+        this.load.image("hand-left", "/assets/ui/cursor-left.png");
+        this.load.image("hand-down", "/assets/ui/cursor-down.png");
+        this.load.image("hand-up", "/assets/ui/cursor-up.png");
         
-        this.load.spritesheet("spencer_spritesheet", "/assets/characters/compiledCharacterSpritesheets/spencer_spritesheet.png", 32, 32);
+        this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
+        this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
+        this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 128, 128);
+        this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
+        
+        //chat heads
+        this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
+        this.load.image("dovCH", "/assets/characters/chatHeads/Doveflipped.png");
+        this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
+        this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
 
     },
     create: function () {      

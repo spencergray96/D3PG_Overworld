@@ -10,10 +10,24 @@ body {
     background-color: black;
     padding: 0px;
     margin: 0;
+<<<<<<< HEAD
     background-color: black;
 }
 
+=======
+}
+
+div {
+/*    font-family: 'Final-Fantasy-36-Font', sans-serif;  */
+}
+
+/*
+>>>>>>> 78b319bfc84cdc80ddddfff37a6b7269dc137ca0
 #testdiv {
     width: 400px;
     height: 400px;
 }
+<<<<<<< HEAD
+=======
+*/
+>>>>>>> 78b319bfc84cdc80ddddfff37a6b7269dc137ca0

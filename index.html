@@ -6,24 +6,44 @@
         <title>D3PG</title>
         <link rel="stylesheet" href="/assets/style.css" type="text/css" charset="utf-8"/>
         <script type="text/javascript" src="/phaser/build/phaser.js"></script>
-
-
         <script type="text/javascript" src="/assets/text/theDialogue.js"></script>
+        
+    <script type="text/javascript" src="/objects/abstractObject.js"></script>
+    <script type="text/javascript" src="/objects/spawn.js"></script>
+    <script type="text/javascript" src="/objects/door.js"></script>
+    <script type="text/javascript" src="/objects/textEvent.js"></script>
+    
+    <script type="text/javascript" src="/objects/pauseMenu.js"></script>
+    <script type="text/javascript" src="/objects/playerStats.js"></script>
+    <script type="text/javascript" src="/objects/playerItems.js"></script>
+    <script type="text/javascript" src="/objects/playerObjectives.js"></script>
 
-        <script type="text/javascript" src="/objects/abstractObject.js"></script>
-        <script type="text/javascript" src="/objects/spawn.js"></script>
-        <script type="text/javascript" src="/objects/door.js"></script>
-        <script type="text/javascript" src="/objects/textEvent.js"></script>
+    <script type="text/javascript" src="/state/level/abstractLevel.js"></script>
+    <script type="text/javascript" src="/state/boot.js"></script>
+    <script type="text/javascript" src="/state/preload.js"></script>
+    <!--<script type="text/javascript" src="/state/level/game.js"></script>-->
+    
+    <script type="text/javascript" src="/state/level/se14.js"></script>
+    <script type="text/javascript" src="/state/level/gridtestmovement.js"></script>
+    
+    <!--Testing 128 -->
+    <script type="text/javascript" src="/state/level/testing-128.js"></script>
 
-        <script type="text/javascript" src="/state/level/abstractLevel.js"></script>
-        <script type="text/javascript" src="/state/boot.js"></script>
-        <script type="text/javascript" src="/state/preload.js"></script>
-
-        <!--<script type="text/javascript" src="/state/level/game.js"></script>-->
-        <script type="text/javascript" src="/state/level/se14.js"></script>
-        <script type="text/javascript" src="/state/level/gridtestmovement.js"></script>
-
-    </head>
+    <style>
+        
+        #testdiv {
+            width: 800px;
+            height: 800px;
+        }
+        
+        #dumbText {
+            left: -10000px;
+            position: absolute;
+            color: white;
+        }
+        
+    </style>
+</head>
 
     <body>   
 <!--        <div style="background-color: aliceblue; position:absolute; left:-1000000">Font Loaded</div>-->
@@ -32,9 +52,22 @@
     </div>
 -->
 <!-- include the main game file -->
+
+<script src="/misc/main.js"></script>
+    <div id="testdiv">
+    </div>
+    <div id="dumbText">
+        sd;lfks;lkf;sldfk
+    </div>
+    
+    <script>
+    
+        var butt1 = document.getElementById("butt1");
         
-        <script src="/misc/main.js"></script>
-        <div id="testdiv">
-        </div>
-    </body>
+        Array.prototype.move = function (from, to) {
+          this.splice(to, 0, this.splice(from, 1)[0]);
+        };
+
+    </script>
+</body>
 </html>

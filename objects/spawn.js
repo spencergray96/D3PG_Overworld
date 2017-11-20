@@ -20,7 +20,7 @@ class spawn extends abstractObject {
     }
 
     updateThis(game, player) {
-        super.updateThis(game, player);   
+        super.updateThis(game, player);
     }
 
 

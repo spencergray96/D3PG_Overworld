@@ -19,8 +19,8 @@ class textEvent extends abstractObject {
         this.style = { font: "12pt Final-Fantasy-36-Font", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
-            boundsAlignV: "top", 
-            wordWrap: true, wordWrapWidth: 120, 
+            boundsAlignV: "top" , 
+            wordWrap: true, wordWrapWidth: 400, 
             };
         
         this.profileXValue = 8;
@@ -105,10 +105,16 @@ class textEvent extends abstractObject {
         }
     }
     
+    goBackTest(){
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        this.checkEventFinish();
+    }
+    
     testEvent(){
         alert("lol alert XD");
         this.game.camera.follow(NPCs[5], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
         this.eraseText();
+        this.game.time.events.add(Phaser.Timer.SECOND * 2,this.goBackTest, this);
 
     }
     
@@ -123,9 +129,8 @@ class textEvent extends abstractObject {
                 }
                 else{
                     eventTextNumber++;
-                    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
-                    this.showText()
-
+//                    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+                    this.showText();
                     if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
                         this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
                         this.textProfile.destroy();
@@ -139,6 +144,8 @@ class textEvent extends abstractObject {
                 }
             }
             else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && eventNumber == 0 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
+                
+                this.game.camera.follow(this.player);
                 
                 this.isText = 2;
                 this.eraseText();   
