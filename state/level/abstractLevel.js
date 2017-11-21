@@ -1,3 +1,6 @@
+//walking Objects
+var walkingobjsArr = [];
+
 //Variables representing the layers from Tiled
 var blockedLayer_c;
 var backgroundLayer;
@@ -24,16 +27,20 @@ var playerSpeed = 360;
 //NPC / object interaction
 
 var NPCs = [];
+//var NPCs2 = [];
 var hitNPC = false;
 
 var currentNPC = null;
 
 //NPC movement
 
-var RNGaboveThisNumberToMove = 500;
+var RNGaboveThisNumberToMove = 900;
 var delayOnMovingAgain = 1000;
 
 var NPCindex = 0;
+
+//starting character Frame
+var startingCharFrame = 5;
 
 //ABSTRACT LEVEL CLASS
 
@@ -54,6 +61,8 @@ class abstractLevel extends Phaser.State {
     }
 
     create() {
+//        NPCs = [];
+        playerSpriteSheet = playerStats[0].spritesheet;
         this.game = this.getGame().game;
         this.cursors = this.game.input.keyboard.createCursorKeys();
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
@@ -66,11 +75,17 @@ class abstractLevel extends Phaser.State {
         
         this.createNPCs();
         this.generateMap2();
+        
+        //walking objs
+//        this.generateWalkingObjects();
     }
 
     generateMap() {
         this.game.map = this.game.add.tilemap(this.params.tilemap);
-        this.game.map.addTilesetImage(this.params.tileSetImage["1"], this.params.tileSetImage["2"]);
+//        this.game.map.addTilesetImage(this.params.tileSetImage["1"], this.params.tileSetImage["2"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["1"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["2"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["3"]);
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
@@ -114,7 +129,7 @@ class abstractLevel extends Phaser.State {
 //            playerSpriteSheet = "spencer_spritesheet";
         }
         
-        this.player.frame = 5;
+        this.player.frame = startingCharFrame;
         this.player.animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
         this.player.animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
         this.player.animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
@@ -134,7 +149,6 @@ class abstractLevel extends Phaser.State {
         
         xCurrent = Math.floor((this.player.mymove.x / 128));
         yCurrent = Math.floor((this.player.mymove.y / 128));
-    
     }
     
     generatePlayer2(){
@@ -179,8 +193,10 @@ class abstractLevel extends Phaser.State {
         xUpdatingLeft = Math.floor(((this.player.mymove.x - 128) / 128));
         xUpdatingRight = Math.floor(((this.player.mymove.x + 128) / 128));
         
-        this.createControls();
-        this.createEnterPress();
+        if(!disableControls){
+            this.createControls();
+            this.createEnterPress();
+        }
         
         switch(this.player.mymove.state){
             case 1:
@@ -201,8 +217,10 @@ class abstractLevel extends Phaser.State {
             o.updateThis(this.game, this.player);
         });
         
-        var rand =  Math.floor(Math.random() * (NPCs.length - 1));
-        this.tryToMakeNPCsMove((Math.random() * 1000), rand, Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
+        if(NPCs.length > 0){
+            var rand =  Math.floor(Math.random() * (NPCs.length - 1));
+            this.tryToMakeNPCsMove((Math.random() * 1000), rand, Math.floor(Math.random() * 2), Math.floor(Math.random() * 2));
+        }
        
         
 //this should be changed instead of a for loop
@@ -582,6 +600,8 @@ class abstractLevel extends Phaser.State {
         this.NPCs = this.game.add.group();
         this.NPCs.enableBody = true;
         
+//        NPCs = [];
+        
         var NPC;
         var result;
         
@@ -590,16 +610,15 @@ class abstractLevel extends Phaser.State {
         result = this.findObjectsByType('testingObj', this.game.map, 'objectsLayer');
         result.forEach(function(element){
             
-            this.createFromTiledObject(element, this.NPCs, i);
+            this.createNPCsFromTiledObject(element, this.NPCs, i);
 //            this.newNPC = this.game.add.sprite(element.x, element.y, 'spencer_spritesheet');
             
             NPCs.push(element);
             i++;
         }, this);
-//        console.log(NPCs);
     }
     
-    createFromTiledObject(element, group, i) {
+    createNPCsFromTiledObject(element, group, i) {
 //        var sprite = group.create(element.x, element.y, 'spencer_spritesheet');
         
         //copy all properties to the sprite
@@ -628,15 +647,14 @@ class abstractLevel extends Phaser.State {
             NPCkey: i,
             npcName: element.npcName
         }
-//        console.log(NPCs[i].hismove);
         
         NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
         NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
         NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
         NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
-        
+
 //        console.log(NPCs[i].hismove);
-        
+
         this.game.physics.arcade.enable(NPCs[i]);
     }
     
@@ -649,9 +667,9 @@ class abstractLevel extends Phaser.State {
             directionMultiplier = -1;
         }
         
-        if(randomNumber > RNGaboveThisNumberToMove && !isPaused){
-            
+        if(randomNumber > RNGaboveThisNumberToMove && !isPaused && NPCs[randomNPC] != undefined && NPCs[randomNPC].hismove != undefined){
             if(!NPCs[randomNPC].hismove.isWalking && !NPCs[randomNPC].hismove.cantMove && (NPCs[randomNPC].hismove.walkingState == 0) && !texting){
+                
                 NPCs[randomNPC].hismove.isWalking = true;
                 
                 if(randomDirection == 0){
@@ -736,10 +754,8 @@ class abstractLevel extends Phaser.State {
                         }
                     }
                 }
-                setTimeout(function(){
-                    NPCs[randomNPC].hismove.isWalking = false;
-                    NPCs[randomNPC].hismove.cantMove = false;
-                }, 2000);
+                        NPCs[randomNPC].hismove.isWalking = false;
+                        NPCs[randomNPC].hismove.cantMove = false;
             }
         }
                 }
