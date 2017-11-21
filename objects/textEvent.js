@@ -4,6 +4,8 @@ var eventTrigger = false;
 var eventNumber = 0;
 var eventTextNumber = 0;
 
+var firstEventCheck = false;
+
 class textEvent extends abstractObject {
     
     constructor() {
@@ -13,7 +15,7 @@ class textEvent extends abstractObject {
         this.startText = false;
         this.text;
         this.continueIcon;
-        this.firstEventCheck = false;
+//        this.firstEventCheck = false;
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         
@@ -73,8 +75,8 @@ class textEvent extends abstractObject {
     }
     
     readText() {
-        if ((this.enterBut.isDown && currentNPC != null) || !this.firstEventCheck){
-            this.firstEventCheck = true;
+        if ((this.enterBut.isDown && currentNPC != null) || !firstEventCheck){
+            firstEventCheck = true;
             texting = true;
             if(!this.isDown){
                 this.checkTextBoxContent();

@@ -130,10 +130,12 @@ class abstractLevel extends Phaser.State {
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, playerSpriteSheet);
             
-            eventObject.hismove.npcName = 'firstEvent';
-            
-            currentNPC = eventObject;
-            console.log(currentNPC);
+            if(!firstEventCheck){
+                eventObject.hismove.npcName = 'firstEvent';
+
+                currentNPC = eventObject;
+                console.log(currentNPC);
+            }
 
 //            this.game.world.addAt(this.player, 3);
 //            console.log("not se14");
