@@ -25,6 +25,27 @@ TopDownGame.Preload.prototype = {
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
         
+        //sw03
+        this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("task14", "/assets/images/task14.png");
+        
+        //the Stand
+        this.load.tilemap("theStand", "/assets/tilemaps/stand.json", null, Phaser.Tilemap.TILED_JSON);
+        
+        //NE1
+        this.load.tilemap("NE1map", "/assets/tilemaps/NE1.json", null, Phaser.Tilemap.TILED_JSON);
+//        this.load.image("backgroundTiles", "/assets/images/background.png");
+        this.load.image("NE1", "/assets/images/NE1.png");
+        
+        //dorm
+        this.load.tilemap("dorm", "/assets/tilemaps/dorm.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("dormcopy", "/assets/images/dormcopy.png");
+        this.load.image("dorm2copy", "/assets/images/dorm2copy.png");
+        
+        //overworld test
+        this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
+        
+        
         //TESTING 64
 //        this.load.tilemap("se14", "/assets/tilemaps/testing64/se14-64.json", null, Phaser.Tilemap.TILED_JSON);
 //        this.load.image("task13", "/assets/images/64testing/task13_copy64.png");
@@ -60,6 +81,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {
 
-        this.state.start("se14");
+        this.state.start("mainHub");
     }
 };

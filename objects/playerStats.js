@@ -118,4 +118,4 @@ var playerStats = [
     },
 ]
 
-console.log(playerStats);
+//console.log(playerStats);
