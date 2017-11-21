@@ -6,7 +6,7 @@ var theDialogue = {
                 profile:
                     "dovCH",
                 txt:
-                    "Ramin: test test test test test. yup.;;huh?",
+                    "Ramin: test test test test test. test test test test yup. ;;huh?",
                 event:"action"
 
             },

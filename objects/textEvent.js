@@ -16,11 +16,11 @@ class textEvent extends abstractObject {
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         
-        this.style = { font: "12pt Final-Fantasy-36-Font", fill: "#fff", 
+        this.style = { font: "14pt Final-Fantasy-36-Font", fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
             boundsAlignV: "top" , 
-            wordWrap: true, wordWrapWidth: 600, 
+            wordWrap: true, wordWrapWidth: 500, 
             };
         
         this.profileXValue = 30;
@@ -34,7 +34,10 @@ class textEvent extends abstractObject {
         this.lineState  = 0;
 
         this.contDial   = true;
-        this.makeCont   = false; 
+        this.makeCont   = false;
+        
+        this.textLeading = 20;
+        this.continueArrowIndentDivisor = 13;
     }
     
     createThis(game) {
@@ -201,10 +204,10 @@ class textEvent extends abstractObject {
             this.textScreen.width = this.game.width;
             this.textScreen.height = this.game.height/4;
 
-            this.text = this.game.add.text(150, 25, this.text, this.style);
+            this.text = this.game.add.text(150, 35, this.text, this.style);
             this.text.fixedToCamera = true;
             this.text.setTextBounds( 48 , (this.game.height - (this.game.height/4)), 2000, 360);
-            this.text.lineSpacing = -5;
+            this.text.lineSpacing = this.textLeading;
 
             this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
             this.textProfile.scale.setTo(this.profileScale, this.profileScale);
@@ -245,7 +248,7 @@ class textEvent extends abstractObject {
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
-                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'hand-down');
+                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
                         this.continueThing.fixedToCamera = true;                   
                     }
                 }
