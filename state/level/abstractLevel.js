@@ -60,12 +60,13 @@ class abstractLevel extends Phaser.State {
         this.generateMap();
         this.generatePlayer();
 
-        this.updatables.forEach((o) => {
-            o.createThis(this.game);
-        });
         
         this.createNPCs();
         this.generateMap2();
+        
+        this.updatables.forEach((o) => {
+            o.createThis(this.game);
+        });
     }
 
     generateMap() {
@@ -340,7 +341,7 @@ class abstractLevel extends Phaser.State {
     }
     
     createControls() {
-        if(!texting && !isPaused){
+        if(!texting && !isPaused && !battling){
             
             if(this.cursors.up.isDown && !walkingLR) {
                 if(this.player.mymove.state === 0){

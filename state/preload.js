@@ -32,6 +32,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("bluecup", "/assets/images/bluecup.png");
         
         //ui
+        this.load.image("whiteBG", "/assets/ui/whiteBG.png");
         this.load.image("mainBox", "/assets/ui/containers/mainMenu-container.png");
         this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
         this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");

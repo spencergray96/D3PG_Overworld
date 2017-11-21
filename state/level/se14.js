@@ -26,6 +26,7 @@ class se14 extends abstractLevel {
 
     static updatables() {
         return [
+            new battle(),
             new door(),
             new spawn(),
             new textEvent(),

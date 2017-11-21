@@ -66,7 +66,7 @@ class textEvent extends abstractObject {
             }
         }
         
-        if(this.enterBut.isUp && !disableControls){
+        if(this.enterBut.isUp && !disableControls && !battling){
             if(this.isDown){
                 console.log("event number: " + eventNumber);
                 this.isDown = false;
@@ -97,6 +97,8 @@ class textEvent extends abstractObject {
                 }
                 
                 else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
+                    battling = true;
+                    console.log(battling);
                     this.callEvent("james", 1);
                 }                
                 
