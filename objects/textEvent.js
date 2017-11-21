@@ -13,6 +13,7 @@ class textEvent extends abstractObject {
         this.startText = false;
         this.text;
         this.continueIcon;
+        this.firstEventCheck = false;
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
         
@@ -58,10 +59,22 @@ class textEvent extends abstractObject {
         // this is for printing text and making it appear //
         this.readText();
         
-    }   
+        this.staticEvents();
+        
+    }
+    
+    staticEvents(){
+        if(eventNumber == 0 && currentNPC.hismove.npcName == "firstEvent" && !eventTrigger){
+            this.callEvent("firstEvent", 0);
+            this.readText(); 
+        }
+        else{
+        }
+    }
     
     readText() {
-        if (this.enterBut.isDown && currentNPC != null){
+        if ((this.enterBut.isDown && currentNPC != null) || !this.firstEventCheck){
+            this.firstEventCheck = true;
             texting = true;
             if(!this.isDown){
                 this.checkTextBoxContent();
@@ -95,13 +108,14 @@ class textEvent extends abstractObject {
         else{    
             if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
 
-                if(eventNumber == 0 && currentNPC.hismove.npcName == "ramin" && !eventTrigger){
-                    this.callEvent("ramin", 0);
+                if(eventNumber == 0 && currentNPC.hismove.npcName == "firstEvent" && !eventTrigger){
+                    this.callEvent("firstEvent", 0);
                 }
                 
                 else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
                     this.callEvent("james", 1);
-                }                
+                }
+
                 
                 else if (!eventTrigger){
                     for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
@@ -115,20 +129,20 @@ class textEvent extends abstractObject {
         }
     }
     
-    goBackTest(){
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
-        this.continueThing = this.game.add.image((this.game.width - (this.game.width/9)), (this.game.height - (this.game.height/9)), 'hand-down');
-        this.continueThing.fixedToCamera = true;        
-        this.checkEventFinish();
-    }
-    
-    testEvent(){
-
-        this.continueThing.destroy();
-        this.game.camera.follow(NPCs[5], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
-        this.eraseText();
-        this.game.time.events.add(Phaser.Timer.SECOND * 2,this.goBackTest, this);
-    }
+//    goBackTest(){
+//        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+//        this.checkEventFinish();
+//        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+//        this.continueThing.fixedToCamera = true;           
+//    }
+//    
+//    testEvent(){
+//
+//        this.continueThing.destroy();
+//        this.game.camera.follow(NPCs[0], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
+//        this.eraseText();
+//        this.game.time.events.add(Phaser.Timer.SECOND * 2,this.goBackTest, this);
+//    }
     
     checkEventFinish(){
         if (eventTrigger){
@@ -137,7 +151,8 @@ class textEvent extends abstractObject {
                 
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
                     
-                    if (currentNPC.hismove.npcName == "ramin" && eventNumber == 0){
+                    // this is where actions for the events will be called //
+                    if (currentNPC.hismove.npcName == "firstEvent" && eventNumber == 0){
                         this.testEvent();
                         Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
                         disableControls = true;
@@ -148,6 +163,7 @@ class textEvent extends abstractObject {
                     eventTextNumber++;                     
                     
                     this.showText();
+                    
                     if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
                         this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
                         this.textProfile.destroy();
@@ -176,12 +192,9 @@ class textEvent extends abstractObject {
                 texting = false;
                 currentNPC = null;
                 this.isText = 0;
-                // I need to do something here to fix the event //
-                console.log("dskfjhsdlfkjsdhflk");
-                eventTextNumber = 0;
 
-            }
-            
+                eventTextNumber = 0;
+            } 
         }
         
         else {

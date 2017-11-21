@@ -1,3 +1,9 @@
+// event object
+
+var eventObject = {
+    hismove: {}
+};
+
 //walking Objects
 var walkingobjsArr = [];
 
@@ -123,6 +129,12 @@ class abstractLevel extends Phaser.State {
         }
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, playerSpriteSheet);
+            
+            eventObject.hismove.npcName = 'firstEvent';
+            
+            currentNPC = eventObject;
+            console.log(currentNPC);
+
 //            this.game.world.addAt(this.player, 3);
 //            console.log("not se14");
 //            console.log(doorDes.from);
@@ -245,31 +257,6 @@ class abstractLevel extends Phaser.State {
                 }
             }
         }
-        
-        
-        //console.log(NPCs[NPCindex].hismove.cantMove);
-        //NPCs[NPCindex].hismove.cantMove = false;
-        
-       // console.log(NPCindex, NPCs[NPCindex].hismove.isWalking);
-//        switch(NPCs[NPCindex].hismove.walkingState){
-//            case 1:
-//                this.NPCmoveX(true, NPCindex);
-//                break;
-//            case 2:
-//                this.NPCmoveX(false, NPCindex);
-//                break;
-//            case 3:
-//                this.NPCmoveY(true, NPCindex);
-//                break;
-//            case 4:
-//                this.NPCmoveY(false, NPCindex);
-//                break;
-//        }
-//        NPCindex++;
-//        if(NPCindex == NPCs.length - 1){
-//            NPCindex = 0;
-//        }
-        
     }
 
 
@@ -645,7 +632,12 @@ class abstractLevel extends Phaser.State {
             cantMove: false,
             
             NPCkey: i,
-            npcName: element.npcName
+            npcName: element.npcName,
+            eventNPC: element.eventNPC
+        }
+        //making cinematic NPCs unable to move
+        if(NPCs[i].hismove.eventNPC){
+            NPCs[i].hismove.cantMove = true;
         }
         
         NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);

@@ -4,10 +4,10 @@ var theDialogue = {
             
             {
                 profile:
-                    "dovCH",
+                    "raymondCH",
                 txt:
-                    "Ramin: test test test test test. test test test test yup. ;;huh?",
-                event:"action"
+                    "Raymond: Did we totally just pass Dov and not pick him up?;;huh?",
+                event:""
 
             },
             
@@ -15,9 +15,16 @@ var theDialogue = {
                 profile:
                     "spencerCH",
                 txt:
-                    "That was me.;;yup.",
+                    "Spencer: Yeah, lol;;We totally did.",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Spencer: Yeah, lol;;We totally did.",
                 event:"end"
-            }
+            }            
             
         ],
         jamesAfterRamin:[
