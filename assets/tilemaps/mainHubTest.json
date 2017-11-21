@@ -206,12 +206,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"james",
                      "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
+                     "spritesheet":"james_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"

@@ -22,7 +22,7 @@ var theDialogue = {
                 profile:
                     "raymondCH",
                 txt:
-                    "Spencer: Yeah, lol;;We totally did.",
+                    "Raymond: Sucks for him...;;Looks like he brought that James kid with him",
                 event:"end"
             }            
             

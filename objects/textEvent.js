@@ -52,7 +52,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
-        console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
+//        console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
     }
 
     updateThis(game, player) {
