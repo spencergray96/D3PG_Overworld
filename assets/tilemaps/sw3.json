@@ -246,11 +246,13 @@
                  "properties":
                     {
                      "destination":"mainHub",
+                     "from":"sw03",
                      "type":"door"
                     },
                  "propertytypes":
                     {
                      "destination":"string",
+                     "from":"string",
                      "type":"string"
                     },
                  "rotation":0,
