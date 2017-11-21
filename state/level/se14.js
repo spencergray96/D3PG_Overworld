@@ -28,6 +28,7 @@ class se14 extends abstractLevel {
         return [
             new door(),
             new spawn(),
+            new textEvent(),
             new pauseMenu()
         ]
     }

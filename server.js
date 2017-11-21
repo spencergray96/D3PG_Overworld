@@ -3,7 +3,6 @@ var app = express();
 var server = require('http').Server(app);
 
 app.use("/phaser",express.static(__dirname + "/node_modules/phaser"));
-app.use("/ezgui",express.static(__dirname + "/node_modules/ezgui"));
 app.use("/assets",express.static(__dirname + "/assets"));
 app.use("/state",express.static(__dirname + "/state"));
 app.use("/objects",express.static(__dirname + "/objects"));

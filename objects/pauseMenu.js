@@ -117,7 +117,6 @@ class pauseMenu extends abstractObject {
 
     constructor() {
         super();
-        console.log(objectives[0].objective);
     }
 
     createThis(game) {
@@ -127,7 +126,6 @@ class pauseMenu extends abstractObject {
         this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.backKey = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-        console.log(this.spaceKey);
         
         this.characterFacesArr = [];
         this.characterNamesArr = [];

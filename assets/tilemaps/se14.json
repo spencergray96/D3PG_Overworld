@@ -96,12 +96,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"ramin",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -119,12 +121,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy3",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -142,12 +146,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"james",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -165,12 +171,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy4",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -188,12 +196,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy8",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -211,12 +221,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy7",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -234,12 +246,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy6",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -257,12 +271,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy9",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -280,12 +296,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy10",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -303,12 +321,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy13",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"
@@ -326,12 +346,14 @@
                  "name":"",
                  "properties":
                     {
+                     "npcName":"guy12",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":
                     {
+                     "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
                      "type":"string"

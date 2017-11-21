@@ -117,5 +117,3 @@ var playerStats = [
         nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp
     },
 ]
-
-console.log(playerStats);
