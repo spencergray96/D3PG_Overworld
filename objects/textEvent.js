@@ -15,6 +15,10 @@ class textEvent extends abstractObject {
         this.startText = false;
         this.text;
         this.continueIcon;
+        
+        //EVENT TRIGGER INDICATORS
+        this.event01part01 = false;
+        this.event01part02 = false;
 //        this.firstEventCheck = false;
         
         // Put the dialogue here. Eventually we need to put the dialogue somewhere else (JSON file?) and push it to this parameter   //
@@ -131,31 +135,33 @@ class textEvent extends abstractObject {
         }
     }
     
-//    goBackTest(){
-//        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
-//        this.checkEventFinish();
-//        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
-//        this.continueThing.fixedToCamera = true;           
-//    }
-//    
-//    testEvent(){
-//
-//        this.continueThing.destroy();
-//        this.game.camera.follow(NPCs[0], Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
-//        this.eraseText();
-//        this.game.time.events.add(Phaser.Timer.SECOND * 2,this.goBackTest, this);
-//    }
-    
     checkEventFinish(){
         if (eventTrigger){
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
                 
+                    console.log("eventTextNumber is: ", eventTextNumber);
+                    console.log("current NPC: ", currentNPC);
+                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
+                
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
-                    
                     // this is where actions for the events will be called //
-                    if (currentNPC.hismove.npcName == "firstEvent" && eventNumber == 0){
-                        this.testEvent();
+    //EVENT 1 PART 1                
+                    if (currentNPC.hismove.npcName == "firstEvent" && eventNumber == 0 && !this.event01part01){
+
+                        //first event
+                        this.event00();
+                        
+                        Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                        disableControls = true;
+                        
+                    }
+    //EVENT 1 PART 2
+                    if (currentNPC.hismove.npcName == "firstEvent" && eventNumber == 0 && this.event01part01){
+                        
+                        //first event
+                        this.event01();
+                        
                         Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
                         disableControls = true;
                     }
@@ -163,7 +169,6 @@ class textEvent extends abstractObject {
                 else{
                     disableControls = false;
                     eventTextNumber++;                     
-                    
                     this.showText();
                     
                     if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
@@ -176,7 +181,7 @@ class textEvent extends abstractObject {
                         this.textProfile.fixedToCamera = true;
 
                         this.isText = 1;
-                    }                    
+                    }
                 }
             }
             else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
@@ -184,7 +189,7 @@ class textEvent extends abstractObject {
                 eventNumber++;           
                                 
                 console.log("event number: " + eventNumber);
-                this.game.camera.follow(this.player);
+//                this.game.camera.follow(this.player);
                 
                 this.isText = 2;
                 this.eraseText();   
@@ -244,8 +249,9 @@ class textEvent extends abstractObject {
         }
         
         if(currentNPC == null){
-            console.log("lol it broke");
-        } 
+            console.log("lol it broke PENIS");
+        }
+        
         else if(currentNPC != null){
             if (this.letter <= this.person[this.lineState].length){
                 this.addLetters = this.person[this.lineState].substring(0,this.letter);
@@ -284,9 +290,11 @@ class textEvent extends abstractObject {
                         this.isText = 2;
                         this.continueIcon = false;
                         this.continueThing.destroy();
+                        
+                        this.event01part01 = true;
                     }
                 }
-            }        
+            }
         }
     }
     
@@ -296,7 +304,90 @@ class textEvent extends abstractObject {
             console.log(sprite);
             this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
             this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-        }     
+        }
+    }
+    
+//THE ACTUAL EVENTS
+    
+//goBackTest resets the game back to normal text interactions    
+    goBackTest(){
+//        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.1, 0.1);
+        this.checkEventFinish();
+        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+        this.continueThing.fixedToCamera = true;
+        
+        this.event01part01 = true;
+    }
+//EVENT 1 PART 1
+    event00(){
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "dov1"){
+                console.log("found event dov");
+                
+                this.targetNPC1 = NPCs[i];
+                this.targetNPC1.animations.play("up");
+                
+                this.targetNPC1.hismove.y2 = this.player.y + 128;
+                this.targetNPC1.hismove.walkingState = 4;
+            }
+            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "james1"){
+                console.log("found event james");
+                
+                this.targetNPC2 = NPCs[i];
+                this.targetNPC2.animations.play("up");
+                
+                this.targetNPC2.hismove.y2 = this.player.y + 128;
+                this.targetNPC2.hismove.walkingState = 4;
+            }
+        }
+        
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.05, 0.05);
+        this.eraseText();
+        
+        var that = this;
+        
+        var checkNPCposition = setInterval(function(){
+            if(Math.round(that.targetNPC1.y / 128) == Math.round(that.targetNPC1.hismove.y2 / 128)){
+                console.log("helloooooooo");
+                
+                that.game.time.events.add(Phaser.Timer.SECOND * 0.1,that.goBackTest, that);
+                
+                clearInterval(checkNPCposition);
+                console.log(eventNumber);
+                
+                
+            }
+            
+        }, 700);
+    }
+//EVENT 1 PART 2
+    event01(){
+        this.continueThing.destroy();
+        this.game.camera.fade('#000000');
+        this.game.camera.onFadeComplete.add(this.event01DestroyNPCs,this);
+        
+    }
+    
+    event01DestroyNPCs(){
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.eventNPC){
+                NPCs[i].x = 0;
+                NPCs[i].y = 0;
+                console.log(NPCs[i]);
+                NPCs[i].destroy();
+            }
+        }
+        this.eraseText();
+        this.game.camera.flash('#000000');
+        this.game.camera.follow(this.player);
+        disableControls = false;
+        
+        var that = this;
+        setTimeout(function(){
+            that.goBackTest();
+        }, 800);
     }
 }
 

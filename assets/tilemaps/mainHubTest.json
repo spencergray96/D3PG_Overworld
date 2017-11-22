@@ -43,7 +43,7 @@
                  "visible":true,
                  "width":128,
                  "x":5632,
-                 "y":6528
+                 "y":6784
                 }, 
                 {
                  "height":128,
@@ -139,7 +139,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"poop",
+                     "destination":"dorm",
                      "type":"door"
                     },
                  "propertytypes":
@@ -241,7 +241,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":6784,
+                 "x":6144,
                  "y":6016
                 }, 
                 {
@@ -250,6 +250,7 @@
                  "name":"",
                  "properties":
                     {
+                     "eventID":"raymond1",
                      "eventNPC":"true",
                      "sprite":"dov",
                      "spritesheet":"raymond_spritesheet",
@@ -257,6 +258,7 @@
                     },
                  "propertytypes":
                     {
+                     "eventID":"string",
                      "eventNPC":"string",
                      "sprite":"string",
                      "spritesheet":"string",
@@ -267,7 +269,99 @@
                  "visible":true,
                  "width":128,
                  "x":5760,
-                 "y":6528
+                 "y":6784
+                }, 
+                {
+                 "height":128,
+                 "id":15,
+                 "name":"",
+                 "properties":
+                    {
+                     "type":"playerStart"
+                    },
+                 "propertytypes":
+                    {
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6400,
+                 "y":6016
+                }, 
+                {
+                 "height":128,
+                 "id":16,
+                 "name":"",
+                 "properties":
+                    {
+                     "type":"playerStart"
+                    },
+                 "propertytypes":
+                    {
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6656,
+                 "y":6016
+                }, 
+                {
+                 "height":128,
+                 "id":19,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"dov1",
+                     "eventNPC":"true",
+                     "sprite":"dov",
+                     "spritesheet":"dov_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5632,
+                 "y":7424
+                }, 
+                {
+                 "height":128,
+                 "id":20,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"james1",
+                     "eventNPC":"true",
+                     "sprite":"dov",
+                     "spritesheet":"james_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5760,
+                 "y":7424
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -275,7 +369,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":15,
+ "nextobjectid":21,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

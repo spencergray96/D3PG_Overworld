@@ -1,12 +1,12 @@
 var theDialogue = {
     events:{
-        raminFirstContact:[                    
+        firstSpawnEvent:[
             
             {
                 profile:
                     "raymondCH",
                 txt:
-                    "Raymond: Did we totally just pass Dov and not pick him up?;;huh?",
+                    "Raymond: Did we totally just pass Dov and not pick him up?;;huh;;lmao what is up?",
                 event:""
 
             },
@@ -15,26 +15,54 @@ var theDialogue = {
                 profile:
                     "spencerCH",
                 txt:
-                    "Spencer: Yeah, lol;;We totally did.",
-                event:""
+                    "Spencer: Yeah, lol;;We totally did.;; new dialogue",
+                event:"action"
             },
             {
                 profile:
                     "raymondCH",
                 txt:
                     "Raymond: Sucks for him...;;Looks like he brought that James kid with him",
-                event:"end"
-            }            
-            
-        ],
-        jamesAfterRamin:[
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: What's up nerds?? DK is finally here to kick some tail;;haha;; this is the new part",
+                event:""
+            },
             {
                 profile:
                     "jamesCH",
                 txt:
-                    "This thing;;yeah2",
-                event: "end"
-            }            
+                    "James: Give me a break...",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Well, let's not waste any more time. Let's do what we came here to do",
+                event:"action"
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Woah... what just happened?",
+                event:"end"
+            }
+            
+        ],
+        secondSpawnEvent:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: this is the second event yeah?",
+                event:"end"
+            }          
         ]
     },
     defaults:{

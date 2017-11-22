@@ -635,11 +635,14 @@ class abstractLevel extends Phaser.State {
             
             NPCkey: i,
             npcName: element.npcName,
-            eventNPC: element.eventNPC
+            eventNPC: element.eventNPC,
+            
+            eventID: element.eventID
         }
         //making cinematic NPCs unable to move
         if(NPCs[i].hismove.eventNPC){
             NPCs[i].hismove.cantMove = true;
+            console.log(NPCs[i].hismove);
         }
         
         NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
