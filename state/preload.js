@@ -10,12 +10,7 @@ TopDownGame.Preload.prototype = {
         this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
         this.preloadBar.anchor.setTo(0.5);
 
-        this.load.setPreloadSprite(this.preloadBar);
-
-        //load game assets
-        this.load.tilemap("test", "/assets/tilemaps/test.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.tilemap("test2", "/assets/tilemaps/test2.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.tilemap("test3", "/assets/tilemaps/test3.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.setPreloadSprite(this.preloadBar);   
         
         //grid movement velocity testing
         this.load.tilemap("testtilepack", "/assets/tilemaps/testtilepack.json", null, Phaser.Tilemap.TILED_JSON);
@@ -23,7 +18,28 @@ TopDownGame.Preload.prototype = {
         
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
-        this.load.image("task13", "/assets/images/task13_copy.png");
+        this.load.image("task13", "/assets/images/task13.png");
+        
+        //sw03
+        this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("task14", "/assets/images/task14.png");
+        
+        //the Stand
+        this.load.tilemap("theStand", "/assets/tilemaps/stand.json", null, Phaser.Tilemap.TILED_JSON);
+        
+        //NE1
+        this.load.tilemap("NE1map", "/assets/tilemaps/NE1.json", null, Phaser.Tilemap.TILED_JSON);
+//        this.load.image("backgroundTiles", "/assets/images/background.png");
+        this.load.image("NE1", "/assets/images/NE1.png");
+        
+        //dorm
+        this.load.tilemap("dorm", "/assets/tilemaps/dorm.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("dormcopy", "/assets/images/dormcopy.png");
+        this.load.image("dorm2copy", "/assets/images/dorm2copy.png");
+        
+        //overworld test
+        this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
+        
         
         //TESTING 64
 //        this.load.tilemap("se14", "/assets/tilemaps/testing64/se14-64.json", null, Phaser.Tilemap.TILED_JSON);
@@ -34,13 +50,18 @@ TopDownGame.Preload.prototype = {
         this.load.image("dov", "/assets/characters/spritesheet/dove/dove-front-still.png");
         this.load.image("browndoor", "/assets/images/browndoor.png");
         
-        this.load.image("watermelon", "/assets/images/bluecup.png");
+        this.load.image("bluecup", "/assets/images/bluecup.png");
         
-        this.load.image("textBox", "/assets/ui/menuBar.png");
+        //ui
+        this.load.image("mainBox", "/assets/ui/containers/mainMenu-container.png");
+        this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
+        this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");
+        this.load.image("textBox", "/assets/ui/containers/textBox-container.png");
+        
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
-        this.load.image("hand-down", "/assets/ui/cursor-down.png");
-        this.load.image("hand-up", "/assets/ui/cursor-up.png");
+        this.load.image("hand-down", "/assets/ui/triangle-down.png");
+        this.load.image("hand-up", "/assets/ui/triangle-up.png");
         
         this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
         this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
@@ -54,8 +75,8 @@ TopDownGame.Preload.prototype = {
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
 
     },
-    create: function () {
+    create: function () {      
 
-        this.state.start("se14");
+        this.state.start("mainHub");
     }
 };

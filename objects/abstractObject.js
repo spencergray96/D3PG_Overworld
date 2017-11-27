@@ -13,13 +13,30 @@ class abstractObject {
         this.player = player;
 //        console.log("hello");
     }
-
-    createFromTiledObject(element, group) {
+    
+    createFromTiledObject(element, group, i) {
         var sprite = group.create(element.x, element.y, element.properties.sprite);
         //copy all properties to the sprite
         Object.keys(element.properties).forEach(function(key){
             sprite[key] = element.properties[key];
         });
+        
+    }
+    
+    createDoorsFromTiledObject(element, group, i) {
+        var sprite = group.create(element.x, element.y, element.properties.sprite);
+        //copy all properties to the sprite
+        Object.keys(element.properties).forEach(function(key){
+            sprite[key] = element.properties[key];
+        });
+        
+        doors[i] = this.game.add.sprite(element.x, element.y, element.spritesheet);
+        doors[i].coolProperties = {
+            xIndex: Math.round(element.x / 128),
+            yIndex: Math.round(element.y / 128),
+            destination: element.properties.destination,
+            from: element.properties.from
+        }
     }
 
     findObjectsByType(type, map, layer) {

@@ -75,6 +75,7 @@ var charInfoX = 230,
     charInfoY2Original = charInfoY2,
     charInfoY3Original = charInfoY3;
 var charInfoIncrement = 170;
+var objectiveXindent = 45;
 
 //selecting characters
 var selectingHandLeftIndent = 25,
@@ -91,6 +92,7 @@ var descY = characterHeady + 40;
 var arrowHandWidth = mainMenuHandWidth - 15;
 var arrowHandxIndent = 80;
 var arrowHandyIndent = 120;
+var arrowHandyIndentTOP = 200;
 
 var itemYseperation = 80;
 
@@ -106,11 +108,15 @@ var itemYoffset = 20;
 var itemListXindent = 80;
 var itemDescYindent = 50;
 
+var itemTitleBoxX = 20;
+var itemTitleBoxY = 15;
+var itemTitleBoxHeight = 60;
+var itemDescBoxY = 70;
+
 class pauseMenu extends abstractObject {
 
     constructor() {
         super();
-        console.log(objectives[0].objective);
     }
 
     createThis(game) {
@@ -120,7 +126,6 @@ class pauseMenu extends abstractObject {
         this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.backKey = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
-        console.log(this.spaceKey);
         
         this.characterFacesArr = [];
         this.characterNamesArr = [];
@@ -150,6 +155,15 @@ class pauseMenu extends abstractObject {
         };
         
         this.styleLONG = {
+            font: "16pt Final-Fantasy-36-Font",
+            fill: "#fff", 
+            align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
+            boundsAlignH: "left", 
+            boundsAlignV: "top", 
+            wordWrap: true, wordWrapWidth: 800
+        };
+        
+        this.styleLONG2 = {
             font: "18pt Final-Fantasy-36-Font",
             fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
@@ -170,7 +184,7 @@ class pauseMenu extends abstractObject {
         isPaused = true;
         
     //Pause Menu    
-        this.pauseMenu = this.game.add.image(0, 0, 'textBox');
+        this.pauseMenu = this.game.add.image(0, 0, 'mainBox');
         this.pauseMenu.fixedToCamera = true;
         this.pauseMenu.width = this.game.width;
         this.pauseMenu.height = this.game.height;
@@ -298,6 +312,8 @@ class pauseMenu extends abstractObject {
                 itemScreenOn = false;
                 this.itemsScreen.destroy();
                 this.itemsTitle.destroy();
+                this.itemTitleBox.destroy();
+                this.itemDescBox.destroy();
                 if(itemsArr.length > 0){
                     this.itemDescription.destroy();
                     this.itemsHand.destroy();
@@ -930,6 +946,8 @@ class pauseMenu extends abstractObject {
             this.itemsTitle.destroy();
             this.itemDescription.destroy();
             this.itemsHand.destroy();
+            this.itemTitleBox.destroy();
+            this.itemDescBox.destroy();
 
             for(var i = 0; i < visibleItems.length; i++){
                 visibleItems[i].destroy();
@@ -1050,10 +1068,14 @@ class pauseMenu extends abstractObject {
     itemsMenu(){
         
         itemScreenOn = true;
-        this.itemsScreen = this.game.add.image(0, 0, 'textBox');
+        this.itemsScreen = this.game.add.image(0, 0, 'mainBox');
         this.itemsScreen.fixedToCamera = true;
         this.itemsScreen.width = this.game.width;
         this.itemsScreen.height = this.game.height;
+        
+        this.itemTitleBox = this.game.add.image(itemTitleBoxX, itemTitleBoxY, 'singleBox');
+        this.itemTitleBox.fixedToCamera = true;
+        this.itemTitleBox.height = itemTitleBoxHeight;
         
         this.itemsTitle = this.game.add.text(characterHeadx, headerY, "ITEMS", this.styleHeader);
         this.itemsTitle.fixedToCamera = true;
@@ -1091,6 +1113,11 @@ class pauseMenu extends abstractObject {
                     cursorPosItems--;
                 }
             }
+            
+            this.itemDescBox = this.game.add.image(0, itemDescBoxY, "longBox");
+            this.itemDescBox.fixedToCamera = true;
+//            this.itemDescBox.height = itemTitleBoxHeight;
+            
             this.itemDescription = this.game.add.text(characterHeadx, (headerY + itemDescYindent), itemsArr[cursorPosItems].description, this.styleHeader);
             this.itemDescription.fixedToCamera = true;
         }
@@ -1112,7 +1139,7 @@ class pauseMenu extends abstractObject {
         
         if(itemsArr[0] != selectableItems[0]){
             if(!uphandExists){
-                this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndent, "hand-up");
+                this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndentTOP, "hand-up");
                 this.uphand.smoothed = false;
                 this.uphand.width = arrowHandWidth;
                 this.uphand.height = mainMenuHandWidth;
@@ -1245,7 +1272,7 @@ class pauseMenu extends abstractObject {
             
             if(itemsArr[0] != selectableItems[0]){
                 if(!uphandExists){
-                    this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndent, "hand-up");
+                    this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndentTOP, "hand-up");
                     this.uphand.smoothed = false;
                     this.uphand.width = arrowHandWidth;
                     this.uphand.height = mainMenuHandWidth;
@@ -1332,12 +1359,16 @@ class pauseMenu extends abstractObject {
     //Objective
     
     printObjective(){
-        this.objective = this.game.add.text(15, headerY, objectives[gameChapter].objective, this.styleLONG);
+        this.objectiveBox = this.game.add.image(0, 10, "longBox");
+        this.objectiveBox.height = 60;
+        this.objectiveBox.fixedToCamera = true;
+        this.objective = this.game.add.text(objectiveXindent, headerY, objectives[gameChapter].objective, this.styleLONG);
         this.objective.fixedToCamera = true;
     }
     
     destroyObjective(){
         this.objective.destroy();
+        this.objectiveBox.destroy();
     }
     
     //Status
@@ -1375,7 +1406,7 @@ class pauseMenu extends abstractObject {
         selectedCharToViewStatus = playerStats[cursorPosSelectingCharsToViewStatus];
         console.log("selected char is: ", selectedCharToViewStatus);
         
-        this.itemsScreen = this.game.add.image(0, 0, 'textBox');
+        this.itemsScreen = this.game.add.image(0, 0, 'mainBox');
         this.itemsScreen.fixedToCamera = true;
         this.itemsScreen.width = this.game.width;
         this.itemsScreen.height = this.game.height;
@@ -1436,7 +1467,7 @@ class pauseMenu extends abstractObject {
         this.newevasion.fixedToCamera = true;
         tempDisplayArray.push(this.newevasion);
         
-        this.newSpecDesc = this.game.add.text(characterHeadx, 720, "Special attack: " + (selectedCharToViewStatus.specDesc), this.styleLONG);
+        this.newSpecDesc = this.game.add.text(characterHeadx, 720, "Special attack: " + (selectedCharToViewStatus.specDesc), this.styleLONG2);
         this.newSpecDesc.fixedToCamera = true;
         tempDisplayArray.push(this.newSpecDesc);
         
