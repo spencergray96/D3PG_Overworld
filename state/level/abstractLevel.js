@@ -73,6 +73,9 @@ class abstractLevel extends Phaser.State {
         this.game = this.getGame().game;
         this.cursors = this.game.input.keyboard.createCursorKeys();
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        
+        this.ctrlKey = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL)
+        
         this.generateMap();
         this.generatePlayer();
 
@@ -135,6 +138,11 @@ class abstractLevel extends Phaser.State {
         this.player.animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
         this.player.animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
         this.player.animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+        
+        this.player.animations.add("fastleft", [6, 8, 7, 8], walkingAnimFPS*2, true);
+        this.player.animations.add("fastright", [9, 11, 10, 11], walkingAnimFPS*2, true);
+        this.player.animations.add("fastup", [0, 2, 1, 2], walkingAnimFPS*2, true);
+        this.player.animations.add("fastdown", [3, 5, 4, 5], walkingAnimFPS*2, true);
         
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -246,9 +254,20 @@ class abstractLevel extends Phaser.State {
                 }
             }
         }
+        
+        this.checkForRunning();
+        this.player.mymove.speed = playerSpeed;
     }
 
-
+    checkForRunning(){
+        if(this.ctrlKey.isDown && eventNumber > 6){
+            console.log("hello");
+            playerSpeed = 720;
+        } else if(this.ctrlKey.isUp){
+            playerSpeed = 360;
+        }
+    }
+    
     playerMoveX(isDown){
         if(isDown){
             if(Math.round(this.player.x) < (this.player.mymove.x2)){
@@ -370,7 +389,12 @@ class abstractLevel extends Phaser.State {
                         if(!hitNPC){
                             this.player.mymove.state = 4;
                             this.player.mymove.y2 = Math.floor(this.player.mymove.y) - 128;
-                            this.player.animations.play("up");
+                            
+                            if(this.ctrlKey.isDown){
+                                this.player.animations.play("fastup");
+                            } else {
+                                this.player.animations.play("up");
+                            }
                         }
                     } else {
                         lastWalkingDirection = "up";
@@ -405,7 +429,12 @@ class abstractLevel extends Phaser.State {
                         if(!hitNPC){
                             this.player.mymove.state = 3;
                             this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 128;
-                            this.player.animations.play("down");
+                            
+                            if(this.ctrlKey.isDown){
+                                this.player.animations.play("fastdown");
+                            } else {
+                                this.player.animations.play("down");
+                            }
                         }
                     } else {
                         lastWalkingDirection = "down";
@@ -440,7 +469,12 @@ class abstractLevel extends Phaser.State {
                         if(!hitNPC){
                             this.player.mymove.state = 2;
                             this.player.mymove.x2 = Math.floor(this.player.mymove.x) - 128;
-                            this.player.animations.play("left");
+                            
+                            if(this.ctrlKey.isDown){
+                                this.player.animations.play("fastleft");
+                            } else {
+                                this.player.animations.play("left");
+                            }
                         }
                     } else {
                         lastWalkingDirection = "left";
@@ -475,7 +509,12 @@ class abstractLevel extends Phaser.State {
                         if(!hitNPC){
                             this.player.mymove.state = 1;
                             this.player.mymove.x2 = Math.floor(this.player.mymove.x) + 128;
-                            this.player.animations.play("right");
+                            
+                            if(this.ctrlKey.isDown){
+                                this.player.animations.play("fastright");
+                            } else {
+                                this.player.animations.play("right");
+                            }
                         }
                     } else {
                         lastWalkingDirection = "right";
@@ -639,10 +678,22 @@ class abstractLevel extends Phaser.State {
             NPCs[i].hismove.cantMove = true;
         }
         
-        NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
-        NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
-        NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
-        NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+        if(NPCs[i].hismove.eventID == "se6note"){
+            NPCs[i].hismove.cantMove = true;
+        }
+        
+        if(NPCs[i].hismove.eventID == "se6note" && eventNumber > noteProcurement){
+            NPCs[i].x = 0;
+            NPCs[i].y = 0;
+            NPCs[i].destroy();
+        }
+        
+        if(NPCs[i].hismove.eventID != "se6note"){
+            NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
+            NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
+            NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
+            NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+        }
 
 
         this.game.physics.arcade.enable(NPCs[i]);

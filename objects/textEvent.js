@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 3;
+var eventNumber = 8;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -12,6 +12,8 @@ var isEventing = false;
 
 var raminFirstSpawn = 5;
 var raminSpawnedse14 = false;
+
+var noteProcurement = 8;
 
 class textEvent extends abstractObject {
     
@@ -73,7 +75,12 @@ class textEvent extends abstractObject {
     
     staticEvents(){
 //event 0        
-        if(eventNumber == 0 && currentNPC.hismove.npcName == "firstEvent" && !eventTrigger){
+        if(eventNumber == 0 && !eventTrigger){
+            
+            eventObject.hismove.npcName = 'firstEvent';
+            
+            currentNPC = eventObject
+            
             this.callEvent("firstEvent", 0);
             isEventing = true;
         }
@@ -133,6 +140,20 @@ class textEvent extends abstractObject {
         if(eventNumber == 6 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "sixthEvent"){
                     this.callEvent("sixthEvent", 6);
+                    isEventing = true;
+            }
+        }
+//event 7
+        if(eventNumber == 7 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "seventhEvent"){
+                    this.callEvent("seventhEvent", 7);
+                    isEventing = true;
+            }
+        }
+//event 8
+        if(eventNumber == 8 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "se6note"){
+                    this.callEvent("se6note", 8);
                     isEventing = true;
             }
         }
@@ -222,6 +243,12 @@ class textEvent extends abstractObject {
                             break;
                         case 6:
                             this.event6switch();
+                            break;
+                        case 7:
+                            this.event7switch();
+                            break;
+                        case 8:
+                            this.event8switch();
                             break;
                     }
                         
@@ -366,6 +393,25 @@ class textEvent extends abstractObject {
         }
     }
     
+    event7switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event7s0();
+                break;
+            case 1:
+                this.event7s1();
+                break;
+        }
+    }
+    
+    event8switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event8s0();
+                break;
+        }
+    }
+    
 //end of EVENT SWITCH STATEMENTS    
     showText() {
         if(!this.startText){
@@ -441,8 +487,10 @@ class textEvent extends abstractObject {
                         eventTextNumber = 0;
                         this.lineState = 0;
                         this.isText = 2;
-                        this.continueIcon = false;
-                        this.continueThing.destroy();
+                        if(this.continueIcon){
+                            this.continueIcon = false;
+                            this.continueThing.destroy();
+                        }
                     }
                 }
             }
@@ -685,18 +733,49 @@ class textEvent extends abstractObject {
             this.targetNPC1.hismove.y2 = this.targetNPC1.hismove.y;
             this.targetNPC1 = null;
         }, this);
+    }
+    
+    event7s0(){
+        this.eraseText();
+        this.continueThing.destroy();
         
-//        var that = this;
+        for(var i = 0; i < walkablesArr.length - 1; i++){
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "se6camera"){
+                this.targetNPC1 = walkablesArr[i];       
+            }
+        }
         
-//        var checkNPCposition = setInterval(function(){
-//            if(Math.round(that.targetNPC1.y / 128) == Math.round(that.targetNPC1.hismove.y2 / 128)){
-//                
-//                that.targetNPC1.x = that.targetNPC1.hismove.originalX;
-//                that.targetNPC1.y = that.targetNPC1.hismove.originalY;
-//                that.targetNPC1 = null;
-//                clearInterval(checkNPCposition);
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.025, 0.025);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.8, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event7s1(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.7, function(){
+            this.game.camera.flash('#000000');
+            this.game.camera.follow(this.player);
+            this.goBackTest();
+        }, this);
+    }
+    
+    event8s0(){
+        this.continueThing.destroy();
+//        for(var i = 0; i < NPCs.length - 1; i++){
+//            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "se6note"){
+////                NPCs[i].x = 0;
+////                NPCs[i].y = 0;
 //            }
-//        }, 1);
+//        }
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+//        this.goBackTest();
     }
 }
 

@@ -33,7 +33,6 @@ class walkables extends abstractObject {
     checkForWalkOver(game){
         for(var i = 0; i < walkablesArr.length - 1; i++){
             if(Math.round(this.player.x / 128) == walkablesArr[i].coolProperties.xIndex && Math.round(this.player.y / 128) == walkablesArr[i].coolProperties.yIndex){
-                
                 if(!eventTrigger && walkablesArr[i].coolProperties.eventID == "se6Blocker" && eventNumber < se6OPEN){
                     this.blockedAreaEvent();
                 }
@@ -48,6 +47,10 @@ class walkables extends abstractObject {
                             break;
                         case 6:
                             this.walkingEvent6s0();
+                            break;
+                        case 7:
+                            this.walkingEvent7s0();
+                            break;
                     }
                 }
             }
@@ -85,6 +88,15 @@ class walkables extends abstractObject {
         if(!testTrigger){
             testTrigger = true;
             eventObject.hismove.npcName = 'sixthEvent';
+
+            currentNPC = eventObject;
+        }
+    }
+    
+    walkingEvent7s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = 'seventhEvent';
 
             currentNPC = eventObject;
         }

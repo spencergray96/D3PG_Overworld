@@ -112,6 +112,79 @@
                  "width":128,
                  "x":6656,
                  "y":6656
+                }, 
+                {
+                 "height":128,
+                 "id":5,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"se6note",
+                     "eventNPC":"true",
+                     "npcName":"se6note",
+                     "sprite":"dov",
+                     "spritesheet":"james_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6656,
+                 "y":6016
+                }, 
+                {
+                 "height":128,
+                 "id":7,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"se6camera",
+                     "eventNPC":"true",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6784,
+                 "y":5632
+                }, 
+                {
+                 "height":128,
+                 "id":9,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6656,
+                 "y":6400
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -141,7 +214,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":4,
+ "nextobjectid":10,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

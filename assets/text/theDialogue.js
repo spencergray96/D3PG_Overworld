@@ -269,6 +269,54 @@ var theDialogue = {
                 event:"end"
             },
         ],
+//enter Galynas office        
+        galynaWalkingProc:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Cool. Never been here before;;Wait... what is that?",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer:ahhahaha",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: creepy",
+                event:"action"
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: ice cream cake nannanna",
+                event:"end"
+            },
+        ],
+//picking up the note        
+        grabNote:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: found the note!",
+                event:"action"
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: alright let's get outa here",
+                event:"end"
+            },
+        ],
 //leave this empty event here, trust me        
         emptyEvent:[
         ],
@@ -521,7 +569,17 @@ var theDialogue = {
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
             }
-        }  
+        },
+        se6note:{
+            profile:
+                "raymondCH",
+            txt:{
+                0:"guy20;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        }
     }
 }
 
