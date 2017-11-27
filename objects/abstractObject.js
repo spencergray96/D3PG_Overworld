@@ -37,6 +37,23 @@ class abstractObject {
             destination: element.properties.destination
         }
     }
+    
+    createWalksFromTiledObject(element, group, i) {
+        var sprite = group.create(element.x, element.y, element.properties.sprite);
+        //copy all properties to the sprite
+        Object.keys(element.properties).forEach(function(key){
+            sprite[key] = element.properties[key];
+        });
+        
+        walkablesArr[i] = this.game.add.sprite(element.x, element.y, element.spritesheet);
+        walkablesArr[i].coolProperties = {
+            xIndex: Math.round(element.x / 128),
+            yIndex: Math.round(element.y / 128),
+            eventID: element.properties.eventID,
+            eventNPC: element.properties.eventNPC,
+            type: element.properties.type
+        }
+    }
 
     findObjectsByType(type, map, layer) {
         var result = [];

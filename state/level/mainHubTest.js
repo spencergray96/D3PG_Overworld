@@ -30,7 +30,8 @@ class mainHub extends abstractLevel {
             new door(),
             new spawn(),
             new pauseMenu(),
-            new textEvent()
+            new walkables(),
+            new textEvent(),
         ]
     }
 

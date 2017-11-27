@@ -1,42 +1,42 @@
 var theDialogue = {
     events:{
+//spawn event        
         firstSpawnEvent:[
             
             {
                 profile:
                     "raymondCH",
                 txt:
-                    "Raymond: Did we totally just pass Dov and not pick him up?;;huh;;lmao what is up?",
+                    "Raymond: Did we totally just pass Dov and not pick him up?;;huh",
                 event:""
 
             },
-            
             {
                 profile:
                     "spencerCH",
                 txt:
-                    "Spencer: Yeah, lol;;We totally did.;; new dialogue",
+                    "Spencer: Yeah, lol",
                 event:"action"
             },
-            {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: Sucks for him...;;Looks like he brought that James kid with him",
-                event:""
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: What's up nerds?? DK is finally here to kick some tail;;haha;; this is the new part",
-                event:""
-            },
+//            {
+//                profile:
+//                    "raymondCH",
+//                txt:
+//                    "Raymond: Sucks for him...",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: What's up nerds?? DK is finally here to kick some tail",
+//                event:""
+//            },
             {
                 profile:
                     "jamesCH",
                 txt:
-                    "James: Give me a break...",
+                    "James: It's Thrus",
                 event:""
             },
             {
@@ -46,25 +46,271 @@ var theDialogue = {
                     "Spencer: Well, let's not waste any more time. Let's do what we came here to do",
                 event:"action"
             },
+//            {
+//                profile:
+//                    "jamesCH",
+//                txt:
+//                    "James: first",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "raymondCH",
+//                txt:
+//                    "Raymond: Oh baby...",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "spencerCH",
+//                txt:
+//                    "Spencer: Yeah... Looks like it...",
+//                event:""
+//            },
             {
                 profile:
-                    "jamesCH",
+                    "dovCH",
                 txt:
-                    "James: Woah... what just happened?",
+                    "Dov: Gross. Whatever. Let's just go find Ramin in SE14",
                 event:"end"
             }
             
         ],
+//first tremor event        
         secondSpawnEvent:[
             {
                 profile:
                     "jamesCH",
                 txt:
-                    "James: this is the second event yeah?",
+                    "James: Wha-? Do you guys hear that?",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: THAT REALLY MAKES SENSE, MR. BEN",
                 event:"end"
-            }          
-        ]
+            }      
+        ],
+//arrive at se14        
+        thirdEvent:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: There she is...",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Oh baby...",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: 666",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: I never thought I'd be back...",
+                event:"action"
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: filler text",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ching chang chong;;something",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Well, let's keep going and see what happens",
+                event:"end"
+            },
+        ],
+//talk to henry first time to find ramin     
+        henryEvent:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: What's up guys?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: You know where Ramin is? We need to talk to him",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: I think he was in the meeting room, you should ask someone there",
+                event:"end"
+            },
+        ],
+//talk to guy in meeting room
+        meetingRoom:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "GUY69: IM THE GU YOU NEED TO TALK TO",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: You look like DOV!!",
+                event:"action"
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "GUY69: BLAH BLAH BLAH BLAH",
+                event:"end"
+            },
+        ],
+//first Ramin conversation
+        ramin01:[
+            {
+                profile:
+                    "",
+                txt:
+                    "ramin: ramin speak 01",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: NANI??",
+                event:"end"
+            },
+        ],
+//running shoes from henry!
+        henry01:[
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: huh?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: what the heck?",
+                event:"action"
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: I almost forgot! I want you guys to have these...;;Here take them",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Your shoes? Gross.",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: Yeah but they get the job done. Hold the CTRL button to run!!",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: whaaaaaatttt",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Not sure what he mean by 'hold the CTRL button'... it's not like we're at a computer",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: whatever dude",
+                event:"end"
+            },
+        ],
+//leave this empty event here, trust me        
+        emptyEvent:[
+        ],
+//blocking event        
+        blockEvent:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: we shouldn't be here",
+                event:"action"
+
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "fudge",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "im a huge nerd",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "We know",
+                event:"end"
+            },
+        ],
     },
+    
+    
+    
+    
+    
+    
     defaults:{
         ramin:{
             profile:
@@ -80,7 +326,7 @@ var theDialogue = {
             profile:
                 "jamesCH",            
             txt:{
-                0:"guy2;;blah;;blah",
+                0:"guy2",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
@@ -256,16 +502,26 @@ var theDialogue = {
                 10:"blah;;blah;;blah"
             }
         },
-        guy20:{
+        henry:{
             profile:
-                "dovCH",            
+                "",            
+            txt:{
+                0:"henry;;blah;;blah",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        guy69:{
+            profile:
+                "jamesCH",            
             txt:{
                 0:"guy20;;blah;;blah",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
             }
-        }        
+        }  
     }
 }
 

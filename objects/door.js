@@ -13,6 +13,7 @@ class door extends abstractObject {
     }
 
     createThis(game) {
+        console.log("fucking doors and shit");
         super.createThis(game);
         disableControls = false;
         doors = [];
@@ -20,9 +21,9 @@ class door extends abstractObject {
         game.camera.flash('#000000');
         this.doors            = this.game.add.group();
         this.doors.enableBody = true;
-        var result            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
+        var doorResult            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
         var i = 0;
-        result.forEach(function (element) {
+        doorResult.forEach(function (element) {
             this.createDoorsFromTiledObject(element, this.doors, i);
             doors.push(element);
             console.log(doors[i].coolProperties);

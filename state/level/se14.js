@@ -29,7 +29,8 @@ class se14 extends abstractLevel {
             new door(),
             new spawn(),
             new textEvent(),
-            new pauseMenu()
+            new pauseMenu(),
+            new walkables()
         ]
     }
 

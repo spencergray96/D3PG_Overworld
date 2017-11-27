@@ -44,6 +44,7 @@ var RNGaboveThisNumberToMove = 900;
 var delayOnMovingAgain = 1000;
 
 var NPCindex = 0;
+var NPCvelocity = 240;
 
 //starting character Frame
 var startingCharFrame = 5;
@@ -117,24 +118,24 @@ class abstractLevel extends Phaser.State {
             if (doorDes.from == 1){
                 this.player = this.game.add.sprite(result[0].x, result[0].y, 'spencer_spritesheet');
                 
-                console.log("came from theStart");
-                console.log(doorDes.from);
+//                console.log("came from theStart");
+//                console.log(doorDes.from);
             }
             if (doorDes.from == 2){
                 this.player = this.game.add.sprite(result[1].x, result[1].y, 'spencer_spritesheet');
                 
-                console.log("second door");
-                console.log(doorDes.from);
+//                console.log("second door");
+//                console.log(doorDes.from);
             }
         }
         else {
             this.player = this.game.add.sprite(result[0].x, result[0].y, playerSpriteSheet);
             
-            if(!firstEventCheck){
+            if(eventNumber == 0){
                 eventObject.hismove.npcName = 'firstEvent';
 
                 currentNPC = eventObject;
-                console.log(currentNPC);
+//                console.log(currentNPC);
             }
 
 //            this.game.world.addAt(this.player, 3);
@@ -264,40 +265,44 @@ class abstractLevel extends Phaser.State {
 
     playerMoveX(isDown){
         if(isDown){
-            if(Math.floor(this.player.x) < (this.player.mymove.x2)){
+            if(Math.round(this.player.x) < (this.player.mymove.x2)){
                 this.player.body.velocity.x = this.player.mymove.speed;
             } else {
                 this.player.body.velocity.x = 0;
                 this.player.mymove.x = this.player.mymove.x2;
-                this.player.x = this.player.mymove.x2 - movementOffset;
+//                this.player.x = this.player.mymove.x2 - movementOffset;
                 this.player.mymove.state = 0;
                 
 //                console.log(this.player.world);
 //                console.log("x right: " + ((this.player.x + 128) / 128) + ", y above: " + yUpdatingAbove + ", y below: " + yUpdatingBelow);
                 
-                xCurrent = Math.floor((this.player.x / 128));
+                xCurrent = Math.round((this.player.x / 128));
                 
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
+                
+                testTrigger = false;
             }
             lastWalkingDirection = "right";
 
         } else {
-            if(Math.floor(this.player.x) > (this.player.mymove.x2)){
+            if(Math.round(this.player.x) > (this.player.mymove.x2)){
                 this.player.body.velocity.x = this.player.mymove.speed*-1;
             } else {
                 this.player.body.velocity.x = 0;
                 this.player.mymove.x = this.player.mymove.x2;
-                this.player.x = this.player.mymove.x2 + movementOffset;
+//                this.player.x = this.player.mymove.x2 + movementOffset;
                 this.player.mymove.state = 0;
                 
 //                console.log(this.player.world);
 //                console.log("x left: " + ((this.player.x - 128) / 128) + ", y above: " + yUpdatingAbove + ", y below: " + yUpdatingBelow);
                 
-                xCurrent = Math.floor((this.player.x / 128));
+                xCurrent = Math.round((this.player.x / 128));
                 
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
+                
+                testTrigger = false;
             }
             lastWalkingDirection = "left";
 
@@ -306,40 +311,44 @@ class abstractLevel extends Phaser.State {
     
     playerMoveY(isDown){
         if(isDown){
-            if(Math.floor(this.player.y) < (this.player.mymove.y2)){
+            if(Math.round(this.player.y) < (this.player.mymove.y2)){
                 this.player.body.velocity.y = this.player.mymove.speed;
             } else {
                 this.player.body.velocity.y = 0;
                 this.player.mymove.y = this.player.mymove.y2;
-                this.player.y = this.player.mymove.y2 - movementOffset;
+//                this.player.y = this.player.mymove.y2 - movementOffset;
                 this.player.mymove.state = 0;
                 
 //                console.log(this.player.world);
 //                console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y below: " + ((this.player.y + 128) / 128));
                 
-                yCurrent = Math.floor((this.player.y / 128));
+                yCurrent = Math.round((this.player.y / 128));
                 
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
+                
+                testTrigger = false;
             }
             lastWalkingDirection = "down";
 
         } else {
-            if(Math.floor(this.player.y) > (this.player.mymove.y2)){
+            if(Math.round(this.player.y) > (this.player.mymove.y2)){
                 this.player.body.velocity.y = this.player.mymove.speed*-1;
             } else {
                 this.player.body.velocity.y = 0;
                 this.player.mymove.y = this.player.mymove.y2;
-                this.player.y = this.player.mymove.y2 + movementOffset;
+//                this.player.y = this.player.mymove.y2 + movementOffset;
                 this.player.mymove.state = 0;
                 
 //                console.log(this.player.world);
 //                console.log("x left: " + xUpdatingLeft + ", x right: " + xUpdatingRight + ", y above: " + ((this.player.y - 128) / 128));
                 
-                yCurrent = Math.floor((this.player.y / 128));
+                yCurrent = Math.round((this.player.y / 128));
                 
                 this.player.animations.stop();
                 this.setSpriteDirectionAfterWalking();
+                
+                testTrigger = false;
             }
             lastWalkingDirection = "up";
 
@@ -640,9 +649,8 @@ class abstractLevel extends Phaser.State {
             eventID: element.eventID
         }
         //making cinematic NPCs unable to move
-        if(NPCs[i].hismove.eventNPC){
+        if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
             NPCs[i].hismove.cantMove = true;
-            console.log(NPCs[i].hismove);
         }
         
         NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
@@ -650,9 +658,27 @@ class abstractLevel extends Phaser.State {
         NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
         NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
 
-//        console.log(NPCs[i].hismove);
 
         this.game.physics.arcade.enable(NPCs[i]);
+//PREVENTING EVENT NPCS FROM SPAWNING
+        if(eventNumber > 0){
+            for(var i = 0; i < NPCs.length - 1; i++){
+            
+                if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+                    NPCs[i].destroy();
+                }
+            }
+        }
+        
+        if(eventNumber < 5){
+                if(NPCs[i].hismove.npcName == "ramin"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+                }
+        }
+        
     }
     
     tryToMakeNPCsMove(randomNumber, randomNPC, randomDirection, positiveOrNegative){
@@ -721,11 +747,11 @@ class abstractLevel extends Phaser.State {
                             }
                             if((Math.round(this.player.mymove.x2) / 128) == thisNPCsXValue && (Math.round(this.player.y / 128)) == thisNPCsYValue){
                                 NPCs[randomNPC].hismove.cantMove = true;
-                                console.log("tried to move onto player");
+//                                console.log("tried to move onto player");
                             }
                             if((Math.round(this.player.mymove.y2 / 128) == thisNPCsYValue) && (Math.round(this.player.x / 128) == thisNPCsXValue)){
                                 NPCs[randomNPC].hismove.cantMove = true;
-                                console.log("tried to move onto player v2");
+//                                console.log("tried to move onto player v2");
                             }
                             for(var i = 0; i < NPCs.length - 1; i++){
                                 if((Math.round(NPCs[i].x / 128) == thisNPCsXValue) && (Math.round(NPCs[i].y / 128) == thisNPCsYValue)){
@@ -760,7 +786,7 @@ class abstractLevel extends Phaser.State {
     NPCmoveX(isDown, i){
         if(isDown){
             if(Math.round(NPCs[i].x) < (NPCs[i].hismove.x2)){
-                NPCs[i].body.velocity.x = 240;
+                NPCs[i].body.velocity.x = NPCvelocity;
             } else {
                 NPCs[i].body.velocity.x = 0;
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
@@ -775,7 +801,7 @@ class abstractLevel extends Phaser.State {
 
         } else {
             if(Math.round(NPCs[i].x) > (NPCs[i].hismove.x2)){
-                NPCs[i].body.velocity.x = 240*-1;
+                NPCs[i].body.velocity.x = NPCvelocity*-1;
             } else {
                 NPCs[i].body.velocity.x = 0;
                 NPCs[i].hismove.x = NPCs[i].hismove.x2;
@@ -794,7 +820,7 @@ class abstractLevel extends Phaser.State {
     NPCmoveY(isDown, i){
         if(isDown){
             if(Math.round(NPCs[i].y) < (NPCs[i].hismove.y2)){
-                NPCs[i].body.velocity.y = 240;
+                NPCs[i].body.velocity.y = NPCvelocity;
             } else {
                 NPCs[i].body.velocity.y = 0;
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
@@ -809,7 +835,7 @@ class abstractLevel extends Phaser.State {
 
         } else {
             if(Math.round(NPCs[i].y) > (NPCs[i].hismove.y2)){
-                NPCs[i].body.velocity.y = 240*-1;
+                NPCs[i].body.velocity.y = NPCvelocity*-1;
             } else {
                 NPCs[i].body.velocity.y = 0;
                 NPCs[i].hismove.y = NPCs[i].hismove.y2;
