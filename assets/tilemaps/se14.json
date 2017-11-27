@@ -65,7 +65,7 @@
                  "visible":true,
                  "width":128,
                  "x":5504,
-                 "y":11392
+                 "y":11648
                 }, 
                 {
                  "height":128,
@@ -347,11 +347,13 @@
                  "properties":
                     {
                      "destination":"mainHub",
+                     "from":"se14",
                      "type":"door"
                     },
                  "propertytypes":
                     {
                      "destination":"string",
+                     "from":"string",
                      "type":"string"
                     },
                  "rotation":0,

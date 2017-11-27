@@ -67,6 +67,9 @@ class door extends abstractObject {
             case "sw03":
                 TopDownGame.game.state.start('sw03');
                 break;
+            case "dorm":
+                TopDownGame.game.state.start('dorm');
+                break;
             case "mainHub":
                 doorDes.theDestination = "mainHub ";
                 from: null
