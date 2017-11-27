@@ -34,7 +34,8 @@ class abstractObject {
         doors[i].coolProperties = {
             xIndex: Math.round(element.x / 128),
             yIndex: Math.round(element.y / 128),
-            destination: element.properties.destination
+            destination: element.properties.destination,
+            from: element.properties.from
         }
     }
 
