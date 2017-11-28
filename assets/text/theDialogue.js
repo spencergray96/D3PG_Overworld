@@ -317,7 +317,545 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//leave this empty event here, trust me        
+//talking to galyna
+        galynaConvo:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Galyna: it is nothing to do with my grammar",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Lights please",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Okay but its not what I wanted",
+                event:"end"
+            },
+        ],
+//after beating galyna
+        galynaConvo2:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Galyna: argh",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;Okay",
+                event:"end"
+            },
+        ],
+//return to Ramin after beating Galyna
+        raminConvoPostGalyna:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Ramin: well done defeating Galyna",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Aye... give us those letters now ya?",
+                event:"end"
+            },
+        ],
+//first talk to aaron
+        arronFirstConvo:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Arron: u wanna learn php lol?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: yah man",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Arron: k then, go get my lamp from NE1 thanks lol",
+                event:"end"
+            },
+        ],
+//enter NE1
+        enterNE1:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "DOV: come get some",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: yah man",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: nice",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: part2",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: end part 2",
+                event:"end"
+            },
+        ],
+//finding the lamp
+        findTheLamp:[
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Here it is",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Here it is",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: break please",
+                event:"end"
+            },
+        ],
+//first talk to aaron
+        arronSecondConvo:[
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: we got the lamp dude",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Arron: scrubs!! let's fight!",
+                event:"action"
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: starting to notice a pattern haha... i just want a break",
+                event:"end"
+            },
+        ],
+//arron post fight
+        arronPostFight:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Arron: ahh you have bested me;;...;;... ...;;... ... ...",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: ha got em",
+                event:"end"
+            },
+        ],
+//ramin after arron
+        raminPostArron:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Ramin: you cheeky scrubs!! gratz on sick hackzorz skillz",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: bruh",
+                event:"end"
+            },
+        ],
+//first daemon talk
+        firstDaemonEncounter:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Instructor: etc etc only if James hands in his assignment",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: maaaaaaaaaaan",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ding dang dong",
+                event:"end"
+            },
+        ],
+//computer
+        interactingSE14computer:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: I can't believe this is still on. It's been 3 months",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Almost as long as the air conditioning in 121...",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Looks like we need a USB stick. Let's go to James' dorm room",
+                event:"end"
+            },
+        ],
+//walk outside se14 and go to dorm
+        leavingSE14goingToDorms:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Well let's not waste any time",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: For once I agree with you",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: i really hope this works",
+                event:"end"
+            },
+        ],
+//walking into james' dorm
+        enteringDormFirstTime:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Well here we are",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: nice poster dude",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: thanks bro;;We should check out the computer, I think the usb should be there",
+                event:"end"
+            },
+        ],
+//using james' computer
+        jamesComputer:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Well here is the USB",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: USB USB USB USB USB USB USB USB",
+                event:"end"
+            },
+        ],
+//grabbing the file for daemon
+        se14computerRound2:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Finally. let's get the file on here",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: USB USB USB USB USB USB USB USB",
+                event:"end"
+            },
+        ],
+//submitting the file to daemon and fighting him
+        aboutToFightDaemon:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Daemon: ah thank you for finally submitting the file",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: yah whatever dood",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: wowow owo wo ow owwo uwu",
+                event:"end"
+            },
+        ],
+//done fighint daemon
+        doneFightingDaemon:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Daemon: i would have gotten away with it too, if it weren't for you damn kids",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: lol get fudged",
+                event:"end"
+            },
+        ],
+//talk to henry after beating all 3 bosses
+        speakToHenryAfterAll3bossesDefeated:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: welcome back guys",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: do you konw where ramin went??",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: I can tell you... but first you must become stronger;;you must gather the 4 thingies for me",
+                event:"end"
+            },
+        ],
+//gathering stuff for henry
+        //talk to jessie
+        jessieMicrowave:[
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: can we take this microwave",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Jessie: no no no no no no no no no",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: pleeease",
+                event:"action"
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Jessie: ok here you go lol make this dialogue longer please",
+                event:"end"
+            },
+        ],
+        //talk to jakub
+        jakubNachos:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Jakub: this is jakub's event",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Interesting",
+                event:"end"
+            },
+        ],
+        //finding the laptop
+        henryslaptop:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: here it is boys",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: nice",
+                event:"end"
+            },
+        ],
+        //finding the kettle
+        henryskettle:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: oh baby",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: nice nice nice nice nice nice",
+                event:"end"
+            },
+        ],
+//empty henry event, trust me, leave this here
+        ohHenry:[
+        ],
+//talk henry post collection
+        henryAllItems:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: ah i see you have grown in power",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: seems like it haha",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: let us fight now",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: sure thing neighbourino",
+                event:"end"
+            },
+        ],
+//talk henry after fight
+        henryIsDefeated:[
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: ahhh you got me",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: yeah we did;;Time to go fight Ramin",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Henry: behind the bookcase in the corner... now fly you fools!",
+                event:"end"
+            },
+        ],
+//leave this empty event here, trust me
         emptyEvent:[
         ],
 //blocking event        
@@ -365,6 +903,16 @@ var theDialogue = {
                 "dovCH",
             txt:{
                 0:"I'm Ramin,;;What do you want?;;Get back to work.",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        arron:{
+            profile:
+                "",
+            txt:{
+                0:"I'm Arron,;;Let's write some code",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
@@ -579,7 +1127,67 @@ var theDialogue = {
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
             }
-        }
+        },
+        microwaveItem:{
+            profile:
+                "",
+            txt:{
+                0:"i wave things!",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        jessie:{
+            profile:
+                "",
+            txt:{
+                0:"hi i am jessie",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        jakub:{
+            profile:
+                "",
+            txt:{
+                0:"hi i am jakubbbbbb default",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        henryLaptop:{
+            profile:
+                "",
+            txt:{
+                0:"hi i am a laptop hello",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        KETTLE:{
+            profile:
+                "",
+            txt:{
+                0:"hi i am a kettle",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        bookcaseNPC:{
+            profile:
+                "",
+            txt:{
+                0:"It's just a conspicious looking bookcase",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
     }
 }
 

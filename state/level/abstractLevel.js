@@ -127,8 +127,14 @@ class abstractLevel extends Phaser.State {
                 case "sw03":
                     this.player = this.game.add.sprite(result[2].x, result[2].y, playerSpriteSheet);
                     break;
-                case "dorm":
+                case "se6":
                     this.player = this.game.add.sprite(result[3].x, result[3].y, playerSpriteSheet);
+                    break;
+                case "dorm":
+                    this.player = this.game.add.sprite(result[4].x, result[4].y, playerSpriteSheet);
+                    break;
+                case "ne1":
+                    this.player = this.game.add.sprite(result[5].x, result[5].y, playerSpriteSheet);
                     break;
             }
         }
@@ -139,10 +145,10 @@ class abstractLevel extends Phaser.State {
         this.player.animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
         this.player.animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
         
-        this.player.animations.add("fastleft", [6, 8, 7, 8], walkingAnimFPS*2, true);
-        this.player.animations.add("fastright", [9, 11, 10, 11], walkingAnimFPS*2, true);
-        this.player.animations.add("fastup", [0, 2, 1, 2], walkingAnimFPS*2, true);
-        this.player.animations.add("fastdown", [3, 5, 4, 5], walkingAnimFPS*2, true);
+        this.player.animations.add("fastleft", [6, 8, 7, 8], walkingAnimFPS*1.5, true);
+        this.player.animations.add("fastright", [9, 11, 10, 11], walkingAnimFPS*1.5, true);
+        this.player.animations.add("fastup", [0, 2, 1, 2], walkingAnimFPS*1.5, true);
+        this.player.animations.add("fastdown", [3, 5, 4, 5], walkingAnimFPS*1.5, true);
         
         this.game.physics.arcade.enable(this.player);
         this.game.camera.follow(this.player);
@@ -260,9 +266,8 @@ class abstractLevel extends Phaser.State {
     }
 
     checkForRunning(){
-        if(this.ctrlKey.isDown && eventNumber > 6){
-            console.log("hello");
-            playerSpeed = 720;
+        if(this.ctrlKey.isDown && runningShoes){
+            playerSpeed = 540;
         } else if(this.ctrlKey.isUp){
             playerSpeed = 360;
         }
@@ -678,17 +683,11 @@ class abstractLevel extends Phaser.State {
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID == "se6note"){
+        if(NPCs[i].hismove.eventID == "se6note" || NPCs[i].hismove.eventID == "ne1lamp" || NPCs[i].hismove.eventID == "se14comp" || NPCs[i].hismove.eventID == "dormComp" || NPCs[i].hismove.npcName == "jessie" || NPCs[i].hismove.npcName == "microwaveItem" || NPCs[i].hismove.npcName == "jakub" || NPCs[i].hismove.npcName == "henryLaptop" || NPCs[i].hismove.npcName == "KETLLE" || NPCs[i].hismove.npcName == "bookcaseNPC"){
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID == "se6note" && eventNumber > noteProcurement){
-            NPCs[i].x = 0;
-            NPCs[i].y = 0;
-            NPCs[i].destroy();
-        }
-        
-        if(NPCs[i].hismove.eventID != "se6note"){
+        if(NPCs[i].hismove.eventID != "se6note" && NPCs[i].hismove.eventID != "ne1lamp" && NPCs[i].hismove.eventID != "se14comp" && NPCs[i].hismove.eventID != "dormComp" && NPCs[i].hismove.npcName != "microwaveItem" && NPCs[i].hismove.npcName != "henryLaptop" && NPCs[i].hismove.npcName != "KETLLE" && NPCs[i].hismove.npcName != "bookcaseNPC"){
             NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
             NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
             NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
@@ -709,11 +708,53 @@ class abstractLevel extends Phaser.State {
             }
         }
         
-        if(eventNumber < 5){
-                if(NPCs[i].hismove.npcName == "ramin"){
+        if(eventNumber < 5 || eventNumber >= 25){
+            if(NPCs[i].hismove.npcName == "ramin"){
+                NPCs[i].x = 0;
+                NPCs[i].y = 0;
+            }
+        }
+        
+        if(eventNumber > 13){
+            if(NPCs[i].hismove.npcName == "ne1lamp"){
                     NPCs[i].x = 0;
                     NPCs[i].y = 0;
-                }
+            }
+        }
+        
+        if(eventNumber > 22){
+            if(NPCs[i].hismove.npcName == "dormComp"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+            }
+        }
+        
+        if(gotMicrowave){
+            if(NPCs[i].hismove.npcName == "microwaveItem"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+            }
+        }
+        
+        if(gotNachos){
+            if(NPCs[i].hismove.npcName == "jakub"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+            }
+        }
+        
+        if(gotLaptop){
+            if(NPCs[i].hismove.npcName == "henryLaptop"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+            }
+        }
+        
+        if(gotKettle){
+            if(NPCs[i].hismove.npcName == "KETLLE"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+            }
         }
         
     }

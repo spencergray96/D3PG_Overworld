@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 8;
+var eventNumber = 32;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -13,7 +13,23 @@ var isEventing = false;
 var raminFirstSpawn = 5;
 var raminSpawnedse14 = false;
 
+var runningShoes = false;
 var noteProcurement = 8;
+
+//collecting the final 4 items
+var gotMicrowave = false;
+var gotLaptop = false;
+var gotNachos = false;
+var gotKettle = false;
+var procEvNum32 = false;
+
+if(eventNumber >= 32){
+    var gotMicrowave = true;
+    var gotLaptop = true;
+    var gotNachos = true;
+    var gotKettle = true;
+    var procEvNum32 = true;
+}
 
 class textEvent extends abstractObject {
     
@@ -60,6 +76,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
+        
     }
 
     updateThis(game, player) {
@@ -71,6 +88,14 @@ class textEvent extends abstractObject {
         
         this.spawnRamin();
         
+        if(eventNumber > 6){
+            runningShoes = true;
+        }
+        
+        if(gotMicrowave && gotLaptop && gotNachos && gotKettle && !procEvNum32 && !texting && currentNPC == null){
+            procEvNum32 = true;
+            eventNumber = 32;
+        }
     }
     
     staticEvents(){
@@ -157,7 +182,213 @@ class textEvent extends abstractObject {
                     isEventing = true;
             }
         }
-//read text        
+//event 9
+        if(eventNumber == 9 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "galyna"){
+                    this.callEvent("galyna", 9);
+                    isEventing = true;
+            }
+        }
+//ADJUST HERE WITH BATTLE 1 change !== into === and makes sure that becomes true after battle #1
+//event 10
+        if(eventNumber == 10 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName !== "postGalyna"){
+                    this.callEvent("postGalyna", 10);
+                    isEventing = true;
+            }
+        }
+//DONE ADJUSTING FOR BATTLE
+//event 11
+        if(eventNumber == 11 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("ramin", 11);
+                    isEventing = true;
+                }
+            }
+        }
+//event 12
+        if(eventNumber == 12 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "arron"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("arron", 12);
+                    isEventing = true;
+                }
+            }
+        }
+//event x 13
+        if(eventNumber == 13 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "13thEvent"){
+                    this.callEvent("13thEvent", 13);
+                    isEventing = true;
+            }
+        }
+        
+//event 14
+        if(eventNumber == 14 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ne1lamp"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("ne1lamp", 14);
+                    isEventing = true;
+                }
+            }
+        }
+//event 15
+        if(eventNumber == 15 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "arron"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("arron", 15);
+                    isEventing = true;
+                }
+            }
+        }
+//event 16
+        if(eventNumber == 16 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "arron"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("arron", 16);
+                    isEventing = true;
+                }
+            }
+        }
+//event 17
+        if(eventNumber == 17 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("ramin", 17);
+                    isEventing = true;
+                }
+            }
+        }
+//event 18
+        if(eventNumber == 18 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "daemon"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("daemon", 18);
+                    isEventing = true;
+                }
+            }
+        }
+//event 19
+        if(eventNumber == 19 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "se14comp"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("se14comp", 19);
+                    isEventing = true;
+                }
+            }
+        }
+//event 20
+        if(eventNumber == 20 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "20thEvent"){
+                    this.callEvent("20thEvent", 20);
+                    isEventing = true;
+            }
+        }
+//event 21
+        if(eventNumber == 21 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "21stEvent"){
+                    this.callEvent("21stEvent", 21);
+                    isEventing = true;
+            }
+        }
+//event 22
+        if(eventNumber == 22 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "dormComp"){
+                    this.callEvent("dormComp", 22);
+                    isEventing = true;
+            }
+        }
+//event 23
+        if(eventNumber == 23 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "se14comp"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("se14comp", 23);
+                    isEventing = true;
+                }
+            }
+        }
+//event 24
+        if(eventNumber == 24 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "daemon"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("daemon", 24);
+                    isEventing = true;
+                }
+            }
+        }
+//event 25
+        if(eventNumber == 25 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "daemon"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("daemon", 25);
+                    isEventing = true;
+                }
+            }
+        }
+//event 26
+        if(eventNumber == 26 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "henry"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("henry", 26);
+                    isEventing = true;
+                }
+            }
+        }
+//events 27 - 30
+        if(eventNumber >= 27 && eventNumber <= 31 && currentNPC != null && !eventTrigger){
+    //jessie        
+            if(currentNPC.hismove.npcName === "jessie" && !gotMicrowave){
+                eventNumber = 27;
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("jessie", 27);
+                    isEventing = true;
+                }
+            }
+    //jakub
+            if(currentNPC.hismove.npcName === "jakub" && !gotNachos){
+                eventNumber = 28;
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("jakub", 28);
+                    isEventing = true;
+                }
+            }
+    //laptop
+            if(currentNPC.hismove.npcName === "henryLaptop" && !gotLaptop){
+                eventNumber = 29;
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("henryLaptop", 29);
+                    isEventing = true;
+                }
+            }
+    //kettle
+            if(currentNPC.hismove.npcName === "KETLLE" && !gotKettle){
+                eventNumber = 30;
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("KETLLE", 30);
+                    isEventing = true;
+                }
+            }    
+        }
+//event 32
+        if(eventNumber == 32 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "henry"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("henry", 32);
+                    isEventing = true;
+                }
+            }
+        }
+//event 33
+        if(eventNumber == 33 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "henry"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("henry", 33);
+                    isEventing = true;
+                }
+            }
+        }           
+//read text
         if(currentNPC != null){
             this.readText();
         }
@@ -250,6 +481,49 @@ class textEvent extends abstractObject {
                         case 8:
                             this.event8switch();
                             break;
+                        case 9:
+                            this.event9switch();
+                            break;
+                        //event x13    
+                        case 13:
+                            this.event13switch();
+                            break;
+                        case 14:
+                            this.event14switch();
+                            break;
+                        case 15:
+                            this.event15switch();
+                            break;
+                        case 18:
+                            this.event18switch();
+                            break;
+                        case 20:
+                            this.event20switch();
+                            break;
+                        case 21:
+                            this.event21switch();
+                            break;
+                        case 22:
+                            this.event22switch();
+                            break;    
+                        case 25:
+                            this.event25switch();
+                            break;
+                        case 27:
+                            this.event27switch();
+                            break;
+                        case 28:
+                            this.event28switch();
+                            break;
+                        case 29:
+                            this.event29switch();
+                            break;
+                        case 30:
+                            this.event30switch();
+                            break;
+                        case 32:
+                            this.event32switch();
+                            break;     
                     }
                         
                     Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
@@ -305,10 +579,18 @@ class textEvent extends abstractObject {
                 eventTrigger = false;
 
                 texting = false;
-                currentNPC = null;
                 this.isText = 0;
 
                 eventTextNumber = 0;
+                
+//checking if we are about to teleport to DORMS
+                if(currentNPC.hismove.npcName == "20thEvent"){
+                    this.eraseText();
+                    this.continueThing.destroy();
+                    TopDownGame.game.state.start('dorm');
+                    currentNPC = null;
+                }
+                currentNPC = null;
             } 
         }
         
@@ -408,6 +690,121 @@ class textEvent extends abstractObject {
         switch(subEventNumber){
             case 0:
                 this.event8s0();
+                break;
+        }
+    }
+    
+    event9switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event9s0();
+                break;
+        }
+    }
+    
+    event13switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event13s0();
+                break;
+            case 1:
+                this.event13s1();
+                break;
+        }
+    }
+    
+    event14switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event14s0();
+                break;
+        }
+    }
+    
+    event15switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event15s0();
+                break;
+        }
+    }
+    
+    event18switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event18s0();
+                break;
+        }
+    }
+    
+    event20switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event20s0();
+                break;
+        }
+    }
+    
+    event21switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event21s0();
+                break;
+        }
+    }
+    
+    event22switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event22s0();
+                break;
+        }
+    }
+    
+    event25switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event25s0();
+                break;
+        }
+    }
+    
+    event27switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event27s0();
+                break;
+        }
+    }
+    
+    event28switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event28s0();
+                break;
+        }
+    }
+    
+    event29switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event29s0();
+                break;
+        }
+    }
+    
+    event30switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event30s0();
+                break;
+        }
+    }
+    
+    event32switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event32s0();
                 break;
         }
     }
@@ -727,6 +1124,7 @@ class textEvent extends abstractObject {
             this.game.camera.flash('#000000');
             this.game.camera.follow(this.player);
             this.goBackTest();
+            runningShoes = true;
             
             this.targetNPC1.x = this.targetNPC1.hismove.originalX;
             this.targetNPC1.y = this.targetNPC1.hismove.originalY;
@@ -765,17 +1163,215 @@ class textEvent extends abstractObject {
     
     event8s0(){
         this.continueThing.destroy();
-//        for(var i = 0; i < NPCs.length - 1; i++){
-//            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "se6note"){
-////                NPCs[i].x = 0;
-////                NPCs[i].y = 0;
-//            }
-//        }
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
             this.goBackTest();
         }, this);
-//        this.goBackTest();
+    }
+    
+    event9s0(){
+        this.continueThing.destroy();
+        console.log("start battle here!");
+        //
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event13s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        console.log("13p1");
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event13s1(){
+        this.eraseText();
+        this.continueThing.destroy();
+        console.log("13p1");
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event14s0(){
+//        this.eraseText();
+        this.continueThing.destroy();
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            for(var i = 0; i < NPCs.length - 1; i++){
+                if(NPCs[i].hismove.npcName == "ne1lamp"){
+                    console.log("found the lamp");
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+//                    NPCs[i].destroy();
+                }
+            }
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event15s0(){
+        this.continueThing.destroy();
+        console.log("start battle here!");
+        //
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event18s0(){
+        this.continueThing.destroy();
+        console.log("pan camera here");
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event20s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        currentDoor = undefined;
+        currentNPC = null;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            TopDownGame.game.state.start('dorm');
+        }, this);
+    }
+    
+    event21s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.8, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event22s0(){
+        this.continueThing.destroy();
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "dormComp"){
+
+                NPCs[i].x = 0;
+                NPCs[i].y = 0;
+            }
+        }
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event25s0(){
+        this.continueThing.destroy();
+        console.log("battle here!");
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+        
+        this.game.camera.shake(0.005, 1000);
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "ramin"){
+
+                NPCs[i].x = 0;
+                NPCs[i].y = 0;
+            }
+        }
+    }
+    
+    event27s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "jessie"){
+                this.targetNPC1 = NPCs[i];
+            }
+        }
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.3, function(){
+            this.targetNPC1.frame = 5;
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+            for(var i = 0; i < NPCs.length - 1; i++){
+                if(NPCs[i].hismove.npcName == "microwaveItem"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+                }
+            }
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.6, function(){
+            this.targetNPC1.frame = 8;
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 2, function(){
+            gotMicrowave = true;
+            this.goBackTest();
+        }, this);
+    }
+    
+    event28s0(){
+        this.continueThing.destroy();
+        gotNachos = true;
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event29s0(){
+        this.continueThing.destroy();
+        gotLaptop = true;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+            for(var i = 0; i < NPCs.length - 1; i++){
+                if(NPCs[i].hismove.npcName == "henryLaptop"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+                }
+            }
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.2, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event30s0(){
+        this.continueThing.destroy();
+        gotKettle = true;
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+                if(NPCs[i].hismove.npcName == "KETLLE"){
+                    NPCs[i].x = 0;
+                    NPCs[i].y = 0;
+                }
+            }
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event32s0(){
+        this.continueThing.destroy();
+        console.log("battle here!");
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            this.goBackTest();
+        }, this);
     }
 }
 

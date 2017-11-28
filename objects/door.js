@@ -16,6 +16,8 @@ class door extends abstractObject {
         console.log("fucking doors and shit");
         super.createThis(game);
         disableControls = false;
+        currentDoor = undefined;
+        currentNPC = null;
         doors = [];
         NPCs = [];
         game.camera.flash('#000000');
@@ -40,16 +42,20 @@ class door extends abstractObject {
     checkForDoorEntry(game){
         for(var i = 0; i < doors.length - 1; i++){
             if(Math.round(this.player.mymove.x2 / 128) == doors[i].coolProperties.xIndex && Math.round(this.player.mymove.y2 / 128) == doors[i].coolProperties.yIndex){
-                disableControls = true;
                 
                 currentDoor = doors[i];
                 
-                var that = this;
-                setTimeout(function(){
+                if(eventNumber <= 22 && currentDoor.coolProperties.from == "dorm"){
                     
-                    that.intermediaryDoorEnter();
-                    
-                }, 300);
+                } else {
+                    disableControls = true;
+                    var that = this;
+                    setTimeout(function(){
+
+                        that.intermediaryDoorEnter();
+
+                    }, 300);                    
+                }
             }
         }
     }
@@ -70,9 +76,17 @@ class door extends abstractObject {
             case "dorm":
                 TopDownGame.game.state.start('dorm');
                 break;
+            case "se6office":
+                TopDownGame.game.state.start('se6office');
+                break;
+            case "NE1":
+                TopDownGame.game.state.start('NE1');
+                break;
+            case "theStand":
+                TopDownGame.game.state.start('theStand');
+                break;    
             case "mainHub":
-                doorDes.theDestination = "mainHub ";
-                from: null
+                doorDes.theDestination = "mainHub";
                 TopDownGame.game.state.start('mainHub');
                 break;
             default:

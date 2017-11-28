@@ -29,7 +29,9 @@ class theStand extends abstractLevel {
         return [
             new door(),
             new spawn(),
-            new pauseMenu()
+            new textEvent(),
+            new pauseMenu(),
+            new walkables()
         ]
     }
 

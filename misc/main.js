@@ -14,6 +14,7 @@ TopDownGame.game.state.add("theStand", TopDownGame.theStand);
 TopDownGame.game.state.add("NE1", TopDownGame.NE1);
 TopDownGame.game.state.add("dorm", TopDownGame.dorm);
 TopDownGame.game.state.add("mainHub", TopDownGame.mainHub);
+TopDownGame.game.state.add("se6office", TopDownGame.se6office);
 
 //testing128
 TopDownGame.game.state.add("testing128", TopDownGame.testing128);

@@ -1,20 +1,17 @@
-class dorm extends abstractLevel {
+class se6office extends abstractLevel {
 
     static params() {
         return {
-            tilemap: "dorm",
+            tilemap: "se6office",
             tileSetImage: {
-                "1": "dorm2copy",
-                "2": "dormcopy",
-                "3": "task13",
+                "1": "nov14",
+                "2": "nov24",
             },
             layers: [
                 "backgroundLayer",
                 "backgroundLayer2",
                 "blockedLayer_c",
-                "blockedLayer2",
-                "blockedLayer3",
-                "blockedLayer4",
+                "blockedLayer2"
             ],
             collisionRange: {
                 min: 1,
@@ -23,8 +20,10 @@ class dorm extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
+//                "blockedLayer_c",
                 "decorationLayer_d",
-                "decorationLayer2"
+                "decorationLayer2",
+//                "blockedLayer2"
             ]
         }};
 
@@ -39,7 +38,7 @@ class dorm extends abstractLevel {
     }
 
     constructor() {
-        super(() => (TopDownGame), dorm.params(), dorm.updatables());
+        super(() => (TopDownGame), se6office.params(), se6office.updatables());
     }
 
     create() {
@@ -48,4 +47,4 @@ class dorm extends abstractLevel {
 
 }
 
-TopDownGame.dorm = dorm;
+TopDownGame.se6office = se6office;

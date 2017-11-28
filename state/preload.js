@@ -37,6 +37,12 @@ TopDownGame.Preload.prototype = {
         this.load.image("dormcopy", "/assets/images/dormcopy.png");
         this.load.image("dorm2copy", "/assets/images/dorm2copy.png");
         
+        //se6
+        this.load.tilemap("se6office", "/assets/tilemaps/se6office.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("nov14", "/assets/images/nov14.png");
+        this.load.image("nov22", "/assets/images/nov22.png");
+        this.load.image("nov24", "/assets/images/nov24.png");
+        
         //overworld test
         this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
         
@@ -63,16 +69,28 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-down", "/assets/ui/triangle-down.png");
         this.load.image("hand-up", "/assets/ui/triangle-up.png");
         
+        //character spritesheets
+        
+        //main characters
         this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
         this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
         this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 128, 128);
         this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
+        
+        //secondary characters
+        
         
         //chat heads
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
         this.load.image("dovCH", "/assets/characters/chatHeads/Doveflipped.png");
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
+        
+        //other pngs
+        this.load.spritesheet("microwaveItem", "/assets/AttackElements/micro-wave.png", 128, 128);
+        this.load.spritesheet("henryLaptop", "/assets/AttackElements/LAPTOP.png", 128, 128);
+        this.load.spritesheet("KETLLE", "/assets/AttackElements/KETLLE.png", 128, 128);
+        
 
     },
     create: function () {      
