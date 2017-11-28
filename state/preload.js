@@ -19,6 +19,7 @@ TopDownGame.Preload.prototype = {
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
+        this.load.image("nov24", "/assets/images/nov24.png");
         
         //sw03
         this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
@@ -40,8 +41,24 @@ TopDownGame.Preload.prototype = {
         //se6
         this.load.tilemap("se6office", "/assets/tilemaps/se6office.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("nov14", "/assets/images/nov14.png");
-        this.load.image("nov22", "/assets/images/nov22.png");
-        this.load.image("nov24", "/assets/images/nov24.png");
+        
+        //overworld
+        this.load.tilemap("overworld", "/assets/tilemaps/overworld.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("brick", "/assets/images/background-overworld/brick.png");
+        this.load.image("brick2", "/assets/images/background-overworld/brick2.png");
+        this.load.image("cementcopy", "/assets/images/background-overworld/cementcopy.png");
+        this.load.image("dirt", "/assets/images/background-overworld/dirt.png");
+        this.load.image("grass1", "/assets/images/background-overworld/grass1.png");
+        this.load.image("grass2", "/assets/images/background-overworld/grass2.png");
+        this.load.image("parkingLines", "/assets/images/background-overworld/parkingLines.png");
+        this.load.image("SE6", "/assets/images/background-overworld/SE6.png");
+        this.load.image("se12", "/assets/images/background-overworld/se12.png");
+        this.load.image("se14", "/assets/images/background-overworld/se14.png");
+        this.load.image("sidewalk", "/assets/images/background-overworld/sidewalk.png");
+        this.load.image("sidewalkWithCurb", "/assets/images/background-overworld/sidewalkWithCurb.png");
+        this.load.image("treeandbush", "/assets/images/background-overworld/treeandbush.png");
+        this.load.image("zzzCone", "/assets/images/zzzCone.png");
+        
         
         //overworld test
         this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
@@ -95,6 +112,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {      
 
-        this.state.start("mainHub");
+        this.state.start("overworld");
     }
 };

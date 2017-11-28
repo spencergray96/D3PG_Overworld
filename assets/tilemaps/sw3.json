@@ -249,7 +249,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"mainHub",
+                     "destination":"overworld",
                      "from":"sw03",
                      "type":"door"
                     },

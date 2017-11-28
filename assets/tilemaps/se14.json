@@ -65,7 +65,7 @@
                  "visible":true,
                  "width":128,
                  "x":5504,
-                 "y":11392
+                 "y":11520
                 }, 
                 {
                  "height":128,
@@ -162,8 +162,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":4736,
-                 "y":8448
+                 "x":4608,
+                 "y":8576
                 }, 
                 {
                  "height":128,
@@ -189,81 +189,6 @@
                  "width":128,
                  "x":4224,
                  "y":9088
-                }, 
-                {
-                 "height":128,
-                 "id":30,
-                 "name":"",
-                 "properties":
-                    {
-                     "npcName":"guy7",
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":6272,
-                 "y":8576
-                }, 
-                {
-                 "height":128,
-                 "id":31,
-                 "name":"",
-                 "properties":
-                    {
-                     "npcName":"guy6",
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":4480,
-                 "y":7424
-                }, 
-                {
-                 "height":128,
-                 "id":32,
-                 "name":"",
-                 "properties":
-                    {
-                     "npcName":"guy9",
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":3840,
-                 "y":7552
                 }, 
                 {
                  "height":128,
@@ -346,7 +271,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"mainHub",
+                     "destination":"overworld",
                      "from":"se14",
                      "type":"door"
                     },
@@ -387,8 +312,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5760,
-                 "y":11392
+                 "x":4480,
+                 "y":7424
                 }, 
                 {
                  "height":128,
@@ -414,8 +339,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5760,
-                 "y":11520
+                 "x":6272,
+                 "y":8576
                 }, 
                 {
                  "height":128,
@@ -441,8 +366,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5248,
-                 "y":11520
+                 "x":3840,
+                 "y":7552
                 }, 
                 {
                  "height":128,
@@ -489,8 +414,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5248,
-                 "y":10880
+                 "x":4608,
+                 "y":5888
                 }, 
                 {
                  "height":128,
@@ -516,8 +441,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5760,
-                 "y":11136
+                 "x":4480,
+                 "y":9728
                 }, 
                 {
                  "height":128,
@@ -572,8 +497,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5632,
-                 "y":10624
+                 "x":6912,
+                 "y":8448
                 }, 
                 {
                  "height":128,
@@ -626,62 +551,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5504,
-                 "y":10624
-                }, 
-                {
-                 "height":128,
-                 "id":51,
-                 "name":"",
-                 "properties":
-                    {
-                     "eventNPC":"true",
-                     "npcName":"henryLaptop",
-                     "sprite":"dov",
-                     "spritesheet":"henryLaptop",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "eventNPC":"string",
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":4864,
-                 "y":9344
-                }, 
-                {
-                 "height":128,
-                 "id":52,
-                 "name":"",
-                 "properties":
-                    {
-                     "eventNPC":"true",
-                     "npcName":"KETLLE",
-                     "sprite":"dov",
-                     "spritesheet":"KETLLE",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "eventNPC":"string",
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":3968,
-                 "y":9600
+                 "x":4352,
+                 "y":10368
                 }, 
                 {
                  "height":128,

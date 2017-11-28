@@ -89,6 +89,56 @@
                  "width":128,
                  "x":7424,
                  "y":7424
+                }, 
+                {
+                 "height":128,
+                 "id":3,
+                 "name":"",
+                 "properties":
+                    {
+                     "destination":"overworld",
+                     "from":"theStand",
+                     "type":"door"
+                    },
+                 "propertytypes":
+                    {
+                     "destination":"string",
+                     "from":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6272,
+                 "y":5248
+                }, 
+                {
+                 "height":128,
+                 "id":4,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventNPC":"true",
+                     "npcName":"KETLLE",
+                     "sprite":"dov",
+                     "spritesheet":"KETLLE",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventNPC":"string",
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5120,
+                 "y":6528
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -118,7 +168,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":3,
+ "nextobjectid":5,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

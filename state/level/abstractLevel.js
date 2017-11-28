@@ -96,6 +96,18 @@ class abstractLevel extends Phaser.State {
         this.game.map.addTilesetImage(this.params.tileSetImage["1"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["2"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["3"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["4"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["5"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["6"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["7"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["8"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["9"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["10"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["11"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["12"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["13"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["14"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["15"]);
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
@@ -710,8 +722,10 @@ class abstractLevel extends Phaser.State {
         
         if(eventNumber < 5 || eventNumber >= 25){
             if(NPCs[i].hismove.npcName == "ramin"){
-                NPCs[i].x = 0;
-                NPCs[i].y = 0;
+                console.log("hello world??");
+                NPCs[i].x = -100000;
+                NPCs[i].y = -100000;
+                NPCs[i].destroy();
             }
         }
         

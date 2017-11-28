@@ -85,9 +85,9 @@ class door extends abstractObject {
             case "theStand":
                 TopDownGame.game.state.start('theStand');
                 break;    
-            case "mainHub":
-                doorDes.theDestination = "mainHub";
-                TopDownGame.game.state.start('mainHub');
+            case "overworld":
+                doorDes.theDestination = "overworld";
+                TopDownGame.game.state.start('overworld');
                 break;
             default:
                 console.log("can't do that");

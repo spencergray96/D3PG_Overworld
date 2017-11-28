@@ -141,7 +141,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":6912,
+                 "x":6784,
                  "y":7040
                 }, 
                 {
@@ -150,7 +150,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"mainHub",
+                     "destination":"overworld",
                      "from":"se6",
                      "type":"door"
                     },
@@ -185,6 +185,132 @@
                  "width":128,
                  "x":6912,
                  "y":7168
+                }, 
+                {
+                 "height":128,
+                 "id":7,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":7040,
+                 "y":7040
+                }, 
+                {
+                 "height":128,
+                 "id":8,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6912,
+                 "y":7040
+                }, 
+                {
+                 "height":128,
+                 "id":9,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":7040,
+                 "y":7168
+                }, 
+                {
+                 "height":128,
+                 "id":10,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6784,
+                 "y":7168
+                }, 
+                {
+                 "height":128,
+                 "id":11,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6656,
+                 "y":6272
+                }, 
+                {
+                 "height":128,
+                 "id":12,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"7",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6528,
+                 "y":6400
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -214,7 +340,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":7,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

@@ -118,7 +118,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"mainHub",
+                     "destination":"overworld",
                      "from":"dorm",
                      "type":"door"
                     },
@@ -228,6 +228,132 @@
                  "width":128,
                  "x":6912,
                  "y":5760
+                }, 
+                {
+                 "height":128,
+                 "id":12,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6784,
+                 "y":6272
+                }, 
+                {
+                 "height":128,
+                 "id":13,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6784,
+                 "y":6400
+                }, 
+                {
+                 "height":128,
+                 "id":14,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6528,
+                 "y":6272
+                }, 
+                {
+                 "height":128,
+                 "id":15,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6528,
+                 "y":6400
+                }, 
+                {
+                 "height":128,
+                 "id":16,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6528,
+                 "y":6528
+                }, 
+                {
+                 "height":128,
+                 "id":17,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"21",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6784,
+                 "y":6528
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -257,7 +383,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":12,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

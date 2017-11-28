@@ -116,8 +116,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":3328,
-                 "y":6016
+                 "x":6656,
+                 "y":6784
                 }, 
                 {
                  "height":128,
@@ -125,7 +125,7 @@
                  "name":"",
                  "properties":
                     {
-                     "destination":"mainHub",
+                     "destination":"overworld",
                      "from":"ne1",
                      "type":"door"
                     },
@@ -160,8 +160,224 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":3072,
+                 "x":3200,
+                 "y":5632
+                }, 
+                {
+                 "height":128,
+                 "id":6,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventNPC":"true",
+                     "npcName":"henryLaptop",
+                     "sprite":"dov",
+                     "spritesheet":"henryLaptop",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventNPC":"string",
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":8192,
+                 "y":6784
+                }, 
+                {
+                 "height":128,
+                 "id":7,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":5760
+                }, 
+                {
+                 "height":128,
+                 "id":8,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
                  "y":6144
+                }, 
+                {
+                 "height":128,
+                 "id":9,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":6272
+                }, 
+                {
+                 "height":128,
+                 "id":10,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":6016
+                }, 
+                {
+                 "height":128,
+                 "id":11,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":5888
+                }, 
+                {
+                 "height":128,
+                 "id":12,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":5504
+                }, 
+                {
+                 "height":128,
+                 "id":13,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3200,
+                 "y":6400
+                }, 
+                {
+                 "height":128,
+                 "id":14,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":3072,
+                 "y":6528
+                }, 
+                {
+                 "height":128,
+                 "id":15,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"13",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":2944,
+                 "y":6528
                 }],
          "opacity":0.970000028610229,
          "type":"objectgroup",
@@ -180,7 +396,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":6,
+ "nextobjectid":17,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
