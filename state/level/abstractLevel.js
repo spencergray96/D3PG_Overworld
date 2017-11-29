@@ -148,6 +148,9 @@ class abstractLevel extends Phaser.State {
                 case "ne1":
                     this.player = this.game.add.sprite(result[5].x, result[5].y, playerSpriteSheet);
                     break;
+                case "theStand":
+                    this.player = this.game.add.sprite(result[6].x, result[6].y, playerSpriteSheet);
+                    break;
             }
         }
         
@@ -725,7 +728,7 @@ class abstractLevel extends Phaser.State {
                 console.log("hello world??");
                 NPCs[i].x = -100000;
                 NPCs[i].y = -100000;
-                NPCs[i].destroy();
+//                NPCs[i].destroy();
             }
         }
         
