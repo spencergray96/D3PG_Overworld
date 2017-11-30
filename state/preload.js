@@ -97,11 +97,21 @@ TopDownGame.Preload.prototype = {
         //secondary characters
         
         
-        //chat heads
+    //chat heads
+        //main characters
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
         this.load.image("dovCH", "/assets/characters/chatHeads/Doveflipped.png");
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
+        //others
+        this.load.image("henryCH", "/assets/characters/chatHeads/herny.png");
+        this.load.image("raminCH", "/assets/characters/chatHeads/ramin.png");
+        this.load.image("daemonCH", "/assets/characters/chatHeads/Demon.png");
+        this.load.image("galynaCH", "/assets/characters/chatHeads/galina.png");
+        this.load.image("arronCH", "/assets/characters/chatHeads/Arron.png");
+        
+        //background characters
+        this.load.image("boy5CH", "/assets/characters/chatHeads/boy5.png");
         
         //other pngs
         this.load.spritesheet("microwaveItem", "/assets/AttackElements/micro-wave.png", 128, 128);

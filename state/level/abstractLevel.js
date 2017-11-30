@@ -732,7 +732,7 @@ class abstractLevel extends Phaser.State {
             }
         }
         
-        if(eventNumber > 13){
+        if(eventNumber > 15){
             if(NPCs[i].hismove.npcName == "ne1lamp"){
                     NPCs[i].x = 0;
                     NPCs[i].y = 0;

@@ -546,6 +546,8 @@ class textEvent extends abstractObject {
                         this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
                         this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
                         this.textProfile.scale.setTo(this.profileScale, this.profileScale);
+//                        this.textProfile.width = 150;
+//                        this.textProfile.height = 150;
                         this.textProfile.fixedToCamera = true;
 
                         this.isText = 1;
