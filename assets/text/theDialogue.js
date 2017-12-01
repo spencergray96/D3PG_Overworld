@@ -721,7 +721,7 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: Well well well… If it isn’t Dov and the Slugs;; I was sort of hoping I would never see any of you again after you graduated;;What’s up?",
+		"Ramin: Well well well... If it isn’t Dov and the Slugs;;I was sort of hoping I would never see any of you again after you graduated;;What’s up?",
 	event:"" 
 },
 {
@@ -735,7 +735,7 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: Ahahahahahaha;;Definitely not",
+		"Ramin: Ahahahahahaha;;Definitely not.",
 	event:"" 
 },
 {
@@ -833,14 +833,14 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: Spencer, because you asked nicely, still no.;;Ask someone else",
+		"Ramin: Spencer, because you asked nicely...;;Still no.;;Ask someone else",
 	event:"" 
 },
 {
 	profile:
 		"jamesCH",
 	txt:
-		"James: PLEEEAAASSSEEE?;;it’s the only way I’ll be able to get a job",
+		"James: PLEEEAAASSSEEE?;;It’s the only way I’ll be able to get a job",
 	event:""
 },
 {
@@ -875,14 +875,7 @@ var theDialogue = {
 	profile:
 		"spencerCH",
 	txt:
-		"Spencer: ...",
-	event:"" 
-},
-{
-	profile:
-		"spencerCH",
-	txt:
-		"Spencer: How long do we have?",
+		"Spencer: ...;;How long do we have?",
 	event:"" 
 },
 {
@@ -959,14 +952,14 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: No.;;Is it too late to ask why you are all merged together like that?;;Its gross",
+		"Ramin: No.;;Is it too late to ask why you are all merged together like that?;;It's gross.",
 	event:"" 
 },
 {
 	profile:
 		"dovCH",
 	txt:
-		"Dov: Yeah.;;Too late to ask;;Anyways, if not Henry, then who should we ask?",
+		"Dov: ...;;Yeah.;;Too late to ask;;Anyways, if not Henry, then who should we ask?",
 	event:""
 },
 {
@@ -999,9 +992,9 @@ var theDialogue = {
 },
 {
 	profile:
-		"raminCH",
+		"dovCH",
 	txt:
-		"Ramin: (That's what she said)",
+		"Dov: (That's what she said)",
 	event:"" 
 },
 {
@@ -1015,7 +1008,35 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: ...;;I guess what I’m saying is that you should go speak to Galyna",
+		"Ramin: ...;;I guess what I’m saying is that you should go speak to...;;Galyna.",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:"" 
+},
+            {
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:"" 
+},
+            {
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:"" 
+},
+            {
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
 	event:"" 
 },
 {
@@ -1036,14 +1057,14 @@ var theDialogue = {
 	profile:
 		"raminCH",
 	txt:
-		"Ramin: That sounds correct. Now get out of my office I have things to do",
+		"Ramin: That sounds correct. Now get out of my office.;;I have things to do",
 	event:"" 
 },
 {
 	profile:
 		"raymondCH",
 	txt:
-		"Raymond: Alright, let’s go",
+		"Raymond: Alright, let’s go find Galyna in her office in SE6",
 	event:"end" 
 },
 
@@ -1477,21 +1498,246 @@ var theDialogue = {
 //return to Ramin after beating Galyna
         raminConvoPostGalyna:[
             {
-                profile:
-                    "",
-                txt:
-                    "Ramin: well done defeating Galyna",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: Aye... give us those letters now ya?",
-                event:"end"
-            },
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Well well well, if it isn’t The Slugs...;;again.;;What do you want?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: We just spoke with Galyna;;Did you get her email?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: About?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...Galyna vouched for our critical thinking skills",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I don't think so;;she was asking about tech support",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Well we did what she asked for;;Can we just leave it at that?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I didn't think you guys would actually be able to do it",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Gee, thanks Ramin",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Anytime, Joe;;You Slugs still haven't shown me anything impressive",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: But,;;but,;;we're doing that RIGHT now!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: How?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...We are doing the thing with the letters?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: What letters?;;I don't remember any letters",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: You know...;;the letters that we asked for not even half an hour ago?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Oh,;;Those letters.;;I thought you wanted some alphabet letters",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: What do you mean!?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Don't worry;;I'm just giving you a hard time",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Give us a break,;;You're always hard on us",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Oh baby...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Ray,;;is that all you are going to say in this game?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: No baby...?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Enough!;;You guys need to remember that you guys are trying to impress me;;and right now, you're not doing a good job",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Can we show you our coding skills?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: No.;;I don't have enough time for that;;Get someone to vouch for you",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Can YOU vouch for us?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: What?;;No;;Did you not just read what I just said?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Huh?;;Don't you mean HEAR what you said?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Uhh…;;Yeah, that.;;Go find Arron, maybe he can vouch for your coding abilities.;;I think he’s in room 124;;In the meantime I need to get out of this vicissitude",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I thought you said we made vicissitude up?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: ...;;I looked it up while you guys were gone.;;As it turned out;;You were correct.;;Just go talk to Arron in room 124",
+	event:"end"
+},
+
         ],
-//first talk to aaron
+//12 first talk to aaron
         arronFirstConvo:[
             {
                 profile:
