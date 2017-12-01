@@ -99,10 +99,10 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "james-spritesheet.png",
+	"image": "james-sprite.png",
 	"format": "RGBA8888",
 	"size": {"w":384,"h":32},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:68c56aa99523985d31b3dbb8e40e024c:cb66ff6ace0a668bc6d21417591ba1c4:92d036b91e37f115d23ac5d6a03ec3fb$"
+	"smartupdate": "$TexturePacker:SmartUpdate:284e85db94a99aae2a1332a9d702cb2a:24b5c85c8ba3467c6b702358b24c0356:169d2b94e75e47723a5d0e9d0ca552a1$"
 }
 }
