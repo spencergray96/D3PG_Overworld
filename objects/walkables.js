@@ -60,6 +60,21 @@ class walkables extends abstractObject {
                         case 21:
                             this.walkingEvent21s0();
                             break;
+                        case 35:
+                            this.walkingEvent35s0();
+                            break;
+                        case 36:
+                            this.walkingEvent36s0();
+                            break;
+                        case 37:
+                            this.walkingEvent37s0();
+                            break;
+                        case 38:
+                            this.walkingEvent38s0();
+                            break;
+                        case 39:
+                            this.walkingEvent39s0();
+                            break;
                     }
                 }
             }
@@ -138,4 +153,48 @@ class walkables extends abstractObject {
         }
     }
 
+    walkingEvent35s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = '35thEvent';
+
+            currentNPC = eventObject;
+        }
+    }
+    
+    walkingEvent36s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = '36thEvent';
+
+            currentNPC = eventObject;
+        }
+    }
+    
+    walkingEvent37s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = '37thEvent';
+
+            currentNPC = eventObject;
+        }
+    }
+    
+    walkingEvent38s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = '38thEvent';
+
+            currentNPC = eventObject;
+        }
+    }
+    
+    walkingEvent39s0(){
+        if(!testTrigger){
+            testTrigger = true;
+            eventObject.hismove.npcName = '39thEvent';
+
+            currentNPC = eventObject;
+        }
+    }
 }

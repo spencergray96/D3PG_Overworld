@@ -23,6 +23,9 @@ var gotNachos = false;
 var gotKettle = false;
 var procEvNum32 = false;
 
+//LAST EVENT CUSTOM VARIABLES
+var faceDownAfterWalkingUp = true;
+
 if(eventNumber >= 32){
     var gotMicrowave = true;
     var gotLaptop = true;
@@ -94,6 +97,10 @@ class textEvent extends abstractObject {
         if(gotMicrowave && gotLaptop && gotNachos && gotKettle && !procEvNum32 && !texting && currentNPC == null){
             procEvNum32 = true;
             eventNumber = 32;
+        }
+        
+        if(eventNumber > 36){
+            runningShoes = false;
         }
     }
     
@@ -396,6 +403,41 @@ class textEvent extends abstractObject {
                 }
             }
         }
+//event 35
+        if(eventNumber == 35 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "35thEvent"){
+                    this.callEvent("35thEvent", 35);
+                    isEventing = true;
+            }
+        }
+//event 36
+        if(eventNumber == 36 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "36thEvent"){
+                    this.callEvent("36thEvent", 36);
+                    isEventing = true;
+            }
+        }
+//event 37
+        if(eventNumber == 37 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "37thEvent"){
+                    this.callEvent("37thEvent", 37);
+                    isEventing = true;
+            }
+        }
+//event 38
+        if(eventNumber == 38 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "38thEvent"){
+                    this.callEvent("38thEvent", 38);
+                    isEventing = true;
+            }
+        }
+//event 39
+        if(eventNumber == 39 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "39thEvent"){
+                    this.callEvent("39thEvent", 39);
+                    isEventing = true;
+            }
+        }
 //read text
         if(currentNPC != null){
             this.readText();
@@ -549,6 +591,18 @@ class textEvent extends abstractObject {
                         case 33:
                             this.event33switch();
                             break;
+                        case 34:
+                            this.event34switch();
+                            break;
+                        case 37:
+                            this.event37switch();
+                            break;
+                        case 38:
+                            this.event38switch();
+                            break;
+                        case 39:
+                            this.event39switch();
+                            break;
                     }
                         
                     Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
@@ -583,7 +637,6 @@ class textEvent extends abstractObject {
             
             else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
                 
-                
                 if(currentNPC.hismove.npcName != "se6Blocker"){
                     eventNumber++;
                 }
@@ -614,8 +667,14 @@ class textEvent extends abstractObject {
                 if(currentNPC.hismove.npcName == "20thEvent"){
                     this.eraseText();
                     this.continueThing.destroy();
-                    TopDownGame.game.state.start('dorm');
                     currentNPC = null;
+                    TopDownGame.game.state.start('dorm');
+                } else if(currentNPC.hismove.npcName == "bookcaseNPC"){
+                    console.log("line 618 baby")
+                    this.eraseText();
+;                    this.continueThing.destroy();
+                    currentNPC = null;
+                    TopDownGame.game.state.start('tunnel');
                 }
                 currentNPC = null;
             } 
@@ -855,6 +914,63 @@ class textEvent extends abstractObject {
         switch(subEventNumber){
             case 0:
                 this.event33s0();
+                break;
+        }
+    }
+    
+    event34switch(){
+       switch(subEventNumber){
+            case 0:
+                this.event34s0();
+                break;
+        }
+    }
+    
+    event37switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event37s0();
+                break;
+        }
+    }
+    
+    event38switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event38s0();
+                break;
+        }
+    }
+    
+    event39switch(){
+        console.log("line 930");
+        switch(subEventNumber){
+            case 0:
+                this.event39s0();
+                break;
+            case 1:
+                this.event39s1();
+                break;
+            case 2:
+                this.event39s2();
+                break;
+            case 3:
+                this.event39s3();
+                break;
+            case 4:
+                this.event39s4();
+                break;
+            case 5:
+                this.event39s5();
+                break;
+            case 6:
+                this.event39s6();
+                break;
+            case 7:
+                this.event39s7();
+                break;
+            case 8:
+                this.event39s8();
                 break;
         }
     }
@@ -1628,6 +1744,15 @@ class textEvent extends abstractObject {
         this.eraseText();
         this.continueThing.destroy();
         
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+    }
+//EVENT 34    
+    event34s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
         currentDoor = undefined;
         currentNPC = null;
         
@@ -1636,9 +1761,244 @@ class textEvent extends abstractObject {
         }, this);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            TopDownGame.game.state.start('dorm');
+            TopDownGame.game.state.start('tunnel');
+        }, this);
+    }
+//EVENT 37    
+    event37s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.camera.shake(0.005, 1000);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
+            this.goBackTest();
+        }, this);
+    }
+//EVENT 38    
+    event38s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.camera.shake(0.005, 1000);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
+            this.goBackTest();
+        }, this);
+    }
+//EVENT 39
+    event39s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < walkablesArr.length - 1; i++){
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "tunnelCamera"){
+                this.targetNPC1 = walkablesArr[i];
+            }
+        }
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 3.5, function(){
+            this.goBackTest();
         }, this);
     }
     
+    event39s1(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < walkablesArr.length - 1; i++){
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "tunnelCamera2"){
+                this.targetNPC1 = walkablesArr[i];
+            }
+        }
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
+        
+        this.player.mymove.state = 4;
+        this.player.animations.play("up");
+        this.player.mymove.y2 = Math.floor(this.player.mymove.y) - (Math.round(128 * 6));
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 3, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s2(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "ramin"){
+                this.targetNPC2 = NPCs[i];
+            }
+        }
+        
+        this.targetNPC2.frame = 5
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s3(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.targetNPC2.animations.play("down");
+        this.targetNPC2.hismove.y2 = this.targetNPC2.hismove.y - Math.round(128);
+        this.targetNPC2.hismove.walkingState = 4;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s4(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "monk1"){
+                this.targetNPC3 = NPCs[i];
+            } else if(NPCs[i].hismove.npcName == "monk2"){
+                this.targetNPC4 = NPCs[i];
+            }
+        }
+        
+        var NPCvelocityTemp = NPCvelocity;
+        NPCvelocity = NPCvelocity/2;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.5, function(){
+            this.targetNPC3.animations.play("right");
+            this.targetNPC3.hismove.x2 = this.targetNPC3.hismove.x + Math.round(128);
+            this.targetNPC3.hismove.walkingState = 1;
+            
+            this.targetNPC4.animations.play("left");
+            this.targetNPC4.hismove.x2 = this.targetNPC4.hismove.x - Math.round(128);
+            this.targetNPC4.hismove.walkingState = 2;
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 2, function(){
+            this.targetNPC3.hismove.x = this.targetNPC3.hismove.x2;
+            this.targetNPC3.hismove.walkingState = 0;
+            this.targetNPC3.body.velocity.x = 0;
+            
+            this.targetNPC3.animations.play("down");
+            this.targetNPC3.hismove.y2 = this.targetNPC3.hismove.y + Math.round(128 * 1);
+            this.targetNPC3.hismove.walkingState = 3;
+            
+            this.targetNPC4.hismove.x = this.targetNPC4.hismove.x2;
+            this.targetNPC4.hismove.walkingState = 0;
+            this.targetNPC4.body.velocity.x = 0;
+            
+            this.targetNPC4.animations.play("down");
+            this.targetNPC4.hismove.y2 = this.targetNPC4.hismove.y + Math.round(128 * 1);
+            this.targetNPC4.hismove.walkingState = 3;
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 4, function(){
+            NPCvelocity = NPCvelocityTemp;
+            this.goBackTest();
+        }, this);
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "henry"){
+                this.targetNPC5 = NPCs[i];
+            }
+        }
+        
+        this.tempX = Math.round(this.player.x / 128);
+        this.targetNPC5.x = Math.round((this.tempX + 1) * 128);
+        this.targetNPC5.y = this.player.y + 512;
+    }
+    
+    event39s5(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        faceDownAfterWalkingUp = false;
+        
+        this.targetNPC5.animations.play("up");
+        this.targetNPC5.hismove.y2 = this.player.mymove.y;
+        this.targetNPC5.hismove.walkingState = 4;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 3, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s6(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.5, function(){
+            this.game.camera.flash('0xffffff');
+            this.targetNPC3.x = 0;
+            this.targetNPC3.y = 0;
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s7(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        faceDownAfterWalkingUp = true;
+        
+        this.targetNPC4.hismove.x = this.targetNPC4.hismove.x2;
+        this.targetNPC4.hismove.walkingState = 0;
+        this.targetNPC4.body.velocity.x = 0;
+
+        this.targetNPC4.animations.play("down");
+        this.targetNPC4.hismove.y2 = this.targetNPC4.hismove.y - Math.round(128 * 1);
+        this.targetNPC4.hismove.walkingState = 4;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.2, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s8(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        faceDownAfterWalkingUp = false;
+        var NPCvelocityTemp = NPCvelocity;
+        NPCvelocity = NPCvelocity/1.5;
+        
+        this.targetNPC5.hismove.x = this.targetNPC5.hismove.x2;
+        this.targetNPC5.hismove.walkingState = 0;
+        this.targetNPC5.body.velocity.x = 0;
+
+        this.targetNPC5.animations.play("up");
+        this.targetNPC5.hismove.y2 = this.targetNPC5.hismove.y - Math.round(128 * 2);
+        this.targetNPC5.hismove.walkingState = 4;
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "finalBlock"){
+                NPCs[i].x = NPCs[i].hismove.originalX;
+                NPCs[i].y = NPCs[i].hismove.originalY;
+            }
+        }
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 2, function(){
+            NPCvelocity = NPCvelocityTemp;
+            this.goBackTest();
+        }, this);
+    }
+    
+    event39s9(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.3, function(){
+            this.game.camera.flash('0x000000');
+            this.camera.follow(this.player);
+            this.goBackTest();
+        }, this);
+    }
 }
 

@@ -3341,6 +3341,237 @@ var theDialogue = {
                 event:"end"
             },
         ],
+//inspect bookcase
+        bookCaseTely:[
+            {
+                profile:
+                    "",
+                txt:
+                    "What's this?",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Let's check it out",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: I have a bad feeling about this",
+                event:"end"
+            },
+        ],
+//enter cave
+        enterCave:[
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Spooky Boogy...",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: You've seen psycho pass?",
+                event:"end"
+            },
+        ],
+//ruin shoes
+        ruinTheShoes:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: OW!!",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Now you've done it, Dov.",
+                event:"end"
+            },
+        ],
+//first cave shake
+        firstCaveShake:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: what is that??",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ahhhhhhh",
+                event:"action"
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: SpOoKy.",
+                event:"end"
+            },
+        ],
+//second cave shake
+        secondCaveShake:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: the second cave event",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: let's keep going",
+                event:"action"
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: bye bye",
+                event:"end"
+            },
+        ],
+//FIND RAMIN
+        findRamin:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: What in the world-?;;Am I seeing things?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: How much longer??",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Monk of Ramin: Patience, my lord",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: I always get the bad filler text;;I am sad boy",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: The gig is up, RAMIN",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: insert hank hill gasping noise here",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: Monks! Get them!",
+                event:"action"
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: These nerds look pretty strong",
+                event:""
+            },
+            {
+                profile:
+                    "henryCH",
+                txt:
+                    "Henry: Never fear!",
+                event:"action"
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Wow it's Henry, he's here to help us!",
+                event:""
+            },
+            {
+                profile:
+                    "henryCH",
+                txt:
+                    "Henry: That's right. Watch this.",
+                event:"action"
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: That guy got destroyed! Haha!",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: Useless Monk! Don't just stand there!!",
+                event:""
+            },
+            {
+                profile:
+                    "henryCH",
+                txt:
+                    "Henry: I'll get this guy! Go take care of Ramin!!",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: Who are you guys? you will pay for this.",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: We will see about that.",
+                event:"end"
+            },
+        ],
+////DEFEAT RAMIN
+//        findRamin:[
+//            {
+//                profile:
+//                    "raminCH",
+//                txt:
+//                    "Ramin: Do you know what you have done? You fools!!",
+//                event:"end"
+//            },
+//        ],
 //leave this empty event here, trust me
         emptyEvent:[
         ],
