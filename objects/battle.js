@@ -25,7 +25,7 @@ class battle extends abstractObject {
         this.character4YPos = 425;
         
         // this hasen't been used yet. //
-        this.currentPlayer = 0;
+        this.activeCharVar = 0;
         
         this.style = {
             font: "12pt Final-Fantasy-36-Font",
@@ -37,6 +37,7 @@ class battle extends abstractObject {
         };           
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        this.backBut = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
         this.cursors = game.input.keyboard.createCursorKeys();        
         
         this.cursorProc = false;
@@ -55,29 +56,31 @@ class battle extends abstractObject {
         this.cursorWidth = mainMenuHandWidth - 10;
         this.cursorHeight = mainMenuHandHeight - 5;
         
-        this.makeContainers();
-        this.makeCursors();
-        this.actionOptions();
-        
-        this.enemy = this.game.add.sprite(100, 100, "dov");
-        this.enemy.scale.setTo(10.0, 10.0);
-        this.enemy.fixedToCamera = true;
-        
-        this.spencerCH = this.game.add.sprite(this.characterXPos, this.character1YPos, "spencerCH");
-        this.spencerCH.scale.setTo(0.05, 0.05);
-        this.spencerCH.fixedToCamera = true;
-        
-        this.dovCH = this.game.add.sprite(this.characterXPos, this.character2YPos, "dovCH");
-        this.dovCH.scale.setTo(0.05, 0.05);
-        this.dovCH.fixedToCamera = true;
-        
-        this.jamesCH = this.game.add.sprite(this.characterXPos, this.character3YPos, "jamesCH");
-        this.jamesCH.scale.setTo(0.05, 0.05);
-        this.jamesCH.fixedToCamera = true;
-        
-        this.raymondCH = this.game.add.sprite(this.characterXPos, this.character4YPos, "raymondCH");
-        this.raymondCH.scale.setTo(0.05, 0.05);
-        this.raymondCH.fixedToCamera = true;        
+        if(battling){
+            this.makeContainers();
+            this.makeCursors();
+            this.actionOptions();
+            
+            this.enemy = this.game.add.sprite(100, 100, "dov");
+            this.enemy.scale.setTo(10.0, 10.0);
+            this.enemy.fixedToCamera = true;
+
+            this.spencerCH = this.game.add.sprite(this.characterXPos, this.character1YPos, "spencerCH");
+            this.spencerCH.scale.setTo(0.05, 0.05);
+            this.spencerCH.fixedToCamera = true;
+
+            this.dovCH = this.game.add.sprite(this.characterXPos, this.character2YPos, "dovCH");
+            this.dovCH.scale.setTo(0.05, 0.05);
+            this.dovCH.fixedToCamera = true;
+
+            this.jamesCH = this.game.add.sprite(this.characterXPos, this.character3YPos, "jamesCH");
+            this.jamesCH.scale.setTo(0.05, 0.05);
+            this.jamesCH.fixedToCamera = true;
+
+            this.raymondCH = this.game.add.sprite(this.characterXPos, this.character4YPos, "raymondCH");
+            this.raymondCH.scale.setTo(0.05, 0.05);
+            this.raymondCH.fixedToCamera = true;        
+        }
         
     }
 
@@ -87,125 +90,87 @@ class battle extends abstractObject {
     }
     
     makeContainers(){
-        if (battling){
-            this.mainContainer = this.game.add.image(0, 0, "whiteBG");
-            this.mainContainer.width = this.game.width;
-            this.mainContainer.height = this.game.height;
-            this.mainContainer.fixedToCamera = true; 
+        this.mainContainer = this.game.add.image(0, 0, "whiteBG");
+        this.mainContainer.width = this.game.width;
+        this.mainContainer.height = this.game.height;
+        this.mainContainer.fixedToCamera = true; 
 
-            this.actionContainer = this.game.add.image(10, this.game.height - (this.game.height/4), "longBox");
-            this.actionContainer.width = this.game.width/2.2;
-            this.actionContainer.height = this.game.height/4;
-            this.actionContainer.fixedToCamera = true;
+        this.actionContainer = this.game.add.image(12, this.game.height - (this.game.height/4), "longBox");
+        this.actionContainer.width = this.game.width/2.55;
+        this.actionContainer.height = this.game.height/4;
+        this.actionContainer.fixedToCamera = true;
 
-            this.displayContainer = this.game.add.image(this.game.width/2.05, this.game.height - (this.game.height/4), "longBox");
-            this.displayContainer.width = this.game.width - (this.game.width/2);
-            this.displayContainer.height = this.game.height/4;
-            this.displayContainer.fixedToCamera = true;          
+        this.displayContainer = this.game.add.image(this.game.width/2.35, this.game.height - (this.game.height/4), "longBox");
+        this.displayContainer.width = this.game.width - (this.game.width/2.22);
+        this.displayContainer.height = this.game.height/4;
+        this.displayContainer.fixedToCamera = true;          
 
-            this.innerContainer = this.game.add.image(10, 9, this.battleBackground);
-            this.innerContainer.width = this.game.width-20;
-            this.innerContainer.height = (this.game.height - (this.game.height/4))-18;
-            this.innerContainer.fixedToCamera = true;
-            
-        }
+        this.innerContainer = this.game.add.image(10, 9, this.battleBackground);
+        this.innerContainer.width = this.game.width-20;
+        this.innerContainer.height = (this.game.height - (this.game.height/4))-18;
+        this.innerContainer.fixedToCamera = true;
     }
     
     //  this currently is where the controls for the cursor is  //    
     makeCursors(){
-        if (battling){
-            if(!this.cursorProc){
-                this.cursorProc = true;
-                
-                //  each if statement is for a different element in the main menu   //
-                if(this.mainMenu){
-                    switch(this.cursorPosMain){
-                        case 0:
-                            this.cursorPosMain = 0;
-                            this.battleCursor = this.game.add.image(this.actionX1, this.actionY1, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 1:
-                            this.cursorPosMain = 1;
-                            this.battleCursor = this.game.add.image(this.actionX2, this.actionY1, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 2:
-                            this.cursorPosMain = 2;
-                            this.battleCursor = this.game.add.image(this.actionX1, this.actionY2, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 3:
-                            this.cursorPosMain = 3
-                            this.battleCursor = this.game.add.image(this.actionX2, this.actionY2, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true;            
-                            break;
-                    }
+        if(!this.cursorProc){
+            this.cursorProc = true;
+
+            //  each if statement is for a different element in the main menu   //
+            if(this.mainMenu){
+                switch(this.cursorPosMain){
+                    case 0:
+                        this.cursorPosMain = 0;
+                        this.battleCursor = this.game.add.image(this.actionX1, this.actionY1, "hand");
+                        this.battleCursor.width = this.cursorWidth;
+                        this.battleCursor.height = this.cursorHeight;
+                        this.battleCursor.fixedToCamera = true; 
+                        break;
+                    case 1:
+                        this.cursorPosMain = 1;
+                        this.battleCursor = this.game.add.image(this.actionX2, this.actionY1, "hand");
+                        this.battleCursor.width = this.cursorWidth;
+                        this.battleCursor.height = this.cursorHeight;        
+                        this.battleCursor.fixedToCamera = true; 
+                        break;
+                    case 2:
+                        this.cursorPosMain = 2;
+                        this.battleCursor = this.game.add.image(this.actionX1, this.actionY2, "hand");
+                        this.battleCursor.width = this.cursorWidth;
+                        this.battleCursor.height = this.cursorHeight;        
+                        this.battleCursor.fixedToCamera = true; 
+                        break;
+                    case 3:
+                        this.cursorPosMain = 3
+                        this.battleCursor = this.game.add.image(this.actionX2, this.actionY2, "hand");
+                        this.battleCursor.width = this.cursorWidth;
+                        this.battleCursor.height = this.cursorHeight;        
+                        this.battleCursor.fixedToCamera = true;            
+                        break;
                 }
             }
-            if(this.attackMenu){
-                this.cursorPosMain = 4;
-                this.battleCursor = this.game.add.image(this.enemy.x + 100, this.enemy.y + 100, "hand");
-                this.battleCursor.width = this.cursorWidth;
-                this.battleCursor.height = this.cursorHeight;
-                
-            }
-            if(this.itemMenu){      
-                switch(this.cursorPosMain){
-                        case 0:
-                            this.cursorPosMain = 0;
-                            this.battleCursor = this.game.add.image(this.actionX1, this.actionY1, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 1:
-                            this.cursorPosMain = 1;
-                            this.battleCursor = this.game.add.image(this.actionX2, this.actionY1, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 2:
-                            this.cursorPosMain = 2;
-                            this.battleCursor = this.game.add.image(this.actionX1, this.actionY2, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true; 
-                            break;
-                        case 3:
-                            this.cursorPosMain = 3
-                            this.battleCursor = this.game.add.image(this.actionX2, this.actionY2, "hand");
-                            this.battleCursor.width = this.cursorWidth;
-                            this.battleCursor.height = this.cursorHeight;        
-                            this.battleCursor.fixedToCamera = true;            
-                            break;
-                    }
-            }            
         }
+        if(this.attackMenu){
+            this.cursorPosMain = 4;
+            this.battleCursor = this.game.add.image(this.enemy.x + 100, this.enemy.y + 100, "hand");
+            this.battleCursor.width = this.cursorWidth;
+            this.battleCursor.height = this.cursorHeight;
+
+        }
+        if(this.itemMenu){      
+            console.log("lol skills");
+        }            
     }
     
     actionOptions(){
-        if(battling){
-
-            this.attack = this.game.add.text(this.cursorX1, this.actionY1, "Attack", this.style);
-            this.attack.fixedToCamera = true;   
-            this.items = this.game.add.text(this.cursorX2, this.actionY1, "Items", this.style);
-            this.items.fixedToCamera = true;   
-            this.skill = this.game.add.text(this.cursorX1, this.actionY2, "Skill", this.style);
-            this.skill.fixedToCamera = true;           
-            this.run = this.game.add.text(this.cursorX2, this.actionY2, "Run", this.style);
-            this.run.fixedToCamera = true;
-
-        }
+        this.attack = this.game.add.text(this.cursorX1, this.actionY1, "Attack", this.style);
+        this.attack.fixedToCamera = true;   
+        this.items = this.game.add.text(this.cursorX2, this.actionY1, "Items", this.style);
+        this.items.fixedToCamera = true;   
+        this.skill = this.game.add.text(this.cursorX1, this.actionY2, "Skill", this.style);
+        this.skill.fixedToCamera = true;           
+        this.run = this.game.add.text(this.cursorX2, this.actionY2, "Run", this.style);
+        this.run.fixedToCamera = true;
     }
     
     clearEverything(){
@@ -225,7 +190,7 @@ class battle extends abstractObject {
     }
     
     createControls() {
-        if(battling){
+        if(battling && !disableControls){
             if (this.enterBut.isDown){
                 if(!this.enterIsDown){
                     this.enterIsDown = true;
@@ -237,6 +202,17 @@ class battle extends abstractObject {
                     this.enterIsDown = false;
                 }
             }
+            if (this.backBut.isDown){
+                if(!this.backIsDown){
+                    this.backIsDown = true;
+                    this.goBack();
+                }
+            }
+            if(this.backBut.isUp){
+                if(this.backIsDown){
+                    this.backIsDown = false;
+                }
+            }            
             if (this.cursors.up.isDown){
                 if(!this.upIsDown){
                     this.upIsDown = true;
@@ -288,7 +264,38 @@ class battle extends abstractObject {
                 if(this.rightIsDown){
                     this.rightIsDown = false;
                 }
-            }             
+            }
+        }        
+    }
+    
+    goBack(){
+        if(this.mainMenu){
+            console.log("menu back noise");
+        }
+        if(this.attackMenu && !this.skillAttack){
+            console.log("attack back noise");
+            this.mainMenu = true;
+            this.attackMenu = false;
+            this.cursorPosMain = 0;
+            this.eraseCursor();
+            this.makeCursors();            
+        }        
+        if(this.skillAttack){
+            console.log("skill back noise");
+            this.mainMenu = true;
+            this.attackMenu = false;
+            this.skillAttack = false;
+            this.cursorPosMain = 0;
+            this.eraseCursor();
+            this.makeCursors();               
+        }
+        if(this.itemMenu){
+            console.log("item bump noise");
+            this.mainMenu = true;
+            this.itemMenu = false;
+            this.cursorPosMain = 0;
+            this.eraseCursor();
+            this.makeCursors();              
         }
     }
     
@@ -296,71 +303,57 @@ class battle extends abstractObject {
         if(this.mainMenu){
             switch(this.cursorPosMain){
                 case 0:
-                    console.log("attack");
+                    console.log("Attack chosen");
                     this.mainMenu = false;
                     this.attackMenu = true;
                     this.eraseCursor();
                     this.makeCursors();
                     break;
                 case 1:
-                    console.log("items");
-                    this.mainMenu = false;
-                    this.itemMenu = true;
-                    this.cursorPosMain = 0;
+                    console.log("Items chosen");
                     this.eraseCursor();
                     this.makeCursors();                            
                     break;
                 case 2:
-                    console.log("skills");
+                    console.log("Skill chosen");
+                    this.mainMenu = false;
+                    this.attackMenu = true;
+                    this.skillAttack = true;
+                    this.eraseCursor();
+                    this.makeCursors(); 
                     break;
                 case 3:
-                    console.log("run");
+                    console.log("Run");  
                     break;
 
             }
-        }        
+        }
+        else if(this.attackMenu){
+            switch(this.cursorPosMain){
+                case 4:
+                    this.fight();
+            }
+        }
     }
     
     up(){
-        if(this.mainMenu){
-                switch(this.cursorPosMain){
-                    case 0:
-                        console.log("bump noise");
-                        break;
-                    case 1:
-                        console.log("bump noise");
-                        break;
-                    case 2:
-                        this.cursorPosMain = 0;
-                        break;
-                    case 3:
-                        this.cursorPosMain = 1;
-                        break;
-                    case 4:
-                    console.log("bump noise");
-                    break;
-                }
+        switch(this.cursorPosMain){
+            case 0:
+                console.log("bump noise");
+                break;
+            case 1:
+                console.log("bump noise");
+                break;
+            case 2:
+                this.cursorPosMain = 0;
+                break;
+            case 3:
+                this.cursorPosMain = 1;
+                break;
+            case 4:
+                console.log("bump noise");
+                break;
         }
-        if(this.itemMenu){
-                switch(this.cursorPosMain){
-                    case 0:
-                        console.log("bump noise");
-                        break;
-                    case 1:
-                        console.log("bump noise");
-                        break;
-                    case 2:
-                        this.cursorPosMain = 0;
-                        break;
-                    case 3:
-                        this.cursorPosMain = 1;
-                        break;
-                    case 4:
-                    console.log("bump noise");
-                    break;
-                }
-        }
-
     }
     
     down(){
@@ -427,4 +420,85 @@ class battle extends abstractObject {
 
     }
 
+    fight(){
+        if(this.attackMenu && !this.skillAttack){
+        switch(this.activeCharVar){
+            case 0:
+                console.log("you hit the enemy");
+                this.attackMenu = false;
+                this.mainMenu = true;
+                this.eraseCursor();
+                this.cursorPosMain = 0;
+                this.cursorPosMain = 0;
+                this.makeCursors();                
+                this.activeCharVar++;
+                break;
+            case 1:
+                console.log("you hit the enemy");
+                this.attackMenu = false;
+                this.mainMenu = true;
+                this.eraseCursor();
+                this.cursorPosMain = 0;
+                this.cursorPosMain = 0;
+                this.makeCursors();                
+                this.activeCharVar++;
+                break;
+            case 2:
+                console.log("you hit the enemy");
+                this.attackMenu = false;
+                this.mainMenu = true;
+                this.eraseCursor();
+                this.cursorPosMain = 0;
+                this.cursorPosMain = 0;
+                this.makeCursors();                
+                this.activeCharVar++;
+                break;
+            case 3:
+                console.log("you hit the enemy");
+                this.attackMenu = false;
+                this.mainMenu = true;                
+                this.eraseCursor();
+                this.cursorPosMain = 0;
+                this.cursorPosMain = 0;
+                this.makeCursors();                
+                this.activeCharVar++;
+                disableControls = true;
+                console.log("disableControls");
+                this.enemyTurn = true;
+                this.enemyAttack();
+                break;
+            }            
+        }
+        if(this.skillAttack){
+            console.log("Skill Attack");
+            this.skillAttack = false;
+            this.attackMenu = false;
+            this.mainMenu = true; 
+            this.eraseCursor();
+            this.cursorPosMain = 0;
+            this.cursorPosMain = 0;
+            this.makeCursors();                
+            this.activeCharVar++;                
+        }
+    }
+    
+    enemyAttack(){
+        if (this.enemyTurn){
+            console.log("enemy attacking");
+            this.activeCharVar = 0;
+            this.enemyTurn = false;
+            this.game.time.events.add(Phaser.Timer.SECOND * 2, this.enemyAttackFinish, this);
+        }
+    }
+    
+    enemyAttackFinish(){
+        disableControls = false;
+        console.log("turn on controls");
+        this.cursorPosMain = 0;
+        this.eraseCursor();
+        this.cursorPosMain = 0;
+        this.cursorPosMain = 0;
+        this.makeCursors();         
+    }
+    
 }
