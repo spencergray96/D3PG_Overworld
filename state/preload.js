@@ -59,6 +59,10 @@ TopDownGame.Preload.prototype = {
         this.load.image("treeandbush", "/assets/images/background-overworld/treeandbush.png");
         this.load.image("zzzCone", "/assets/images/zzzCone.png");
         
+        //tunnel
+        this.load.tilemap("tunnel", "/assets/tilemaps/tunnel.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("nov21", "/assets/images/nov21.png");
+        this.load.image("nov22", "/assets/images/nov22.png");
         
         //overworld test
         this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
@@ -119,6 +123,7 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("KETLLE", "/assets/AttackElements/KETLLE.png", 128, 128);
         this.load.spritesheet("LAMP", "/assets/AttackElements/light.png", 128, 128);
         this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
+        this.load.spritesheet("CANDLE", "/assets/images/candleNPC.png", 128, 128);
         
 
     },
