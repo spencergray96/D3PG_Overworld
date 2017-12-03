@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 0;
+var eventNumber = 25;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -712,6 +712,9 @@ class textEvent extends abstractObject {
             case 1:
                 this.event13s1();
                 break;
+            case 2:
+                this.event13s2();
+                break;
         }
     }
     
@@ -752,6 +755,12 @@ class textEvent extends abstractObject {
             case 0:
                 this.event21s0();
                 break;
+            case 1:
+                this.event21s1();
+                break;
+            case 2:
+                this.event21s2();
+                break;
         }
     }
     
@@ -759,6 +768,9 @@ class textEvent extends abstractObject {
         switch(subEventNumber){
             case 0:
                 this.event22s0();
+                break;
+            case 1:
+                this.event22s1();
                 break;
         }
     }
@@ -1141,7 +1153,7 @@ class textEvent extends abstractObject {
         
         for(var i = 0; i < walkablesArr.length - 1; i++){
             if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "se6camera"){
-                this.targetNPC1 = walkablesArr[i];       
+                this.targetNPC1 = walkablesArr[i];
             }
         }
         
@@ -1184,7 +1196,16 @@ class textEvent extends abstractObject {
         this.eraseText();
         this.continueThing.destroy();
         console.log("13p1");
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+        
+        for(var i = 0; i < walkablesArr.length - 1; i++){
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "ne1camera"){
+                this.targetNPC1 = walkablesArr[i];
+            }
+        }
+        
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 4, function(){
             this.goBackTest();
         }, this);
     }
@@ -1193,9 +1214,23 @@ class textEvent extends abstractObject {
         this.eraseText();
         this.continueThing.destroy();
         console.log("13p1");
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+        
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 4, function(){
             this.goBackTest();
         }, this);
+    }
+    
+    event13s2(){
+        this.eraseText();
+        this.continueThing.destroy();
+        console.log("13p2");
+        
+        this.game.camera.flash('#000000');
+        this.game.camera.follow(this.player);
+        this.game.time.events.add(Phaser.Timer.SECOND * 1,this.goBackTest, this);
+        
     }
     
     event14s0(){
@@ -1255,32 +1290,66 @@ class textEvent extends abstractObject {
         this.eraseText();
         this.continueThing.destroy();
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.8, function(){
+         for(var i = 0; i < walkablesArr.length - 1; i++){
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "dormCamera"){
+                this.targetNPC1 = walkablesArr[i];
+            }
+        }
+        
+        this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.025, 0.025);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.6, function(){
             this.goBackTest();
         }, this);
     }
     
-    event22s0(){
+    event21s1(){
+        this.eraseText();
         this.continueThing.destroy();
-        for(var i = 0; i < NPCs.length - 1; i++){
-            if(NPCs[i].hismove.npcName == "dormComp"){
-
-                NPCs[i].x = 0;
-                NPCs[i].y = 0;
-            }
-        }
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+        
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, 0.025, 0.025);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.6, function(){
             this.goBackTest();
         }, this);
+    }
+    
+    event21s2(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.camera.flash('#000000');
+        this.game.camera.follow(this.player);
+        this.game.time.events.add(Phaser.Timer.SECOND * 1,this.goBackTest, this);
+    }
+    
+    event22s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        this.game.camera.shake(0.005, 1000);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.2,this.goBackTest, this);
+    }
+    
+    event22s1(){
+//        this.continueThing.destroy();
+//        for(var i = 0; i < NPCs.length - 1; i++){
+//            if(NPCs[i].hismove.npcName == "dormComp"){
+//
+//                NPCs[i].x = 0;
+//                NPCs[i].y = 0;
+//            }
+//        }
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.goBackTest();
+//        }, this);
     }
     
     event25s0(){
         this.continueThing.destroy();
         console.log("battle here!");
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            this.goBackTest();
-        }, this);
         
         this.game.camera.shake(0.005, 1000);
         for(var i = 0; i < NPCs.length - 1; i++){
@@ -1290,6 +1359,10 @@ class textEvent extends abstractObject {
                 NPCs[i].y = 0;
             }
         }
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.2, function(){
+            this.goBackTest();
+        }, this);
     }
     
     event27s0(){

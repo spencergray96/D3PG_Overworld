@@ -529,33 +529,6 @@
                 }, 
                 {
                  "height":128,
-                 "id":50,
-                 "name":"",
-                 "properties":
-                    {
-                     "eventNPC":"true",
-                     "npcName":"jakub",
-                     "sprite":"dov",
-                     "spritesheet":"raymond_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "eventNPC":"string",
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":4352,
-                 "y":10368
-                }, 
-                {
-                 "height":128,
                  "id":53,
                  "name":"",
                  "properties":

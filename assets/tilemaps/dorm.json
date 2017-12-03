@@ -141,7 +141,7 @@
                  "name":"",
                  "properties":
                     {
-                     "eventID":"se6camera",
+                     "eventID":"dormCamera",
                      "eventNPC":"true",
                      "type":"walkable"
                     },

@@ -100,7 +100,7 @@
                      "eventNPC":"true",
                      "npcName":"ne1lamp",
                      "sprite":"dov",
-                     "spritesheet":"james_spritesheet",
+                     "spritesheet":"LAMP",
                      "type":"testingObj"
                     },
                  "propertytypes":
@@ -378,6 +378,29 @@
                  "width":128,
                  "x":2944,
                  "y":6528
+                }, 
+                {
+                 "height":128,
+                 "id":17,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"ne1camera",
+                     "eventNPC":"true",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6656,
+                 "y":6912
                 }],
          "opacity":0.970000028610229,
          "type":"objectgroup",
@@ -396,7 +419,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":17,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
