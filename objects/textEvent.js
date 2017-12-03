@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 25;
+var eventNumber = 0;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -387,7 +387,16 @@ class textEvent extends abstractObject {
                     isEventing = true;
                 }
             }
-        }           
+        }
+//event 34
+        if(eventNumber == 34 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "bookcaseNPC"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    this.callEvent("bookcaseNPC", 34);
+                    isEventing = true;
+                }
+            }
+        }
 //read text
         if(currentNPC != null){
             this.readText();
@@ -523,7 +532,10 @@ class textEvent extends abstractObject {
                             break;
                         case 32:
                             this.event32switch();
-                            break;     
+                            break;
+                        case 33:
+                            this.event33switch();
+                            break;
                     }
                         
                     Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
@@ -796,6 +808,9 @@ class textEvent extends abstractObject {
             case 0:
                 this.event28s0();
                 break;
+            case 1:
+                this.event28s1();
+                break;
         }
     }
     
@@ -819,6 +834,14 @@ class textEvent extends abstractObject {
         switch(subEventNumber){
             case 0:
                 this.event32s0();
+                break;
+        }
+    }
+    
+    event33switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event33s0();
                 break;
         }
     }
@@ -1147,6 +1170,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 7   
     event7s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1175,6 +1199,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 8    
     event8s0(){
         this.continueThing.destroy();
         
@@ -1183,6 +1208,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 9    
     event9s0(){
         this.continueThing.destroy();
         console.log("start battle here!");
@@ -1192,6 +1218,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 13    
     event13s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1233,6 +1260,7 @@ class textEvent extends abstractObject {
         
     }
     
+//EVENT 14    
     event14s0(){
 //        this.eraseText();
         this.continueThing.destroy();
@@ -1252,6 +1280,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 15    
     event15s0(){
         this.continueThing.destroy();
         console.log("start battle here!");
@@ -1261,6 +1290,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 18    
     event18s0(){
         this.continueThing.destroy();
         console.log("pan camera here");
@@ -1270,6 +1300,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 20    
     event20s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1286,6 +1317,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 21  
     event21s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1323,6 +1355,7 @@ class textEvent extends abstractObject {
         this.game.time.events.add(Phaser.Timer.SECOND * 1,this.goBackTest, this);
     }
     
+//EVENT 22    
     event22s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1333,19 +1366,9 @@ class textEvent extends abstractObject {
     }
     
     event22s1(){
-//        this.continueThing.destroy();
-//        for(var i = 0; i < NPCs.length - 1; i++){
-//            if(NPCs[i].hismove.npcName == "dormComp"){
-//
-//                NPCs[i].x = 0;
-//                NPCs[i].y = 0;
-//            }
-//        }
-//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-//            this.goBackTest();
-//        }, this);
     }
     
+//EVENT 25    
     event25s0(){
         this.continueThing.destroy();
         console.log("battle here!");
@@ -1365,6 +1388,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 27    
     event27s0(){
         this.eraseText();
         this.continueThing.destroy();
@@ -1398,14 +1422,149 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 28    
     event28s0(){
+        this.eraseText();
         this.continueThing.destroy();
         gotNachos = true;
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            this.goBackTest();
-        }, this);
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "jakub"){
+                this.targetNPC1 = NPCs[i];
+            }
+        }
+        
+        if(this.player.frame == 11){
+        //moving the player    
+            this.player.mymove.state = 3;
+            this.player.mymove.y2 = this.player.mymove.y + 128;
+            this.player.animations.play("down");
+//            this.player.mymove.y2 = this.player.y;
+            
+        //turning the player back up    
+            this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+                this.player.frame = 2;
+            }, this);
+        //moving jakub NPC    
+            this.game.time.events.add(Phaser.Timer.SECOND * 1.3, function(){
+                this.targetNPC1.animations.play("left");
+                this.targetNPC1.hismove.x2 = this.targetNPC1.x - Math.round(2 * 128);
+                this.targetNPC1.hismove.walkingState = 2;
+                
+                
+                var that = this;
+                var checkNPCposition = setInterval(function(){
+                if(Math.round(that.targetNPC1.x / 128) == Math.round(that.targetNPC1.hismove.x2 / 128)){
+                    console.log("made it to x dest");
+                    that.targetNPC1.hismove.x = that.targetNPC1.hismove.x2;
+                    that.targetNPC1.hismove.walkingState = 0;
+                    that.targetNPC1.body.velocity.x = 0;
+                    
+                    
+                    that.targetNPC1.animations.play("up");
+                    that.targetNPC1.hismove.y2 = that.targetNPC1.y - 1280;
+                    that.targetNPC1.hismove.walkingState = 4;
+                    clearInterval(checkNPCposition);
+                }
+
+                }, 1000);
+            }, this);
+            
+        //moving the character after jakub
+            this.game.time.events.add(Phaser.Timer.SECOND * 4.5, function(){
+                this.player.mymove.state = 4;
+                this.player.mymove.y2 = this.player.mymove.y - 128;
+                this.player.animations.play("up");
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5, function(){
+                this.player.mymove.state = 1;
+                this.player.mymove.x2 = this.player.mymove.x + 128;
+                this.player.animations.play("right");
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5.5, function(){
+                this.player.frame = 2;
+                this.targetNPC1.x = 0;
+                this.targetNPC1.hismove.x = 0;
+                this.targetNPC1.hismove.x2 = 0;
+                this.targetNPC1.y = 0;
+                this.targetNPC1.hismove.y = 0;
+                this.targetNPC1.hismove.y2 = 0;
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5.6, function(){
+                this.goBackTest();
+            }, this);
+        }
+        
+        else if(this.player.frame == 8){
+            this.game.time.events.add(Phaser.Timer.SECOND * 1.3, function(){
+                this.targetNPC1.animations.play("left");
+                this.targetNPC1.hismove.x2 = this.targetNPC1.x - Math.round(2 * 128);
+                this.targetNPC1.hismove.walkingState = 2;
+                
+                
+                var that = this;
+                var checkNPCposition = setInterval(function(){
+                if(Math.round(that.targetNPC1.x / 128) == Math.round(that.targetNPC1.hismove.x2 / 128)){
+                    console.log("made it to x dest");
+                    that.targetNPC1.hismove.x = that.targetNPC1.hismove.x2;
+                    that.targetNPC1.hismove.walkingState = 0;
+                    that.targetNPC1.body.velocity.x = 0;
+                    
+                    
+                    that.targetNPC1.animations.play("up");
+                    that.targetNPC1.hismove.y2 = that.targetNPC1.y - 1280;
+                    that.targetNPC1.hismove.walkingState = 4;
+                    clearInterval(checkNPCposition);
+                }
+
+                }, 1000);
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5, function(){
+                this.player.mymove.state = 2;
+                this.player.mymove.x2 = this.player.mymove.x - 128;
+                this.player.animations.play("left");
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5.5, function(){
+                this.player.frame = 2;
+                this.targetNPC1.x = 0;
+                this.targetNPC1.hismove.x = 0;
+                this.targetNPC1.hismove.x2 = 0;
+                this.targetNPC1.y = 0;
+                this.targetNPC1.hismove.y = 0;
+                this.targetNPC1.hismove.y2 = 0;
+            }, this);
+            
+            this.game.time.events.add(Phaser.Timer.SECOND * 5.6, function(){
+                this.goBackTest();
+            }, this);
+        }
     }
     
+    event28s1(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "NACHOS"){
+                this.targetNPC2 = NPCs[i];
+            }
+        }
+        
+        this.targetNPC2.x = 0;
+        this.targetNPC2.y = 0;
+        this.targetNPC2.destroy();
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+                this.goBackTest();
+            }, this);
+    }
+    
+//EVENT 29    
     event29s0(){
         this.continueThing.destroy();
         gotLaptop = true;
@@ -1424,6 +1583,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 30    
     event30s0(){
         this.continueThing.destroy();
         gotKettle = true;
@@ -1440,6 +1600,7 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+//EVENT 32    
     event32s0(){
         this.continueThing.destroy();
         console.log("battle here!");
@@ -1448,5 +1609,23 @@ class textEvent extends abstractObject {
             this.goBackTest();
         }, this);
     }
+    
+//EVENT 33    
+    event33s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        
+        currentDoor = undefined;
+        currentNPC = null;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+            TopDownGame.game.state.start('dorm');
+        }, this);
+    }
+    
 }
 

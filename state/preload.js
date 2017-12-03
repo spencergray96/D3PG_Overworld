@@ -118,6 +118,7 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("henryLaptop", "/assets/AttackElements/LAPTOP.png", 128, 128);
         this.load.spritesheet("KETLLE", "/assets/AttackElements/KETLLE.png", 128, 128);
         this.load.spritesheet("LAMP", "/assets/AttackElements/light.png", 128, 128);
+        this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
         
 
     },

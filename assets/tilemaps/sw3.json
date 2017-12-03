@@ -122,7 +122,7 @@
                  "visible":true,
                  "width":128,
                  "x":4992,
-                 "y":8576
+                 "y":9216
                 }, 
                 {
                  "height":128,
@@ -290,7 +290,34 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5504,
+                 "x":5376,
+                 "y":8576
+                }, 
+                {
+                 "height":128,
+                 "id":11,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventNPC":"true",
+                     "npcName":"NACHOS",
+                     "sprite":"dov",
+                     "spritesheet":"NACHOS",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventNPC":"string",
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5376,
                  "y":8448
                 }],
          "opacity":1,
@@ -310,7 +337,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":11,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

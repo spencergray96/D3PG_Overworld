@@ -3231,6 +3231,20 @@ var theDialogue = {
                 profile:
                     "spencerCH",
                 txt:
+                    "Spencer: let's take em?",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: I doubt it",
+                event:"action"
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
                     "Spencer: Interesting",
                 event:"end"
             },
@@ -3638,6 +3652,16 @@ var theDialogue = {
                 "",
             txt:{
                 0:"hi i am a kettle",
+                1:"blah1;;blah1;;blah1",
+                5:"blah5;;blah5;;blah5",
+                10:"blah;;blah;;blah"
+            }
+        },
+        NACHOS:{
+            profile:
+                "",
+            txt:{
+                0:"Those aren't yours!",
                 1:"blah1;;blah1;;blah1",
                 5:"blah5;;blah5;;blah5",
                 10:"blah;;blah;;blah"
