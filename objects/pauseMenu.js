@@ -121,7 +121,7 @@ class pauseMenu extends abstractObject {
 
     createThis(game) {
         super.createThis(game);
-        
+        console.log("what the heck");
         this.cursors = this.game.input.keyboard.createCursorKeys();
         this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.backKey = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
@@ -136,10 +136,12 @@ class pauseMenu extends abstractObject {
     updateThis(game, player) {
         super.updateThis(game, player);
         
-        if(this.spaceKey.isDown && this.backKey.isUp && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
-            this.createPauseMenu();
-        } else if(this.spaceKey.isUp && this.backKey.isDown && isPaused){
-            this.destroyPauseMenu();
+        if(!texting){
+            if(this.spaceKey.isDown && this.backKey.isUp && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
+                this.createPauseMenu();
+            } else if(this.spaceKey.isUp && this.backKey.isDown && isPaused){
+                this.destroyPauseMenu();
+            }
         }
         this.createControls();
     }
