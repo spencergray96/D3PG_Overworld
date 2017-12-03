@@ -19,6 +19,7 @@ TopDownGame.Preload.prototype = {
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
+        this.load.image("nov24", "/assets/images/nov24.png");
         
         //sw03
         this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
@@ -36,6 +37,28 @@ TopDownGame.Preload.prototype = {
         this.load.tilemap("dorm", "/assets/tilemaps/dorm.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("dormcopy", "/assets/images/dormcopy.png");
         this.load.image("dorm2copy", "/assets/images/dorm2copy.png");
+        
+        //se6
+        this.load.tilemap("se6office", "/assets/tilemaps/se6office.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("nov14", "/assets/images/nov14.png");
+        
+        //overworld
+        this.load.tilemap("overworld", "/assets/tilemaps/overworld.json", null, Phaser.Tilemap.TILED_JSON);
+        this.load.image("brick", "/assets/images/background-overworld/brick.png");
+        this.load.image("brick2", "/assets/images/background-overworld/brick2.png");
+        this.load.image("cementcopy", "/assets/images/background-overworld/cementcopy.png");
+        this.load.image("dirt", "/assets/images/background-overworld/dirt.png");
+        this.load.image("grass1", "/assets/images/background-overworld/grass1.png");
+        this.load.image("grass2", "/assets/images/background-overworld/grass2.png");
+        this.load.image("parkingLines", "/assets/images/background-overworld/parkingLines.png");
+        this.load.image("SE6", "/assets/images/background-overworld/SE6.png");
+        this.load.image("se12", "/assets/images/background-overworld/se12.png");
+        this.load.image("se14", "/assets/images/background-overworld/se14.png");
+        this.load.image("sidewalk", "/assets/images/background-overworld/sidewalk.png");
+        this.load.image("sidewalkWithCurb", "/assets/images/background-overworld/sidewalkWithCurb.png");
+        this.load.image("treeandbush", "/assets/images/background-overworld/treeandbush.png");
+        this.load.image("zzzCone", "/assets/images/zzzCone.png");
+        
         
         //overworld test
         this.load.tilemap("mainHubTest", "/assets/tilemaps/mainHubTest.json", null, Phaser.Tilemap.TILED_JSON);
@@ -63,20 +86,44 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-down", "/assets/ui/triangle-down.png");
         this.load.image("hand-up", "/assets/ui/triangle-up.png");
         
+        //character spritesheets
+        
+        //main characters
         this.load.spritesheet("spencer_spritesheet", "/assets/characters/spritesheet/spencer/spencer-spritesheet.png", 128, 128);
         this.load.spritesheet("dov_spritesheet", "/assets/characters/spritesheet/dove/dove-spritesheet.png", 128, 128);
         this.load.spritesheet("james_spritesheet", "/assets/characters/spritesheet/james/james-spritesheet.png", 128, 128);
         this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
         
-        //chat heads
+        //secondary characters
+        
+        
+    //chat heads
+        //main characters
         this.load.image("spencerCH", "/assets/characters/chatHeads/Spencerflipped.png");
         this.load.image("dovCH", "/assets/characters/chatHeads/Doveflipped.png");
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
+        //others
+        this.load.image("henryCH", "/assets/characters/chatHeads/herny.png");
+        this.load.image("raminCH", "/assets/characters/chatHeads/ramin.png");
+        this.load.image("daemonCH", "/assets/characters/chatHeads/Demon.png");
+        this.load.image("galynaCH", "/assets/characters/chatHeads/galina.png");
+        this.load.image("arronCH", "/assets/characters/chatHeads/Arron.png");
+        
+        //background characters
+        this.load.image("boy5CH", "/assets/characters/chatHeads/boy5.png");
+        
+        //other pngs
+        this.load.spritesheet("microwaveItem", "/assets/AttackElements/micro-wave.png", 128, 128);
+        this.load.spritesheet("henryLaptop", "/assets/AttackElements/LAPTOP.png", 128, 128);
+        this.load.spritesheet("KETLLE", "/assets/AttackElements/KETLLE.png", 128, 128);
+        this.load.spritesheet("LAMP", "/assets/AttackElements/light.png", 128, 128);
+        this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
+        
 
     },
     create: function () {      
 
-        this.state.start("mainHub");
+        this.state.start("overworld");
     }
 };

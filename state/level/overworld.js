@@ -1,15 +1,29 @@
-class NE1 extends abstractLevel {
+class overworld extends abstractLevel {
 
     static params() {
         return {
-            tilemap: "NE1map",
+            tilemap: "overworld",
             tileSetImage: {
-                "1": "NE1",
-                "2": "task13",
+                "1": "brick",
+                "2": "brick2",
+                "3": "cementcopy",
+                "4": "dirt",
+                "5": "grass1",
+                "6": "grass2",
+                "7": "parkingLines",
+                "8": "se12",
+                "9": "se14",
+                "10": "SE6",
+                "11": "sidewalk",
+                "12": "sidewalkWithCurb",
+                "13": "task14",
+                "14": "treeandbush",
+                "15": "zzzCone",
             },
             layers: [
                 "backgroundLayer",
                 "backgroundLayer2",
+                "backgroundLayer3",
                 "blockedLayer_c",
                 "blockedLayer2"
             ],
@@ -20,8 +34,8 @@ class NE1 extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
-//                "blockedLayer_c",
                 "decorationLayer_d",
+                "decorationLayer2",
             ]
         }};
 
@@ -36,7 +50,7 @@ class NE1 extends abstractLevel {
     }
 
     constructor() {
-        super(() => (TopDownGame), NE1.params(), NE1.updatables());
+        super(() => (TopDownGame), overworld.params(), overworld.updatables());
     }
 
     create() {
@@ -45,4 +59,4 @@ class NE1 extends abstractLevel {
 
 }
 
-TopDownGame.NE1 = NE1;
+TopDownGame.overworld = overworld;
