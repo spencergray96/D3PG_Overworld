@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "door.psd",
+	"frame": {"x":0,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "se12 top.psd",
+	"frame": {"x":32,"y":0,"w":96,"h":96},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":96},
+	"sourceSize": {"w":96,"h":96}
+},
+{
+	"filename": "SE12.psd",
+	"frame": {"x":0,"y":96,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "SIDE WALL.psd",
+	"frame": {"x":32,"y":96,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "wall.psd",
+	"frame": {"x":0,"y":128,"w":128,"h":288},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":288},
+	"sourceSize": {"w":128,"h":288}
+},
+{
+	"filename": "window 2.psd",
+	"frame": {"x":0,"y":416,"w":32,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":93},
+	"sourceSize": {"w":32,"h":93}
+},
+{
+	"filename": "window bottom.psd",
+	"frame": {"x":32,"y":416,"w":32,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":93},
+	"sourceSize": {"w":32,"h":93}
+},
+{
+	"filename": "window.psd",
+	"frame": {"x":64,"y":416,"w":32,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":93},
+	"sourceSize": {"w":32,"h":93}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "se12.png",
+	"format": "RGBA8888",
+	"size": {"w":128,"h":509},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:90fe4fbedf30fb8b6949554925d56133:fed65286b82d23721ef760619aa3f713:c9dce64d976a9c337608d1d9189b9fb8$"
+}
+}
