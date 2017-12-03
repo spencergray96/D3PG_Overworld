@@ -79,6 +79,7 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
+        
     }
 
     updateThis(game, player) {
@@ -454,7 +455,7 @@ class textEvent extends abstractObject {
             }
         }
         
-        if(this.enterBut.isUp && !disableControls && !battling){
+        if(this.enterBut.isUp && !disableControls){
             if(this.isDown){
                 this.isDown = false;
                 switch (this.isText) {
@@ -475,20 +476,6 @@ class textEvent extends abstractObject {
     checkTextBoxContent(){
         if(currentNPC == null){
         } 
-//        else{    
-//            if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
-//
-//                if(eventNumber == 0 && currentNPC.hismove.npcName == "ramin" && !eventTrigger){
-//                    this.callEvent("ramin", 0);
-//                }
-//                
-//                else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
-//                    battling = true;
-//                    console.log(battling);
-//                    this.callEvent("james", 1);
-//                }                
-//                
-//                else if (!eventTrigger){
         else{
 //            if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0 && currentNPC.hismove.npcName != undefined && currentNPC.hismove.eventNPC && !eventTrigger){
 ////                this.callEvent(currentNPC.hismove.npcName, eventNumber);
@@ -1100,7 +1087,7 @@ class textEvent extends abstractObject {
         this.continueThing.destroy();
         
         for(var i = 0; i < NPCs.length - 1; i++){
-            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "dov1"){
+            if(NPCs[i].hismove.eventNPC&& NPCs[i].hismove.eventID == "dov1"){
                 
                 this.targetNPC1 = NPCs[i];
                 this.targetNPC1.animations.play("up");
@@ -1127,8 +1114,8 @@ class textEvent extends abstractObject {
             if(Math.round(that.targetNPC1.y / 128) == Math.round(that.targetNPC1.hismove.y2 / 128)){
                 
                 that.game.time.events.add(Phaser.Timer.SECOND * 0.1,that.goBackTest, that);
-                this.targetNPC1 = null;
-                this.targetNPC2 = null;
+//                that.targetNPC1 = null;
+//                that.targetNPC2 = null;
                 clearInterval(checkNPCposition);
             }
             
