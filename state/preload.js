@@ -129,6 +129,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {      
 
-        this.state.start("overworld");
+        this.state.start("tunnel");
     }
 };

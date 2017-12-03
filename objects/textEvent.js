@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 0;
+var eventNumber = 40;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -407,38 +407,58 @@ class textEvent extends abstractObject {
 //event 35
         if(eventNumber == 35 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "35thEvent"){
-                    this.callEvent("35thEvent", 35);
-                    isEventing = true;
+                this.callEvent("35thEvent", 35);
+                isEventing = true;
             }
         }
 //event 36
         if(eventNumber == 36 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "36thEvent"){
-                    this.callEvent("36thEvent", 36);
-                    isEventing = true;
+                this.callEvent("36thEvent", 36);
+                isEventing = true;
             }
         }
 //event 37
         if(eventNumber == 37 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "37thEvent"){
-                    this.callEvent("37thEvent", 37);
-                    isEventing = true;
+                this.callEvent("37thEvent", 37);
+                isEventing = true;
             }
         }
 //event 38
         if(eventNumber == 38 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "38thEvent"){
-                    this.callEvent("38thEvent", 38);
-                    isEventing = true;
+                this.callEvent("38thEvent", 38);
+                isEventing = true;
             }
         }
 //event 39
         if(eventNumber == 39 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "39thEvent"){
-                    this.callEvent("39thEvent", 39);
-                    isEventing = true;
+                this.callEvent("39thEvent", 39);
+                isEventing = true;
             }
         }
+//event 40
+        if(eventNumber == 40 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    console.log("PLEASE");
+                    this.callEvent("ramin", 40);
+                    isEventing = true;
+                }
+            }
+        }
+//event 41
+        if(eventNumber == 41 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    console.log("PLEASE");
+                    this.callEvent("ramin", 41);
+                    isEventing = true;
+                }
+            }
+        }        
 //read text
         if(currentNPC != null){
             this.readText();
@@ -590,6 +610,9 @@ class textEvent extends abstractObject {
                         case 39:
                             this.event39switch();
                             break;
+                        case 40:
+                            this.event40switch();
+                            break;
                     }
                         
                     Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
@@ -597,7 +620,6 @@ class textEvent extends abstractObject {
                     
                     subEventNumber++;
                 }
-                
                 
                 
                 else{
@@ -958,6 +980,17 @@ class textEvent extends abstractObject {
                 break;
             case 8:
                 this.event39s8();
+                break;
+            case 9:
+                this.event39s9();
+                break;
+        }
+    }
+    
+    event40switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event40s0();
                 break;
         }
     }
@@ -1822,7 +1855,7 @@ class textEvent extends abstractObject {
         
         this.targetNPC2.frame = 5
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.0000001, function(){
             this.goBackTest();
         }, this);
     }
@@ -1983,9 +2016,20 @@ class textEvent extends abstractObject {
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.3, function(){
             this.game.camera.flash('0x000000');
-            this.camera.follow(this.player);
+            this.game.camera.follow(this.player);
             this.goBackTest();
         }, this);
     }
+        
+    event40s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        console.log("fight here");
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+            this.goBackTest();
+        }, this);
+    }
+        
 }
 

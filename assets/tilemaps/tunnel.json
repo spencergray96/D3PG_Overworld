@@ -76,7 +76,7 @@
                  "visible":true,
                  "width":128,
                  "x":6016,
-                 "y":7808
+                 "y":6656
                 }, 
                 {
                  "height":128,
@@ -1419,6 +1419,7 @@
                  "name":"",
                  "properties":
                     {
+                     "eventNPC":"true",
                      "npcName":"ramin",
                      "sprite":"dov",
                      "spritesheet":"spencer_spritesheet",
@@ -1426,6 +1427,7 @@
                     },
                  "propertytypes":
                     {
+                     "eventNPC":"string",
                      "npcName":"string",
                      "sprite":"string",
                      "spritesheet":"string",
@@ -1504,7 +1506,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5888,
+                 "x":5760,
                  "y":6656
                 }, 
                 {
@@ -1528,7 +1530,7 @@
                  "visible":true,
                  "width":128,
                  "x":5888,
-                 "y":6912
+                 "y":6656
                 }, 
                 {
                  "height":128,

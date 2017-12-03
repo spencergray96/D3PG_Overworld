@@ -3449,129 +3449,160 @@ var theDialogue = {
         ],
 //FIND RAMIN
         findRamin:[
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: What in the world-?;;Am I seeing things?",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: How much longer??",
-                event:""
-            },
-            {
-                profile:
-                    "",
-                txt:
-                    "Monk of Ramin: Patience, my lord",
-                event:""
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: I always get the bad filler text;;I am sad boy",
-                event:"action"
-            },
-            {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: The gig is up, RAMIN",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: insert hank hill gasping noise here",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Monks! Get them!",
-                event:"action"
-            },
-            {
-                profile:
-                    "jamesCH",
-                txt:
-                    "James: These nerds look pretty strong",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: Never fear!",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: Wow it's Henry, he's here to help us!",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: That's right. Watch this.",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: That guy got destroyed! Haha!",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Useless Monk! Don't just stand there!!",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: I'll get this guy! Go take care of Ramin!!",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Who are you guys? you will pay for this.",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: We will see about that.",
-                event:"end"
-            },
-        ],
-////DEFEAT RAMIN
-//        findRamin:[
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: What in the world-?;;Am I seeing things?",
+//                event:"action"
+//            },
 //            {
 //                profile:
 //                    "raminCH",
 //                txt:
-//                    "Ramin: Do you know what you have done? You fools!!",
-//                event:"end"
+//                    "Ramin: How much longer??",
+//                event:""
 //            },
-//        ],
+//            {
+//                profile:
+//                    "",
+//                txt:
+//                    "Monk of Ramin: Patience, my lord",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: I always get the bad filler text;;I am sad boy",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "raymondCH",
+//                txt:
+//                    "Raymond: The gig is up, RAMIN",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "raminCH",
+//                txt:
+//                    "Ramin: insert hank hill gasping noise here",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "raminCH",
+//                txt:
+//                    "Ramin: Monks! Get them!",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "jamesCH",
+//                txt:
+//                    "James: These nerds look pretty strong",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "henryCH",
+//                txt:
+//                    "Henry: Never fear!",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: Wow it's Henry, he's here to help us!",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "henryCH",
+//                txt:
+//                    "Henry: That's right. Watch this.",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: That guy got destroyed! Haha!",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "raminCH",
+//                txt:
+//                    "Ramin: Useless Monk! Don't just stand there!!",
+//                event:""
+//            },
+//            {
+//                profile:
+//                    "henryCH",
+//                txt:
+//                    "Henry: I'll get this guy! Go take care of Ramin!!",
+//                event:"action"
+//            },
+//            {
+//                profile:
+//                    "raminCH",
+//                txt:
+//                    "Ramin: Who are you guys? you will pay for this.",
+//                event:"action"
+//            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: We will see about;;that.",
+                event:"end"
+            },
+        ],
+////ABOUT TO FIGHT RAMIN
+        procRamin:[
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "SPICER: hello nerd!!",
+                event:""
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: You are making a big;;Mistake!!",
+                event:"action"
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: Don't do it, guys",
+                event:"end"
+            },
+        ],
+//POST BEATING RAMIN
+        postRamin:[
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: easy stuff!!",
+                event:""
+            },
+            {
+                profile:
+                    "raminCH",
+                txt:
+                    "Ramin: you guys beat me!",
+                event:"end"
+            },
+        ],
 //leave this empty event here, trust me
         emptyEvent:[
         ],
