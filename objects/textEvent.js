@@ -1087,7 +1087,7 @@ class textEvent extends abstractObject {
         this.continueThing.destroy();
         
         for(var i = 0; i < NPCs.length - 1; i++){
-            if(NPCs[i].hismove.eventNPC&& NPCs[i].hismove.eventID == "dov1"){
+            if(NPCs[i].hismove.eventNPC && NPCs[i].hismove.eventID == "dov1"){
                 
                 this.targetNPC1 = NPCs[i];
                 this.targetNPC1.animations.play("up");
@@ -1114,8 +1114,8 @@ class textEvent extends abstractObject {
             if(Math.round(that.targetNPC1.y / 128) == Math.round(that.targetNPC1.hismove.y2 / 128)){
                 
                 that.game.time.events.add(Phaser.Timer.SECOND * 0.1,that.goBackTest, that);
-//                that.targetNPC1 = null;
-//                that.targetNPC2 = null;
+                this.targetNPC1 = null;
+                this.targetNPC2 = null;
                 clearInterval(checkNPCposition);
             }
             

@@ -2,76 +2,76 @@ var theDialogue = {
     events:{
 //spawn event        
         firstSpawnEvent:[
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: I feel like I should press the ENTER button...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Why did you say that?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: What?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Just now...;;You said you should press the ENTER button",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Yeah, of course;;We need to use the ENTER button to advance through dialogue",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;Are you feeling okay?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: And we can use WASD controls to move around",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;Why are you explaining things to me as if I’m playing a game?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: ...;;What?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;What?;;...;;Anyways did we just pass Dov and James on the road?;;Haven't seen those guys since we graduated",
-//                event:""
-//            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: I feel like I should press the ENTER button...",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Why did you say that?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: What?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Just now...;;You said you should press the ENTER button",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Yeah, of course;;We need to use the ENTER button to advance through dialogue",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;Are you feeling okay?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: And we can use WASD controls to move around",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;Why are you explaining things to me as if I’m playing a game?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ...;;What?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;What?;;...;;Anyways did we just pass Dov and James on the road?;;Haven't seen those guys since we graduated",
+                event:""
+            },
             {
                 profile:
                     "spencerCH",
