@@ -136,19 +136,12 @@ class pauseMenu extends abstractObject {
     updateThis(game, player) {
         super.updateThis(game, player);
         
-<<<<<<< HEAD
-        if(this.spaceKey.isDown && this.backKey.isUp && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0 && !battling){
-            this.createPauseMenu();
-        } else if(this.spaceKey.isUp && this.backKey.isDown && isPaused){
-            this.destroyPauseMenu();
-=======
         if(!texting){
             if(this.spaceKey.isDown && this.backKey.isUp && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
                 this.createPauseMenu();
             } else if(this.spaceKey.isUp && this.backKey.isDown && isPaused){
                 this.destroyPauseMenu();
             }
->>>>>>> master
         }
         this.createControls();
     }

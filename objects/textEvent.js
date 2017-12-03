@@ -76,10 +76,6 @@ class textEvent extends abstractObject {
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
-<<<<<<< HEAD
-=======
-        
->>>>>>> master
     }
 
     updateThis(game, player) {
@@ -437,22 +433,20 @@ class textEvent extends abstractObject {
     checkTextBoxContent(){
         if(currentNPC == null){
         } 
-<<<<<<< HEAD
-        else{    
-            if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
-
-                if(eventNumber == 0 && currentNPC.hismove.npcName == "ramin" && !eventTrigger){
-                    this.callEvent("ramin", 0);
-                }
-                
-                else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
-                    battling = true;
-                    console.log(battling);
-                    this.callEvent("james", 1);
-                }                
-                
-                else if (!eventTrigger){
-=======
+//        else{    
+//            if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0){
+//
+//                if(eventNumber == 0 && currentNPC.hismove.npcName == "ramin" && !eventTrigger){
+//                    this.callEvent("ramin", 0);
+//                }
+//                
+//                else if(eventNumber == 1 && currentNPC.hismove.npcName == "james" && !eventTrigger){
+//                    battling = true;
+//                    console.log(battling);
+//                    this.callEvent("james", 1);
+//                }                
+//                
+//                else if (!eventTrigger){
         else{
 //            if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0 && currentNPC.hismove.npcName != undefined && currentNPC.hismove.eventNPC && !eventTrigger){
 ////                this.callEvent(currentNPC.hismove.npcName, eventNumber);
@@ -464,7 +458,6 @@ class textEvent extends abstractObject {
 //                
 //            } else
                 if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0 && currentNPC.hismove.npcName != undefined && !eventTrigger){
->>>>>>> master
                     for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
                         if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
                             this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
