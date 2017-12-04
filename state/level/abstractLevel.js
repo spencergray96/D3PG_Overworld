@@ -223,7 +223,7 @@ class abstractLevel extends Phaser.State {
         xUpdatingLeft = Math.floor(((this.player.mymove.x - 128) / 128));
         xUpdatingRight = Math.floor(((this.player.mymove.x + 128) / 128));
         
-        if(!disableControls){
+        if(!disableControls && !battling){
             this.createControls();
             this.createEnterPress();
         }

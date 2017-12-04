@@ -57,7 +57,10 @@ var playerStats = [
         specDesc: "hits a lot",
         
         level: experiencePoints[0].level,
-        nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp
+        nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp,
+        
+        basicWeapon: "TV",
+        lastWeapon: "TVGold"
     },
     dov = {
         name: "Dov",
@@ -76,7 +79,10 @@ var playerStats = [
         specDesc: "hits a lot",
         
         level: experiencePoints[1].level,
-        nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp
+        nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp,
+        
+        basicWeapon: "pickle",
+        lastWeapon: "pickleGold"        
     },
     james = {
         name: "James",
@@ -95,7 +101,10 @@ var playerStats = [
         specDesc: "hits a lot",
         
         level: experiencePoints[2].level,
-        nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp
+        nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp,
+        
+        basicWeapon: "laptop",
+        lastWeapon: "laptopGold"
     },
     raymond = {
         name: "Raymond",
@@ -114,6 +123,9 @@ var playerStats = [
         specDesc: "hits a lot",
         
         level: experiencePoints[3].level,
-        nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp
+        nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp,
+        
+        basicWeapon: "chopsticks",
+        lastWeapon: "chopsticksGold"
     },
 ]

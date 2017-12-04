@@ -1,4 +1,5 @@
 var battling = false;
+var charArr = [];
 
 class battle extends abstractObject {
 
@@ -17,6 +18,8 @@ class battle extends abstractObject {
         this.itemMenu = false;
         this.run = false;
         
+        this.turnWalking = false;
+        
         this.attackDelay = 2;
         this.enemyDelay = 3;
         
@@ -26,14 +29,18 @@ class battle extends abstractObject {
             character2YPos: 175,
             character3YPos: 300,
             character4YPos: 425,
-            characterXPos: 600
-        }
+            
+            characterX1Pos: 600,
+            characterX2Pos: 530            
+        }     
+        
+        this.weaponAlignment = 370;
 
         this.infoX1 = 350;
         this.infoX2 = 475;
         this.infoX3 = 525;
         this.infoXHP = 585;
-        this.infoX4 = 640;
+        this.infoX4 = 625;
         this.infoX5 = 675;
         this.infoX6 = 725;
         
@@ -46,13 +53,13 @@ class battle extends abstractObject {
         
         this.displayArr = [];
         
-        this.characterArr = [];
+        charArr = [];
         
         this.style = {
             font: "12pt Final-Fantasy-36-Font",
             fill: "#fff", 
-            align: "left",
-            boundsAlignH: "left", 
+            align: "right",
+            boundsAlignH: "right", 
             boundsAlignV: "top", 
             wordWrap: true, wordWrapWidth: 600
         };
@@ -89,13 +96,26 @@ class battle extends abstractObject {
         this.cursorWidth = mainMenuHandWidth - 10;
         this.cursorHeight = mainMenuHandHeight - 5;
         
-        
+        this.readytoread = false;
     }
 
     updateThis(game, player) {
         super.updateThis(game, player);
         this.createControls();
         this.setupBattle();
+        
+        if(this.readytoread){
+//            console.log("not null");
+            switch(charArr[this.activeCharVar].movementProperites.state){
+                case 'left':
+                    this.activePlayerMove(false);
+                    break;
+                case 'right':
+                    console.log("going right");
+                    this.activePlayerMove(true);
+                    break;
+            }
+        }
     }
     
     setupBattle(){
@@ -122,20 +142,104 @@ class battle extends abstractObject {
     makePlayers(){
 
         for(var i = 0; i < playerStats.length; i++){
-            console.log(Object.values(this.characterPos)[4]);
-            this.characterArr[i] = this.game.add.sprite(Object.values(this.characterPos)[4], Object.values(this.characterPos)[i], playerStats[i].spritesheet);
-            this.characterArr[i].frame = 13;
-            this.characterArr[i].fixedToCamera = true;
+            if (this.activeCharVar == i){
+                charArr[i] = this.game.add.sprite(Object.values(this.characterPos)[5], Object.values(this.characterPos)[i], playerStats[i].spritesheet);
+//                charArr[i].movementProperites = {
+//                    x: Object.values(this.characterPos)[5],
+//                    x2: null,
+//                    state: null
+//                };
+                console.log(charArr[i].movementProperites);
+            }
+            else{
+                charArr[i] = this.game.add.sprite(Object.values(this.characterPos)[4], Object.values(this.characterPos)[i], playerStats[i].spritesheet);                
+//                charArr[i].movementProperites = {
+//                    x: Object.values(this.characterPos)[4],
+//                    x2: null,
+//                    state: null
+//                };
+            }
+            
+            charArr[i].frame = 13;
+            charArr[i].width = 120;
+            charArr[i].height = 120;
 
-            this.characterArr[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
-            this.characterArr[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
-            this.characterArr[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
-            this.characterArr[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+            charArr[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
+            charArr[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
+            charArr[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
+            charArr[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
             
-            this.characterArr[i].animations.add("attack", [13, 14, 13, 12, 13], walkingAnimFPS, true);
+            charArr[i].animations.add("attack", [13, 14, 13, 12,], walkingAnimFPS, true);
             
-            this.displayArr.push(this.characterArr[i]);
+            this.game.physics.arcade.enable(charArr[i]);
+            charArr[i].fixedToCamera = true;
+            charArr[i].cameraOffset.x = Object.values(this.characterPos)[4];
+            charArr[i].movementProperites = {
+                    x: Object.values(this.characterPos)[4],
+                    x2: null,
+                    state: null
+                };
+            this.displayArr.push(charArr[i]);
         }
+        
+        this.readytoread = true;
+    }
+    
+    makeWeapons(){
+        if (eventNumber < 32){
+            switch(this.activeCharVar){
+                case 0:
+                    this.animateWeapons(playerStats[0].basicWeapon, this.characterPos.character1YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);             
+                    break;
+                case 1:
+                    this.animateWeapons(playerStats[1].basicWeapon, this.characterPos.character2YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;    
+                case 2:
+                    this.animateWeapons(playerStats[2].basicWeapon, this.characterPos.character3YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;
+                case 3:
+                    this.animateWeapons(playerStats[3].basicWeapon, this.characterPos.character4YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;
+            }
+        }
+        else {
+            switch(this.activeCharVar){                
+                case 0:
+                    this.animateWeapons(playerStats[0].lastWeapon, this.characterPos.character1YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);             
+                    break;
+                case 1:
+                    this.animateWeapons(playerStats[1].lastWeapon, this.characterPos.character2YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;    
+                case 2:
+                    this.animateWeapons(playerStats[2].lastWeapon, this.characterPos.character3YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;
+                case 3:
+                    this.animateWeapons(playerStats[3].lastWeapon, this.characterPos.character4YPos);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);
+                    break;                
+            }
+        }
+    }
+    
+    animateWeapons(thing, location){
+        this.weaponArr = this.game.add.sprite(this.weaponAlignment, location, thing);
+        this.weaponArr.frame = 1;
+        this.weaponArr.animations.add("hit", [0, 1, 2, 1], walkingAnimFPS, true);
+        this.weaponArr.fixedToCamera = true;
+        this.game.physics.arcade.enable(this.weaponArr);
+        this.weaponArr.animations.play("hit");
+        this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.destroyWeapon, this);            
+    }
+    
+    destroyWeapon(){
+        this.weaponArr.destroy();
     }
     
     makeContainers(){
@@ -674,39 +778,23 @@ class battle extends abstractObject {
         if(this.attackMenu && !this.skillAttack){
         switch(this.activeCharVar){
             case 0:
-                console.log("you hit the enemy");
-                this.attackMenu = false;
-                this.mainMenu = true;
-                disableControls = true;
-                this.eraseCursor();
-                this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.playerAttack, this);
-                break;
             case 1:
-                console.log("you hit the enemy");
-                this.attackMenu = false;
-                this.mainMenu = true;
-                disableControls = true;
-                this.eraseCursor();
-                this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.playerAttack, this);
-                break;
             case 2:
                 console.log("you hit the enemy");
                 this.attackMenu = false;
                 this.mainMenu = true;
                 disableControls = true;
                 this.eraseCursor();
-                this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.playerAttack, this);
+                this.attackFunctions();
                 break;
             case 3:
                 console.log("you hit the enemy");
                 this.attackMenu = false;
                 this.mainMenu = true;                
-                this.playerAttack();
                 disableControls = true;
-                console.log("disableControls");
-                this.enemyTurn = true;
                 this.eraseCursor();
-                this.enemyAttack();
+                this.attackFunctions();
+                console.log("disableControls");
                 break;
             }            
         }
@@ -717,16 +805,93 @@ class battle extends abstractObject {
             this.mainMenu = true; 
             this.eraseCursor();
             disableControls = true;
-            this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.playerAttack, this);             
+            this.attackFunctions();
         }
     }
     
-    playerAttack(){
+    attackFunctions(){
+
+        for (var i = 0; i < charArr.length; i++){
+            if (charArr[i] == charArr[this.activeCharVar]){
+                console.log(this.activeCharVar);
+                charArr[this.activeCharVar].animations.play("attack");
+            }
+        }
+//                charArr[i].movementProperties.x2 = Object.values(this.characterPos)[5];
+        this.makeWeapons();
+        this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.stopPunching, this);
+
+        
+    }
+    
+    stopPunching(){
+        charArr[this.activeCharVar].animations.stop();
+        charArr[this.activeCharVar].frame = 13;
+        
+        //  this is where character movement happens //    
+        charArr[this.activeCharVar].movementProperites.x2 = Object.values(this.characterPos)[4];
+        charArr[this.activeCharVar].movementProperites.state = "right";
+//        charArr[this.activeCharVar].movementProperites.state = "right";
+//        this.activePlayerMove('right');
+        
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.nextPlayerCursor, this);
+        if(this.activeCharVar > 3){
+            this.enemyTurn = true;
+            this.enemyAttack();
+        }
+        else{
+            disableControls = false;
+        }
+        
+    }
+    
+    activePlayerMove(isDown){
+        this.movePlayer = true;
+        if(isDown){
+            console.log("fudge");
+            console.log(Math.round(charArr[this.activeCharVar].movementProperites.x));
+            console.log("first: ", Math.round(charArr[this.activeCharVar].movementProperites.x));
+            console.log("second: ", charArr[this.activeCharVar].movementProperites.x2);
+            
+//            if(Math.round(charArr[this.activeCharVar].x) < (charArr[this.activeCharVar].movementProperites.x2))
+            if(100 < 500)
+            {
+                console.log(this.activeCharVar);
+//                for(var i = 0; i < charArr.length - 1; i++){
+//                    charArr[this.activeCharVar].destroy();
+//                }
+                charArr[0].x = 0;
+                charArr[0].animations.play("left");
+//                charArr[this.activeCharVar].x = 0;
+            } else {
+                charArr[this.activeCharVar].body.velocity.x = 0;
+                charArr[this.activeCharVar].movementProperites.x = charArr[this.activeCharVar].movementProperites.x2;
+
+                charArr[this.activeCharVar].movementProperites.state = null;
+                this.movePlayer = false;
+                charArr[this.activeCharVar].animations.stop();
+            }
+
+        } else {
+            if(Math.round(charArr[this.activeCharVar].x) > (charArr[this.activeCharVar].movementProperites.x2)){
+                this.player.body.velocity.x = this.player.mymove.speed*-1;
+            } else {
+                charArr[this.activeCharVar].body.velocity.x = 0;
+                charArr[this.activeCharVar].movementProperites.x = charArr[this.activeCharVar].movementProperites.x2;
+                charArr[this.activeCharVar].movementProperites.state = null;
+                this.movePlayer = false;
+                charArr[this.activeCharVar].animations.stop();
+            }
+
+        }
+    }    
+    
+    nextPlayerCursor(){
+        this.activeCharVar++;
         this.cursorPosMain = 0;
         this.cursorPosMain = 0;
         this.makeCursors();                
-        this.activeCharVar++;
-        disableControls = false;
     }
     
     enemyAttack(){

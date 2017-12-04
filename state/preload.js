@@ -126,7 +126,15 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
         this.load.spritesheet("CANDLE", "/assets/images/candleNPC.png", 128, 128);
         
-
+    //weapons
+        this.load.spritesheet("chopsticks", "/assets/AttackElements/chopsticks/chop/chop.png", 192, 96);
+        this.load.spritesheet("chopsticksGold", "/assets/AttackElements/chopsticks/goldchop/goldchop.png", 192, 96);
+        this.load.spritesheet("laptop", "/assets/AttackElements/JamesLaptop/JamesLaptop/Jameslaptop.png", 192, 96);
+        this.load.spritesheet("laptopGold", "/assets/AttackElements/JamesLaptop/Jame_sLaptopGold/goldLaptop.png", 192, 96);
+        this.load.spritesheet("pickle", "/assets/AttackElements/pickle/greenpickle/pickle.png", 192, 96);
+        this.load.spritesheet("pickleGold", "/assets/AttackElements/pickle/goldpickle/goldPikle.png", 192, 96);
+        this.load.spritesheet("TV", "/assets/AttackElements/TV/TV/TV.png", 192, 96);
+        this.load.spritesheet("TVGold", "/assets/AttackElements/TV/goldTV/goldTV.png", 192, 96);
     },
     create: function () {      
 

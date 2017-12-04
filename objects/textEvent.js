@@ -446,7 +446,7 @@ class textEvent extends abstractObject {
     }
     
     readText() {
-        if ((this.enterBut.isDown && currentNPC != null || isEventing)){
+        if ((this.enterBut.isDown && !battling && currentNPC != null || isEventing)){
             isEventing = false;
             texting = true;
             if(!this.isDown){
@@ -455,7 +455,7 @@ class textEvent extends abstractObject {
             }
         }
         
-        if(this.enterBut.isUp && !disableControls){
+        if(this.enterBut.isUp && !disableControls && !battling){
             if(this.isDown){
                 this.isDown = false;
                 switch (this.isText) {
