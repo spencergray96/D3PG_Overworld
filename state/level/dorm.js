@@ -12,6 +12,9 @@ class dorm extends abstractLevel {
                 "backgroundLayer",
                 "backgroundLayer2",
                 "blockedLayer_c",
+                "blockedLayer2",
+                "blockedLayer3",
+                "blockedLayer4",
             ],
             collisionRange: {
                 min: 1,
@@ -20,8 +23,6 @@ class dorm extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
-                "blockedLayer_c",
-                "blockedLayer2",
                 "decorationLayer_d",
                 "decorationLayer2"
             ]
@@ -31,7 +32,9 @@ class dorm extends abstractLevel {
         return [
             new door(),
             new spawn(),
-            new pauseMenu()
+            new textEvent(),
+            new pauseMenu(),
+            new walkables()
         ]
     }
 

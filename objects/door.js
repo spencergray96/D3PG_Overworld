@@ -13,16 +13,19 @@ class door extends abstractObject {
     }
 
     createThis(game) {
+        console.log("fucking doors and shit");
         super.createThis(game);
         disableControls = false;
+        currentDoor = undefined;
+        currentNPC = null;
         doors = [];
         NPCs = [];
         game.camera.flash('#000000');
         this.doors            = this.game.add.group();
         this.doors.enableBody = true;
-        var result            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
+        var doorResult            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
         var i = 0;
-        result.forEach(function (element) {
+        doorResult.forEach(function (element) {
             this.createDoorsFromTiledObject(element, this.doors, i);
             doors.push(element);
             console.log(doors[i].coolProperties);
@@ -39,16 +42,20 @@ class door extends abstractObject {
     checkForDoorEntry(game){
         for(var i = 0; i < doors.length - 1; i++){
             if(Math.round(this.player.mymove.x2 / 128) == doors[i].coolProperties.xIndex && Math.round(this.player.mymove.y2 / 128) == doors[i].coolProperties.yIndex){
-                disableControls = true;
                 
                 currentDoor = doors[i];
                 
-                var that = this;
-                setTimeout(function(){
+                if(eventNumber <= 22 && currentDoor.coolProperties.from == "dorm"){
                     
-                    that.intermediaryDoorEnter();
-                    
-                }, 300);
+                } else {
+                    disableControls = true;
+                    var that = this;
+                    setTimeout(function(){
+
+                        that.intermediaryDoorEnter();
+
+                    }, 300);                    
+                }
             }
         }
     }
@@ -69,10 +76,18 @@ class door extends abstractObject {
             case "dorm":
                 TopDownGame.game.state.start('dorm');
                 break;
-            case "mainHub":
-                doorDes.theDestination = "mainHub ";
-                from: null
-                TopDownGame.game.state.start('mainHub');
+            case "se6office":
+                TopDownGame.game.state.start('se6office');
+                break;
+            case "NE1":
+                TopDownGame.game.state.start('NE1');
+                break;
+            case "theStand":
+                TopDownGame.game.state.start('theStand');
+                break;    
+            case "overworld":
+                doorDes.theDestination = "overworld";
+                TopDownGame.game.state.start('overworld');
                 break;
             default:
                 console.log("can't do that");
