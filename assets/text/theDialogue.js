@@ -1,6 +1,6 @@
 var theDialogue = {
     events:{
-//spawn event        
+//0 spawn event        
         firstSpawnEvent:[
             {
                 profile:
@@ -320,7 +320,7 @@ var theDialogue = {
                 event:"end"
             },
 ],
-//first tremor event        
+//1 first tremor event        
         secondSpawnEvent:[
             {
                 profile:
@@ -421,7 +421,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//arrive at se14        
+//2 arrive at se14        
         thirdEvent:[
             {
                 profile:
@@ -505,7 +505,7 @@ var theDialogue = {
             },
 
         ],
-//talk to henry first time to find ramin     
+//3 talk to henry first time to find ramin     
         henryEvent:[
             {
                 profile:
@@ -592,7 +592,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//talk to guy in meeting room
+//4 talk to guy in meeting room
         meetingRoom:[
             {
 	profile:
@@ -708,7 +708,7 @@ var theDialogue = {
 },
 
         ],
-//first Ramin conversation
+//5 first Ramin conversation
         ramin01:[
             {
 	profile:
@@ -1062,7 +1062,7 @@ var theDialogue = {
 },
 
         ],
-//running shoes from henry!
+//6 running shoes from henry!
         henry01:[
             {
 	profile:
@@ -1206,7 +1206,7 @@ var theDialogue = {
 },
 
         ],
-//enter Galynas office        
+//7 enter Galynas office        
         galynaWalkingProc:[
             {
 	profile:
@@ -1294,7 +1294,7 @@ var theDialogue = {
 },
 
         ],
-//picking up the note
+//8 picking up the note
         grabNote:[
             {
 	profile:
@@ -1319,7 +1319,7 @@ var theDialogue = {
 },
 
         ],
-//talking to galyna
+//9 talking to galyna
         galynaConvo:[
             {
 	profile:
@@ -1428,7 +1428,7 @@ var theDialogue = {
 },
 
         ],
-//after beating galyna
+//10 after beating galyna
         galynaConvo2:[
             {
 	profile:
@@ -1488,7 +1488,7 @@ var theDialogue = {
 },
 
         ],
-//return to Ramin after beating Galyna
+//11 return to Ramin after beating Galyna
         raminConvoPostGalyna:[
             {
 	profile:
@@ -3104,7 +3104,7 @@ var theDialogue = {
 },
 
         ],
-//grabbing the file for daemon
+//23 grabbing the file for daemon
         se14computerRound2:[
             {
                 profile:
@@ -3121,7 +3121,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//submitting the file to daemon and fighting him
+//24 submitting the file to daemon and fighting him
         aboutToFightDaemon:[
             {
                 profile:
@@ -3145,7 +3145,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//done fighint daemon
+//25 done fighint daemon
         doneFightingDaemon:[
             {
                 profile:
@@ -3162,7 +3162,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//talk to henry after beating all 3 bosses
+//26 talk to henry after beating all 3 bosses
         speakToHenryAfterAll3bossesDefeated:[
             {
                 profile:
@@ -3187,7 +3187,7 @@ var theDialogue = {
             },
         ],
 //gathering stuff for henry
-        //talk to jessie
+        //27 talk to jessie
         jessieMicrowave:[
             {
                 profile:
@@ -3218,7 +3218,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-        //talk to jakub
+        //28 talk to jakub
         jakubNachos:[
             {
                 profile:
@@ -3249,7 +3249,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-        //finding the laptop
+        //29 finding the laptop
         henryslaptop:[
             {
                 profile:
@@ -3266,7 +3266,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-        //finding the kettle
+        //30 finding the kettle
         henryskettle:[
             {
                 profile:
@@ -3283,10 +3283,10 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//empty henry event, trust me, leave this here
+//31 empty henry event, trust me, leave this here
         ohHenry:[
         ],
-//talk henry post collection
+//32 talk henry post collection
         henryAllItems:[
             {
                 profile:
@@ -3317,7 +3317,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//talk henry after fight
+//33 talk henry after fight
         henryIsDefeated:[
             {
                 profile:
@@ -3341,7 +3341,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//inspect bookcase
+//34 inspect bookcase
         bookCaseTely:[
             {
                 profile:
@@ -3365,7 +3365,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//enter cave
+//35 enter cave
         enterCave:[
             {
                 profile:
@@ -3382,7 +3382,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//ruin shoes
+//36 ruin shoes
         ruinTheShoes:[
             {
                 profile:
@@ -3399,7 +3399,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//first cave shake
+//37 first cave shake
         firstCaveShake:[
             {
                 profile:
@@ -3423,7 +3423,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//second cave shake
+//38 second cave shake
         secondCaveShake:[
             {
                 profile:
@@ -3447,7 +3447,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//FIND RAMIN
+//39 FIND RAMIN
         findRamin:[
             {
                 profile:
@@ -3562,7 +3562,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-////DEFEAT RAMIN
+////40 DEFEAT RAMIN
 //        findRamin:[
 //            {
 //                profile:
@@ -3572,10 +3572,10 @@ var theDialogue = {
 //                event:"end"
 //            },
 //        ],
-//leave this empty event here, trust me
+//dynamic leave this empty event here, trust me
         emptyEvent:[
         ],
-//blocking event        
+//dynamic blocking event        
         blockEvent:[
             {
                 profile:

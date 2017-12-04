@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 0;
+var eventNumber = 31;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
