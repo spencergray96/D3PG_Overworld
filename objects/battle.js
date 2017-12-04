@@ -21,12 +21,14 @@ class battle extends abstractObject {
         this.enemyDelay = 3;
         
         //  this is just to set up where the characters are. they do not dynamically move yet.
-        this.characterXPos = 600;
-        this.character1YPos = 50;
-        this.character2YPos = 175;
-        this.character3YPos = 300;
-        this.character4YPos = 425;
-        
+        this.characterPos = {
+            character1YPos: 50,
+            character2YPos: 175,
+            character3YPos: 300,
+            character4YPos: 425,
+            characterXPos: 600
+        }
+
         this.infoX1 = 350;
         this.infoX2 = 475;
         this.infoX3 = 525;
@@ -44,6 +46,7 @@ class battle extends abstractObject {
         
         this.displayArr = [];
         
+        this.characterArr = [];
         
         this.style = {
             font: "12pt Final-Fantasy-36-Font",
@@ -94,6 +97,7 @@ class battle extends abstractObject {
         this.createControls();
         this.setupBattle();
     }
+    
     setupBattle(){
         if(battling && !this.setup){
             this.setup = true;
@@ -102,6 +106,8 @@ class battle extends abstractObject {
             this.makeCursors();
             this.actionOptions();
             this.displayPlayerStats();
+            
+            this.makePlayers();
 
             this.enemy = this.game.add.sprite(100, 100, "dov");
             this.enemy.scale.setTo(10.0, 10.0);
@@ -113,8 +119,27 @@ class battle extends abstractObject {
         }
 }
     
+    makePlayers(){
+
+        for(var i = 0; i < playerStats.length; i++){
+            console.log(Object.values(this.characterPos)[4]);
+            this.characterArr[i] = this.game.add.sprite(Object.values(this.characterPos)[4], Object.values(this.characterPos)[i], playerStats[i].spritesheet);
+            this.characterArr[i].frame = 13;
+            this.characterArr[i].fixedToCamera = true;
+
+            this.characterArr[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
+            this.characterArr[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
+            this.characterArr[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
+            this.characterArr[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+            
+            this.characterArr[i].animations.add("attack", [13, 14, 13, 12, 13], walkingAnimFPS, true);
+            
+            this.displayArr.push(this.characterArr[i]);
+        }
+    }
+    
     makeContainers(){
-        this.mainContainer = this.game.add.image(0, 0, "whiteBG");
+        this.mainContainer = this.game.add.image(0, 0, "whiteBox");
         this.mainContainer.width = this.game.width;
         this.mainContainer.height = this.game.height;
         this.mainContainer.fixedToCamera = true; 

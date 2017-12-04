@@ -84,6 +84,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
         this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");
         this.load.image("textBox", "/assets/ui/containers/textBox-container.png");
+        this.load.image("whiteBox", "/assets/ui/containers/whiteBox.png");
         
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");

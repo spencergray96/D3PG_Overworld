@@ -121,7 +121,6 @@ class pauseMenu extends abstractObject {
 
     createThis(game) {
         super.createThis(game);
-        console.log("what the heck");
         this.cursors = this.game.input.keyboard.createCursorKeys();
         this.spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.backKey = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
