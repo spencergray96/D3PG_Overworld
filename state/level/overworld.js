@@ -19,11 +19,13 @@ class overworld extends abstractLevel {
                 "13": "task14",
                 "14": "treeandbush",
                 "15": "zzzCone",
+                "16": "Dec1meeting",
             },
             layers: [
                 "backgroundLayer",
                 "backgroundLayer2",
                 "backgroundLayer3",
+                "backgroundLayer4",
                 "blockedLayer_c",
                 "blockedLayer2"
             ],
@@ -36,6 +38,7 @@ class overworld extends abstractLevel {
             renderAboveLayers: [
                 "decorationLayer_d",
                 "decorationLayer2",
+                "decorationLayer3",
             ]
         }};
 

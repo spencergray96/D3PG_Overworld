@@ -19,7 +19,7 @@ TopDownGame.Preload.prototype = {
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
-        this.load.image("nov24", "/assets/images/nov24.png");
+        this.load.image("nov24", "/assets/images/nov24-copy.png");
         
         //sw03
         this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
@@ -58,6 +58,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("sidewalkWithCurb", "/assets/images/background-overworld/sidewalkWithCurb.png");
         this.load.image("treeandbush", "/assets/images/background-overworld/treeandbush.png");
         this.load.image("zzzCone", "/assets/images/zzzCone.png");
+        this.load.image("Dec1meeting", "/assets/images/Dec1meeting.png");
         
         //tunnel
         this.load.tilemap("tunnel", "/assets/tilemaps/tunnel.json", null, Phaser.Tilemap.TILED_JSON);
@@ -99,6 +100,21 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
         
         //secondary characters
+        this.load.spritesheet("arron_spritesheet", "/assets/characters/spritesheet/aaron/aaron-sprite.png", 128, 128);
+        this.load.spritesheet("august_spritesheet", "/assets/characters/spritesheet/august/august.png", 128, 128);
+        this.load.spritesheet("construction_spritesheet", "/assets/characters/spritesheet/construction-worker/construction-sprite.png", 128, 128);
+        this.load.spritesheet("daemon_spritesheet", "/assets/characters/spritesheet/daemon/daemon-sprite.png", 128, 128);
+        this.load.spritesheet("galyna_spritesheet", "/assets/characters/spritesheet/galyna/galyna-spritesheet.png", 128, 128);
+        this.load.spritesheet("henry_spritesheet", "/assets/characters/spritesheet/henry/henry-spritesheet.png", 128, 128);
+        this.load.spritesheet("jakub_spritesheet", "/assets/characters/spritesheet/jakub/jakub-spritesheet.png", 128, 128);
+        this.load.spritesheet("jessie_spritesheet", "/assets/characters/spritesheet/Jessie/Jessie.png", 128, 128);
+        this.load.spritesheet("monk_spritesheet", "/assets/characters/spritesheet/npc/npc.png", 128, 128);
+        this.load.spritesheet("ramin_spritesheet", "/assets/characters/spritesheet/ramin/ramin-sprite.png", 128, 128);
+        this.load.spritesheet("genericman_spritesheet", "/assets/characters/spritesheet/generic-man/genericman-sprite.png", 128, 128);
+        this.load.spritesheet("genericwoman_spritesheet", "/assets/characters/spritesheet/generic-woman/genericwoman-sprite.png", 128, 128);
+        
+        //FIRE ANIMATION
+        this.load.spritesheet("fire_spritesheet", "/assets/images/fireSpriteSheet/fireSpriteSheet.png", 128, 128);
         
         
     //chat heads
@@ -108,6 +124,10 @@ TopDownGame.Preload.prototype = {
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
         //others
+        this.load.image("jessieCH", "/assets/characters/chatHeads/Jessie.png");
+        this.load.image("jakubCH", "/assets/characters/chatHeads/jakub.png");
+        this.load.image("augustCH", "/assets/characters/chatHeads/augustCH.png");
+        
         this.load.image("henryCH", "/assets/characters/chatHeads/herny.png");
         this.load.image("raminCH", "/assets/characters/chatHeads/ramin.png");
         this.load.image("daemonCH", "/assets/characters/chatHeads/Demon.png");
@@ -115,7 +135,17 @@ TopDownGame.Preload.prototype = {
         this.load.image("arronCH", "/assets/characters/chatHeads/Arron.png");
         
         //background characters
+        this.load.image("boy1CH", "/assets/characters/chatHeads/boy1.png");
+        this.load.image("boy2CH", "/assets/characters/chatHeads/boy2.png");
+        this.load.image("boy3CH", "/assets/characters/chatHeads/boy3.png");
+        this.load.image("boy4CH", "/assets/characters/chatHeads/boy4.png");
         this.load.image("boy5CH", "/assets/characters/chatHeads/boy5.png");
+        
+        this.load.image("girl1CH", "/assets/characters/chatHeads/girl1.png");
+        this.load.image("girl2CH", "/assets/characters/chatHeads/girl2.png");
+        this.load.image("girl3CH", "/assets/characters/chatHeads/girl3.png");
+        this.load.image("girl4CH", "/assets/characters/chatHeads/girl4.png");
+        this.load.image("girl5CH", "/assets/characters/chatHeads/girl5.png");
         
         //other pngs
         this.load.spritesheet("microwaveItem", "/assets/AttackElements/micro-wave.png", 128, 128);
@@ -129,6 +159,6 @@ TopDownGame.Preload.prototype = {
     },
     create: function () {      
 
-        this.state.start("tunnel");
+        this.state.start("overworld");
     }
 };

@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "genericman-back-left-foot-up.psd",
+	"filename": "ramin-back-ltftup.psd",
 	"frame": {"x":0,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -9,7 +9,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-back-right-foot-up.psd",
+	"filename": "ramin-back-rtftup.psd",
 	"frame": {"x":32,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -17,7 +17,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-back-still.psd",
+	"filename": "ramin-back-still.psd",
 	"frame": {"x":64,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -25,7 +25,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-front-left-foot-up.psd",
+	"filename": "ramin-front-ltftup.psd",
 	"frame": {"x":96,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -33,7 +33,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-front-right-foot-up.psd",
+	"filename": "ramin-front-rtftup.psd",
 	"frame": {"x":128,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-front-still.psd",
+	"filename": "ramin-front-still.psd",
 	"frame": {"x":160,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -49,7 +49,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-leftside-left-arm-back.psd",
+	"filename": "ramin-leftside-leftarmbck.psd",
 	"frame": {"x":192,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -57,7 +57,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-leftside-left-arm-forward.psd",
+	"filename": "ramin-leftside-leftarmfrwrd.psd",
 	"frame": {"x":224,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -65,7 +65,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-leftside-still.psd",
+	"filename": "ramin-leftside-still.psd",
 	"frame": {"x":256,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -73,7 +73,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-rightside-right-arm-back.psd",
+	"filename": "ramin-rightside-rightarmbck.psd",
 	"frame": {"x":288,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -81,7 +81,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-rightside-right-arm-forward.psd",
+	"filename": "ramin-rightside-rightarmfrwrd.psd",
 	"frame": {"x":320,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -89,7 +89,7 @@
 	"sourceSize": {"w":32,"h":32}
 },
 {
-	"filename": "genericman-rightside-still.psd",
+	"filename": "ramin-rightside-still.psd",
 	"frame": {"x":352,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
@@ -99,10 +99,10 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "genericman-sprite.png",
+	"image": "ramin-sprite.png",
 	"format": "RGBA8888",
 	"size": {"w":384,"h":32},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f846d4337847965c87b69f87ab954567:9e286666f1ee13ba17885731b5ed6874:15019722d52be871ab6426bcc118a319$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3492edb1d1876e180013733f69e8af58:6ac01d2d0a3332ab8ff29d01ff1395f8:27fa8c4a1614ca5d6fa1554ce8aace25$"
 }
 }

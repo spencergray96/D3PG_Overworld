@@ -108,6 +108,7 @@ class abstractLevel extends Phaser.State {
         this.game.map.addTilesetImage(this.params.tileSetImage["13"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["14"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["15"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["16"]);
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
@@ -708,15 +709,20 @@ class abstractLevel extends Phaser.State {
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID == "se6note" || NPCs[i].hismove.eventID == "ne1lamp" || NPCs[i].hismove.eventID == "se14comp" || NPCs[i].hismove.eventID == "dormComp" || NPCs[i].hismove.npcName == "jessie" || NPCs[i].hismove.npcName == "microwaveItem" || NPCs[i].hismove.npcName == "jakub" || NPCs[i].hismove.npcName == "henryLaptop" || NPCs[i].hismove.npcName == "KETLLE" || NPCs[i].hismove.npcName == "bookcaseNPC" || NPCs[i].hismove.npcName == "NACHOS" || NPCs[i].hismove.npcName == "monk1" || NPCs[i].hismove.npcName == "monk2" || NPCs[i].hismove.npcName == "finalBlock"){
+        if(NPCs[i].hismove.eventID == "se6note" || NPCs[i].hismove.eventID == "ne1lamp" || NPCs[i].hismove.eventID == "se14comp" || NPCs[i].hismove.eventID == "dormComp" || NPCs[i].hismove.npcName == "jessie" || NPCs[i].hismove.npcName == "microwaveItem" || NPCs[i].hismove.npcName == "jakub" || NPCs[i].hismove.npcName == "henryLaptop" || NPCs[i].hismove.npcName == "KETLLE" || NPCs[i].hismove.npcName == "bookcaseNPC" || NPCs[i].hismove.npcName == "NACHOS" || NPCs[i].hismove.npcName == "monk1" || NPCs[i].hismove.npcName == "monk2" || NPCs[i].hismove.npcName == "finalBlock" || NPCs[i].hismove.npcName == "fire"){
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID != "se6note" && NPCs[i].hismove.eventID != "ne1lamp" && NPCs[i].hismove.eventID != "se14comp" && NPCs[i].hismove.eventID != "dormComp" && NPCs[i].hismove.npcName != "microwaveItem" && NPCs[i].hismove.npcName != "henryLaptop" && NPCs[i].hismove.npcName != "KETLLE" && NPCs[i].hismove.npcName != "bookcaseNPC" && NPCs[i].hismove.npcName != "NACHOS" && NPCs[i].hismove.npcName != "finalBlock"){
+        if(NPCs[i].hismove.eventID != "se6note" && NPCs[i].hismove.eventID != "ne1lamp" && NPCs[i].hismove.eventID != "se14comp" && NPCs[i].hismove.eventID != "dormComp" && NPCs[i].hismove.npcName != "microwaveItem" && NPCs[i].hismove.npcName != "henryLaptop" && NPCs[i].hismove.npcName != "KETLLE" && NPCs[i].hismove.npcName != "bookcaseNPC" && NPCs[i].hismove.npcName != "NACHOS" && NPCs[i].hismove.npcName != "finalBlock" && NPCs[i].hismove.npcName != "fire"){
             NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
             NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
             NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
             NPCs[i].animations.add("down", [3, 5, 4, 5], walkingAnimFPS, true);
+        }
+        
+        if(NPCs[i].hismove.npcName == "fire"){
+            NPCs[i].animations.add("fireAnim", [0, 1, 2, 3, 4, 5, 6, 0, 1, 2, 3, 4, 5, 6,], 12, true);
+            NPCs[i].animations.play("fireAnim");
         }
 
 
