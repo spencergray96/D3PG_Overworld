@@ -798,6 +798,7 @@ class battle extends abstractObject {
     }
     
     displayDamage(number){
+    this.damageAmount = playerStats[this.activeCharVar].attack;
         if(number == 0){
             this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[0], this.damageAmount, this.style);
             this.takeDamage.alpha = 1;
@@ -828,7 +829,6 @@ class battle extends abstractObject {
             
         }
         if(number == 4){
-            console.log(this.enemy.x, this.enemy.y);
             this.takeDamage = this.game.add.text(this.enemyX + 100, this.enemyY, this.damageAmount, this.style);
             this.takeDamage.alpha = 1;
             this.takeDamage.fixedToCamera = true;
