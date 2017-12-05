@@ -60,6 +60,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("zzzCone", "/assets/images/zzzCone.png");
         this.load.image("Dec1meeting", "/assets/images/Dec1meeting.png");
         this.load.image("sign", "/assets/Sign/sign.png");
+        this.load.image("sign2", "/assets/Sign/Sign2/sign2.png");
         
         //tunnel
         this.load.tilemap("tunnel", "/assets/tilemaps/tunnel.json", null, Phaser.Tilemap.TILED_JSON);

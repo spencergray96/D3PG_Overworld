@@ -21,6 +21,7 @@ class overworld extends abstractLevel {
                 "15": "zzzCone",
                 "16": "Dec1meeting",
                 "17": "sign",
+                "18": "sign2",
             },
             layers: [
                 "backgroundLayer",
