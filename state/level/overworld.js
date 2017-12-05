@@ -20,6 +20,7 @@ class overworld extends abstractLevel {
                 "14": "treeandbush",
                 "15": "zzzCone",
                 "16": "Dec1meeting",
+                "17": "sign",
             },
             layers: [
                 "backgroundLayer",

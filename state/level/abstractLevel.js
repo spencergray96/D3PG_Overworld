@@ -110,6 +110,7 @@ class abstractLevel extends Phaser.State {
         this.game.map.addTilesetImage(this.params.tileSetImage["14"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["15"]);
         this.game.map.addTilesetImage(this.params.tileSetImage["16"]);
+        this.game.map.addTilesetImage(this.params.tileSetImage["17"]);
         this.layerObj = {};
         for (let i = 0; i < this.params.layers.length; i ++) {
             this.layerObj[this.params.layers[i]] = this.game.map.createLayer(this.params.layers[i]);
