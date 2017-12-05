@@ -1,0 +1,108 @@
+{"frames": [
+
+{
+	"filename": "ramin-back-ltftup.psd",
+	"frame": {"x":1,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-back-rtftup.psd",
+	"frame": {"x":24,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-back-still.psd",
+	"frame": {"x":93,"y":1,"w":20,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-front-ltftup.psd",
+	"frame": {"x":47,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-front-rtftup.psd",
+	"frame": {"x":70,"y":1,"w":21,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-front-still.psd",
+	"frame": {"x":115,"y":1,"w":20,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-leftside-leftarmbck.psd",
+	"frame": {"x":173,"y":1,"w":15,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":15,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-leftside-leftarmfrwrd.psd",
+	"frame": {"x":137,"y":1,"w":16,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-leftside-still.psd",
+	"frame": {"x":207,"y":1,"w":14,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-rightside-rightarmbck.psd",
+	"frame": {"x":190,"y":1,"w":15,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":15,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-rightside-rightarmfrwrd.psd",
+	"frame": {"x":155,"y":1,"w":16,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "ramin-rightside-still.psd",
+	"frame": {"x":223,"y":1,"w":14,"h":30},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
+	"sourceSize": {"w":32,"h":32}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "ramin-sprite.png",
+	"format": "RGBA8888",
+	"size": {"w":238,"h":32},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:cf60625787135f91b5f53a724bdb4366:6ac01d2d0a3332ab8ff29d01ff1395f8:27fa8c4a1614ca5d6fa1554ce8aace25$"
+}
+}

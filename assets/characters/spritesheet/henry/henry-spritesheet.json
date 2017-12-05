@@ -1,0 +1,108 @@
+{"frames": [
+
+{
+	"filename": "back-left-foot-up-henry.psd",
+	"frame": {"x":0,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "back-right-foot-up-henry.psd",
+	"frame": {"x":32,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "back-still-henry.psd",
+	"frame": {"x":64,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "front-left-foot-up-henry.psd",
+	"frame": {"x":96,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "front-right-foot-up-henry.psd",
+	"frame": {"x":128,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "front-still-henry.psd",
+	"frame": {"x":160,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "left-left-arm-back-henry.psd",
+	"frame": {"x":192,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "left-left-arm-forward-henry.psd",
+	"frame": {"x":224,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "left-still-henry.psd",
+	"frame": {"x":256,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "right-right-arm-back-henry.psd",
+	"frame": {"x":288,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "right-right-arm-forward-henry.psd",
+	"frame": {"x":320,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+{
+	"filename": "right-still-henry.psd",
+	"frame": {"x":352,"y":0,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "henry-spritesheet.png",
+	"format": "RGBA8888",
+	"size": {"w":384,"h":32},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:14dc9c718c0ff213c49e5f7db92d3f84:262acb029bf0faa994a662d97ee887c4:dac1898cf51d98f2191458cf6a2cc58a$"
+}
+}

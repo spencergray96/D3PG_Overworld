@@ -1,7 +1,5 @@
 var spawnLoc = [];
 
-//if (doorDes.theDestination == "se14_1")
-
 class spawn extends abstractObject {
 
 
@@ -22,7 +20,7 @@ class spawn extends abstractObject {
     }
 
     updateThis(game, player) {
-        super.updateThis(game, player);   
+        super.updateThis(game, player);
     }
 
 

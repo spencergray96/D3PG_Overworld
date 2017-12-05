@@ -5,11 +5,13 @@ class se14 extends abstractLevel {
             tilemap: "se14",
             tileSetImage: {
                 "1": "task13",
+                "2": "nov24",
             },
             layers: [
                 "backgroundLayer",
                 "backgroundLayer2",
                 "blockedLayer_c",
+                "blockedLayer2"
             ],
             collisionRange: {
                 min: 1,
@@ -18,16 +20,19 @@ class se14 extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
+//                "blockedLayer_c",
                 "decorationLayer_d",
-                "blockedLayer_c",
-                "blockedLayer2"
+                "decorationLayer2",
             ]
         }};
 
     static updatables() {
         return [
             new door(),
-            new spawn()
+            new spawn(),
+            new textEvent(),
+            new pauseMenu(),
+            new walkables()
         ]
     }
 

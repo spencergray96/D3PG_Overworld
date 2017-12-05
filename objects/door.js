@@ -3,6 +3,9 @@ var doorDes = {
     from: null
 };
 
+var doors = [];
+var currentDoor;
+
 class door extends abstractObject {
 
     constructor() {
@@ -10,60 +13,87 @@ class door extends abstractObject {
     }
 
     createThis(game) {
+        console.log("fucking doors and shit");
         super.createThis(game);
+        disableControls = false;
+        currentDoor = undefined;
+        currentNPC = null;
+        doors = [];
+        NPCs = [];
+        game.camera.flash('#000000');
         this.doors            = this.game.add.group();
         this.doors.enableBody = true;
-        var result            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
-        result.forEach(function (element) {
-            this.createFromTiledObject(element, this.doors);
-            this.game.physics.enable(element, Phaser.Physics.ARCADE);
+        var doorResult            = this.findObjectsByType('door', this.game.map, 'objectsLayer');
+        var i = 0;
+        doorResult.forEach(function (element) {
+            this.createDoorsFromTiledObject(element, this.doors, i);
+            doors.push(element);
+            console.log(doors[i].coolProperties);
+            i++;
+//            this.game.physics.enable(element, Phaser.Physics.ARCADE);
         }, this);
     }
 
     updateThis(game, player) {
         super.updateThis(game, player);
-        this.game.physics.arcade.overlap(this.player, this.doors.children, this.enterDoor, null, this);
-
+        this.checkForDoorEntry(game);
     }
 
-    enterDoor() {
-        var theDoor = [];
-        for (var i=0; i < this.doors.children.length; i++) {
-            theDoor[i] = this.doors.children[i];
-            
-            if (this.game.physics.arcade.overlap(theDoor[i], this.player)){
+    checkForDoorEntry(game){
+        for(var i = 0; i < doors.length - 1; i++){
+            if(Math.round(this.player.mymove.x2 / 128) == doors[i].coolProperties.xIndex && Math.round(this.player.mymove.y2 / 128) == doors[i].coolProperties.yIndex){
+                
+                currentDoor = doors[i];
+                
+                if(eventNumber <= 22 && currentDoor.coolProperties.from == "dorm"){
+                    
+                } else {
+                    disableControls = true;
+                    var that = this;
+                    setTimeout(function(){
 
-                if (theDoor[i].destination == "se14"){                    
-                    if (doorDes.from == null || doorDes.from == 0){        
-                        console.log(theDoor[i]);
-                        doorDes.theDestination = theDoor[i].destination;
-                        doorDes.from = 1;
-                    }
-                    else if (doorDes.from == 2){
-                        console.log(theDoor[i]);
-                        doorDes.theDestination = theDoor[i].destination;
-                        doorDes.from = 2;                        
-                    }
-                    
-                    
-                        TopDownGame.game.state.start('TestLevel2');
-                }
-                else if(theDoor[i].destination == "theStart"){
-                    console.log(theDoor[i]);
-                    doorDes.theDestination = theDoor[i].destination;
-                    doorDes.from = 0;
-                    TopDownGame.game.state.start('TestLevel');
-                }
-                else if(theDoor[i].destination == "bl"){
-                    console.log(theDoor[i]);
-                    doorDes.theDestination = theDoor[i].destination;
-                    doorDes.from = 2;
-                    TopDownGame.game.state.start('TestLevel3');
+                        that.intermediaryDoorEnter();
+
+                    }, 300);                    
                 }
             }
         }
-
     }
-
+    
+    intermediaryDoorEnter(){
+        this.game.camera.fade('#000000');
+        this.game.camera.onFadeComplete.add(this.newEnterDoor,this);
+    }
+    
+    newEnterDoor(){
+        switch(currentDoor.coolProperties.destination){
+            case "se14":
+                TopDownGame.game.state.start('se14');
+                break;
+            case "sw03":
+                TopDownGame.game.state.start('sw03');
+                break;
+            case "dorm":
+                TopDownGame.game.state.start('dorm');
+                break;
+            case "se6office":
+                TopDownGame.game.state.start('se6office');
+                break;
+            case "NE1":
+                TopDownGame.game.state.start('NE1');
+                break;
+            case "theStand":
+                TopDownGame.game.state.start('theStand');
+                break;    
+            case "overworld":
+                doorDes.theDestination = "overworld";
+                TopDownGame.game.state.start('overworld');
+                break;
+            default:
+                console.log("can't do that");
+                disableControls = false;
+                break;
+        }
+    }
 
 }

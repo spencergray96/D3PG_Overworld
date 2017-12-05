@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "triangle-high.psd",
+	"frame": {"x":0,"y":0,"w":13,"h":20},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":20},
+	"sourceSize": {"w":13,"h":20}
+},
+{
+	"filename": "triangle-middle.psd",
+	"frame": {"x":0,"y":20,"w":13,"h":20},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":20},
+	"sourceSize": {"w":13,"h":20}
+},
+{
+	"filename": "zzz.psd",
+	"frame": {"x":0,"y":40,"w":13,"h":20},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":20},
+	"sourceSize": {"w":13,"h":20}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "triangle-up.png",
+	"format": "RGBA8888",
+	"size": {"w":13,"h":60},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ed61e5510f8cb787d118c23f1b2369de:632f0ecc200b8a1caef7af74e03d2f69:3810ec3bd4925573c1ff4046e0e82131$"
+}
+}

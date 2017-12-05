@@ -1,0 +1,76 @@
+{"frames": [
+
+{
+	"filename": "whiteLine-horizontal1.psd",
+	"frame": {"x":0,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-left-up-down.psd",
+	"frame": {"x":128,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-leftdown-angle.psd",
+	"frame": {"x":256,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-leftup-angle.psd",
+	"frame": {"x":384,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-middle-intersection.psd",
+	"frame": {"x":512,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-rightdown-angle.psd",
+	"frame": {"x":640,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-rightup-angle.psd",
+	"frame": {"x":768,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "whiteLine-vertical.psd",
+	"frame": {"x":896,"y":0,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "parkingLines.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":128},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d446305667e28b7059bfbeca74f56f13:fa9b1830ff8ca08eb921c1f296b557d1:bb1091313af8afc4e204c3de721755ca$"
+}
+}
