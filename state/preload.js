@@ -125,6 +125,12 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("LAMP", "/assets/AttackElements/light.png", 128, 128);
         this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
         this.load.spritesheet("CANDLE", "/assets/images/candleNPC.png", 128, 128);
+    
+    //battle sprites
+        this.load.spritesheet("spencer_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/spencer/spencerBattleFix.png", 256, 128);
+        this.load.spritesheet("dov_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/dov/dovBattleFix.png", 256, 128);
+        this.load.spritesheet("james_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/james/jamesBattleFix.png", 256, 128);
+        this.load.spritesheet("raymond_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/raymond/raymondBattleFix.png", 256, 128);
         
     //weapons
         this.load.spritesheet("chopsticks", "/assets/AttackElements/chopsticks/chop/chop.png", 192, 96);
