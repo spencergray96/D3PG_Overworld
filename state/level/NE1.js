@@ -6,6 +6,7 @@ class NE1 extends abstractLevel {
             tileSetImage: {
                 "1": "NE1",
                 "2": "task13",
+                "3": "task14",
             },
             layers: [
                 "backgroundLayer",

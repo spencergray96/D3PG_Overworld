@@ -3606,6 +3606,162 @@ var theDialogue = {
 //leave this empty event here, trust me
         emptyEvent:[
         ],
+//construction worker for GOING BACK FROM THE STAND
+        sw3conWorkerp2:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you guys back to near THE STAND?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],  
+//construction worker for SW3
+        sw3conWorker:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you guys to SW3?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],  
+//construction worker for BACK FROM THE STAND
+        thestandConWorkerp2:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you back outside?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],        
+//construction worker for THE STAND
+        thestandConWorker:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you guys to THE STAND?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],
+//construction worker BACK FROM NE1
+        ne1conWorkerp2:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you guys back to outside of SE6?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],         
+//construction worker for NE1
+        ne1conWorker:[
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: hey man",
+                event:""
+
+            },
+            {
+                profile:
+                    "conCH",
+                txt:
+                    "Worker: Would you like me to take you guys to NE1?",
+                event:"action"
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah man",
+                event:"end"
+
+            },
+        ],        
 //blocking event        
         blockEvent:[
             {
@@ -4035,6 +4191,81 @@ var theDialogue = {
                 18:"Spencer: I'm sure this bookcase has no importance.",
             }
         },
+        ne1lamp:{
+            profile:
+                "jamesCH",
+            txt:{
+                0:"James: It's a lamp.",
+                1:"James: It's a lamp.",
+                2:"James: It's a lamp.",
+                3:"James: It's a lamp.",
+                4:"James: It's a lamp.",
+                5:"James: It's a lamp.",
+                6:"James: It's a lamp.",
+                7:"James: It's a lamp.",
+                8:"James: It's a lamp.",
+                9:"James: It's a lamp.",
+                10:"James: It's a lamp.",
+                11:"James: It's a lamp.",
+                12:"James: It's a lamp.",
+                13:"James: It's a lamp.",
+                14:"James: It's a lamp.",
+                15:"James: It's a lamp.",
+                16:"James: It's a lamp.",
+                17:"James: It's a lamp.",
+                18:"James: It's a lamp.",
+            }
+        },
+        fire:{
+            profile:
+                "raymondCH",
+            txt:{
+                0:"Raymond: Looks hot.",
+                1:"Raymond: Looks hot.",
+                2:"Raymond: Looks hot.",
+                3:"Raymond: Looks hot.",
+                4:"Raymond: Looks hot.",
+                5:"Raymond: Looks hot.",
+                6:"Raymond: Looks hot.",
+                7:"Raymond: Looks hot.",
+                8:"Raymond: Looks hot.",
+                9:"Raymond: Looks hot.",
+                10:"Raymond: Looks hot.",
+                11:"Raymond: Looks hot.",
+                12:"Raymond: Looks hot.",
+                13:"Raymond: Looks hot.",
+                14:"Raymond: Looks hot.",
+                15:"Raymond: Looks hot.",
+                16:"Raymond: Looks hot.",
+                17:"Raymond: Looks hot.",
+                18:"Raymond: Looks hot.",
+            }
+        },
+        finalBlock:{
+            profile:
+                "spencerCH",
+            txt:{
+                0:"Spencer: There's no running away now!",
+                1:"Spencer: There's no running away now!",
+                2:"Spencer: There's no running away now!",
+                3:"Spencer: There's no running away now!",
+                4:"Spencer: There's no running away now!",
+                5:"Spencer: There's no running away now!",
+                6:"Spencer: There's no running away now!",
+                7:"Spencer: There's no running away now!",
+                8:"Spencer: There's no running away now!",
+                9:"Spencer: There's no running away now!",
+                10:"Spencer: There's no running away now!",
+                11:"Spencer: There's no running away now!",
+                12:"Spencer: There's no running away now!",
+                13:"Spencer: There's no running away now!",
+                14:"Spencer: There's no running away now!",
+                15:"Spencer: There's no running away now!",
+                16:"Spencer: There's no running away now!",
+                17:"Spencer: There's no running away now!",
+                18:"Spencer: There's no running away now!",
+            }
+        },
         guy3:{
             profile:
                 "boy5CH",            
@@ -4058,11 +4289,166 @@ var theDialogue = {
                 16:"?????: I already told you, I don't know where Ramin is.",
                 17:"?????: I already told you, I don't know where Ramin is.",
                 18:"?????: I already told you, I don't know where Ramin is.",
-
             }
-        },        
+        },
+        conWorker1:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
+        conWorkerNE1:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
+        conWorker2:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
+        conWorkerTheStand:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
+        conWorker3:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
+        conWorkerSW3:{
+            profile:
+                "conCH",            
+            txt:{
+                0:"Worker: I have lots of construction work to do.",
+                1:"Worker: I have lots of construction work to do.",
+                2:"Worker: I have lots of construction work to do.",
+                3:"Worker: I have lots of construction work to do.",
+                4:"Worker: I have lots of construction work to do.",
+                5:"Worker: I have lots of construction work to do.",
+                6:"Worker: I have lots of construction work to do.",
+                //switch here
+                7:"Worker: I have lots of construction work to do.",
+                8:"Worker: I have lots of construction work to do.",
+                9:"Worker: I have lots of construction work to do.",
+                10:"Worker: I have lots of construction work to do.",
+                11:"Worker: I have lots of construction work to do.",
+                12:"Worker: I have lots of construction work to do.",
+                13:"Worker: I have lots of construction work to do.",
+                14:"Worker: I have lots of construction work to do.",
+                15:"Worker: I have lots of construction work to do.",
+                16:"Worker: I have lots of construction work to do.",
+                17:"Worker: I have lots of construction work to do.",
+                18:"Worker: I have lots of construction work to do.",
+            }
+        },
         
-//GENERIC BOYS        
+//GENERIC BOYS
         
         guy4:{
             profile:

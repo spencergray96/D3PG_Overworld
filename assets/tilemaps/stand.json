@@ -110,7 +110,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":6272,
+                 "x":6528,
                  "y":5248
                 }, 
                 {
@@ -166,6 +166,31 @@
                  "width":128,
                  "x":5376,
                  "y":6016
+                }, 
+                {
+                 "height":128,
+                 "id":6,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"conWorkerTheStand",
+                     "sprite":"dov",
+                     "spritesheet":"construction_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":6272,
+                 "y":5248
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -195,7 +220,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":6,
+ "nextobjectid":7,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

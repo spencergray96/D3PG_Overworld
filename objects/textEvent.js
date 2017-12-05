@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 9;
+var eventNumber = 30;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -53,6 +53,13 @@ class textEvent extends abstractObject {
             wordWrap: true, wordWrapWidth: 500, 
             };
         
+        this.styleOPTIONS = { font: "18pt Final-Fantasy-36-Font", fill: "#fff", 
+            align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
+            boundsAlignH: "left", 
+            boundsAlignV: "top" ,
+            wordWrap: true, wordWrapWidth: 500, 
+            };
+        
         this.profileXValue = 30;
         this.profileYValue = 4.5;
         this.profileScale = 0.05;
@@ -67,19 +74,40 @@ class textEvent extends abstractObject {
         this.makeCont   = false;
         
         this.textLeading = 20;
-        this.continueArrowIndentDivisor = 13;
+        this.continueArrowIndentDivisor = 11;
+        
+        
     }
     
     createThis(game) {
         super.createThis(game);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        this.cursors = this.game.input.keyboard.createCursorKeys();
         
         this.isText = 0;
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
         
+        
+        //construction worker dialogue box variables
+        this.optionBoxX = this.game.width - 205;
+        this.optionBoxY = (this.game.height - ((this.game.height/8)*3.2));
+
+        this.optionBoxHeight = this.game.height/6;
+
+        this.selectDestinationHandx = this.game.width - 190;
+        this.selectDestinationHandyYes = (this.game.height - ((this.game.height/8)*2.9));
+        this.selectDestinationHandyNo = this.selectDestinationHandyYes + 50;
+        
+        this.optionYesNoX = this.selectDestinationHandx + 70;
+        this.optionNoY = this.selectDestinationHandyYes + 50;
+        this.cursorPosSelectingDestination = null;
+        
+        this.downDestinationIsPressed = false;
+        this.upDestinationIsPressed = false;
+        this.choseDestination = false;
     }
 
     updateThis(game, player) {
@@ -103,6 +131,8 @@ class textEvent extends abstractObject {
         if(eventNumber > 36){
             runningShoes = false;
         }
+        
+        this.createControls();
     }
     
     staticEvents(){
@@ -127,7 +157,68 @@ class textEvent extends abstractObject {
                 isEventing = true;
             }
         }
-//event 1        
+//Construction workers
+        if(eventNumber > 12 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker1"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 2;
+                console.log("first step in calling the event");
+                this.callEvent("conWorker1");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 12 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerNE1"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 3;
+                
+                this.callEvent("conWorkerNE1");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 26 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker2"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 4;
+                
+                this.callEvent("conWorker2");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 26 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerTheStand"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 5;
+                
+                this.callEvent("conWorkerTheStand");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 8 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker3"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 6;
+                
+                this.callEvent("conWorker3");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 8 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerSW3"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 7;
+                
+                this.callEvent("conWorkerSW3");
+                isEventing = true;
+            }
+        }
+//event 1
         if(eventNumber == 1 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "secondEvent"){
                 this.callEvent("secondEvent", 1);
@@ -540,11 +631,32 @@ class textEvent extends abstractObject {
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
                 
+                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
+
                     // this is where actions for the events will be called //
                     switch(eventNumber){
                         case Object.keys(theDialogue.events).length - 1:
                             this.blockedEventSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 2:
+                            console.log("third step in calling the event");
+                            this.ne1conWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 3:
+                            this.ne1conWorkerSwitch2();
+                            break;
+                        case Object.keys(theDialogue.events).length - 4:
+                            this.standconWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 5:
+                            this.standconWorkerSwitch2();
+                            break;
+                        case Object.keys(theDialogue.events).length - 6:
+                            this.sw3conWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 7:
+                            this.sw3conWorkerSwitch2();
                             break;
                         case 0:
                             this.event0switch();
@@ -633,8 +745,10 @@ class textEvent extends abstractObject {
                             this.event40switch();
                             break;
                     }
-                        
-                    Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                    
+                    if(currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1" && currentNPC.hismove.npcName != "conWorker2" && currentNPC.hismove.npcName != "conWorkerTheStand" && currentNPC.hismove.npcName != "conWorker3" && currentNPC.hismove.npcName != "conWorkerSW3"){
+                        Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                    }
                     disableControls = true;
                     
                     subEventNumber++;
@@ -668,11 +782,15 @@ class textEvent extends abstractObject {
             
             else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
                 
-                if(currentNPC.hismove.npcName != "se6Blocker"){
+                if(currentNPC.hismove.npcName != "se6Blocker" && currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1"){
                     eventNumber++;
                 }
                 
                 else if(currentNPC.hismove.npcName === "se6Blocker"){
+                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                }else if(currentNPC.hismove.npcName === "conWorker1"){
+                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                }else if(currentNPC.hismove.npcName === "conWorkerNE1"){
                     Object.values(theDialogue.events)[eventNumber][0].event = "action";
                 }
                 
@@ -730,6 +848,54 @@ class textEvent extends abstractObject {
                 this.se6Block();
                 break;
         }
+    }
+    
+    ne1conWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.ne1conEvent();
+                break;
+        }
+    }
+    
+    ne1conWorkerSwitch2(){
+        switch(subEventNumber){
+            case 0:
+                this.ne1conEvent2();
+                break;
+        }
+    }
+    
+    standconWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.standconEvent();
+                break;
+        }
+    }
+    
+    standconWorkerSwitch2(){
+        switch(subEventNumber){
+            case 0:
+                this.standconEvent2();
+                break;
+        }
+    }
+    
+    sw3conWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.sw3conEvent();
+                break;
+        }
+    }
+    
+    sw3conWorkerSwitch2(){
+       switch(subEventNumber){
+            case 0:
+                this.sw3conEvent2();
+                break;
+        } 
     }
     
     event0switch(){
@@ -1017,7 +1183,7 @@ class textEvent extends abstractObject {
         }
     }
     
-//end of EVENT SWITCH STATEMENTS    
+//end of EVENT SWITCH STATEMENTS
     showText() {
         if(!this.startText){
             this.startText = true;
@@ -1073,7 +1239,12 @@ class textEvent extends abstractObject {
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
-                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+                        this.continueThing = this.game.add.sprite((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+                        
+                        this.continueThing.animations.add("downAnim", [1, 0, 1, 2], 4, true);
+                        this.continueThing.animations.play("downAnim");
+                        this.continueThing.width = arrowHandWidth;
+                        this.continueThing.height = mainMenuHandWidth;
                         this.continueThing.fixedToCamera = true;                   
                     }
                 }
@@ -1117,7 +1288,11 @@ class textEvent extends abstractObject {
 //goBackTest resets the game back to normal text interactions    
     goBackTest(){
         this.checkEventFinish();
-        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+        this.continueThing = this.game.add.sprite((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+        this.continueThing.animations.add("downAnim", [1, 0, 1, 2], 4, true);
+        this.continueThing.animations.play("downAnim");
+        this.continueThing.width = arrowHandWidth;
+        this.continueThing.height = mainMenuHandWidth;
         this.continueThing.fixedToCamera = true;      
     }
     
@@ -1136,6 +1311,169 @@ class textEvent extends abstractObject {
             this.goBackTest();
 //            eventNumber = eventNumberTemp;
         }, this);
+    }
+    
+//CONSTRUCTION WORKER EVENTS
+    //ne1
+    
+    ne1conEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    ne1conEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    standconEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    standconEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    sw3conEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    sw3conEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    selectDestinationPart1(){
+        this.optionBox = this.game.add.image(this.optionBoxX, this.optionBoxY, "singleBox");
+        this.optionBox.fixedToCamera = true;
+        this.optionBox.height = this.optionBoxHeight;
+        
+        this.text2 = this.game.add.text(this.optionYesNoX, this.selectDestinationHandyYes, "YES", this.styleOPTIONS);
+        this.text2.fixedToCamera = true;
+        this.text3 = this.game.add.text(this.optionYesNoX, this.optionNoY, "SURE", this.styleOPTIONS);
+        this.text3.fixedToCamera = true;
+        
+        this.spawnYesHand();
+    }
+    
+    spawnYesHand(){
+        this.cursorPosSelectingDestination = "YES";
+        this.selectDestinationHand = this.game.add.image(this.selectDestinationHandx, this.selectDestinationHandyYes, "hand");
+        this.selectDestinationHand.fixedToCamera = true;
+        this.selectDestinationHand.width = mainMenuHandWidth;
+        this.selectDestinationHand.height = mainMenuHandHeight;
+    }
+    
+    spawnNoHand(){
+        this.cursorPosSelectingDestination = "NO";
+        this.selectDestinationHand = this.game.add.image(this.selectDestinationHandx, this.selectDestinationHandyNo, "hand");
+        this.selectDestinationHand.fixedToCamera = true;
+        this.selectDestinationHand.width = mainMenuHandWidth;
+        this.selectDestinationHand.height = mainMenuHandHeight;
+    }
+    
+    createControls(){
+        if(this.cursors.up.isUp){
+            this.upDestinationIsPressed = false;
+        }
+        if(this.cursors.down.isUp){
+            this.downDestinationIsPressed = false;
+        }
+        
+        if(this.cursorPosSelectingDestination != null){
+            if(this.cursors.up.isDown && this.cursorPosSelectingDestination == "NO" && !this.upDestinationIsPressed){
+                this.upDestinationIsPressed = true;
+                this.selectDestinationHand.destroy();
+                this.spawnYesHand();
+            } else if(this.cursors.down.isDown && this.cursorPosSelectingDestination == "YES" && !this.downDestinationIsPressed){
+                this.downDestinationIsPressed = true;
+                this.selectDestinationHand.destroy();
+                this.spawnNoHand();
+            }
+        }
+        
+        this.checkForChooseDestination();
+        
+    }
+    
+    checkForChooseDestination(){
+        if(this.enterBut.isUp){
+            this.choseDestination = false;
+        }
+        
+        if(this.enterBut.isDown && !this.choseDestination && this.cursorPosSelectingDestination != null){
+            this.choseDestination = true;
+            
+            if(this.cursorPosSelectingDestination != null){
+                    this.cursorPosSelectingDestination = null;
+                    eventNumber = eventNumberTemp;
+                    eventNumberTemp = null;
+
+                    subEventNumber = 0;
+
+                    this.isText = 2;
+                    this.eraseText();   
+
+                    eventTrigger = false;
+
+                    texting = false;
+                    this.isText = 0;
+
+                    eventTextNumber = 0;
+                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                
+                    this.optionBox.destroy();
+                    this.text2.destroy();
+                    this.text3.destroy();
+                    this.selectDestinationHand.destroy();
+
+                    switch(currentNPC.hismove.npcName){
+                        case "conWorker1":
+                            TopDownGame.game.state.start('NE1');
+                            break;
+                        case "conWorkerNE1":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "ne1"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                        case "conWorker2":
+                            TopDownGame.game.state.start('theStand');
+                            break;
+                        case "conWorkerTheStand":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "theStand"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                        case "conWorker3":
+                            TopDownGame.game.state.start('sw03');
+                            break;
+                        case "conWorkerSW3":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "sw03"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                }
+            }
+            
+        }
     }
     
 //EVENT 0 PART 0

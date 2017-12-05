@@ -75,7 +75,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":5888,
+                 "x":5760,
                  "y":9088
                 }, 
                 {
@@ -263,7 +263,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":6016,
+                 "x":6528,
                  "y":9088
                 }, 
                 {
@@ -319,6 +319,31 @@
                  "width":128,
                  "x":5376,
                  "y":8448
+                }, 
+                {
+                 "height":128,
+                 "id":12,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"conWorkerSW3",
+                     "sprite":"dov",
+                     "spritesheet":"construction_spritesheet",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5888,
+                 "y":9088
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -337,7 +362,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":12,
+ "nextobjectid":13,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

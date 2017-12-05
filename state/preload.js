@@ -88,9 +88,9 @@ TopDownGame.Preload.prototype = {
         
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
-        this.load.image("hand-down", "/assets/ui/triangle-down.png");
-        this.load.image("hand-up", "/assets/ui/triangle-up.png");
-        
+//        this.load.image("hand-down", "/assets/ui/triangle-down.png");
+//        this.load.image("hand-up", "/assets/ui/triangle-up.png");
+//        
         //character spritesheets
         
         //main characters
@@ -116,6 +116,10 @@ TopDownGame.Preload.prototype = {
         //FIRE ANIMATION
         this.load.spritesheet("fire_spritesheet", "/assets/images/fireSpriteSheet/fireSpriteSheet.png", 128, 128);
         
+        //ARROW ANIMATIONS
+        this.load.spritesheet("hand-down", "/assets/ui/triangle-down/triangle-down.png", 13, 20);
+        this.load.spritesheet("hand-up", "/assets/ui/triangle-up/triangle-up.png", 13, 20);
+        
         
     //chat heads
         //main characters
@@ -133,6 +137,9 @@ TopDownGame.Preload.prototype = {
         this.load.image("daemonCH", "/assets/characters/chatHeads/Demon.png");
         this.load.image("galynaCH", "/assets/characters/chatHeads/galina.png");
         this.load.image("arronCH", "/assets/characters/chatHeads/Arron.png");
+        
+        this.load.image("monkCH", "/assets/characters/chatHeads/npc.png");
+        this.load.image("conCH", "/assets/characters/chatHeads/constructionworker.png");
         
         //background characters
         this.load.image("boy1CH", "/assets/characters/chatHeads/boy1.png");

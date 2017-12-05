@@ -85,6 +85,7 @@ class abstractLevel extends Phaser.State {
         
         this.createNPCs();
         this.generateMap2();
+        currentNPC = null;
         
         //walking objs
 //        this.generateWalkingObjects();
