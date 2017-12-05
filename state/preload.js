@@ -101,6 +101,12 @@ TopDownGame.Preload.prototype = {
         
         //secondary characters
         
+        this.load.image("daemonBattle", "/assets/characters/BattleCharacter/DEMON.png");
+        this.load.image("galynaBattle", "/assets/characters/mainBosses/galynaMainBoss.png");
+        this.load.image("henryBattle", "/assets/characters/mainBosses/henryMainBoss.png");
+        this.load.image("arronBattle", "/assets/characters/mainBosses/arronBattle.png");
+        this.load.image("raminBattle", "/assets/characters/mainBosses/Ramin.png");
+        
         
     //chat heads
         //main characters
