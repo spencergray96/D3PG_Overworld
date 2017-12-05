@@ -92,7 +92,9 @@ TopDownGame.Preload.prototype = {
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
 //        this.load.image("hand-down", "/assets/ui/triangle-down.png");
 //        this.load.image("hand-up", "/assets/ui/triangle-up.png");
-//        
+        
+        this.load.image("pauseMap", "/assets/ui/map/map.png");
+        
         //character spritesheets
         
         //main characters
@@ -121,6 +123,9 @@ TopDownGame.Preload.prototype = {
         //ARROW ANIMATIONS
         this.load.spritesheet("hand-down", "/assets/ui/triangle-down/triangle-down.png", 13, 20);
         this.load.spritesheet("hand-up", "/assets/ui/triangle-up/triangle-up.png", 13, 20);
+        
+        //PIN ANIMATION
+        this.load.spritesheet("pin-animation", "/assets/ui/pin-animation/pin-animation.png", 128, 128);
         
         
     //chat heads
