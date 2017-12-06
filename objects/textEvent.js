@@ -657,9 +657,9 @@ class textEvent extends abstractObject {
                     currentNPC = null;
                     TopDownGame.game.state.start('dorm');
                 } else if(currentNPC.hismove.npcName == "bookcaseNPC"){
-                    console.log("line 618 baby")
+                    console.log("line 618 baby");
                     this.eraseText();
-;                    this.continueThing.destroy();
+                    this.continueThing.destroy();
                     currentNPC = null;
                     TopDownGame.game.state.start('tunnel');
                 }

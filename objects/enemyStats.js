@@ -3,7 +3,7 @@ var enemyStats = [
         name: "Galyna",
         baseCharacter: "galynaBattle",
         ch: "galynaCH",
-        currentHP: 16,
+        currentHP: 150,
         maxHP: 150,
         currentEN: 10,
         maxEN: 10,
@@ -13,7 +13,8 @@ var enemyStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "hits a lot"
+        specDesc: "Critical Thinking Teacher",
+        battleBG: "mainBox"
     },
     arron = {
         name: "Arron",
@@ -29,7 +30,8 @@ var enemyStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "hits a lot"
+        specDesc: "Programs a lot",
+        battleBG: "mainBox"
     },
     daemon = {
         name: "Daemon",
@@ -45,7 +47,8 @@ var enemyStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "hits a lot"
+        specDesc: "Designs Stuff",
+        battleBG: "mainBox"
     },
     henry = {
         name: "Henry",
@@ -61,7 +64,8 @@ var enemyStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "hits a lot"
+        specDesc: "Coding Hero",
+        battleBG: "mainBox"
     },    
     ramin = {
         name: "Ramin",
@@ -77,6 +81,7 @@ var enemyStats = [
         defence: 10,
         evasion: "5%",
         description: "He's the leader of the bunch",
-        specDesc: "hits a lot"
+        specDesc: "Big Boi Of D3",
+        battleBG: "mainBox"
     },    
 ]

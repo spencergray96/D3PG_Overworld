@@ -57,6 +57,8 @@ var playerStats = [
         description: "He's the leader of the bunch",
         specDesc: "hits a lot",
         
+        skillColor: 0x00ff00,
+        
         level: experiencePoints[0].level,
         nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp,
         
@@ -79,6 +81,8 @@ var playerStats = [
         evasion: "5%",
         description: "You know him well",
         specDesc: "hits a lot",
+        
+        skillColor: 0xff0000,
         
         level: experiencePoints[1].level,
         nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp,
@@ -103,6 +107,8 @@ var playerStats = [
         description: "He's finally back",
         specDesc: "hits a lot",
         
+        skillColor: 0x0000ff,
+        
         level: experiencePoints[2].level,
         nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp,
         
@@ -125,6 +131,8 @@ var playerStats = [
         evasion: "5%",
         description: "To kick some tail!",
         specDesc: "hits a lot",
+        
+        skillColor: 0xffff00,
         
         level: experiencePoints[3].level,
         nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp,

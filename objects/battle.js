@@ -10,7 +10,8 @@ class battle extends abstractObject {
     createThis(game) {
         super.createThis(game);
         //  this is the background of the battle    //
-        this.battleBackground = "mainBox";
+        console.log(enemyStats[bossNum].battleBG);
+        this.battleBackground = enemyStats[bossNum].battleBG;
         
         this.battleAnimFPS = 10;
         
@@ -533,6 +534,7 @@ class battle extends abstractObject {
         this.activeCharVar = 0;
         this.eraseCursor();       
         battling = false;
+        disableControls = false;        
     }  
     
     eraseCursor(){
@@ -548,15 +550,7 @@ class battle extends abstractObject {
                 disableControls = true;
                 if(!this.testing){
                     this.game.camera.fade(0x000000, 1000);
-                    this.game.time.events.add(Phaser.Timer.SECOND * 1.5, ()=>{
-                    battling = true;
-                    this.testing = true;
-                    console.log("battling is: " + battling);
-                    this.game.camera.resetFX();
-                    disableControls = false;
-                    this.setupBattle();
-                    }, this);
-                    
+                    this.game.camera.onFadeComplete.add(this.fadeComplete,this);
                 }
                 else if(this.testing){
                     this.testing = false;
@@ -657,6 +651,15 @@ class battle extends abstractObject {
         }
     }
     
+    fadeComplete(){
+        battling = true;
+        this.testing = true;
+        console.log("battling is: " + battling);
+        this.game.camera.resetFX();
+        disableControls = false;
+        this.setupBattle();
+    }
+    
     goBack(){
         if(this.mainMenu){
             console.log("menu back noise");
@@ -713,7 +716,7 @@ class battle extends abstractObject {
                     this.makeCursors(); 
                     break;
                 case 3:
-                    alert("No Run Lol");  
+                    this.noRun();
                     break;
 
             }
@@ -831,6 +834,27 @@ class battle extends abstractObject {
         }
     }
     
+    noRun(){
+        if(!this.waiting){
+            this.waiting = true;
+            this.noDeathBox = this.game.add.image(this.game.width/8, this.game.height/3, "singleBox", this.style);
+            this.noDeathBox.height = 100;        
+            this.noDeathBox.width = 600;
+            this.noDeathBox.fixedToCamera = true;
+            this.noDeathMessage = this.game.add.text(0, 50, "Even Heroes Can't Run From Life", this.style3);
+            this.noDeathMessage.setTextBounds(this.game.width/8, this.game.height/3, this.noDeathBox.width, this.noDeathBox.height);
+            this.noDeathMessage.fixedToCamera = true;
+            this.resetStats();
+        }
+        
+        else{
+            this.waiting = false;
+            this.noDeathBox.destroy();
+            this.noDeathMessage.destroy();
+            this.resetStats();
+        }        
+    }
+    
     fight(){
         if(this.attackMenu && !this.skillAttack){
         switch(this.activeCharVar){
@@ -862,7 +886,18 @@ class battle extends abstractObject {
             this.mainMenu = true; 
             this.eraseCursor();
             disableControls = true;
+            switch(this.activeCharVar){
+                case 0:
+                    this.game.camera.flash(playerStats[0].skillColor, 500);
+                case 1:
+                    this.game.camera.flash(playerStats[1].skillColor, 500);
+                case 2:
+                    this.game.camera.flash(playerStats[2].skillColor, 500);
+                case 3:
+                    this.game.camera.flash(playerStats[3].skillColor, 500);
+                }
             this.attackFunctions();
+                                     
         }
     }
     
