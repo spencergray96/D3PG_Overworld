@@ -179,13 +179,7 @@ TopDownGame.Preload.prototype = {
         this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.wav');
 
     },
-    create: function () {  
-        
-//        if(!beenToSplash){
-//            beenToSplash = true;
-            this.state.start("splash");
-//        } else {
-//            this.state.start("overworld"); 
-//        }
+    create: function(){
+        this.state.start("splash");
     }
 };

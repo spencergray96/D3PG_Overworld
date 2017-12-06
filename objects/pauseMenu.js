@@ -1488,7 +1488,7 @@ class pauseMenu extends abstractObject {
         
         this.newSpecDesc = this.game.add.text(characterHeadx, 720, "Special attack: " + (selectedCharToViewStatus.specDesc), this.styleLONG2);
         this.newSpecDesc.fixedToCamera = true;
-        tempDisplayArr0ay.push(this.newSpecDesc);
+        tempDisplayArray.push(this.newSpecDesc);
         
         this.newSprite = this.game.add.sprite(this.game.width - mainMenuRightIndent, 280, selectedCharToViewStatus.spritesheet);
 //        this.newSprite.frame = 5;

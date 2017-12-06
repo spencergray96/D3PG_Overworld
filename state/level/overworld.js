@@ -51,7 +51,7 @@ class overworld extends abstractLevel {
             new pauseMenu(),
             new walkables(),
             new textEvent(),
-//            new splashClass(),
+            new songs()
         ]
     }
 
