@@ -78,8 +78,7 @@ class textEvent extends abstractObject {
         this.isText = 0;
         this.isDown = false;
         //  this delays text printing, it also prints text  //
-        this.game.time.events.loop(this.lineDelay, this.printText, this);
-        
+        this.game.time.events.loop(this.lineDelay, this.printText, this);        
     }
 
     updateThis(game, player) {
@@ -103,6 +102,8 @@ class textEvent extends abstractObject {
         if(eventNumber > 36){
             runningShoes = false;
         }
+        
+        window.battleClass.testingFuncConsole();
     }
     
     staticEvents(){

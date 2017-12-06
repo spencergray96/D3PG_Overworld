@@ -912,17 +912,22 @@ class battle extends abstractObject {
         }
     }
     
-    rng(num){
-        this.game.rnd.integerInRange(1, num);
-    }
     
     healthCheck(num){
-//        if(playerStats[num].currentHP < enemyStats[bossNum].attack){
-        console.log(playerStats[num].currentHP);
-        this.damageAmount = enemyStats[bossNum].attack;
-        if(playerStats[num].currentHP < 0){
-            playerStats[num].currentHP = 0;
+        
+        this.evasion = this.game.rnd.integerInRange(1, playerStats[this.activeCharVar].evasion);
+        this.attackRoll = this.game.rnd.integerInRange(1, 100);
+        if(this.evasion > this.attackRoll){
+            console.log("miss");
+            this.damageAmount = 0;
         }
+        else{
+            this.damageAmount = enemyStats[bossNum].attack;
+            if(playerStats[num].currentHP < 0){
+                playerStats[num].currentHP = 0;
+            }
+        }
+        console.log(playerStats[num].currentHP);
         this.noDeath();
 //        }
 //        else{
@@ -961,10 +966,14 @@ class battle extends abstractObject {
             }
             this.enemyTurn = false;            
         }
-        
         if(number == 0 && playerStats[0].currentHP > 0 && enemyStats[bossNum].currentHP > 0){
             console.log("the damage amount is: " + this.damageAmount);
-            this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[0], this.damageAmount, this.style);
+            if(this.damageAmount == 0){
+                this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[0], "Miss", this.style);
+            }
+            else{
+                this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[0], this.damageAmount, this.style);
+            }
             this.takeDamage.alpha = 1;
             this.takeDamage.fixedToCamera = true;
             this.game.add.tween(this.takeDamage).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
@@ -974,7 +983,12 @@ class battle extends abstractObject {
         }
         if(number == 1 && playerStats[1].currentHP > 0 && enemyStats[bossNum].currentHP > 0){         
             console.log("the damage amount is: " + this.damageAmount);
+            if(this.damageAmount == 0){
+                this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[1], "Miss", this.style);
+            }
+            else{            
             this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[1], this.damageAmount, this.style);
+            }
             this.takeDamage.alpha = 1;        
             this.takeDamage.fixedToCamera = true;
             this.game.add.tween(this.takeDamage).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
@@ -984,7 +998,12 @@ class battle extends abstractObject {
         }
         if(number == 2 && playerStats[2].currentHP > 0 && enemyStats[bossNum].currentHP > 0){         
             console.log("the damage amount is: " + this.damageAmount);
+                        if(this.damageAmount == 0){
+                this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[2], "Miss", this.style);
+            }
+            else{
             this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[2], this.damageAmount, this.style);
+            }
             this.takeDamage.alpha = 1;
             this.takeDamage.fixedToCamera = true;
             this.game.add.tween(this.takeDamage).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
@@ -995,7 +1014,12 @@ class battle extends abstractObject {
         }
         if(number == 3 && playerStats[3].currentHP > 0 && enemyStats[bossNum].currentHP > 0){
             console.log("the damage amount is: " + this.damageAmount);
+            if(this.damageAmount == 0){
+                this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[0], "Miss", this.style);
+            }
+            else{            
             this.takeDamage = this.game.add.text(Object.values(this.characterPos)[5] + 200, Object.values(this.characterPos)[3], this.damageAmount, this.style);
+            }
             this.takeDamage.alpha = 1;
             this.takeDamage.fixedToCamera = true;
             this.game.add.tween(this.takeDamage).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
@@ -1160,6 +1184,10 @@ class battle extends abstractObject {
             this.makeCursors();
         }, this);
 
+    }
+    
+    testingFuncConsole(){
+        console.log("we did it ayyy lmao");
     }
     
 }

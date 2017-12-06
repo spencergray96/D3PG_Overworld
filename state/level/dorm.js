@@ -29,6 +29,7 @@ class dorm extends abstractLevel {
         }};
 
     static updatables() {
+        
         return [
             new door(),
             new spawn(),

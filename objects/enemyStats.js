@@ -11,7 +11,7 @@ var enemyStats = [
         weapon: "default",
         weaponMult: 1,
         defence: 10,
-        evasion: "5%",
+        evasion: 5, /* percent */
         description: "He's the leader of the bunch",
         specDesc: "Critical Thinking Teacher",
         battleBG: "mainBox"
@@ -28,7 +28,7 @@ var enemyStats = [
         weapon: "default",
         weaponMult: 1,
         defence: 10,
-        evasion: "5%",
+        evasion: 5, /* percent */
         description: "He's the leader of the bunch",
         specDesc: "Programs a lot",
         battleBG: "mainBox"
@@ -45,7 +45,7 @@ var enemyStats = [
         weapon: "default",
         weaponMult: 1,
         defence: 10,
-        evasion: "5%",
+        evasion: 5, /* percent */
         description: "He's the leader of the bunch",
         specDesc: "Designs Stuff",
         battleBG: "mainBox"
@@ -62,7 +62,7 @@ var enemyStats = [
         weapon: "default",
         weaponMult: 1,
         defence: 10,
-        evasion: "5%",
+        evasion: 5, /* percent */
         description: "He's the leader of the bunch",
         specDesc: "Coding Hero",
         battleBG: "mainBox"
@@ -79,7 +79,7 @@ var enemyStats = [
         weapon: "default",
         weaponMult: 1,
         defence: 10,
-        evasion: "5%",
+        evasion: 5, /* percent */
         description: "He's the leader of the bunch",
         specDesc: "Big Boi Of D3",
         battleBG: "mainBox"
