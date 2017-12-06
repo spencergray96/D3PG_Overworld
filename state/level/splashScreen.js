@@ -61,7 +61,7 @@ class splash extends Phaser.State {
     }
     
     createControlsSplash(){
-        if(this.EnterButtSplash.isDown){
+        if(this.EnterButtSplash.isDown && !this.pressedEnterYet){
             this.pressedEnterYet = true;
             
             this.pressEnter.destroy();
