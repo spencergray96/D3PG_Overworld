@@ -169,10 +169,23 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
         this.load.spritesheet("CANDLE", "/assets/images/candleNPC.png", 128, 128);
         
+        //SPLASH VIDEO
+        this.load.video("splash", '/assets/ui/map/splashScreen-lowres.mp4');
+        this.load.spritesheet("press-enter", '/assets/ui/splash-screen/press-enter-spritesheet.png', 610, 60);
+        this.load.image("full-blank", '/assets/ui/splash-screen/fullBlank.png', 610, 60);
+        
+    //AUDIO
+        //SONGS
+        this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.wav');
 
     },
-    create: function () {      
-
-        this.state.start("overworld");
+    create: function () {  
+        
+//        if(!beenToSplash){
+//            beenToSplash = true;
+            this.state.start("splash");
+//        } else {
+//            this.state.start("overworld"); 
+//        }
     }
 };

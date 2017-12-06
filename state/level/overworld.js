@@ -48,9 +48,10 @@ class overworld extends abstractLevel {
         return [
             new door(),
             new spawn(),
-            new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new textEvent(),
+//            new splashClass(),
         ]
     }
 

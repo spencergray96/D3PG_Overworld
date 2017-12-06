@@ -65,13 +65,13 @@ var theDialogue = {
 //                    "Spencer: ...;;What?",
 //                event:""
 //            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;What?;;...;;Anyways did we just pass Dov and James on the road?;;Haven't seen those guys since we graduated",
-//                event:""
-//            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;What?;;...;;Anyways did we just pass Dov and James on the road?;;Haven't seen those guys since we graduated",
+                event:""
+            },
             {
                 profile:
                     "spencerCH",
@@ -80,13 +80,13 @@ var theDialogue = {
                 event:"action"
             },
 //action
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: What’s up nerds?",
-//                event:""
-//            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: What’s up nerds?",
+                event:""
+            },
 //            {
 //                profile:
 //                    "jamesCH",
@@ -248,13 +248,13 @@ var theDialogue = {
 //                    "Dov: Cool, let’s go",
 //                event:""
 //            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: Wait!;;Collectively don’t we take up way too much space?",
-//                event:""
-//            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Wait!;;Collectively don’t we take up way too much space?",
+                event:""
+            },
             {
                 profile:
                     "spencerCH",
@@ -263,13 +263,13 @@ var theDialogue = {
                 event:"action"
             },
 //second action
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: What just happened?",
-//                event:""
-//            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: What just happened?",
+                event:""
+            },
 //            {
 //                profile:
 //                    "spencerCH",
@@ -305,13 +305,13 @@ var theDialogue = {
 //                    "Dov: What do you mean ‘everyone’? Are you sure you’re feeling alright?",
 //                event:""
 //            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: No;;But let’s head to SE14 and find Ramin anyways",
-//                event:""
-//            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: No;;But let’s head to SE14 and find Ramin anyways",
+                event:""
+            },
             {
                 profile:
                     "jamesCH",
@@ -3931,8 +3931,8 @@ var theDialogue = {
                 8:"James: I used to sit at this computer all the time.;;Looks like someone left it signed in.",
                 9:"James: I used to sit at this computer all the time.;;Looks like someone left it signed in.",
                 10:"James: I used to sit at this computer all the time.;;Looks like someone left it signed in.",
-                11:"James: We should check my dorm room for a USB stick so I can hand this file in.",
-                12:"James: We should check my dorm room for a USB stick so I can hand this file in.",
+                11:"James: We should check my dorm room for a USB stick so I can hand this file;;in.",
+                12:"James: We should check my dorm room for a USB stick so I can hand this file;;in.",
                 13:"James: We already got the file, nothing new to see here.",
                 14:"James: We already got the file, nothing new to see here.",
                 15:"James: We already got the file, nothing new to see here.",

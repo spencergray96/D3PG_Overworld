@@ -7,6 +7,7 @@ class NE1 extends abstractLevel {
                 "1": "NE1",
                 "2": "task13",
                 "3": "task14",
+                "4": "sign",
             },
             layers: [
                 "backgroundLayer",

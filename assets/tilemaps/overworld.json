@@ -106,31 +106,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":1664,
-                 "y":8192
-                }, 
-                {
-                 "height":128,
-                 "id":6,
-                 "name":"",
-                 "properties":
-                    {
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":12672,
-                 "y":6656
+                 "x":10240,
+                 "y":6400
                 }, 
                 {
                  "height":128,
@@ -215,8 +192,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":8576,
-                 "y":2560
+                 "x":8448,
+                 "y":2688
                 }, 
                 {
                  "height":128,
@@ -289,29 +266,6 @@
                 }, 
                 {
                  "height":128,
-                 "id":14,
-                 "name":"",
-                 "properties":
-                    {
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":12544,
-                 "y":6656
-                }, 
-                {
-                 "height":128,
                  "id":15,
                  "name":"",
                  "properties":
@@ -330,29 +284,6 @@
                  "width":128,
                  "x":15872,
                  "y":7552
-                }, 
-                {
-                 "height":128,
-                 "id":16,
-                 "name":"",
-                 "properties":
-                    {
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":12416,
-                 "y":6656
                 }, 
                 {
                  "height":128,
@@ -393,31 +324,6 @@
                  "width":128,
                  "x":4608,
                  "y":4864
-                }, 
-                {
-                 "height":128,
-                 "id":19,
-                 "name":"",
-                 "properties":
-                    {
-                     "npcName":"james",
-                     "sprite":"dov",
-                     "spritesheet":"james_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":12800,
-                 "y":6656
                 }, 
                 {
                  "height":128,
@@ -565,29 +471,6 @@
                  "width":128,
                  "x":9856,
                  "y":6784
-                }, 
-                {
-                 "height":128,
-                 "id":27,
-                 "name":"",
-                 "properties":
-                    {
-                     "sprite":"dov",
-                     "spritesheet":"spencer_spritesheet",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":12288,
-                 "y":6656
                 }, 
                 {
                  "height":128,
@@ -1755,7 +1638,7 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":7552,
+                 "x":7936,
                  "y":2688
                 }, 
                 {
@@ -1782,6 +1665,31 @@
                  "width":128,
                  "x":8320,
                  "y":2688
+                }, 
+                {
+                 "height":128,
+                 "id":98,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"se6blockNPC",
+                     "sprite":"dov",
+                     "spritesheet":"",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":15616,
+                 "y":7296
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1844,7 +1752,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":98,
+ "nextobjectid":99,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

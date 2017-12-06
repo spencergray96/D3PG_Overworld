@@ -86,7 +86,7 @@ class walkables extends abstractObject {
             testTrigger = true;
             eventObject.hismove.npcName = 'se6Blocker';
             
-            currentNPC = eventObject
+            currentNPC = eventObject;
         }
     }
     

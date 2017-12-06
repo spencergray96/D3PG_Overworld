@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 30;
+var eventNumber = 0;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -108,6 +108,8 @@ class textEvent extends abstractObject {
         this.downDestinationIsPressed = false;
         this.upDestinationIsPressed = false;
         this.choseDestination = false;
+        
+        
     }
 
     updateThis(game, player) {
@@ -630,17 +632,19 @@ class textEvent extends abstractObject {
         if (eventTrigger){
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
-                
-                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber].event);
+//                console.log("made it to the master switch statement - 1");
+                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber]);
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
 
                     // this is where actions for the events will be called //
+//                            console.log("made it to the master switch statement");
                     switch(eventNumber){
                         case Object.keys(theDialogue.events).length - 1:
+//                            console.log("made it to the master switch statement 22222");
                             this.blockedEventSwitch();
                             break;
                         case Object.keys(theDialogue.events).length - 2:
-                            console.log("third step in calling the event");
+//                            console.log("third step in calling the event");
                             this.ne1conWorkerSwitch();
                             break;
                         case Object.keys(theDialogue.events).length - 3:
@@ -659,6 +663,7 @@ class textEvent extends abstractObject {
                             this.sw3conWorkerSwitch2();
                             break;
                         case 0:
+                            console.log("case 0 of the master switch");
                             this.event0switch();
                             break;
                         case 1:
@@ -747,6 +752,7 @@ class textEvent extends abstractObject {
                     }
                     
                     if(currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1" && currentNPC.hismove.npcName != "conWorker2" && currentNPC.hismove.npcName != "conWorkerTheStand" && currentNPC.hismove.npcName != "conWorker3" && currentNPC.hismove.npcName != "conWorkerSW3"){
+                        console.log("how to get here for?");
                         Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
                     }
                     disableControls = true;
@@ -788,10 +794,6 @@ class textEvent extends abstractObject {
                 
                 else if(currentNPC.hismove.npcName === "se6Blocker"){
                     Object.values(theDialogue.events)[eventNumber][0].event = "action";
-                }else if(currentNPC.hismove.npcName === "conWorker1"){
-                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
-                }else if(currentNPC.hismove.npcName === "conWorkerNE1"){
-                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
                 }
                 
                 if(eventNumberTemp != null){
@@ -821,7 +823,7 @@ class textEvent extends abstractObject {
                 } else if(currentNPC.hismove.npcName == "bookcaseNPC"){
                     console.log("line 618 baby")
                     this.eraseText();
-;                    this.continueThing.destroy();
+                    this.continueThing.destroy();
                     currentNPC = null;
                     TopDownGame.game.state.start('tunnel');
                 }
@@ -843,6 +845,7 @@ class textEvent extends abstractObject {
 //EVENT SWITCH STATEMENTS
     
     blockedEventSwitch(){
+        console.log("made it to the blocekd event switch");
         switch(subEventNumber){
             case 0:
                 this.se6Block();
@@ -904,6 +907,7 @@ class textEvent extends abstractObject {
                 this.event0s0();
                 break;
             case 1:
+                console.log("case 1 of the event 0 switch");
                 this.event0s1();
                 break;
         }
@@ -1298,17 +1302,21 @@ class textEvent extends abstractObject {
     
 //Blocking events
     se6Block(){
+        console.log("se6block!!!");
+//        disableControls = true;
         this.eraseText();
         this.continueThing.destroy();
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.2, function(){
             this.player.mymove.state = 3;
-            this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 128;
+            this.player.mymove.y2 = Math.floor(this.player.y) + 128;
             this.player.animations.play("down");
         }, this);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.6, function(){
+            console.log(this.player);
             this.goBackTest();
+            
 //            eventNumber = eventNumberTemp;
         }, this);
     }
@@ -1414,6 +1422,7 @@ class textEvent extends abstractObject {
             this.choseDestination = true;
             
             if(this.cursorPosSelectingDestination != null){
+                console.log("is it breaking on 1421?");
                     this.cursorPosSelectingDestination = null;
                     eventNumber = eventNumberTemp;
                     eventNumberTemp = null;
@@ -1518,26 +1527,56 @@ class textEvent extends abstractObject {
     }
 //EVENT 0 PART 1
     event0s1(){
+        this.eraseText();
         this.continueThing.destroy();
-        this.game.camera.fade('#000000');
-        this.game.camera.onFadeComplete.add(this.event0s1DestroyNPCs,this);
+        console.log("about to flash");
         
+//        this.game.camera.fade('#000000');
+        this.game.camera.flash('#000000');
+//        this.game.camera.onFadeComplete.add(function(){
+            this.event0s1DestroyNPCs();
+//        }, this);
     }
     
     event0s1DestroyNPCs(){
-        for(var i = 0; i < NPCs.length - 1; i++){
+//        for (var i = 0; i < NPCs.length -1; i++){
+//            NPCs[i].x = 0;
+//        }
+        console.log("about to destroyNPCS");
+        
+        for (var i = 0; i < NPCs.length - 1; i++){
             if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
+                
+                console.log(NPCs[i].hismove.eventID);
+                
                 NPCs[i].x = 0;
                 NPCs[i].y = 0;
                 NPCs[i].destroy();
             }
         }
-        this.eraseText();
         this.game.camera.flash('#000000');
         this.game.camera.follow(this.player);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.8,this.goBackTest, this);
     }
+    
+//    event0s1DestroyNPCs(){
+//        console.log("about to destroyNPCS");
+//        setTimeout(()=>{
+//        
+//            for (var i = 0; i < NPCs.length -1; i++){
+//                if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
+//                    console.log(NPCs[i].hismove.eventID);
+//                    NPCs[i].x = 0;
+//                    NPCs[i].y = 0;
+//                    NPCs[i].destroy();
+//                }
+//            }
+//            this.game.camera.flash('#000000');
+//            this.game.camera.follow(this.player);
+//            this.game.time.events.add(Phaser.Timer.SECOND * 0.8,this.goBackTest, this);
+//        }, 2000);
+//    }
     
 //EVENT 1 PART 0
     event1s0(){
@@ -1897,9 +1936,13 @@ class textEvent extends abstractObject {
         this.game.camera.shake(0.005, 1000);
         for(var i = 0; i < NPCs.length - 1; i++){
             if(NPCs[i].hismove.npcName == "ramin"){
-
+                console.log("should move him now");
                 NPCs[i].x = 0;
                 NPCs[i].y = 0;
+                NPCs[i].hismove.x = 0;
+                NPCs[i].hismove.x2 = 0;
+                NPCs[i].hismove.y = 0;
+                NPCs[i].hismove.y2 = 0;
             }
         }
         
@@ -2236,7 +2279,7 @@ class textEvent extends abstractObject {
         this.continueThing.destroy();
         
         this.targetNPC2.animations.play("down");
-        this.targetNPC2.hismove.y2 = this.targetNPC2.hismove.y - Math.round(128);
+        this.targetNPC2.hismove.y2 = this.targetNPC2.y - Math.round(128);
         this.targetNPC2.hismove.walkingState = 4;
         
         this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){

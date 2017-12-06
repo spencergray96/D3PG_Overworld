@@ -1,3 +1,6 @@
+//been to splash yet
+var beenToSplash = false;
+
 var playerSpriteSheet = "spencer_spritesheet";
 var tempX;
 var tempY;
