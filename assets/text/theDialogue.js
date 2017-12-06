@@ -2,69 +2,69 @@ var theDialogue = {
     events:{
 //spawn event        
         firstSpawnEvent:[
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: I feel like I should press the ENTER button...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Why did you say that?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: What?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Just now...;;You said you should press the ENTER button",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Yeah, of course;;We need to use the ENTER button to advance through dialogue",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;Are you feeling okay?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: And we can use WASD controls to move around",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...;;Why are you explaining things to me as if I’m playing a game?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: ...;;What?",
-//                event:""
-//            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: I feel like I should press the ENTER button...",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Why did you say that?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: What?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Just now...;;You said you should press the ENTER button",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Yeah, of course;;We need to use the ENTER button to advance through dialogue",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;Are you feeling okay?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: And we can use WASD controls to move around",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...;;Why are you explaining things to me as if I’m playing a game?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ...;;What?",
+                event:""
+            },
             {
                 profile:
                     "raymondCH",
@@ -87,167 +87,167 @@ var theDialogue = {
                     "Dov: What’s up nerds?",
                 event:""
             },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: Man, I could really use a break...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Well you could always press the SPACE BAR if you need a break",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: What are you talking about?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: ...;;Use ENTER to make selections and BACKSPACE to go back;;We can use the pause menu to use items and check our objectives",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: Items? Objectives? I just wanted a break...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Well there’s no time for breaks when we’re talking",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: Sure whatever man",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: Is no one else confused as to why Spencer is talking like that?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: 01010111 01101000 01100001 01110100 00111111",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: I literally have no idea what you just said",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Same",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ... So Spencer and I are here to get recommendation letters;;from Ramin;;what about you two?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: Wow what a coincidence, that’s the exact same reason we’re;;here",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: It’s almost TOO convenient",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: Almost like we’re in a game!!",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: ...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "jamesCH",
-//                txt:
-//                    "James: ...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: ...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: ...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Since we’re all here now,;;why don’t we go try to get those letters together?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: Sure, I guess.;;Ramin’s office is in SE14, to the west of here right?",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Yeah, so we should head there;;To Ramin's office in SE14;;I think his office is 121A",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: Cool, let’s go",
-//                event:""
-//            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Man, I could really use a break...",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Well you could always press the SPACE BAR if you need a break",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: What are you talking about?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ...;;Use ENTER to make selections and BACKSPACE to go back;;We can use the pause menu to use items and check our objectives",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Items? Objectives? I just wanted a break...",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Well there’s no time for breaks when we’re talking",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: Sure whatever man",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Is no one else confused as to why Spencer is talking like that?",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: 01010111 01101000 01100001 01110100 00111111",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: I literally have no idea what you just said",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Same",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ... So Spencer and I are here to get recommendation letters;;from Ramin;;what about you two?",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Wow what a coincidence, that’s the exact same reason we’re;;here",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: It’s almost TOO convenient",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: Almost like we’re in a game!!",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: ...",
+                event:""
+            },
+            {
+                profile:
+                    "jamesCH",
+                txt:
+                    "James: ...",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: ...",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ...",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Since we’re all here now,;;why don’t we go try to get those letters together?",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Sure, I guess.;;Ramin’s office is in SE14, to the west of here right?",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Yeah, so we should head there;;To Ramin's office in SE14;;I think his office is 121A",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: Cool, let’s go",
+                event:""
+            },
             {
                 profile:
                     "jamesCH",
@@ -270,41 +270,41 @@ var theDialogue = {
                     "James: What just happened?",
                 event:""
             },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: To save space, we merged inside of each other;;Don’t even worry about it!",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "raymondCH",
-//                txt:
-//                    "Raymond: Oh baby...",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: That is like, really, REALLY gross;;Like more gross than that one week when Spencer kept bringing parmesan for;;lunch that was 2 years past its best-before date",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "spencerCH",
-//                txt:
-//                    "Spencer: ... Great;;Thanks Dov;;Now everyone knows that I brought parmesan for lunch that was 2 years past its;;best-before date",
-//                event:""
-//            },
-//            {
-//                profile:
-//                    "dovCH",
-//                txt:
-//                    "Dov: What do you mean ‘everyone’? Are you sure you’re feeling alright?",
-//                event:""
-//            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: To save space, we merged inside of each other;;Don’t even worry about it!",
+                event:""
+            },
+            {
+                profile:
+                    "raymondCH",
+                txt:
+                    "Raymond: Oh baby...",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: That is like, really, REALLY gross;;Like more gross than that one week when Spencer kept bringing parmesan for;;lunch that was 2 years past its best-before date",
+                event:""
+            },
+            {
+                profile:
+                    "spencerCH",
+                txt:
+                    "Spencer: ... Great;;Thanks Dov;;Now everyone knows that I brought parmesan for lunch that was 2 years past its;;best-before date",
+                event:""
+            },
+            {
+                profile:
+                    "dovCH",
+                txt:
+                    "Dov: What do you mean ‘everyone’? Are you sure you’re feeling alright?",
+                event:""
+            },
             {
                 profile:
                     "spencerCH",

@@ -69,8 +69,7 @@ class battle extends abstractObject {
         this.enemyHeight = 500;
         
         this.tempAttack = null; // this is for who the enemy targets
-        this.testNum = 0;
-        
+
         this.activeCharVar = 0;
         
         this.displayArr = [];
@@ -139,9 +138,7 @@ class battle extends abstractObject {
             this.ENStats = [];            
             this.makeContainers();
             this.cursorProc = false;
-            this.makeCursors();
-            console.log("timing" + this.testNum);
-            this.testNum++;            
+            this.makeCursors();         
             this.actionOptions();
             this.displayPlayerStats();
             
@@ -329,8 +326,9 @@ class battle extends abstractObject {
             this.battleCursor.height = this.cursorHeight;
 
         }
-        if(this.itemMenu){      
-            console.log("lol skills");
+        if(this.itemMenu){
+            // this is where items go
+            console.log("lol items");
         }            
     }
     
@@ -550,9 +548,10 @@ class battle extends abstractObject {
                 disableControls = true;
                 if(!this.testing){
                     this.game.camera.fade(0x000000, 1000);
-                    this.game.camera.onFadeComplete.add(this.fadeComplete,this);
+                    this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, this.fadeComplete, this);
                 }
                 else if(this.testing){
+                    disableControls = true;
                     this.testing = false;
                     battling = false;
                     console.log("battling is: " + battling);
@@ -881,7 +880,6 @@ class battle extends abstractObject {
         }
         if(this.skillAttack){
             console.log("Skill Attack");
-            this.skillAttack = false;
             this.attackMenu = false;
             this.mainMenu = true; 
             this.eraseCursor();
@@ -889,14 +887,27 @@ class battle extends abstractObject {
             switch(this.activeCharVar){
                 case 0:
                     this.game.camera.flash(playerStats[0].skillColor, 500);
+                    playerStats[0].currentEN = playerStats[0].currentEN - 1;
+                    this.resetStats();
+                    break;
                 case 1:
                     this.game.camera.flash(playerStats[1].skillColor, 500);
+                    playerStats[1].currentEN = playerStats[1].currentEN - 1;
+                    this.resetStats();
+                    break;
                 case 2:
                     this.game.camera.flash(playerStats[2].skillColor, 500);
+                    playerStats[2].currentEN = playerStats[2].currentEN - 1;
+                    this.resetStats();
+                    break;
                 case 3:
                     this.game.camera.flash(playerStats[3].skillColor, 500);
+                    playerStats[3].currentEN = playerStats[3].currentEN - 1;
+                    this.resetStats();
+                    break;
                 }
             this.attackFunctions();
+            this.skillAttack = false;
                                      
         }
     }
@@ -922,7 +933,12 @@ class battle extends abstractObject {
     
     displayDamage(number){
         if(!this.enemyTurn){
-            this.damageAmount = playerStats[this.activeCharVar].attack;
+            if(this.skillAttack){
+                this.damageAmount = (playerStats[this.activeCharVar].attack * playerStats[this.activeCharVar].weaponMult);
+            }
+            else{
+                this.damageAmount = playerStats[this.activeCharVar].attack;
+            }
         }
         else{
             switch(this.activeCharVar){
@@ -990,12 +1006,12 @@ class battle extends abstractObject {
         }
         if(number == 4){
             console.log("the damage amount is: " + this.damageAmount);
-            this.takeDamage = this.game.add.text(this.enemyX + 150, this.enemyY, this.damageAmount, this.style);
+            this.takeDamage = this.game.add.text(this.enemyX + 200, this.enemyY, this.damageAmount, this.style);
             this.takeDamage.alpha = 1;
             this.takeDamage.fixedToCamera = true;
             this.game.add.tween(this.takeDamage).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
             
-            console.log(" took " + playerStats[this.activeCharVar].attack + " damage");
+            console.log(" took " + this.damageAmount + " damage");
             enemyStats[bossNum].currentHP -= playerStats[this.activeCharVar].attack;
             console.log("Enemy health: " + enemyStats[bossNum].currentHP);
             if(enemyStats[bossNum].currentHP > 0){
@@ -1119,8 +1135,6 @@ class battle extends abstractObject {
         this.walkForward();
         this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay/2, ()=>{
             this.makeCursors();
-            console.log("timing" + this.testNum);
-            this.testNum++;
         }, this);   
     }
     
@@ -1134,22 +1148,16 @@ class battle extends abstractObject {
         }
     }
     
-    enemyAttackFinish(){
-        console.log("timing" + this.testNum);
-        this.testNum++;        
+    enemyAttackFinish(){       
         this.cursorPosMain = 0;
         this.activeCharVar = 0;
         this.walkForward();
         this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, ()=>{disableControls = false;}, this);
         this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay/2, ()=>{
-            this.eraseCursor();
-            console.log("timing" + this.testNum);
-            this.testNum++;            
+            this.eraseCursor();          
         }, this);
         this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, ()=>{
             this.makeCursors();
-            console.log("timing" + this.testNum);
-            this.testNum++;
         }, this);
 
     }
