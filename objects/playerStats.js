@@ -51,12 +51,13 @@ var playerStats = [
         maxEN: 10,
         attack: 15,
         weapon: "default",
-        weaponMult: 2,
+        weaponMult: 1,
         defence: 10,
-        evasion: 80,
+        evasion: "5%",
         description: "He's the leader of the bunch",
         specDesc: "hits a lot",
         
+        skillMult: 1.5,
         skillColor: 0x00ff00,
         
         level: experiencePoints[0].level,
@@ -76,12 +77,13 @@ var playerStats = [
         maxEN: 10,
         attack: 15,
         weapon: "default",
-        weaponMult: 1.8,
+        weaponMult: 1,
         defence: 10,
-        evasion: 5,
+        evasion: "5%",
         description: "You know him well",
         specDesc: "hits a lot",
         
+        skillMult: 1.5,
         skillColor: 0xff0000,
         
         level: experiencePoints[1].level,
@@ -101,12 +103,13 @@ var playerStats = [
         maxEN: 10,
         attack: 15,
         weapon: "default",
-        weaponMult: 1.7,
+        weaponMult: 1,
         defence: 10,
-        evasion: 5,
+        evasion: "5%",
         description: "He's finally back",
         specDesc: "hits a lot",
         
+        skillMult: 1.5,
         skillColor: 0x0000ff,
         
         level: experiencePoints[2].level,
@@ -126,12 +129,13 @@ var playerStats = [
         maxEN: 10,
         attack: 15,
         weapon: "default",
-        weaponMult: 1.5,
+        weaponMult: 1,
         defence: 10,
-        evasion: 5,
+        evasion: "5%",
         description: "To kick some tail!",
         specDesc: "hits a lot",
         
+        skillMult: 1.5,
         skillColor: 0xffff00,
         
         level: experiencePoints[3].level,

@@ -102,8 +102,6 @@ class textEvent extends abstractObject {
         if(eventNumber > 36){
             runningShoes = false;
         }
-        
-        window.battleClass.testingFuncConsole();
     }
     
     staticEvents(){
