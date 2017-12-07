@@ -184,17 +184,17 @@ TopDownGame.Preload.prototype = {
         
     //AUDIO
         //SONGS
-        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.wav');
-        this.load.audio('overworld-music', '/assets/audio/songs/makinItWork.wav');
-        this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.wav');
-        this.load.audio('se6-music', '/assets/audio/songs/osrs-witching.wav');
-        this.load.audio('ne1-music', '/assets/audio/songs/osrs-danceofdeath.wav');
-        this.load.audio('dorm-music', '/assets/audio/songs/osrs-spirit.wav');
-        this.load.audio('stand-music', '/assets/audio/songs/osrs-mudskipper.wav');
-        this.load.audio('se14-music', '/assets/audio/songs/osrs-homesweethome.wav');
-        this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.wav');
+        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.mp3');
+        this.load.audio('overworld-music', '/assets/audio/songs/makinItWork.mp3');
+        this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.mp3');
+        this.load.audio('se6-music', '/assets/audio/songs/osrs-witching.mp3');
+        this.load.audio('ne1-music', '/assets/audio/songs/osrs-danceofdeath.mp3');
+        this.load.audio('dorm-music', '/assets/audio/songs/osrs-spirit.mp3');
+        this.load.audio('stand-music', '/assets/audio/songs/osrs-mudskipper.mp3');
+        this.load.audio('se14-music', '/assets/audio/songs/osrs-homesweethome.mp3');
+        this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.mp3');
         
-        this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.wav');
+        this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.mp3');
 
     },
     create: function(){

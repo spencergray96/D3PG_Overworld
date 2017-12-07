@@ -74,7 +74,14 @@ class abstractLevel extends Phaser.State {
         this.cursors = this.game.input.keyboard.createCursorKeys();
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
-        this.ctrlKey = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL)
+//WASD CONTROLS
+        this.w = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.a = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.s = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.d = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        
+        this.shift = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+//END WASD CONTOLS        
         
         this.generateMap();
         this.generatePlayer();
@@ -298,9 +305,9 @@ class abstractLevel extends Phaser.State {
     }
 
     checkForRunning(){
-        if(this.ctrlKey.isDown && runningShoes){
+        if((this.shift.isDown) && runningShoes){
             playerSpeed = 540;
-        } else if(this.ctrlKey.isUp){
+        } else if(this.shift.isUp){
             playerSpeed = 360;
         }
     }
@@ -400,7 +407,7 @@ class abstractLevel extends Phaser.State {
     createControls() {
         if(!texting && !isPaused){
             
-            if(this.cursors.up.isDown && !walkingLR) {
+            if((this.w.isDown || this.cursors.up.isDown) && !walkingLR) {
                 if(this.player.mymove.state === 0){
                     if(this.game.map.getTile(xCurrent, yUpdatingAbove, blockedLayer_c, true).index == -1){
                         for(var i = 0; i < NPCs.length - 1; i++){
@@ -427,7 +434,7 @@ class abstractLevel extends Phaser.State {
                             this.player.mymove.state = 4;
                             this.player.mymove.y2 = Math.floor(this.player.mymove.y) - 128;
                             
-                            if(this.ctrlKey.isDown){
+                            if(this.shift.isDown){
                                 this.player.animations.play("fastup");
                             } else {
                                 this.player.animations.play("up");
@@ -440,7 +447,7 @@ class abstractLevel extends Phaser.State {
                 }
             }
 
-            else if(this.cursors.down.isDown && !walkingLR) {
+            else if((this.s.isDown || this.cursors.down.isDown) && !walkingLR) {
                 if(this.player.mymove.state === 0){
                     if(this.game.map.getTile(xCurrent, yUpdatingBelow, blockedLayer_c, true).index == -1){
                         for(var i = 0; i < NPCs.length - 1; i++){
@@ -467,7 +474,7 @@ class abstractLevel extends Phaser.State {
                             this.player.mymove.state = 3;
                             this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 128;
                             
-                            if(this.ctrlKey.isDown){
+                            if(this.shift.isDown){
                                 this.player.animations.play("fastdown");
                             } else {
                                 this.player.animations.play("down");
@@ -480,7 +487,7 @@ class abstractLevel extends Phaser.State {
                 }
             }
 
-            if(this.cursors.left.isDown && !walkingUD) {
+            if((this.a.isDown || this.cursors.left.isDown) && !walkingUD) {
                 if(this.player.mymove.state === 0){
                     if(this.game.map.getTile(xUpdatingLeft, yCurrent, blockedLayer_c, true).index == -1){
                         for(var i = 0; i < NPCs.length - 1; i++){
@@ -507,7 +514,7 @@ class abstractLevel extends Phaser.State {
                             this.player.mymove.state = 2;
                             this.player.mymove.x2 = Math.floor(this.player.mymove.x) - 128;
                             
-                            if(this.ctrlKey.isDown){
+                            if(this.shift.isDown){
                                 this.player.animations.play("fastleft");
                             } else {
                                 this.player.animations.play("left");
@@ -520,7 +527,7 @@ class abstractLevel extends Phaser.State {
                 }
             }
 
-            else if(this.cursors.right.isDown && !walkingUD) {
+            else if((this.d.isDown || this.cursors.right.isDown) && !walkingUD) {
                 if(this.player.mymove.state === 0){
                     if(this.game.map.getTile(xUpdatingRight, yCurrent, blockedLayer_c, true).index == -1){
                         for(var i = 0; i < NPCs.length - 1; i++){
@@ -547,7 +554,7 @@ class abstractLevel extends Phaser.State {
                             this.player.mymove.state = 1;
                             this.player.mymove.x2 = Math.floor(this.player.mymove.x) + 128;
                             
-                            if(this.ctrlKey.isDown){
+                            if(this.shift.isDown){
                                 this.player.animations.play("fastright");
                             } else {
                                 this.player.animations.play("right");

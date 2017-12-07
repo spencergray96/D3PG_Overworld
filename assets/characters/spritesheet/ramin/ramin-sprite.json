@@ -2,182 +2,98 @@
 
 {
 	"filename": "ramin-back-ltftup.psd",
-<<<<<<< HEAD
-	"frame": {"x":1,"y":1,"w":21,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
-=======
 	"frame": {"x":0,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-back-rtftup.psd",
-<<<<<<< HEAD
-	"frame": {"x":24,"y":1,"w":21,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
-=======
 	"frame": {"x":32,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-back-still.psd",
-<<<<<<< HEAD
-	"frame": {"x":93,"y":1,"w":20,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
-=======
 	"frame": {"x":64,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-front-ltftup.psd",
-<<<<<<< HEAD
-	"frame": {"x":47,"y":1,"w":21,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":2,"w":21,"h":30},
-=======
 	"frame": {"x":96,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-front-rtftup.psd",
-<<<<<<< HEAD
-	"frame": {"x":70,"y":1,"w":21,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":2,"w":21,"h":30},
-=======
 	"frame": {"x":128,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-front-still.psd",
-<<<<<<< HEAD
-	"frame": {"x":115,"y":1,"w":20,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":2,"w":20,"h":30},
-=======
 	"frame": {"x":160,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-leftside-leftarmbck.psd",
-<<<<<<< HEAD
-	"frame": {"x":173,"y":1,"w":15,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":2,"w":15,"h":30},
-=======
 	"frame": {"x":192,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-leftside-leftarmfrwrd.psd",
-<<<<<<< HEAD
-	"frame": {"x":137,"y":1,"w":16,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
-=======
 	"frame": {"x":224,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-leftside-still.psd",
-<<<<<<< HEAD
-	"frame": {"x":207,"y":1,"w":14,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
-=======
 	"frame": {"x":256,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-rightside-rightarmbck.psd",
-<<<<<<< HEAD
-	"frame": {"x":190,"y":1,"w":15,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":9,"y":2,"w":15,"h":30},
-=======
 	"frame": {"x":288,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-rightside-rightarmfrwrd.psd",
-<<<<<<< HEAD
-	"frame": {"x":155,"y":1,"w":16,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":2,"w":16,"h":30},
-=======
 	"frame": {"x":320,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "ramin-rightside-still.psd",
-<<<<<<< HEAD
-	"frame": {"x":223,"y":1,"w":14,"h":30},
-	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":9,"y":2,"w":14,"h":30},
-=======
 	"frame": {"x":352,"y":0,"w":32,"h":32},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
->>>>>>> finalEvents
 	"sourceSize": {"w":32,"h":32}
 }],
 "meta": {
@@ -185,14 +101,8 @@
 	"version": "1.0",
 	"image": "ramin-sprite.png",
 	"format": "RGBA8888",
-<<<<<<< HEAD
-	"size": {"w":238,"h":32},
-	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:cf60625787135f91b5f53a724bdb4366:6ac01d2d0a3332ab8ff29d01ff1395f8:27fa8c4a1614ca5d6fa1554ce8aace25$"
-=======
 	"size": {"w":384,"h":32},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3492edb1d1876e180013733f69e8af58:6ac01d2d0a3332ab8ff29d01ff1395f8:27fa8c4a1614ca5d6fa1554ce8aace25$"
->>>>>>> finalEvents
+	"smartupdate": "$TexturePacker:SmartUpdate:00710c1da1db5e53f2be5ac522fc2f67:6ac01d2d0a3332ab8ff29d01ff1395f8:27fa8c4a1614ca5d6fa1554ce8aace25$"
 }
 }

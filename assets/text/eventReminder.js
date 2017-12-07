@@ -45,7 +45,7 @@ var eventReminder = {
         objective: "Look for Arron's LAMP in NE1",
     },
     15: {
-        objective: "Bring Arron's LAMP back to SE14, Room 124'",
+        objective: "Bring Arron's LAMP back to SE14, Room 124",
     },
     16: {
         objective: "Touch base with Ramin in SE14, Room 121A",
@@ -120,24 +120,24 @@ var eventReminder = {
         objective: "Find Ramin",
     },
     40: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     41: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     42: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     43: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     44: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     45: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },
     46: {
-        objective: "Find Ramin",
+        objective: "Defeat Ramin",
     },    
 }

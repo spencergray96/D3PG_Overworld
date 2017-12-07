@@ -129,6 +129,17 @@ class pauseMenu extends abstractObject {
         this.backKey = this.game.input.keyboard.addKey(Phaser.Keyboard.BACKSPACE);
         this.enterKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
         
+        this.escKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ESC);
+        
+//WASD CONTROLS
+        this.w = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.a = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.s = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.d = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        
+        this.shift = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+//END WASD CONTOLS         
+        
         this.characterFacesArr = [];
         this.characterNamesArr = [];
         this.hpArray = [];
@@ -140,9 +151,9 @@ class pauseMenu extends abstractObject {
         super.updateThis(game, player);
         
         if(!texting){
-            if(this.spaceKey.isDown && this.backKey.isUp && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
+            if(this.spaceKey.isDown && (this.backKey.isUp || this.escKey.isUp) && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
                 this.createPauseMenu();
-            } else if(this.spaceKey.isUp && this.backKey.isDown && isPaused){
+            } else if(this.spaceKey.isUp && (this.backKey.isDown || this.escKey.isDown) && isPaused){
                 this.destroyPauseMenu();
             }
         }
@@ -170,6 +181,15 @@ class pauseMenu extends abstractObject {
         
         this.styleLONG2 = {
             font: "18pt Final-Fantasy-36-Font",
+            fill: "#fff", 
+            align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
+            boundsAlignH: "left", 
+            boundsAlignV: "top", 
+            wordWrap: true, wordWrapWidth: 800
+        };
+        
+        this.styleObjective = {
+            font: "10pt Final-Fantasy-36-Font",
             fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
@@ -404,22 +424,22 @@ class pauseMenu extends abstractObject {
             this.enterPress();
         }
         
-        if(this.cursors.up.isDown && !viewingMap){
+        if((this.w.isDown || this.cursors.up.isDown) && !viewingMap){
             if(isPaused){
                 this.moveCursor("goingup");
             }
-        } else if(this.cursors.down.isDown && !viewingMap){
+        } else if((this.s.isDown || this.cursors.down.isDown) && !viewingMap){
             if(isPaused){
                 this.moveCursor("goingdown");
             }
         }
         
-        if(this.cursors.up.isUp){
+        if(this.w.isUp && this.cursors.up.isUp){
             if(isPaused){
                 upKeyIsPushed = false;
             }
         }
-        if(this.cursors.down.isUp){
+        if(this.s.isUp && this.cursors.down.isUp){
             if(isPaused){
                 downKeyIsPushed = false;
             }
@@ -429,7 +449,7 @@ class pauseMenu extends abstractObject {
                 enterKeyIsPushed = false;
             }
         }
-        if(this.backKey.isUp){
+        if(this.backKey.isUp && this.escKey.isUp){
             backKeyIsPushed = false;
         }
     }
@@ -1381,7 +1401,7 @@ class pauseMenu extends abstractObject {
         this.objectiveBox = this.game.add.image(0, 10, "longBox");
         this.objectiveBox.height = 60;
         this.objectiveBox.fixedToCamera = true;
-        this.objective = this.game.add.text(objectiveXindent, headerY, objectives[gameChapter].objective, this.styleLONG);
+        this.objective = this.game.add.text(objectiveXindent - 10, headerY - 10, eventReminder[eventNumber].objective, this.styleObjective);
         this.objective.fixedToCamera = true;
     }
     

@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 31;
+var eventNumber = 1;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -109,7 +109,10 @@ class textEvent extends abstractObject {
         this.upDestinationIsPressed = false;
         this.choseDestination = false;
         
-        
+//WASD CONTROLS
+        this.w = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.s = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+//END WASD CONTOLS  
     }
 
     updateThis(game, player) {
@@ -185,7 +188,7 @@ class textEvent extends abstractObject {
                 eventNumberTemp = eventNumber;
                 
                 eventNumber = Object.keys(theDialogue.events).length - 4;
-                
+                console.log("first step in calling the event");
                 this.callEvent("conWorker2");
                 isEventing = true;
             }
@@ -1390,19 +1393,19 @@ class textEvent extends abstractObject {
     }
     
     createControls(){
-        if(this.cursors.up.isUp){
+        if(this.cursors.up.isUp && this.w.isUp){
             this.upDestinationIsPressed = false;
         }
-        if(this.cursors.down.isUp){
+        if(this.cursors.down.isUp&& this.s.isUp){
             this.downDestinationIsPressed = false;
         }
         
         if(this.cursorPosSelectingDestination != null){
-            if(this.cursors.up.isDown && this.cursorPosSelectingDestination == "NO" && !this.upDestinationIsPressed){
+            if((this.cursors.up.isDown || this.w.isDown) && this.cursorPosSelectingDestination == "NO" && !this.upDestinationIsPressed){
                 this.upDestinationIsPressed = true;
                 this.selectDestinationHand.destroy();
                 this.spawnYesHand();
-            } else if(this.cursors.down.isDown && this.cursorPosSelectingDestination == "YES" && !this.downDestinationIsPressed){
+            } else if((this.cursors.down.isDown || this.s.isDown) && this.cursorPosSelectingDestination == "YES" && !this.downDestinationIsPressed){
                 this.downDestinationIsPressed = true;
                 this.selectDestinationHand.destroy();
                 this.spawnNoHand();
