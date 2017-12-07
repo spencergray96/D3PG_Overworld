@@ -20,7 +20,6 @@ class se14 extends abstractLevel {
                 name: "blockedLayer_c"
             },
             renderAboveLayers: [
-//                "blockedLayer_c",
                 "decorationLayer_d",
                 "decorationLayer2",
             ]
@@ -32,7 +31,8 @@ class se14 extends abstractLevel {
             new spawn(),
             new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new songs()
         ]
     }
 

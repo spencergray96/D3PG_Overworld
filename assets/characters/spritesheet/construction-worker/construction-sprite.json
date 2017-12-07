@@ -2,98 +2,98 @@
 
 {
 	"filename": "constructionworker-back-left-foot-up.psd",
-	"frame": {"x":1,"y":1,"w":21,"h":31},
+	"frame": {"x":0,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":1,"w":21,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-back-right-foot-up.psd",
-	"frame": {"x":24,"y":1,"w":21,"h":31},
+	"frame": {"x":32,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":1,"w":21,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-back-still.psd",
-	"frame": {"x":93,"y":1,"w":20,"h":31},
+	"frame": {"x":64,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":1,"w":20,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-front-left-foot-up.psd",
-	"frame": {"x":47,"y":1,"w":21,"h":31},
+	"frame": {"x":96,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":5,"y":1,"w":21,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-front-right-foot-up.psd",
-	"frame": {"x":70,"y":1,"w":21,"h":31},
+	"frame": {"x":128,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":1,"w":21,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-front-still.psd",
-	"frame": {"x":115,"y":1,"w":20,"h":31},
+	"frame": {"x":160,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":6,"y":1,"w":20,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-leftside-left-arm-back.psd",
-	"frame": {"x":137,"y":1,"w":16,"h":31},
+	"frame": {"x":192,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-leftside-left-arm-forward.psd",
-	"frame": {"x":155,"y":1,"w":16,"h":31},
+	"frame": {"x":224,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-leftside-still.psd",
-	"frame": {"x":173,"y":1,"w":16,"h":31},
+	"frame": {"x":256,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-rightside-right-arm-back.psd",
-	"frame": {"x":191,"y":1,"w":16,"h":31},
+	"frame": {"x":288,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-rightside-right-arm-forward.psd",
-	"frame": {"x":209,"y":1,"w":16,"h":31},
+	"frame": {"x":320,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 },
 {
 	"filename": "constructionworker-rightside-still.psd",
-	"frame": {"x":227,"y":1,"w":16,"h":31},
+	"frame": {"x":352,"y":0,"w":32,"h":32},
 	"rotated": false,
-	"trimmed": true,
-	"spriteSourceSize": {"x":8,"y":1,"w":16,"h":31},
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
 	"sourceSize": {"w":32,"h":32}
 }],
 "meta": {
@@ -101,8 +101,8 @@
 	"version": "1.0",
 	"image": "construction-sprite.png",
 	"format": "RGBA8888",
-	"size": {"w":244,"h":33},
+	"size": {"w":384,"h":32},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:c0e5dc08d7af19a45f2b54831924539e:3d581b00ec469c08f0912cc91bf93396:93ab517bfd89299de2246f1ae1d3637e$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a0249ced69d7fca3e3e7fa663a67205b:3d581b00ec469c08f0912cc91bf93396:93ab517bfd89299de2246f1ae1d3637e$"
 }
 }

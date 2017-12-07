@@ -19,11 +19,15 @@ class overworld extends abstractLevel {
                 "13": "task14",
                 "14": "treeandbush",
                 "15": "zzzCone",
+                "16": "Dec1meeting",
+                "17": "sign",
+                "18": "sign2",
             },
             layers: [
                 "backgroundLayer",
                 "backgroundLayer2",
                 "backgroundLayer3",
+                "backgroundLayer4",
                 "blockedLayer_c",
                 "blockedLayer2"
             ],
@@ -36,6 +40,7 @@ class overworld extends abstractLevel {
             renderAboveLayers: [
                 "decorationLayer_d",
                 "decorationLayer2",
+                "decorationLayer3",
             ]
         }};
 
@@ -44,9 +49,10 @@ class overworld extends abstractLevel {
             new battle(),
             new door(),
             new spawn(),
-            new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new textEvent(),
+            new songs()
         ]
     }
 

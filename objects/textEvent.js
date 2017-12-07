@@ -53,6 +53,13 @@ class textEvent extends abstractObject {
             wordWrap: true, wordWrapWidth: 500, 
             };
         
+        this.styleOPTIONS = { font: "18pt Final-Fantasy-36-Font", fill: "#fff", 
+            align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
+            boundsAlignH: "left", 
+            boundsAlignV: "top" ,
+            wordWrap: true, wordWrapWidth: 500, 
+            };
+        
         this.profileXValue = 30;
         this.profileYValue = 4.5;
         this.profileScale = 0.05;
@@ -67,18 +74,41 @@ class textEvent extends abstractObject {
         this.makeCont   = false;
         
         this.textLeading = 20;
-        this.continueArrowIndentDivisor = 13;
+        this.continueArrowIndentDivisor = 11;
+        
+        
     }
     
     createThis(game) {
         super.createThis(game);
         
         this.enterBut = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        this.cursors = this.game.input.keyboard.createCursorKeys();
         
         this.isText = 0;
         this.isDown = false;
         //  this delays text printing, it also prints text  //
         this.game.time.events.loop(this.lineDelay, this.printText, this);
+        
+        
+        //construction worker dialogue box variables
+        this.optionBoxX = this.game.width - 205;
+        this.optionBoxY = (this.game.height - ((this.game.height/8)*3.2));
+
+        this.optionBoxHeight = this.game.height/6;
+
+        this.selectDestinationHandx = this.game.width - 190;
+        this.selectDestinationHandyYes = (this.game.height - ((this.game.height/8)*2.9));
+        this.selectDestinationHandyNo = this.selectDestinationHandyYes + 50;
+        
+        this.optionYesNoX = this.selectDestinationHandx + 70;
+        this.optionNoY = this.selectDestinationHandyYes + 50;
+        this.cursorPosSelectingDestination = null;
+        
+        this.downDestinationIsPressed = false;
+        this.upDestinationIsPressed = false;
+        this.choseDestination = false;
+        
         
     }
 
@@ -103,6 +133,8 @@ class textEvent extends abstractObject {
         if(eventNumber > 36){
             runningShoes = false;
         }
+        
+        this.createControls();
     }
     
     staticEvents(){
@@ -127,7 +159,68 @@ class textEvent extends abstractObject {
                 isEventing = true;
             }
         }
-//event 1        
+//Construction workers
+        if(eventNumber > 12 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker1"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 2;
+                console.log("first step in calling the event");
+                this.callEvent("conWorker1");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 12 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerNE1"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 3;
+                
+                this.callEvent("conWorkerNE1");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 26 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker2"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 4;
+                
+                this.callEvent("conWorker2");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 26 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerTheStand"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 5;
+                
+                this.callEvent("conWorkerTheStand");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 8 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorker3"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 6;
+                
+                this.callEvent("conWorker3");
+                isEventing = true;
+            }
+        }
+        if(eventNumber > 8 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "conWorkerSW3"){
+                eventNumberTemp = eventNumber;
+                
+                eventNumber = Object.keys(theDialogue.events).length - 7;
+                
+                this.callEvent("conWorkerSW3");
+                isEventing = true;
+            }
+        }
+//event 1
         if(eventNumber == 1 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "secondEvent"){
                 this.callEvent("secondEvent", 1);
@@ -146,6 +239,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "henry"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("henry", 3);
+                    chapter = 1;
                     isEventing = true;
                 }
             }
@@ -155,6 +249,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "guy3"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("guy3", 4);
+                    chapter = 2;
                     isEventing = true;
                 }
             }
@@ -164,6 +259,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "ramin"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("ramin", 5);
+                    chapter = 3;
                     isEventing = true;
                 }
             }
@@ -172,6 +268,7 @@ class textEvent extends abstractObject {
         if(eventNumber == 6 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "sixthEvent"){
                     this.callEvent("sixthEvent", 6);
+                    chapter = 4;
                     isEventing = true;
             }
         }
@@ -193,6 +290,7 @@ class textEvent extends abstractObject {
         if(eventNumber == 9 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "galyna"){
                     this.callEvent("galyna", 9);
+                    chapter = 5;
                     isEventing = true;
             }
         }
@@ -210,6 +308,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "ramin"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("ramin", 11);
+                    chapter = 6;
                     isEventing = true;
                 }
             }
@@ -219,6 +318,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "arron"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("arron", 12);
+                    chapter = 7;
                     isEventing = true;
                 }
             }
@@ -254,6 +354,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "arron"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("arron", 16);
+                    chapter = 8;
                     isEventing = true;
                 }
             }
@@ -263,6 +364,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "ramin"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("ramin", 17);
+                    chapter = 9;
                     isEventing = true;
                 }
             }
@@ -272,6 +374,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "daemon"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("daemon", 18);
+                    chapter = 10;
                     isEventing = true;
                 }
             }
@@ -281,6 +384,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "se14comp"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("se14comp", 19);
+                    chapter = 11;
                     isEventing = true;
                 }
             }
@@ -303,6 +407,7 @@ class textEvent extends abstractObject {
         if(eventNumber == 22 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "dormComp"){
                     this.callEvent("dormComp", 22);
+                    chapter = 12;
                     isEventing = true;
             }
         }
@@ -311,6 +416,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "se14comp"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("se14comp", 23);
+                    chapter = 13;
                     isEventing = true;
                 }
             }
@@ -320,6 +426,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "daemon"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("daemon", 24);
+                    chapter = 14;
                     isEventing = true;
                 }
             }
@@ -338,6 +445,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "henry"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("henry", 26);
+                    chapter = 15;
                     isEventing = true;
                 }
             }
@@ -349,6 +457,7 @@ class textEvent extends abstractObject {
                 eventNumber = 27;
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("jessie", 27);
+                    chapter = 16;
                     isEventing = true;
                 }
             }
@@ -407,38 +516,58 @@ class textEvent extends abstractObject {
 //event 35
         if(eventNumber == 35 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "35thEvent"){
-                    this.callEvent("35thEvent", 35);
-                    isEventing = true;
+                this.callEvent("35thEvent", 35);
+                isEventing = true;
             }
         }
 //event 36
         if(eventNumber == 36 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "36thEvent"){
-                    this.callEvent("36thEvent", 36);
-                    isEventing = true;
+                this.callEvent("36thEvent", 36);
+                isEventing = true;
             }
         }
 //event 37
         if(eventNumber == 37 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "37thEvent"){
-                    this.callEvent("37thEvent", 37);
-                    isEventing = true;
+                this.callEvent("37thEvent", 37);
+                isEventing = true;
             }
         }
 //event 38
         if(eventNumber == 38 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "38thEvent"){
-                    this.callEvent("38thEvent", 38);
-                    isEventing = true;
+                this.callEvent("38thEvent", 38);
+                isEventing = true;
             }
         }
 //event 39
         if(eventNumber == 39 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "39thEvent"){
-                    this.callEvent("39thEvent", 39);
-                    isEventing = true;
+                this.callEvent("39thEvent", 39);
+                isEventing = true;
             }
         }
+//event 40
+        if(eventNumber == 40 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    console.log("PLEASE");
+                    this.callEvent("ramin", 40);
+                    isEventing = true;
+                }
+            }
+        }
+//event 41
+        if(eventNumber == 41 && currentNPC != null && !eventTrigger){
+            if(currentNPC.hismove.npcName === "ramin"){
+                if(currentNPC.hismove.eventNPC == "true"){
+                    console.log("PLEASE");
+                    this.callEvent("ramin", 41);
+                    isEventing = true;
+                }
+            }
+        }        
 //read text
         if(currentNPC != null){
             this.readText();
@@ -489,8 +618,10 @@ class textEvent extends abstractObject {
                 if (currentNPC.hismove.walkingState == 0 && currentNPC.body.velocity.x == 0 && currentNPC.body.velocity.y == 0 && currentNPC.hismove.npcName != undefined && !eventTrigger){
                     for (var i=0; i < Object.keys(theDialogue.defaults).length; i++){
                         if (Object.keys(theDialogue.defaults)[i] == currentNPC.hismove.npcName){
-                            this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
-                            this.profilePic = Object.values(theDialogue.defaults)[i].profile;
+                            if((Object.values(theDialogue.defaults)[i].txt[chapter]) != undefined){
+                                this.person = (Object.values(theDialogue.defaults)[i].txt[chapter]).split(";;");
+                                this.profilePic = Object.values(theDialogue.defaults)[i].profile;
+                            }
                         }
                     }
                 }
@@ -501,14 +632,38 @@ class textEvent extends abstractObject {
         if (eventTrigger){
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
-                
+//                console.log("made it to the master switch statement - 1");
+                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber]);
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
+
                     // this is where actions for the events will be called //
+//                            console.log("made it to the master switch statement");
                     switch(eventNumber){
                         case Object.keys(theDialogue.events).length - 1:
+//                            console.log("made it to the master switch statement 22222");
                             this.blockedEventSwitch();
                             break;
+                        case Object.keys(theDialogue.events).length - 2:
+//                            console.log("third step in calling the event");
+                            this.ne1conWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 3:
+                            this.ne1conWorkerSwitch2();
+                            break;
+                        case Object.keys(theDialogue.events).length - 4:
+                            this.standconWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 5:
+                            this.standconWorkerSwitch2();
+                            break;
+                        case Object.keys(theDialogue.events).length - 6:
+                            this.sw3conWorkerSwitch();
+                            break;
+                        case Object.keys(theDialogue.events).length - 7:
+                            this.sw3conWorkerSwitch2();
+                            break;
                         case 0:
+                            console.log("case 0 of the master switch");
                             this.event0switch();
                             break;
                         case 1:
@@ -518,10 +673,11 @@ class textEvent extends abstractObject {
                             this.event2switch();
                             break;
                         case 3:
-                            this.event3switch();
                             break;
                         case 4:
                             this.event4switch();
+                            break;
+                        case 5:
                             break;
                         case 6:
                             this.event6switch();
@@ -590,14 +746,19 @@ class textEvent extends abstractObject {
                         case 39:
                             this.event39switch();
                             break;
+                        case 40:
+                            this.event40switch();
+                            break;
                     }
-                        
-                    Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                    
+                    if(currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1" && currentNPC.hismove.npcName != "conWorker2" && currentNPC.hismove.npcName != "conWorkerTheStand" && currentNPC.hismove.npcName != "conWorker3" && currentNPC.hismove.npcName != "conWorkerSW3"){
+                        console.log("how to get here for?");
+                        Object.values(theDialogue.events)[eventNumber][eventTextNumber].event = null;
+                    }
                     disableControls = true;
                     
                     subEventNumber++;
                 }
-                
                 
                 
                 else{
@@ -606,17 +767,20 @@ class textEvent extends abstractObject {
                     this.showText();
                     
                     if (Object.values(theDialogue.events)[eventNumber].length != eventTextNumber){
-                        this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
-                        this.textProfile.destroy();
+                        if(Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt != undefined){
+                            this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
+                            this.textProfile.destroy();
 
-                        this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
-                        this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
-                        this.textProfile.scale.setTo(this.profileScale, this.profileScale);
-//                        this.textProfile.width = 150;
-//                        this.textProfile.height = 150;
-                        this.textProfile.fixedToCamera = true;
+                            this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+                            this.textProfile = this.game.add.image(this.profileXValue, this.game.height - (this.game.height/(this.profileYValue)), this.profilePic); 
+                            this.textProfile.scale.setTo(this.profileScale, this.profileScale);
+    //                        this.textProfile.width = 150;
+    //                        this.textProfile.height = 150;
+                            this.textProfile.fixedToCamera = true;
 
-                        this.isText = 1;
+                            this.isText = 1;
+                            
+                        }
                     }
                 }
                 
@@ -624,7 +788,7 @@ class textEvent extends abstractObject {
             
             else if (eventTextNumber >= Object.values(theDialogue.events)[eventNumber].length - 1 && Object.values(theDialogue.events)[eventNumber][Object.values(theDialogue.events)[eventNumber].length-1].event == "end"){
                 
-                if(currentNPC.hismove.npcName != "se6Blocker"){
+                if(currentNPC.hismove.npcName != "se6Blocker" && currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1"){
                     eventNumber++;
                 }
                 
@@ -659,7 +823,7 @@ class textEvent extends abstractObject {
                 } else if(currentNPC.hismove.npcName == "bookcaseNPC"){
                     console.log("line 618 baby")
                     this.eraseText();
-;                    this.continueThing.destroy();
+                    this.continueThing.destroy();
                     currentNPC = null;
                     TopDownGame.game.state.start('tunnel');
                 }
@@ -681,11 +845,60 @@ class textEvent extends abstractObject {
 //EVENT SWITCH STATEMENTS
     
     blockedEventSwitch(){
+        console.log("made it to the blocekd event switch");
         switch(subEventNumber){
             case 0:
                 this.se6Block();
                 break;
         }
+    }
+    
+    ne1conWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.ne1conEvent();
+                break;
+        }
+    }
+    
+    ne1conWorkerSwitch2(){
+        switch(subEventNumber){
+            case 0:
+                this.ne1conEvent2();
+                break;
+        }
+    }
+    
+    standconWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.standconEvent();
+                break;
+        }
+    }
+    
+    standconWorkerSwitch2(){
+        switch(subEventNumber){
+            case 0:
+                this.standconEvent2();
+                break;
+        }
+    }
+    
+    sw3conWorkerSwitch(){
+        switch(subEventNumber){
+            case 0:
+                this.sw3conEvent();
+                break;
+        }
+    }
+    
+    sw3conWorkerSwitch2(){
+       switch(subEventNumber){
+            case 0:
+                this.sw3conEvent2();
+                break;
+        } 
     }
     
     event0switch(){
@@ -694,6 +907,7 @@ class textEvent extends abstractObject {
                 this.event0s0();
                 break;
             case 1:
+                console.log("case 1 of the event 0 switch");
                 this.event0s1();
                 break;
         }
@@ -959,10 +1173,21 @@ class textEvent extends abstractObject {
             case 8:
                 this.event39s8();
                 break;
+            case 9:
+                this.event39s9();
+                break;
         }
     }
     
-//end of EVENT SWITCH STATEMENTS    
+    event40switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event40s0();
+                break;
+        }
+    }
+    
+//end of EVENT SWITCH STATEMENTS
     showText() {
         if(!this.startText){
             this.startText = true;
@@ -1018,7 +1243,12 @@ class textEvent extends abstractObject {
                     if (!this.continueIcon){
                         this.continueIcon = true;
     //                    this line makes the continue text icon. maybe replace with an animated sprite?
-                        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+                        this.continueThing = this.game.add.sprite((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+                        
+                        this.continueThing.animations.add("downAnim", [1, 0, 1, 2], 4, true);
+                        this.continueThing.animations.play("downAnim");
+                        this.continueThing.width = arrowHandWidth;
+                        this.continueThing.height = mainMenuHandWidth;
                         this.continueThing.fixedToCamera = true;                   
                     }
                 }
@@ -1051,8 +1281,10 @@ class textEvent extends abstractObject {
 //        if (currentNPC.hismove.npcName == String(sprite) && eventNumber == event && !eventTrigger){
             eventTrigger = true;
 //            console.log(sprite);
+        if(Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt != undefined){
             this.person = Object.values(theDialogue.events)[eventNumber][eventTextNumber].txt.split(";;");
             this.profilePic = Object.values(theDialogue.events)[eventNumber][eventTextNumber].profile;
+        }
     }
     
 //THE ACTUAL EVENTS
@@ -1060,25 +1292,197 @@ class textEvent extends abstractObject {
 //goBackTest resets the game back to normal text interactions    
     goBackTest(){
         this.checkEventFinish();
-        this.continueThing = this.game.add.image((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+        this.continueThing = this.game.add.sprite((this.game.width - (this.game.width/this.continueArrowIndentDivisor)), (this.game.height - (this.game.height/this.continueArrowIndentDivisor)), 'hand-down');
+        this.continueThing.animations.add("downAnim", [1, 0, 1, 2], 4, true);
+        this.continueThing.animations.play("downAnim");
+        this.continueThing.width = arrowHandWidth;
+        this.continueThing.height = mainMenuHandWidth;
         this.continueThing.fixedToCamera = true;      
     }
     
 //Blocking events
     se6Block(){
+        console.log("se6block!!!");
+//        disableControls = true;
         this.eraseText();
         this.continueThing.destroy();
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.2, function(){
             this.player.mymove.state = 3;
-            this.player.mymove.y2 = Math.floor(this.player.mymove.y) + 128;
+            this.player.mymove.y2 = Math.floor(this.player.y) + 128;
             this.player.animations.play("down");
         }, this);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.6, function(){
+            console.log(this.player);
             this.goBackTest();
+            
 //            eventNumber = eventNumberTemp;
         }, this);
+    }
+    
+//CONSTRUCTION WORKER EVENTS
+    //ne1
+    
+    ne1conEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    ne1conEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    standconEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    standconEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    sw3conEvent(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    sw3conEvent2(){
+        this.continueThing.destroy();
+        
+        this.selectDestinationPart1();
+    }
+    
+    selectDestinationPart1(){
+        this.optionBox = this.game.add.image(this.optionBoxX, this.optionBoxY, "singleBox");
+        this.optionBox.fixedToCamera = true;
+        this.optionBox.height = this.optionBoxHeight;
+        
+        this.text2 = this.game.add.text(this.optionYesNoX, this.selectDestinationHandyYes, "YES", this.styleOPTIONS);
+        this.text2.fixedToCamera = true;
+        this.text3 = this.game.add.text(this.optionYesNoX, this.optionNoY, "SURE", this.styleOPTIONS);
+        this.text3.fixedToCamera = true;
+        
+        this.spawnYesHand();
+    }
+    
+    spawnYesHand(){
+        this.cursorPosSelectingDestination = "YES";
+        this.selectDestinationHand = this.game.add.image(this.selectDestinationHandx, this.selectDestinationHandyYes, "hand");
+        this.selectDestinationHand.fixedToCamera = true;
+        this.selectDestinationHand.width = mainMenuHandWidth;
+        this.selectDestinationHand.height = mainMenuHandHeight;
+    }
+    
+    spawnNoHand(){
+        this.cursorPosSelectingDestination = "NO";
+        this.selectDestinationHand = this.game.add.image(this.selectDestinationHandx, this.selectDestinationHandyNo, "hand");
+        this.selectDestinationHand.fixedToCamera = true;
+        this.selectDestinationHand.width = mainMenuHandWidth;
+        this.selectDestinationHand.height = mainMenuHandHeight;
+    }
+    
+    createControls(){
+        if(this.cursors.up.isUp){
+            this.upDestinationIsPressed = false;
+        }
+        if(this.cursors.down.isUp){
+            this.downDestinationIsPressed = false;
+        }
+        
+        if(this.cursorPosSelectingDestination != null){
+            if(this.cursors.up.isDown && this.cursorPosSelectingDestination == "NO" && !this.upDestinationIsPressed){
+                this.upDestinationIsPressed = true;
+                this.selectDestinationHand.destroy();
+                this.spawnYesHand();
+            } else if(this.cursors.down.isDown && this.cursorPosSelectingDestination == "YES" && !this.downDestinationIsPressed){
+                this.downDestinationIsPressed = true;
+                this.selectDestinationHand.destroy();
+                this.spawnNoHand();
+            }
+        }
+        
+        this.checkForChooseDestination();
+        
+    }
+    
+    checkForChooseDestination(){
+        if(this.enterBut.isUp){
+            this.choseDestination = false;
+        }
+        
+        if(this.enterBut.isDown && !this.choseDestination && this.cursorPosSelectingDestination != null){
+            this.choseDestination = true;
+            
+            if(this.cursorPosSelectingDestination != null){
+                console.log("is it breaking on 1421?");
+                    this.cursorPosSelectingDestination = null;
+                    eventNumber = eventNumberTemp;
+                    eventNumberTemp = null;
+
+                    subEventNumber = 0;
+
+                    this.isText = 2;
+                    this.eraseText();   
+
+                    eventTrigger = false;
+
+                    texting = false;
+                    this.isText = 0;
+
+                    eventTextNumber = 0;
+                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                
+                    this.optionBox.destroy();
+                    this.text2.destroy();
+                    this.text3.destroy();
+                    this.selectDestinationHand.destroy();
+
+                    switch(currentNPC.hismove.npcName){
+                        case "conWorker1":
+                            TopDownGame.game.state.start('NE1');
+                            break;
+                        case "conWorkerNE1":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "ne1"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                        case "conWorker2":
+                            TopDownGame.game.state.start('theStand');
+                            break;
+                        case "conWorkerTheStand":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "theStand"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                        case "conWorker3":
+                            TopDownGame.game.state.start('sw03');
+                            break;
+                        case "conWorkerSW3":
+                            for(var i = 0; i < doors.length - 1; i++){
+                                if(doors[i].coolProperties.from == "sw03"){
+                                    currentDoor = doors[i];
+                                }
+                            }
+                            TopDownGame.game.state.start('overworld');
+                            break;
+                }
+            }
+            
+        }
     }
     
 //EVENT 0 PART 0
@@ -1123,26 +1527,56 @@ class textEvent extends abstractObject {
     }
 //EVENT 0 PART 1
     event0s1(){
+        this.eraseText();
         this.continueThing.destroy();
-        this.game.camera.fade('#000000');
-        this.game.camera.onFadeComplete.add(this.event0s1DestroyNPCs,this);
+        console.log("about to flash");
         
+//        this.game.camera.fade('#000000');
+        this.game.camera.flash('#000000');
+//        this.game.camera.onFadeComplete.add(function(){
+            this.event0s1DestroyNPCs();
+//        }, this);
     }
     
     event0s1DestroyNPCs(){
-        for(var i = 0; i < NPCs.length - 1; i++){
+//        for (var i = 0; i < NPCs.length -1; i++){
+//            NPCs[i].x = 0;
+//        }
+        console.log("about to destroyNPCS");
+        
+        for (var i = 0; i < NPCs.length - 1; i++){
             if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
+                
+                console.log(NPCs[i].hismove.eventID);
+                
                 NPCs[i].x = 0;
                 NPCs[i].y = 0;
                 NPCs[i].destroy();
             }
         }
-        this.eraseText();
         this.game.camera.flash('#000000');
         this.game.camera.follow(this.player);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.8,this.goBackTest, this);
     }
+    
+//    event0s1DestroyNPCs(){
+//        console.log("about to destroyNPCS");
+//        setTimeout(()=>{
+//        
+//            for (var i = 0; i < NPCs.length -1; i++){
+//                if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
+//                    console.log(NPCs[i].hismove.eventID);
+//                    NPCs[i].x = 0;
+//                    NPCs[i].y = 0;
+//                    NPCs[i].destroy();
+//                }
+//            }
+//            this.game.camera.flash('#000000');
+//            this.game.camera.follow(this.player);
+//            this.game.time.events.add(Phaser.Timer.SECOND * 0.8,this.goBackTest, this);
+//        }, 2000);
+//    }
     
 //EVENT 1 PART 0
     event1s0(){
@@ -1198,7 +1632,11 @@ class textEvent extends abstractObject {
     
 //EVENT 3
     event3s0(){
+//        this.eraseText();
+//        this.continueThing.destroy();
         console.log("Event 3");
+//        chapter++;
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.0000000000001,this.goBackTest, this);
     }
     
 //EVENT 4
@@ -1279,9 +1717,14 @@ class textEvent extends abstractObject {
             this.goBackTest();
             runningShoes = true;
             
+            this.targetNPC1.animations.stop();
+            this.targetNPC1.body.velocity.x = 0;
+            this.targetNPC1.body.velocity.y = 0;
+            this.targetNPC1.hismove.walkingState = 0;
             this.targetNPC1.x = this.targetNPC1.hismove.originalX;
             this.targetNPC1.y = this.targetNPC1.hismove.originalY;
-            this.targetNPC1.hismove.y2 = this.targetNPC1.hismove.y;
+            this.targetNPC1.hismove.y = this.targetNPC1.y;
+            this.targetNPC1.hismove.y2 = this.targetNPC1.y;
             this.targetNPC1 = null;
         }, this);
     }
@@ -1493,9 +1936,13 @@ class textEvent extends abstractObject {
         this.game.camera.shake(0.005, 1000);
         for(var i = 0; i < NPCs.length - 1; i++){
             if(NPCs[i].hismove.npcName == "ramin"){
-
+                console.log("should move him now");
                 NPCs[i].x = 0;
                 NPCs[i].y = 0;
+                NPCs[i].hismove.x = 0;
+                NPCs[i].hismove.x2 = 0;
+                NPCs[i].hismove.y = 0;
+                NPCs[i].hismove.y2 = 0;
             }
         }
         
@@ -1785,6 +2232,17 @@ class textEvent extends abstractObject {
         }
         this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
         
+        music.fadeOut(1500)
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
+            music.destroy();
+            music = this.game.add.audio("findRamin-music");
+            music.fadeIn(1500);
+            music.loopFull(1);
+        }, this);
+        
+
+        
         this.game.time.events.add(Phaser.Timer.SECOND * 3.5, function(){
             this.goBackTest();
         }, this);
@@ -1822,7 +2280,7 @@ class textEvent extends abstractObject {
         
         this.targetNPC2.frame = 5
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.0000001, function(){
             this.goBackTest();
         }, this);
     }
@@ -1832,7 +2290,7 @@ class textEvent extends abstractObject {
         this.continueThing.destroy();
         
         this.targetNPC2.animations.play("down");
-        this.targetNPC2.hismove.y2 = this.targetNPC2.hismove.y - Math.round(128);
+        this.targetNPC2.hismove.y2 = this.targetNPC2.y - Math.round(128);
         this.targetNPC2.hismove.walkingState = 4;
         
         this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
@@ -1983,9 +2441,20 @@ class textEvent extends abstractObject {
         
         this.game.time.events.add(Phaser.Timer.SECOND * 0.3, function(){
             this.game.camera.flash('0x000000');
-            this.camera.follow(this.player);
+            this.game.camera.follow(this.player);
             this.goBackTest();
         }, this);
     }
+        
+    event40s0(){
+        this.eraseText();
+        this.continueThing.destroy();
+        console.log("fight here");
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+            this.goBackTest();
+        }, this);
+    }
+        
 }
 

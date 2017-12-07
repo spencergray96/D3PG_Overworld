@@ -7,10 +7,16 @@ TopDownGame.Preload.prototype = {
     preload: function () {
 
         //show loading screen
-        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
-        this.preloadBar.anchor.setTo(0.5);
+//        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
+//        this.preloadBar.anchor.setTo(0.5);
 
-        this.load.setPreloadSprite(this.preloadBar);   
+//        this.load.setPreloadSprite(this.preloadBar);
+        
+        this.loadingSprite = this.game.add.sprite(this.game.width / 6, this.game.height / 2.3, "loading_spritesheet");
+        this.loadingSprite.animations.add("loadingAnim", [0, 1, 2, 3], 4, true);
+        this.loadingSprite.animations.play("loadingAnim");
+        
+//        this.load.setPreloadSprite(this.loadingSprite);
         
         //grid movement velocity testing
         this.load.tilemap("testtilepack", "/assets/tilemaps/testtilepack.json", null, Phaser.Tilemap.TILED_JSON);
@@ -19,7 +25,7 @@ TopDownGame.Preload.prototype = {
         //se14
         this.load.tilemap("se14", "/assets/tilemaps/se14.json", null, Phaser.Tilemap.TILED_JSON);
         this.load.image("task13", "/assets/images/task13.png");
-        this.load.image("nov24", "/assets/images/nov24.png");
+        this.load.image("nov24", "/assets/images/nov24-copy.png");
         
         //sw03
         this.load.tilemap("sw03", "/assets/tilemaps/sw3.json", null, Phaser.Tilemap.TILED_JSON);
@@ -58,6 +64,9 @@ TopDownGame.Preload.prototype = {
         this.load.image("sidewalkWithCurb", "/assets/images/background-overworld/sidewalkWithCurb.png");
         this.load.image("treeandbush", "/assets/images/background-overworld/treeandbush.png");
         this.load.image("zzzCone", "/assets/images/zzzCone.png");
+        this.load.image("Dec1meeting", "/assets/images/Dec1meeting.png");
+        this.load.image("sign", "/assets/Sign/sign.png");
+        this.load.image("sign2", "/assets/Sign/Sign2/sign2.png");
         
         //tunnel
         this.load.tilemap("tunnel", "/assets/tilemaps/tunnel.json", null, Phaser.Tilemap.TILED_JSON);
@@ -87,8 +96,12 @@ TopDownGame.Preload.prototype = {
         
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
-        this.load.image("hand-down", "/assets/ui/triangle-down.png");
-        this.load.image("hand-up", "/assets/ui/triangle-up.png");
+//        this.load.image("hand-down", "/assets/ui/triangle-down.png");
+//        this.load.image("hand-up", "/assets/ui/triangle-up.png");
+        
+        this.load.image("pauseMap", "/assets/ui/map/map.png");
+        
+        this.load.spritesheet("loading_spritesheet", "/assets/ui/loadingSprite/loadingspritesheet.png", 533, 200);
         
         //character spritesheets
         
@@ -99,6 +112,28 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("raymond_spritesheet", "/assets/characters/spritesheet/raymond/raymond-spritesheet.png", 128, 128);
         
         //secondary characters
+        this.load.spritesheet("arron_spritesheet", "/assets/characters/spritesheet/aaron/aaron-sprite.png", 128, 128);
+        this.load.spritesheet("august_spritesheet", "/assets/characters/spritesheet/august/august.png", 128, 128);
+        this.load.spritesheet("construction_spritesheet", "/assets/characters/spritesheet/construction-worker/construction-sprite.png", 128, 128);
+        this.load.spritesheet("daemon_spritesheet", "/assets/characters/spritesheet/daemon/daemon-sprite.png", 128, 128);
+        this.load.spritesheet("galyna_spritesheet", "/assets/characters/spritesheet/galyna/galyna-spritesheet.png", 128, 128);
+        this.load.spritesheet("henry_spritesheet", "/assets/characters/spritesheet/henry/henry-spritesheet.png", 128, 128);
+        this.load.spritesheet("jakub_spritesheet", "/assets/characters/spritesheet/jakub/jakub-spritesheet.png", 128, 128);
+        this.load.spritesheet("jessie_spritesheet", "/assets/characters/spritesheet/Jessie/Jessie.png", 128, 128);
+        this.load.spritesheet("monk_spritesheet", "/assets/characters/spritesheet/npc/npc.png", 128, 128);
+        this.load.spritesheet("ramin_spritesheet", "/assets/characters/spritesheet/ramin/ramin-sprite.png", 128, 128);
+        this.load.spritesheet("genericman_spritesheet", "/assets/characters/spritesheet/generic-man/genericman-sprite.png", 128, 128);
+        this.load.spritesheet("genericwoman_spritesheet", "/assets/characters/spritesheet/generic-woman/genericwoman-sprite.png", 128, 128);
+        
+        //FIRE ANIMATION
+        this.load.spritesheet("fire_spritesheet", "/assets/images/fireSpriteSheet/fireSpriteSheet.png", 128, 128);
+        
+        //ARROW ANIMATIONS
+        this.load.spritesheet("hand-down", "/assets/ui/triangle-down/triangle-down.png", 13, 20);
+        this.load.spritesheet("hand-up", "/assets/ui/triangle-up/triangle-up.png", 13, 20);
+        
+        //PIN ANIMATION
+        this.load.spritesheet("pin-animation", "/assets/ui/pin-animation/pin-animation.png", 128, 128);
         
         
     //chat heads
@@ -108,14 +143,31 @@ TopDownGame.Preload.prototype = {
         this.load.image("jamesCH", "/assets/characters/chatHeads/James2flipped.png");
         this.load.image("raymondCH", "/assets/characters/chatHeads/Raymondflipped.png");
         //others
+        this.load.image("jessieCH", "/assets/characters/chatHeads/Jessie.png");
+        this.load.image("jakubCH", "/assets/characters/chatHeads/jakub.png");
+        this.load.image("augustCH", "/assets/characters/chatHeads/augustCH.png");
+        
         this.load.image("henryCH", "/assets/characters/chatHeads/herny.png");
         this.load.image("raminCH", "/assets/characters/chatHeads/ramin.png");
         this.load.image("daemonCH", "/assets/characters/chatHeads/Demon.png");
         this.load.image("galynaCH", "/assets/characters/chatHeads/galina.png");
         this.load.image("arronCH", "/assets/characters/chatHeads/Arron.png");
         
+        this.load.image("monkCH", "/assets/characters/chatHeads/npc.png");
+        this.load.image("conCH", "/assets/characters/chatHeads/constructionworker.png");
+        
         //background characters
+        this.load.image("boy1CH", "/assets/characters/chatHeads/boy1.png");
+        this.load.image("boy2CH", "/assets/characters/chatHeads/boy2.png");
+        this.load.image("boy3CH", "/assets/characters/chatHeads/boy3.png");
+        this.load.image("boy4CH", "/assets/characters/chatHeads/boy4.png");
         this.load.image("boy5CH", "/assets/characters/chatHeads/boy5.png");
+        
+        this.load.image("girl1CH", "/assets/characters/chatHeads/girl1.png");
+        this.load.image("girl2CH", "/assets/characters/chatHeads/girl2.png");
+        this.load.image("girl3CH", "/assets/characters/chatHeads/girl3.png");
+        this.load.image("girl4CH", "/assets/characters/chatHeads/girl4.png");
+        this.load.image("girl5CH", "/assets/characters/chatHeads/girl5.png");
         
         //other pngs
         this.load.spritesheet("microwaveItem", "/assets/AttackElements/micro-wave.png", 128, 128);
@@ -125,10 +177,27 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("NACHOS", "/assets/AttackElements/cheese.png", 128, 128);
         this.load.spritesheet("CANDLE", "/assets/images/candleNPC.png", 128, 128);
         
+        //SPLASH VIDEO
+        this.load.video("splash", '/assets/ui/map/splashScreen-lowres.mp4');
+        this.load.spritesheet("press-enter", '/assets/ui/splash-screen/press-enter-spritesheet.png', 610, 60);
+        this.load.image("full-blank", '/assets/ui/splash-screen/fullBlank.png', 610, 60);
+        
+    //AUDIO
+        //SONGS
+        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.wav');
+        this.load.audio('overworld-music', '/assets/audio/songs/makinItWork.wav');
+        this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.wav');
+        this.load.audio('se6-music', '/assets/audio/songs/osrs-witching.wav');
+        this.load.audio('ne1-music', '/assets/audio/songs/osrs-danceofdeath.wav');
+        this.load.audio('dorm-music', '/assets/audio/songs/osrs-spirit.wav');
+        this.load.audio('stand-music', '/assets/audio/songs/osrs-mudskipper.wav');
+        this.load.audio('se14-music', '/assets/audio/songs/osrs-homesweethome.wav');
+        this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.wav');
+        
+        this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.wav');
 
     },
-    create: function () {      
-
-        this.state.start("overworld");
+    create: function(){
+        this.state.start("splash");
     }
 };

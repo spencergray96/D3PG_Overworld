@@ -113,6 +113,8 @@ var itemTitleBoxY = 15;
 var itemTitleBoxHeight = 60;
 var itemDescBoxY = 70;
 
+var viewingMap = false;
+
 class pauseMenu extends abstractObject {
 
     constructor() {
@@ -131,6 +133,7 @@ class pauseMenu extends abstractObject {
         this.characterNamesArr = [];
         this.hpArray = [];
         this.enArray = [];
+        
     }
 
     updateThis(game, player) {
@@ -206,7 +209,7 @@ class pauseMenu extends abstractObject {
         this.navStatus.fixedToCamera = true;
         this.navReorder = this.game.add.text(this.game.width - mainMenuRightIndent, mainMenuHeightItem3, "Reorder", this.style);
         this.navReorder.fixedToCamera = true;
-        this.navSave = this.game.add.text(this.game.width - mainMenuRightIndent, mainMenuHeightItem4, "Save", this.style);
+        this.navSave = this.game.add.text(this.game.width - mainMenuRightIndent, mainMenuHeightItem4, "Map", this.style);
         this.navSave.fixedToCamera = true;
         
         this.hand = this.game.add.image(this.game.width - mainMenuHandRightIndent, mainMenuHandHeightItem1, "hand");
@@ -275,7 +278,7 @@ class pauseMenu extends abstractObject {
     
     destroyPauseMenu(parm){
         if(!backKeyIsPushed){
-            if(!disableControls && isPaused && !itemScreenOn && !selectingCharToReOrder && !selectingCharToViewStatus && !viewingStatus){
+            if(!disableControls && isPaused && !itemScreenOn && !selectingCharToReOrder && !selectingCharToViewStatus && !viewingStatus && !viewingMap){
                 isPaused = false;
 
                 this.pauseMenu.destroy();
@@ -299,14 +302,14 @@ class pauseMenu extends abstractObject {
                 cursorPosMain = 0;
                 
                 this.destroyObjective();
-            } else if(!disableControls && itemScreenOn && !selectingCharacter && !selectingCharToReOrder){
+            } else if(!disableControls && itemScreenOn && !selectingCharacter && !selectingCharToReOrder && !viewingMap){
                 
                 if(uphandExists){
-                    this.uphand.destroy();
+                    this.uphand.alpha = 0;
                     uphandExists = false;
                 }
                 if(downhandExists){
-                    this.downhand.destroy();
+                    this.downhand.alpha = 0;
                     downhandExists = false;
                 }
                 
@@ -335,7 +338,7 @@ class pauseMenu extends abstractObject {
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
                 
-            } else if(!disableControls && itemScreenOn && selectingCharacter || parm == "goBackToItems" && !selectingCharToReOrder){
+            } else if(!disableControls && itemScreenOn && selectingCharacter || parm == "goBackToItems" && !selectingCharToReOrder && !viewingMap){
                 backKeyIsPushed = true;
                 selectingCharacter = false;
                 this.selectingCharHand.destroy();
@@ -345,7 +348,7 @@ class pauseMenu extends abstractObject {
                 justUsedItem = true;
                 this.itemsMenu();
                 
-            } else if(selectingCharToReOrder && reOrderPhase == 0){
+            } else if(selectingCharToReOrder && reOrderPhase == 0 && !viewingMap){
                 backKeyIsPushed = true;
                 
                 this.selectingCharHand.destroy();
@@ -357,14 +360,14 @@ class pauseMenu extends abstractObject {
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
             
-            } else if(selectingCharToReOrder && reOrderPhase == 1){
+            } else if(selectingCharToReOrder && reOrderPhase == 1 && !viewingMap){
                 backKeyIsPushed = true;
                 
                 reOrderPhase = 0;
                 
                 this.selectedCharHand.destroy();
                 
-            } else if(selectingCharToViewStatus && !viewingStatus){
+            } else if(selectingCharToViewStatus && !viewingStatus && !viewingMap){
                 backKeyIsPushed = true;
                 selectingCharToViewStatus = false;
                 this.selectingCharHand.destroy();
@@ -375,7 +378,7 @@ class pauseMenu extends abstractObject {
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
                 
-            } else if(!selectingCharToViewStatus && viewingStatus){
+            } else if(!selectingCharToViewStatus && viewingStatus && !viewingMap){
                 backKeyIsPushed = true;
                 for(var i = 0; i < tempDisplayArray.length; i++){
                     tempDisplayArray[i].destroy();
@@ -383,9 +386,17 @@ class pauseMenu extends abstractObject {
                 tempDisplayArray = [];
                 selectingCharToViewStatus = true;
                 viewingStatus = false;
+                
+            } else if(viewingMap){
+                backKeyIsPushed = true;
+                viewingMap = false;
+                this.pauseMap.destroy();
+                if(this.game.state.current == "overworld"){
+                    this.pinMarker.destroy();
+                }
             }
             
-        } 
+        }
     }
     
     createControls(){
@@ -393,11 +404,11 @@ class pauseMenu extends abstractObject {
             this.enterPress();
         }
         
-        if(this.cursors.up.isDown){
+        if(this.cursors.up.isDown && !viewingMap){
             if(isPaused){
                 this.moveCursor("goingup");
             }
-        } else if(this.cursors.down.isDown){
+        } else if(this.cursors.down.isDown && !viewingMap){
             if(isPaused){
                 this.moveCursor("goingdown");
             }
@@ -640,7 +651,7 @@ class pauseMenu extends abstractObject {
                     break;
                 case 6:
                     if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr + 1] === 'undefined' && selectableItems.length > 7){
-                        this.downhand.destroy();
+                        this.downhand.alpha = 0;
                     }
                     if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr] === 'undefined') {
                         
@@ -873,8 +884,29 @@ class pauseMenu extends abstractObject {
         
     }
     
+    pauseMapfunc(){
+        viewingMap = true;
+        this.pauseMap = this.game.add.image(0, 0, "pauseMap");
+        this.pauseMap.fixedToCamera = true;
+        
+        if(this.game.state.current == "overworld"){
+            this.mapPlayerX = Math.round(this.player.x/(16128 / 772));
+            console.log(this.mapPlayerX);
+
+            this.mapPlayerY = Math.round(this.player.y/(8960 / 430));
+            console.log(this.mapPlayerY);
+
+            this.pinMarker = this.game.add.sprite(this.mapPlayerX - 0, this.mapPlayerY - 10, "pin-animation");
+            this.pinMarker.width = 32;
+            this.pinMarker.height = 32;
+            this.pinMarker.animations.add("flash", [0, 1], 2, true);
+            this.pinMarker.animations.play("flash");
+            this.pinMarker.fixedToCamera = true;            
+        }
+    }
+    
     enterPress(){
-        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharToReOrder && !selectingCharToViewStatus && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharToReOrder && !selectingCharToViewStatus && !viewingStatus && !viewingMap){
             enterKeyIsPushed = true;
             switch(cursorPosMain){
                 case 0:
@@ -890,23 +922,24 @@ class pauseMenu extends abstractObject {
                     this.reorder();
                     break;
                 case 3:
-                    console.log("save");
+                    console.log("map");
+                    this.pauseMapfunc();
                     break;
             }
         }
         
-        if(!disableControls && isPaused && !enterKeyIsPushed && itemScreenOn && selectingCharacter && !selectingCharToReOrder && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && itemScreenOn && selectingCharacter && !selectingCharToReOrder && !viewingStatus && !viewingMap){
             enterKeyIsPushed = true;
             this.useItem(cursorPosSelectingChars);
         }
         
-        if(!disableControls && isPaused && !enterKeyIsPushed && itemScreenOn && !selectingCharacter && itemsArr.length != 0 && !selectingCharToReOrder && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && itemScreenOn && !selectingCharacter && itemsArr.length != 0 && !selectingCharToReOrder && !viewingStatus && !viewingMap){
             if(uphandExists){
-                this.uphand.destroy();
+                this.uphand.alpha = 0;
                 uphandExists = false;
             }
             if(downhandExists){
-                this.downhand.destroy();
+                this.downhand.alpha = 0;
                 downhandExists = false;
             }
             
@@ -976,7 +1009,7 @@ class pauseMenu extends abstractObject {
             this.selectingCharHand.fixedToCamera = true;
         }
         
-        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 0 && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 0 && !viewingStatus && !viewingMap){
             enterKeyIsPushed = true;
             reOrderPhase = 1;
             console.log('shouldnt make it');
@@ -1007,7 +1040,7 @@ class pauseMenu extends abstractObject {
             console.log(firstChosenNPC);
         }
         
-        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 1 && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 1 && !viewingStatus && !viewingMap){
             enterKeyIsPushed = true;
             reOrderPhase = 0;
             
@@ -1058,7 +1091,7 @@ class pauseMenu extends abstractObject {
             this.selectingCharHand.fixedToCamera = true;
         }
         
-        if(!disableControls && isPaused && !enterKeyIsPushed && selectingCharToViewStatus && !viewingStatus){
+        if(!disableControls && isPaused && !enterKeyIsPushed && selectingCharToViewStatus && !viewingStatus && !viewingMap){
             enterKeyIsPushed = true;
             selectingCharToViewStatus = false
             viewingStatus = true;
@@ -1068,7 +1101,6 @@ class pauseMenu extends abstractObject {
     }
     
     itemsMenu(){
-        
         itemScreenOn = true;
         this.itemsScreen = this.game.add.image(0, 0, 'mainBox');
         this.itemsScreen.fixedToCamera = true;
@@ -1124,30 +1156,24 @@ class pauseMenu extends abstractObject {
             this.itemDescription.fixedToCamera = true;
         }
         
+        this.addDownHandAnimations();
+        this.addUpHandAnimations();
+        this.downhand.alpha = 0;
+        this.uphand.alpha = 0;
         
         if(itemsArr[howManyItemsToDisplay - 1] != selectableItems[selectableItems.length - 1]){
             if(itemsArr.length == howManyItemsToDisplay){
                 if(!downhandExists){
-                    this.downhand = this.game.add.image(this.game.width - arrowHandxIndent, this.game.height - arrowHandyIndent, "hand-down");
-                    this.downhand.smoothed = false;
-                    this.downhand.width = arrowHandWidth;
-                    this.downhand.height = mainMenuHandWidth;
-                    this.downhand.fixedToCamera = true;
-
                     downhandExists = true;
+                    this.downhand.alpha = 1;
                 }
             }
         }
         
         if(itemsArr[0] != selectableItems[0]){
             if(!uphandExists){
-                this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndentTOP, "hand-up");
-                this.uphand.smoothed = false;
-                this.uphand.width = arrowHandWidth;
-                this.uphand.height = mainMenuHandWidth;
-                this.uphand.fixedToCamera = true;
-
                 uphandExists = true;
+                this.uphand.alpha = 1;
             }
         }
         
@@ -1182,6 +1208,7 @@ class pauseMenu extends abstractObject {
             this.itemsHand.fixedToCamera = true;
             
         }
+        
     }
     
     updateItemDesc(){
@@ -1267,20 +1294,15 @@ class pauseMenu extends abstractObject {
             }
             
             if(itemsArr[howManyItemsToDisplay - 1] == selectableItems[selectableItems.length - 1]){
-                this.downhand.destroy();
+                this.downhand.alpha = 0;
                 downhandExists = false;
 //                console.log("the down hand should have been destroyed");
             }
             
             if(itemsArr[0] != selectableItems[0]){
                 if(!uphandExists){
-                    this.uphand = this.game.add.image(this.game.width - arrowHandxIndent, arrowHandyIndentTOP, "hand-up");
-                    this.uphand.smoothed = false;
-                    this.uphand.width = arrowHandWidth;
-                    this.uphand.height = mainMenuHandWidth;
-                    this.uphand.fixedToCamera = true;
-                    
                     uphandExists = true;
+                    this.uphand.alpha = 1;
                 }
             }
             
@@ -1296,21 +1318,16 @@ class pauseMenu extends abstractObject {
             }
             
             if(itemsArr[0] == selectableItems[0]){
-                this.uphand.destroy();
+                this.uphand.alpha = 0;
                 uphandExists = false;
             }
             
             if(itemsArr[howManyItemsToDisplay - 1] != selectableItems[howManyItemsToDisplay - 1] || itemsArr[0] == selectableItems[0]){
                 console.log("line 1275 ", downhandExists);
                 if(!downhandExists){
-                    console.log("still good");
-                    this.downhand = this.game.add.image(this.game.width - arrowHandxIndent, this.game.height - arrowHandyIndent, "hand-down");
-                    this.downhand.smoothed = false;
-                    this.downhand.width = arrowHandWidth;
-                    this.downhand.height = mainMenuHandWidth;
-                    this.downhand.fixedToCamera = true;
-                    
                     downhandExists = true;
+                    this.downhand.alpha = 1;
+//                    this.addDownHandAnimations();
                 }
             }
         }
@@ -1487,5 +1504,28 @@ class pauseMenu extends abstractObject {
         tempX = this.player.x;
         tempY = this.player.y;
     }
+    
+    addDownHandAnimations(){
+        this.downhand = this.game.add.sprite(this.game.width - arrowHandxIndent, this.game.height - arrowHandyIndent + 30, "hand-down");
+        this.downhand.animations.add("downAnim", [1, 0, 1, 2], 5, true);
+        this.downhand.animations.play("downAnim");
+        this.downhand.width = arrowHandWidth;
+        this.downhand.height = mainMenuHandWidth;
+        this.downhand.fixedToCamera = true;
+//        downhandExists = true;
+    }
+    
+    addUpHandAnimations(){
+        this.uphand = this.game.add.sprite(this.game.width - arrowHandxIndent, arrowHandyIndentTOP, "hand-up");
+        this.uphand.animations.add("upAnim", [1, 2, 1, 0], 5, true);
+        this.uphand.animations.play("upAnim");
+        this.uphand.smoothed = false;
+        this.uphand.width = arrowHandWidth;
+        this.uphand.height = mainMenuHandWidth;
+        this.uphand.fixedToCamera = true;
+
+//        uphandExists = true;
+    }
+    
     
 }

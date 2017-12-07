@@ -6,6 +6,8 @@ class NE1 extends abstractLevel {
             tileSetImage: {
                 "1": "NE1",
                 "2": "task13",
+                "3": "task14",
+                "4": "sign",
             },
             layers: [
                 "backgroundLayer",
@@ -22,6 +24,7 @@ class NE1 extends abstractLevel {
             renderAboveLayers: [
 //                "blockedLayer_c",
                 "decorationLayer_d",
+                "decorationLayer2",
             ]
         }};
 
@@ -31,7 +34,8 @@ class NE1 extends abstractLevel {
             new spawn(),
             new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new songs()
         ]
     }
 
