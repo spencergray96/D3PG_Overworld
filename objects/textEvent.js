@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 32;
+var eventNumber = 0;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -2231,6 +2231,17 @@ class textEvent extends abstractObject {
             }
         }
         this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
+        
+        music.fadeOut(1500)
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
+            music.destroy();
+            music = this.game.add.audio("findRamin-music");
+            music.fadeIn(1500);
+            music.loopFull(1);
+        }, this);
+        
+
         
         this.game.time.events.add(Phaser.Timer.SECOND * 3.5, function(){
             this.goBackTest();

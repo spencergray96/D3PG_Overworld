@@ -4116,7 +4116,7 @@ var theDialogue = {
                 18:"Dov: I guess someone just left this here.",
             }
         },
-        KETTLE:{
+        KETLLE:{
             profile:
                 "raymondCH",
             txt:{
@@ -4160,10 +4160,10 @@ var theDialogue = {
                 12:"James: These aren't ours. We shouldn't take them.",
                 13:"James: These aren't ours. We shouldn't take them.",
                 14:"James: These aren't ours. We shouldn't take them.",
-                15:"James: These aren't ours. We shouldn't take them.",
-                16:"James: These aren't ours. We shouldn't take them.",
-                17:"James: These aren't ours. We shouldn't take them.",
-                18:"James: These aren't ours. We shouldn't take them.",
+                15:"James: We need these for Henry. Let's talk to the guy right here.",
+                16:"James: We need these for Henry. Let's talk to the guy right here.",
+                17:"James: We need these for Henry. Let's talk to the guy right here.",
+                18:"James: We need these for Henry. Let's talk to the guy right here.",
             }
         },
         bookcaseNPC:{

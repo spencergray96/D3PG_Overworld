@@ -7,10 +7,16 @@ TopDownGame.Preload.prototype = {
     preload: function () {
 
         //show loading screen
-        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
-        this.preloadBar.anchor.setTo(0.5);
+//        this.preloadBar = this.add.sprite(this.game.world.centerX, this.game.world.centerY, "preloadbar");
+//        this.preloadBar.anchor.setTo(0.5);
 
-        this.load.setPreloadSprite(this.preloadBar);   
+//        this.load.setPreloadSprite(this.preloadBar);
+        
+        this.loadingSprite = this.game.add.sprite(this.game.width / 6, this.game.height / 2.3, "loading_spritesheet");
+        this.loadingSprite.animations.add("loadingAnim", [0, 1, 2, 3], 4, true);
+        this.loadingSprite.animations.play("loadingAnim");
+        
+//        this.load.setPreloadSprite(this.loadingSprite);
         
         //grid movement velocity testing
         this.load.tilemap("testtilepack", "/assets/tilemaps/testtilepack.json", null, Phaser.Tilemap.TILED_JSON);
@@ -95,6 +101,8 @@ TopDownGame.Preload.prototype = {
         
         this.load.image("pauseMap", "/assets/ui/map/map.png");
         
+        this.load.spritesheet("loading_spritesheet", "/assets/ui/loadingSprite/loadingspritesheet.png", 533, 200);
+        
         //character spritesheets
         
         //main characters
@@ -176,7 +184,17 @@ TopDownGame.Preload.prototype = {
         
     //AUDIO
         //SONGS
+        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.wav');
+        this.load.audio('overworld-music', '/assets/audio/songs/makinItWork.wav');
         this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.wav');
+        this.load.audio('se6-music', '/assets/audio/songs/osrs-witching.wav');
+        this.load.audio('ne1-music', '/assets/audio/songs/osrs-danceofdeath.wav');
+        this.load.audio('dorm-music', '/assets/audio/songs/osrs-spirit.wav');
+        this.load.audio('stand-music', '/assets/audio/songs/osrs-mudskipper.wav');
+        this.load.audio('se14-music', '/assets/audio/songs/osrs-homesweethome.wav');
+        this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.wav');
+        
+        this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.wav');
 
     },
     create: function(){

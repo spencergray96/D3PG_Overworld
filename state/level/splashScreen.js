@@ -24,6 +24,10 @@ class splash extends Phaser.State {
         
         this.pressedEnterYet = false;
         this.EnterButtSplash = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+        
+        music = this.game.add.audio('intro-music');
+        music.play();
+        music.loopFull(1);
     }
 
     update(game, player) {

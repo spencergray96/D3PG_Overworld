@@ -4,10 +4,13 @@ TopDownGame.Boot = function(){};
 
 //setting game configuration and loading the assets for the loading screen
 TopDownGame.Boot.prototype = {
-  preload: function() {
+    preload: function() {
     //assets we'll use in the loading screen
-    this.load.image('preloadbar', 'assets/images/preloader-bar.png');
-  },
+        this.load.image('preloadbar', 'assets/images/preloader-bar.png');
+        
+        this.load.spritesheet("loading_spritesheet", "/assets/ui/loadingSprite/loadingspritesheet.png", 533, 55);
+    },
+    
   create: function() {
 
     //loading screen will have a white background

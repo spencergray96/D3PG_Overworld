@@ -30,7 +30,8 @@ class theStand extends abstractLevel {
             new spawn(),
             new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new songs()
         ]
     }
 

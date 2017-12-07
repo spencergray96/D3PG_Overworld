@@ -24,6 +24,7 @@ class NE1 extends abstractLevel {
             renderAboveLayers: [
 //                "blockedLayer_c",
                 "decorationLayer_d",
+                "decorationLayer2",
             ]
         }};
 
@@ -33,7 +34,8 @@ class NE1 extends abstractLevel {
             new spawn(),
             new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new songs()
         ]
     }
 

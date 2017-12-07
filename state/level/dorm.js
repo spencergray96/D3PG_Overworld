@@ -7,6 +7,7 @@ class dorm extends abstractLevel {
                 "1": "dorm2copy",
                 "2": "dormcopy",
                 "3": "task13",
+                "4": "task14",
             },
             layers: [
                 "backgroundLayer",
@@ -34,7 +35,8 @@ class dorm extends abstractLevel {
             new spawn(),
             new textEvent(),
             new pauseMenu(),
-            new walkables()
+            new walkables(),
+            new songs()
         ]
     }
 
