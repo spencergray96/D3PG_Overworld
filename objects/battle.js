@@ -42,6 +42,18 @@ class battle extends abstractObject {
             characterX2Pos: 430            
         }
         
+        this.textPos = {
+            text1YPos: 135,
+            text2YPos: 285,
+            text3YPos: 300,
+            text4YPos: 425,
+            
+            textX1Pos: 250,
+            textX2Pos: 400,
+            textX3Pos: 490            
+        }
+        
+        
         this.damageOffset = 235;
         this.enemyDamageOffset = 175;
         
@@ -118,6 +130,15 @@ class battle extends abstractObject {
             boundsAlignH: "center", 
             boundsAlignV: "center", 
             wordWrap: true, wordWrapWidth: 600
+        };
+        
+        this.style6 = {
+            font: "12pt Final-Fantasy-36-Font",
+            fill: "#fff", 
+            align: "left",
+            boundsAlignH: "left", 
+            boundsAlignV: "top", 
+            wordWrap: true, wordWrapWidth: 600
         };        
         
         //Testing button
@@ -149,12 +170,108 @@ class battle extends abstractObject {
         
         this.cursorWidth = mainMenuHandWidth - 10;
         this.cursorHeight = mainMenuHandHeight - 5;
+        
+        this.levelUpX1 = this.game.width/16;
+        this.levelUpX2 = this.levelUpX1 + 8;
+        
+        this.levelUpX3 = 100;
+        this.levelUpX4 = 100;
+        
+        this.levelUpY1 = this.game.height/16;
+        this.levelUpY2 = this.levelUpY1 + 55;
+        this.levelUpY3 = 260;
+        this.levelUpY4 = 420;
+        this.levelUpY5 = 580;
+        
+        this.characterPos = {
+            character1YPos: 50,
+            character2YPos: 175,
+            character3YPos: 300,
+            character4YPos: 425,
+            
+            characterX1Pos: 490,
+            characterX2Pos: 430            
+        }        
+        
+        this.levelUpScreen();
+
+        this.textWriting(0);
+
     }
 
     updateThis(game, player) {
         super.updateThis(game, player);
         this.createControls();
         this.setupBattle();
+    }
+    
+    textWriting(num){
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[4], Object.values(this.textPos)[num], "Level: \nEvasion: \nDefence: ", this.style6);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+        
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[5], Object.values(this.textPos)[num], "1\n2\n3", this.style6);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;        
+    }
+    
+    battleProfile(num, width, height, posX, posY, xOffset){
+        this.profile = this.game.add.image(posX, posY + xOffset, playerStats[num].ch);
+        this.profile.width = width;
+        this.profile.height = height;
+        this.profile.fixedToCamera = true;
+    }    
+    
+    levelUpScreen(){
+        this.levelWidth = this.game.width - this.game.width/7;
+        this.levelBoxHeight1 = this.game.height/16;
+        this.levelBoxHeight2 = this.levelBoxHeight1*3.3;
+        
+        this.levelUpWindow = this.game.add.image(this.levelUpX1, this.levelUpY1, "mainBox", this.style);
+        this.levelUpWindow.width = this.game.width - this.game.width/8;
+        this.levelUpWindow.height = this.game.height - this.game.height/8;
+        this.levelUpWindow.fixedToCamera = true;
+        
+        this.upperBox = this.game.add.image(this.levelUpX2, this.levelUpY1 + 8, "longBox", this.style);
+        this.upperBox.width = this.levelWidth;
+        this.upperBox.height = this.levelBoxHeight1;
+        this.upperBox.fixedToCamera = true;   
+        
+        this.levelUpText = this.game.add.text(this.levelUpX1 + 25, this.levelUpY1  + 25, "Everyone Leveled up! Congrats!", this.style);
+        this.levelUpText.fixedToCamera = true;        
+        
+        this.statsBox1 = this.game.add.image(this.levelUpX2, this.levelUpY2, "longBox", this.style);
+        this.statsBox1.width = this.levelWidth;
+        this.statsBox1.height = this.levelBoxHeight2;
+        this.statsBox1.fixedToCamera = true;
+        
+        this.statsBox2 = this.game.add.image(this.levelUpX2, this.levelUpY3, "longBox", this.style);
+        this.statsBox2.width = this.levelWidth;
+        this.statsBox2.height = this.levelBoxHeight2;
+        this.statsBox2.fixedToCamera = true;
+
+        this.battleProfile(0, 100, 100, this.levelUpX3, this.levelUpY2, 25);   
+        
+        this.statsBox3 = this.game.add.image(this.levelUpX2, this.levelUpY4, "longBox", this.style);
+        this.statsBox3.width = this.levelWidth;
+        this.statsBox3.height = this.levelBoxHeight2;
+        this.statsBox3.fixedToCamera = true;
+        
+        this.battleProfile(1, 100, 100, this.levelUpX3, this.levelUpY3, 25);           
+        
+        this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
+        this.statsBox4.width = this.levelWidth;
+        this.statsBox4.height = this.levelBoxHeight2;
+        this.statsBox4.fixedToCamera = true;         
+
+        this.battleProfile(2, 100, 100, this.levelUpX3, this.levelUpY4, 25);   
+        
+        this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
+        this.statsBox4.width = this.levelWidth;
+        this.statsBox4.height = this.levelBoxHeight2;
+        this.statsBox4.fixedToCamera = true;  
+        
+        this.battleProfile(3, 100, 100, this.levelUpX3, this.levelUpY5, 30);
     }
     
     setupBattle(){
@@ -283,14 +400,14 @@ class battle extends abstractObject {
 
         this.displayArr.push(this.mainContainer);
         
-        this.actionContainer = this.game.add.image(12, this.game.height - (this.game.height/4), "longBox");
+        this.actionContainer = this.game.add.image(12, this.game.height - (this.game.height/4), "textBox");
         this.actionContainer.width = this.game.width/2.55;
         this.actionContainer.height = this.game.height/4;
         this.actionContainer.fixedToCamera = true;
 
         this.displayArr.push(this.actionContainer);
         
-        this.displayContainer = this.game.add.image(this.game.width/2.35, this.game.height - (this.game.height/4), "longBox");
+        this.displayContainer = this.game.add.image(this.game.width/2.35, this.game.height - (this.game.height/4), "textBox");
         this.displayContainer.width = this.game.width - (this.game.width/2.22);
         this.displayContainer.height = this.game.height/4;
         this.displayContainer.fixedToCamera = true;          
