@@ -13,7 +13,6 @@ class door extends abstractObject {
     }
 
     createThis(game) {
-        console.log("fucking doors and shit");
         super.createThis(game);
         disableControls = false;
         currentDoor = undefined;
@@ -28,7 +27,6 @@ class door extends abstractObject {
         doorResult.forEach(function (element) {
             this.createDoorsFromTiledObject(element, this.doors, i);
             doors.push(element);
-//            console.log(doors[i].coolProperties);
             i++;
 //            this.game.physics.enable(element, Phaser.Physics.ARCADE);
         }, this);

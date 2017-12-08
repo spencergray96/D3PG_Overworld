@@ -93,6 +93,7 @@ TopDownGame.Preload.prototype = {
         this.load.image("longBox", "/assets/ui/containers/smallTextBox-container.png");
         this.load.image("singleBox", "/assets/ui/containers/oneWordTextBox-container.png");
         this.load.image("textBox", "/assets/ui/containers/textBox-container.png");
+        this.load.image("whiteBox", "/assets/ui/containers/whiteBox.png");
         
         this.load.image("hand", "/assets/ui/cursor.png");
         this.load.image("hand-left", "/assets/ui/cursor-left.png");
@@ -149,6 +150,12 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("pin-animation-purple", "/assets/ui/pin-animation/pin-animation-purple.png", 128, 128);
         this.load.spritesheet("pin-animation-yellow", "/assets/ui/pin-animation/pin-animation-yellow.png", 128, 128);
         this.load.spritesheet("pin-animation-brown", "/assets/ui/pin-animation/pin-animation-brown.png", 128, 128);
+        
+        this.load.image("daemonBattle", "/assets/characters/BattleCharacter/DEMON.png");
+        this.load.image("galynaBattle", "/assets/characters/mainBosses/galynaMainBoss.png");
+        this.load.image("henryBattle", "/assets/characters/mainBosses/henryMainBoss.png");
+        this.load.image("arronBattle", "/assets/characters/mainBosses/arronBattle.png");
+        this.load.image("raminBattle", "/assets/characters/mainBosses/Ramin.png");
         
         
     //chat heads
@@ -210,8 +217,24 @@ TopDownGame.Preload.prototype = {
         this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.mp3');
         
         this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.mp3');
-
+        
+    //battle sprites
+        this.load.spritesheet("spencer_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/spencer/spencerBattleFix.png", 256, 128);
+        this.load.spritesheet("dov_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/dov/dovBattleFix.png", 256, 128);
+        this.load.spritesheet("james_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/james/jamesBattleFix.png", 256, 128);
+        this.load.spritesheet("raymond_spritesheet_battle", "/assets/characters/spritesheet/attack-animation/fix/raymond/raymondBattleFix.png", 256, 128);
+        
+    //weapons
+        this.load.spritesheet("chopsticks", "/assets/AttackElements/chopsticks/chop/chop.png", 192, 96);
+        this.load.spritesheet("chopsticksGold", "/assets/AttackElements/chopsticks/goldchop/goldchop.png", 192, 96);
+        this.load.spritesheet("laptop", "/assets/AttackElements/JamesLaptop/JamesLaptop/Jameslaptop.png", 192, 96);
+        this.load.spritesheet("laptopGold", "/assets/AttackElements/JamesLaptop/Jame_sLaptopGold/goldLaptop.png", 192, 96);
+        this.load.spritesheet("pickle", "/assets/AttackElements/pickle/greenpickle/pickle.png", 192, 96);
+        this.load.spritesheet("pickleGold", "/assets/AttackElements/pickle/goldpickle/goldPikle.png", 192, 96);
+        this.load.spritesheet("TV", "/assets/AttackElements/TV/TV/TV.png", 192, 96);
+        this.load.spritesheet("TVGold", "/assets/AttackElements/TV/goldTV/goldTV.png", 192, 96);
     },
+    
     create: function(){
         this.state.start("splash");
     }

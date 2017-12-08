@@ -26,8 +26,9 @@ class se14 extends abstractLevel {
         }};
 
     static updatables() {
+        window.battleClass = new battle();        
         return [
-            new door(),
+            window.battleClass,
             new spawn(),
             new textEvent(),
             new pauseMenu(),

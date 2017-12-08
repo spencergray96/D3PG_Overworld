@@ -46,10 +46,11 @@ var playerStats = [
     spencer = {
         name: "Spencer",
         spritesheet: "spencer_spritesheet",
+        spritesheetBattle: "spencer_spritesheet_battle",
         ch: "spencerCH",
-        currentHP: 1,
+        currentHP: 25,
         maxHP: 100,
-        currentEN: 1,
+        currentEN: 10,
         maxEN: 10,
         attack: 15,
         weapon: "default",
@@ -59,16 +60,23 @@ var playerStats = [
         description: "He's the leader of the bunch",
         specDesc: "hits a lot",
         
-        level: experiencePoints[0].level,
-        nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp
+        skillMult: 1.5,
+        skillColor: 0x00ff00,
+        
+        level: 1,
+        nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp,
+        
+        basicWeapon: "TV",
+        lastWeapon: "TVGold"
     },
     dov = {
         name: "Dov",
         spritesheet: "dov_spritesheet",
+        spritesheetBattle: "dov_spritesheet_battle",
         ch: "dovCH",
-        currentHP: 1,
+        currentHP: 25,
         maxHP: 100,
-        currentEN: 1,
+        currentEN: 10,
         maxEN: 10,
         attack: 15,
         weapon: "default",
@@ -78,16 +86,23 @@ var playerStats = [
         description: "You know him well",
         specDesc: "hits a lot",
         
-        level: experiencePoints[1].level,
-        nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp
+        skillMult: 1.5,
+        skillColor: 0xff0000,
+        
+        level: 1,
+        nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp,
+        
+        basicWeapon: "pickle",
+        lastWeapon: "pickleGold"        
     },
     james = {
         name: "James",
         spritesheet: "james_spritesheet",
+        spritesheetBattle: "james_spritesheet_battle",
         ch: "jamesCH",
-        currentHP: 1,
+        currentHP: 25,
         maxHP: 100,
-        currentEN: 1,
+        currentEN: 10,
         maxEN: 10,
         attack: 15,
         weapon: "default",
@@ -97,16 +112,23 @@ var playerStats = [
         description: "He's finally back",
         specDesc: "hits a lot",
         
-        level: experiencePoints[2].level,
-        nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp
+        skillMult: 1.5,
+        skillColor: 0x0000ff,
+        
+        level: 1,
+        nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp,
+        
+        basicWeapon: "laptop",
+        lastWeapon: "laptopGold"
     },
     raymond = {
         name: "Raymond",
         spritesheet: "raymond_spritesheet",
+        spritesheetBattle: "raymond_spritesheet_battle",
         ch: "raymondCH",
-        currentHP: 1,
+        currentHP: 25,
         maxHP: 100,
-        currentEN: 1,
+        currentEN: 10,
         maxEN: 10,
         attack: 15,
         weapon: "default",
@@ -116,7 +138,13 @@ var playerStats = [
         description: "To kick some tail!",
         specDesc: "hits a lot",
         
-        level: experiencePoints[3].level,
-        nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp
+        skillMult: 1.5,
+        skillColor: 0xffff00,
+        
+        level: 1,
+        nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp,
+        
+        basicWeapon: "chopsticks",
+        lastWeapon: "chopsticksGold"
     },
 ]

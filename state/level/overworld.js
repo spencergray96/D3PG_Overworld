@@ -45,8 +45,9 @@ class overworld extends abstractLevel {
         }};
 
     static updatables() {
+        window.battleClass = new battle();
         return [
-            new battle(),
+            window.battleClass,
             new door(),
             new spawn(),
             new pauseMenu(),

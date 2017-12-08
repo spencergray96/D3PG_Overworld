@@ -88,6 +88,7 @@ class textEvent extends abstractObject {
         this.isText = 0;
         this.isDown = false;
         //  this delays text printing, it also prints text  //
+        
         this.game.time.events.loop(this.lineDelay, this.printText, this);
         
         
@@ -112,7 +113,7 @@ class textEvent extends abstractObject {
 //WASD CONTROLS
         this.w = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.s = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-//END WASD CONTOLS  
+//END WASD CONTOLS
     }
 
     updateThis(game, player) {
@@ -578,7 +579,7 @@ class textEvent extends abstractObject {
     }
     
     readText() {
-        if ((this.enterBut.isDown && currentNPC != null || isEventing)){
+        if ((this.enterBut.isDown && !battling && currentNPC != null || isEventing)){
             isEventing = false;
             texting = true;
             if(!this.isDown){
@@ -587,7 +588,7 @@ class textEvent extends abstractObject {
             }
         }
         
-        if(this.enterBut.isUp && !disableControls){
+        if(this.enterBut.isUp && !disableControls && !battling){
             if(this.isDown){
                 this.isDown = false;
                 switch (this.isText) {
@@ -824,7 +825,7 @@ class textEvent extends abstractObject {
                     currentNPC = null;
                     TopDownGame.game.state.start('dorm');
                 } else if(currentNPC.hismove.npcName == "bookcaseNPC"){
-                    console.log("line 618 baby")
+                    console.log("line 618 baby");
                     this.eraseText();
                     this.continueThing.destroy();
                     currentNPC = null;
