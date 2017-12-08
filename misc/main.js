@@ -20,6 +20,7 @@ TopDownGame.game.state.add("overworld", TopDownGame.overworld);
 TopDownGame.game.state.add("tunnel", TopDownGame.tunnel);
 
 TopDownGame.game.state.add("splash", TopDownGame.splash);
+TopDownGame.game.state.add("splash2", TopDownGame.splash2);
 //testing128
 TopDownGame.game.state.add("testing128", TopDownGame.testing128);
 

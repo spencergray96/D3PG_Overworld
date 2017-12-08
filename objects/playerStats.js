@@ -62,7 +62,7 @@ var playerStats = [
         
         skillMult: 1.5,
         skillColor: 0x00ff00,
-        
+        attackNoise: "UIKitKat",
         level: 1,
         nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp,
         
@@ -88,7 +88,7 @@ var playerStats = [
         
         skillMult: 1.5,
         skillColor: 0xff0000,
-        
+        attackNoise: "UIPickle",
         level: 1,
         nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp,
         
@@ -114,7 +114,7 @@ var playerStats = [
         
         skillMult: 1.5,
         skillColor: 0x0000ff,
-        
+        attackNoise: "UISlash",
         level: 1,
         nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp,
         
@@ -140,7 +140,7 @@ var playerStats = [
         
         skillMult: 1.5,
         skillColor: 0xffff00,
-        
+        attackNoise: "UIChopstick",        
         level: 1,
         nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp,
         

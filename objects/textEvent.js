@@ -586,6 +586,12 @@ class textEvent extends abstractObject {
             if(!this.isDown){
                 this.checkTextBoxContent();
                 this.isDown = true;
+                if(!this.doTheNoise){
+                    this.doTheNoise = true;
+                    this.sfx = this.game.add.audio("UISelect2");
+                    this.sfx.volume = 1;
+                    this.sfx.play();                    
+                }
             }
         }
         
@@ -1202,11 +1208,12 @@ class textEvent extends abstractObject {
                 break;
         }
     }
+        
     
 //end of EVENT SWITCH STATEMENTS
     showText() {
         if(!this.startText){
-            this.startText = true;
+            this.startText = true;            
             
             this.textScreen = this.game.add.image(0, (this.game.height - (this.game.height/4)), 'textBox'); 
             this.textScreen.fixedToCamera = true;
@@ -1232,6 +1239,7 @@ class textEvent extends abstractObject {
     }
     
     printText() {
+
         
         if(this.isText <= 0 || this.isText >= 2){
             return false;
@@ -1249,10 +1257,10 @@ class textEvent extends abstractObject {
                 this.letter = this.letter + 1;
             }    
             else if (this.letter >= this.person[this.lineState].length){
-
                 this.letter = 0;
                 this.isText = 0;
                 this.lineState++;
+                this.doTheNoise = false;
                 
                 if(this.lineState < this.person.length || this.lineState < Object.values(theDialogue.events)[eventNumber].length){
 
@@ -2483,9 +2491,15 @@ class textEvent extends abstractObject {
         this.continueThing.destroy();
         console.log("fight here");
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
-            this.goBackTest();
-        }, this);
+        music.pause();
+        this.game.camera.fade('#000000');
+//        music.pause();
+//        music.destroy();
+//        TopDownGame.game.state.start("splash2");
+        
+//        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
+//            this.goBackTest();
+//        }, this);
     }
         
 }

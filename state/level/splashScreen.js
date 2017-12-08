@@ -68,6 +68,10 @@ class splash extends Phaser.State {
         if(this.EnterButtSplash.isDown && !this.pressedEnterYet){
             this.pressedEnterYet = true;
             
+            this.sfx = this.game.add.audio("UISelect2");
+            this.sfx.volume = 1;
+            this.sfx.play();
+            
             this.pressEnter.destroy();
             this.pressEnter2.alpha = 1;
             
@@ -77,6 +81,8 @@ class splash extends Phaser.State {
             this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
 
                     console.log("going back to preload");
+                    this.sprite.destroy();
+                    this.splashVideo.destroy();
                     TopDownGame.game.state.start('overworld');
 
             }, this)

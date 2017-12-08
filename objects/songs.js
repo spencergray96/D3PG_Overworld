@@ -12,7 +12,7 @@ class songs extends abstractObject {
         
         if(music != undefined){
             music.pause();
-            music.destroy(); 
+            music.destroy();
         }
         
         switch(TopDownGame.game.state.current){

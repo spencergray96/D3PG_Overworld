@@ -1,3 +1,4 @@
+var sfx;
 class splashClass extends abstractObject {
 
     constructor() {
@@ -48,7 +49,7 @@ class splashClass extends abstractObject {
         
         this.game.add.tween(this.pressEnter).to({alpha: 1}, Phaser.Timer.SECOND * 1, "Linear", true);
 
-        if(!this.pressedEnterYet){
+        if(!this.pressedEnterYet){            
             this.game.time.events.add(Phaser.Timer.SECOND * 1.2, function(){
                 if(!this.pressedEnterYet){
                     this.enterToZero();
@@ -62,6 +63,9 @@ class splashClass extends abstractObject {
     createControls(){
         if(this.EnterButt.isDown && !this.pressedEnterYet){
             this.pressedEnterYet = true;
+                    sfx = this.game.add.audio("UISelect2");
+                    sfx.volume = 1;
+                    sfx.play();            
 //            this.game.add.tween(this.pressEnter).to({alpha: 1}, Phaser.Timer.SECOND * 0.000000001, "Linear", true);
             this.pressEnter.destroy();
             this.pressEnter = this.game.add.sprite(this.game.width/8, (this.game.height - this.game.height/4), "press-enter");

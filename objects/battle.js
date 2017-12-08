@@ -189,7 +189,7 @@ class battle extends abstractObject {
             
             characterX1Pos: 490,
             characterX2Pos: 430            
-        }        
+        }
         
         this.textPos = {
             text1YPos: 135,
@@ -211,7 +211,56 @@ class battle extends abstractObject {
         if(battleProc){
             battleProc = false;
             this.startBattle();
+//            music.pause();
+//            music.destroy();
+////            music = this.game.add.audio('attack2-music');
+//            this.music = new Sound(this.game, 'attack2-music', 0)
+//            this.music.volume = 0.1;
+////            console.log(music.volume);
+//            this.startMusic();
         }
+    }
+    
+    startMusic(){
+        music.play();
+        music.loopFull(1);
+    }
+    
+    selectMusic(){
+//        switch(TopDownGame.game.state.current){
+//            case "overworld":
+//                music = this.game.add.audio('overworld-music');
+//                this.startMusic();
+//                break;
+//            case "tunnel":
+//                music = this.game.add.audio('cave-music');
+//                this.startMusic();
+//                break;
+//            case "se6office":
+//                music = this.game.add.audio("se6-music");
+//                this.startMusic();
+//                break;
+//            case "NE1":
+//                music = this.game.add.audio("ne1-music");
+//                this.startMusic();
+//                break;
+//            case "dorm":
+//                music = this.game.add.audio("dorm-music");
+//                this.startMusic();
+//                break;
+//            case "theStand":
+//                music = this.game.add.audio("stand-music");
+//                this.startMusic();
+//                break;
+//            case "se14":
+//                music = this.game.add.audio("se14-music");
+//                this.startMusic();
+//                break;
+//            case "sw03":
+//                music = this.game.add.audio("sw3-music");
+//                this.startMusic();
+//                break;
+//        }
     }
     
     textWriting(num, theStyle){
@@ -546,7 +595,7 @@ class battle extends abstractObject {
                         this.battleCursor = this.game.add.image(this.actionX1, this.actionY1, "hand");
                         this.battleCursor.width = this.cursorWidth;
                         this.battleCursor.height = this.cursorHeight;
-                        this.battleCursor.fixedToCamera = true; 
+                        this.battleCursor.fixedToCamera = true;
                         break;
                     case 1:
                         this.cursorPosMain = 1;
@@ -570,6 +619,7 @@ class battle extends abstractObject {
                         this.battleCursor.fixedToCamera = true;            
                         break;
                 }
+                
                 this.displayArr.push(this.battleCursor);
             }
         }
@@ -840,6 +890,10 @@ class battle extends abstractObject {
             if (this.enterBut.isDown){
                 if(!this.enterIsDown){
                     this.enterIsDown = true;
+                    
+                    this.sfx = this.game.add.audio('UISelect2');
+                    this.sfx.play();
+                    
                     if(this.waiting){   
                         this.noDeath();
                     }
@@ -873,10 +927,12 @@ class battle extends abstractObject {
             
             if ((this.cursors.up.isDown || this.wBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.upIsDown){
-                    this.upIsDown = true;
+                    this.upIsDown = true;                    
                     this.eraseCursor();
                     this.up();
-                    this.makeCursors()
+                    this.makeCursors();
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();                    
                 }
             }
             if(this.cursors.up.isUp && this.wBut.isUp){
@@ -889,7 +945,10 @@ class battle extends abstractObject {
                     this.downIsDown = true;
                     this.eraseCursor();
                     this.down();
-                    this.makeCursors()
+                    this.makeCursors();
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();                    
+                    
                 }
             }
             if(this.cursors.down.isUp && this.sBut.isUp){
@@ -902,7 +961,9 @@ class battle extends abstractObject {
                     this.leftIsDown = true;
                     this.eraseCursor();
                     this.left();
-                    this.makeCursors()
+                    this.makeCursors();
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();                    
                 }
             }
             if(this.cursors.left.isUp && this.aBut.isUp){
@@ -915,7 +976,9 @@ class battle extends abstractObject {
                     this.rightIsDown = true;
                     this.eraseCursor();
                     this.right();
-                    this.makeCursors()
+                    this.makeCursors();
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();                    
                 }
             }
             if(this.cursors.right.isUp && this.dBut.isUp){
@@ -964,6 +1027,9 @@ class battle extends abstractObject {
             this.eraseCursor();
             this.makeCursors();              
         }
+                    
+        this.sfx = this.game.add.audio('UIBump');
+        this.sfx.play();        
     }
     
     mainMenuControls(){
@@ -1147,6 +1213,10 @@ class battle extends abstractObject {
             case 1:
             case 2:
                 console.log("you hit the enemy");
+                this.sfx = this.game.add.audio(Object.values(playerStats)[this.activeCharVar].attackNoise);
+                this.sfx.volume = 1;
+                this.sfx.play();
+                
                 this.attackMenu = false;
                 this.mainMenu = true;
                 disableControls = true;
@@ -1155,6 +1225,8 @@ class battle extends abstractObject {
                 break;    
             case 3:
                 console.log("you hit the enemy");
+                this.sfx = this.game.add.audio(Object.values(playerStats)[this.activeCharVar].attackNoise);
+                this.sfx.play();                
                 this.attackMenu = false;
                 this.mainMenu = true;                
                 disableControls = true;
@@ -1196,6 +1268,9 @@ class battle extends abstractObject {
                     }
                 this.attackFunctions();
                 this.skillAttack = false;
+                this.sfx = this.game.add.audio(Object.values(playerStats)[this.activeCharVar].attackNoise);
+                this.sfx.volume = 1;
+                this.sfx.play();                
 
             }, this);    
         }
@@ -1375,9 +1450,15 @@ class battle extends abstractObject {
                 enemyStats[bossNum].currentHP = enemyStats[bossNum].currentHP;
                 this.testing = false;
                 battling = false;
+                
+                
             }, this);
             
         }, this);
+        
+//        music.pause();
+//        music.destroy();
+//        this.selectMusic();
     }
     
     destroyDamageText(){
@@ -1519,6 +1600,8 @@ class battle extends abstractObject {
             console.log("enemy attacking");
             this.selectAttack();
             this.game.time.events.add(Phaser.Timer.SECOND * this.enemyDelay, ()=>{
+                this.sfx = this.game.add.audio('UIKitKat');
+                this.sfx.play();
                 this.displayDamage(this.tempAttack);
                 this.game.time.events.add(Phaser.Timer.SECOND * this.enemyDelay, this.enemyAttackFinish, this);
             }, this);

@@ -80,13 +80,13 @@ var theDialogue = {
                 event:"action"
             },
 //action
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: What’s up nerds?",
-                event:""
-            },
+//            {
+//                profile:
+//                    "dovCH",
+//                txt:
+//                    "Dov: What’s up nerds?",
+//                event:""
+//            },
 //            {
 //                profile:
 //                    "jamesCH",
@@ -320,7 +320,7 @@ var theDialogue = {
                 event:"end"
             },
 ],
-//1 first tremor event        
+//1 first tremor event
         secondSpawnEvent:[
             {
                 profile:
@@ -421,7 +421,7 @@ var theDialogue = {
                 event:"end"
             },
         ],
-//2 arrive at se14        
+//2 arrive at se14
         thirdEvent:[
             {
                 profile:
@@ -505,7 +505,7 @@ var theDialogue = {
             },
 
         ],
-//3 talk to henry first time to find ramin     
+//3 talk to henry first time to find ramin
         henryEvent:[
             {
                 profile:
@@ -1206,7 +1206,7 @@ var theDialogue = {
 },
 
         ],
-//7 enter Galynas office        
+//7 enter Galynas office
         galynaWalkingProc:[
             {
 	profile:
@@ -1437,55 +1437,55 @@ var theDialogue = {
         ],
 //10 after beating galyna
         galynaConvo2:[
-            {
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Oh you are right! It was EVERYTHING to do with my grammar;;You guys ARE distinct!;;You pass with flying colours!",
-	event:""
-},
-            {
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Oh you are right! It was EVERYTHING to do with my grammar;;You guys ARE distinct!;;You pass with flying colours!",
-	event:""
-},
-{
-	profile:
-		"jamesCH",
-	txt:
-		"James: Ok... but can you vouch for us?",
-	event:""
-},
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Sure, I will email Ramin.;;It will be the same as a seal of approval",
-	event:""
-},
-{
-	profile:
-		"raymondCH",
-	txt:
-		"Raymond: ...",
-	event:""
-},
-{
-	profile:
-		"dovCH",
-	txt:
-		"Dov: ...",
-	event:""
-},
-{
-	profile:
-		"spencerCH",
-	txt:
-		"Spencer: Thanks, Galyna",
-	event:""
-},
+//            {
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Oh you are right! It was EVERYTHING to do with my grammar;;You guys ARE distinct!;;You pass with flying colours!",
+//	event:""
+//},
+//            {
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Oh you are right! It was EVERYTHING to do with my grammar;;You guys ARE distinct!;;You pass with flying colours!",
+//	event:""
+//},
+//{
+//	profile:
+//		"jamesCH",
+//	txt:
+//		"James: Ok... but can you vouch for us?",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Sure, I will email Ramin.;;It will be the same as a seal of approval",
+//	event:""
+//},
+//{
+//	profile:
+//		"raymondCH",
+//	txt:
+//		"Raymond: ...",
+//	event:""
+//},
+//{
+//	profile:
+//		"dovCH",
+//	txt:
+//		"Dov: ...",
+//	event:""
+//},
+//{
+//	profile:
+//		"spencerCH",
+//	txt:
+//		"Spencer: Thanks, Galyna",
+//	event:""
+//},
 {
 	profile:
 		"galynaCH",
@@ -3594,17 +3594,17 @@ var theDialogue = {
         procRamin:[
             {
                 profile:
-                    "spencerCH",
+                    "raminCH",
                 txt:
-                    "SPICER: hello nerd!!",
-                event:""
+                    "Ramin: It ends here!!",
+                event:"action"
             },
             {
                 profile:
                     "raminCH",
                 txt:
                     "Ramin: You are making a big;;Mistake!!",
-                event:"action"
+                event:""
             },
             {
                 profile:
