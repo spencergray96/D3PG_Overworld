@@ -29,7 +29,7 @@ class battle extends abstractObject {
         this.attackDelay = 1;
         this.enemyDelay = 1;
         
-        this.closWindowDelay = 1.5;
+        this.closWindowDelay = 1;
         
         //  this is just to set up where the characters are. they do not dynamically move yet.
         this.characterPos = {
@@ -267,6 +267,8 @@ class battle extends abstractObject {
         this.profile.width = width;
         this.profile.height = height;
         this.profile.fixedToCamera = true;
+        
+        this.charArr.push(this.profile);
     }    
     
     levelUpScreen(){
@@ -275,29 +277,37 @@ class battle extends abstractObject {
             this.levelBoxHeight1 = this.game.height/16;
             this.levelBoxHeight2 = this.levelBoxHeight1*3.3;
 
-            this.levelUpWindow = this.game.add.image(this.levelUpX1, this.levelUpY1, "mainBox", this.style);
-            this.levelUpWindow.width = this.game.width - this.game.width/8;
-            this.levelUpWindow.height = this.game.height - this.game.height/8;
-            this.levelUpWindow.fixedToCamera = true;
+//            this.levelUpWindow = this.game.add.image(this.levelUpX1, this.levelUpY1, "mainBox", this.style);
+//            this.levelUpWindow.width = this.game.width - this.game.width/8;
+//            this.levelUpWindow.height = this.game.height - this.game.height/8;
+//            this.levelUpWindow.fixedToCamera = true;
 
             this.upperBox = this.game.add.image(this.levelUpX2, this.levelUpY1 + 8, "longBox", this.style);
             this.upperBox.width = this.levelWidth;
             this.upperBox.height = this.levelBoxHeight1;
             this.upperBox.fixedToCamera = true;   
 
+            this.charArr.push(this.upperBox);
+
             this.levelUpText = this.game.add.text(this.levelUpX1 + 25, this.levelUpY1  + 25, "Everyone Leveled up! Congrats!", this.style);
             this.levelUpText.fixedToCamera = true;        
 
+            this.charArr.push(this.levelUpText);            
+            
             this.statsBox1 = this.game.add.image(this.levelUpX2, this.levelUpY2, "longBox", this.style);
             this.statsBox1.width = this.levelWidth;
             this.statsBox1.height = this.levelBoxHeight2;
             this.statsBox1.fixedToCamera = true;
 
+            this.charArr.push(this.statsBox1);            
+            
             this.statsBox2 = this.game.add.image(this.levelUpX2, this.levelUpY3, "longBox", this.style);
             this.statsBox2.width = this.levelWidth;
             this.statsBox2.height = this.levelBoxHeight2;
             this.statsBox2.fixedToCamera = true;
 
+            this.charArr.push(this.statsBox2);            
+            
             this.battleProfile(0, 100, 100, this.levelUpX3, this.levelUpY2, 25);   
 
             this.statsBox3 = this.game.add.image(this.levelUpX2, this.levelUpY4, "longBox", this.style);
@@ -305,6 +315,8 @@ class battle extends abstractObject {
             this.statsBox3.height = this.levelBoxHeight2;
             this.statsBox3.fixedToCamera = true;
 
+            this.charArr.push(this.statsBox3);            
+            
             this.battleProfile(1, 100, 100, this.levelUpX3, this.levelUpY3, 25);           
 
             this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
@@ -312,12 +324,16 @@ class battle extends abstractObject {
             this.statsBox4.height = this.levelBoxHeight2;
             this.statsBox4.fixedToCamera = true;         
 
+            this.charArr.push(this.statsBox4);            
+            
             this.battleProfile(2, 100, 100, this.levelUpX3, this.levelUpY4, 25);   
 
-            this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
-            this.statsBox4.width = this.levelWidth;
-            this.statsBox4.height = this.levelBoxHeight2;
-            this.statsBox4.fixedToCamera = true;  
+            this.statsBox5 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
+            this.statsBox5.width = this.levelWidth;
+            this.statsBox5.height = this.levelBoxHeight2;
+            this.statsBox5.fixedToCamera = true;
+            
+            this.charArr.push(this.statsBox5);            
 
             this.battleProfile(3, 100, 100, this.levelUpX3, this.levelUpY5, 30);            
         }, this);        
@@ -333,22 +349,22 @@ class battle extends abstractObject {
             this.textWriting(2, this.style6);
             this.textWriting(3, this.style6);           
            }
-        else{
+        else if (this.endBattle && !this.endBattle2){
             for(var i=0; i < this.levelArr.length; i++){
                 this.levelArr[i].destroy();
             }
+            this.endBattle2 = true;
             this.updateStats();
             this.levelArr = [];
-            
-            
-            
+
             this.textWriting2(0, this.style7);
             this.textWriting2(1, this.style7);
             this.textWriting2(2, this.style7);
             this.textWriting2(3, this.style7);
-            this.endBattle = false;
-            this.endBattle2 = true;
         }        
+        else if(this.endBattle && this.endBattle2){
+                this.endBattle = false;
+        }
     }
     
     updateStats(){
@@ -759,7 +775,14 @@ class battle extends abstractObject {
         for(var i=0; i < this.teamStats.length; i++){
             this.teamStats[i].destroy();
         }
+        for(var i=0; i < this.levelArr.length; i++){
+            this.levelArr[i].destroy();
+        } 
+        for(var i=0; i < this.charArr.length; i++){
+            this.charArr[i].destroy();
+        }           
         this.displayArr = [];
+        this.levelArr = [];
         this.teamStats = [];
         this.ENStats = [];        
         this.testing = false;
@@ -811,10 +834,10 @@ class battle extends abstractObject {
                     if(!this.waiting && !this.endBattle){
                         this.mainMenuControls();
                     }
-                    if(this.endBattle){
+                    if(this.endBattle && !this.endBattle2){
                         this.updateLevelInfo();
                     }
-                    if(this.endBattle2){
+                    else if(this.endBattle2){
                         this.closeBattle();
                     }
                 }
@@ -1325,6 +1348,7 @@ class battle extends abstractObject {
     
     closeBattle(){
         bossNum++;
+        eventNumber++;
         this.testing = false;
         battling = false;
         this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, ()=>{
