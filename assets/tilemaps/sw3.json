@@ -344,6 +344,33 @@
                  "width":128,
                  "x":4736,
                  "y":5760
+                }, 
+                {
+                 "height":128,
+                 "id":15,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventNPC":"true",
+                     "npcName":"bookcaseNPC",
+                     "sprite":"dov",
+                     "spritesheet":"",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "eventNPC":"string",
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":1920,
+                 "y":4608
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -362,7 +389,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":13,
+ "nextobjectid":16,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

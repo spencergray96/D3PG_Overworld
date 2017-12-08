@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 1;
+var eventNumber = 0;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -13,7 +13,7 @@ var isEventing = false;
 var raminFirstSpawn = 5;
 var raminSpawnedse14 = false;
 
-var runningShoes = false;
+var runningShoes = true;
 var noteProcurement = 8;
 
 //collecting the final 4 items

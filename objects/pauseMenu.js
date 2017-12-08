@@ -413,6 +413,9 @@ class pauseMenu extends abstractObject {
                 this.pauseMap.destroy();
                 if(this.game.state.current == "overworld"){
                     this.pinMarker.destroy();
+                    for(var i = 0; i < this.staticMarkers.length; i++){
+                        this.staticMarkers[i].destroy();
+                    }
                 }
             }
             
@@ -908,6 +911,35 @@ class pauseMenu extends abstractObject {
         viewingMap = true;
         this.pauseMap = this.game.add.image(0, 0, "pauseMap");
         this.pauseMap.fixedToCamera = true;
+        
+        this.staticMarkers = [];
+        
+        this.se14Marker = this.game.add.sprite(220, 205, "pin-animation-green");
+        this.staticMarkers.push(this.se14Marker);
+        
+        this.se6Marker = this.game.add.sprite(717, 328, "pin-animation-purple");
+        this.staticMarkers.push(this.se6Marker);
+        
+        this.conMarkerStand = this.game.add.sprite(380, 110, "pin-animation-yellow");
+        this.staticMarkers.push(this.conMarkerStand);
+        
+        this.conMarkerSW3 = this.game.add.sprite(400, 110, "pin-animation-yellow");
+        this.staticMarkers.push(this.conMarkerSW3);
+        
+        this.conMarkerNE1 = this.game.add.sprite(735, 353, "pin-animation-yellow");
+        this.staticMarkers.push(this.conMarkerNE1);
+        
+        this.carMarker = this.game.add.sprite(482, 275, "pin-animation-brown");
+        this.staticMarkers.push(this.carMarker);
+        
+        for(var i = 0; i < this.staticMarkers.length; i++){
+            this.staticMarkers[i].width = 32;
+            this.staticMarkers[i].height = 32;
+            this.staticMarkers[i].animations.add("flash", [0, 1], 2, true);
+            this.staticMarkers[i].animations.play("flash");
+            this.staticMarkers[i].fixedToCamera = true;        
+        }
+        
         
         if(this.game.state.current == "overworld"){
             this.mapPlayerX = Math.round(this.player.x/(16128 / 772));

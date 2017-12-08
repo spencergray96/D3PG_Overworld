@@ -66,33 +66,38 @@ class door extends abstractObject {
     }
     
     newEnterDoor(){
-        switch(currentDoor.coolProperties.destination){
-            case "se14":
-                TopDownGame.game.state.start('se14');
-                break;
-            case "sw03":
-                TopDownGame.game.state.start('sw03');
-                break;
-            case "dorm":
-                TopDownGame.game.state.start('dorm');
-                break;
-            case "se6office":
-                TopDownGame.game.state.start('se6office');
-                break;
-            case "NE1":
-                TopDownGame.game.state.start('NE1');
-                break;
-            case "theStand":
-                TopDownGame.game.state.start('theStand');
-                break;    
-            case "overworld":
-                doorDes.theDestination = "overworld";
-                TopDownGame.game.state.start('overworld');
-                break;
-            default:
-                console.log("can't do that");
-                disableControls = false;
-                break;
+        if(currentDoor != undefined){
+            switch(currentDoor.coolProperties.destination){
+                case "se14":
+                    TopDownGame.game.state.start('se14');
+                    break;
+                case "sw03":
+                    TopDownGame.game.state.start('sw03');
+                    break;
+                case "dorm":
+                    TopDownGame.game.state.start('dorm');
+                    break;
+                case "se6office":
+                    TopDownGame.game.state.start('se6office');
+                    break;
+                case "NE1":
+                    TopDownGame.game.state.start('NE1');
+                    break;
+                case "theStand":
+                    TopDownGame.game.state.start('theStand');
+                    break;    
+                case "overworld":
+                    doorDes.theDestination = "overworld";
+                    TopDownGame.game.state.start('overworld');
+                    break;
+                case "tunnel":
+                    TopDownGame.game.state.start('tunnel');
+                    break;
+                default:
+                    console.log("can't do that");
+                    disableControls = false;
+                    break;
+            }
         }
     }
 

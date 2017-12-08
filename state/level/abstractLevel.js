@@ -570,7 +570,7 @@ class abstractLevel extends Phaser.State {
     }
     
     createEnterPress(){
-        if(this.enterKey.isDown){
+        if(this.enterKey.isDown && !isPaused){
             switch(lastWalkingDirection){
                 case "up":
                     for(var i = 0; i < NPCs.length - 1; i++){
@@ -725,18 +725,22 @@ class abstractLevel extends Phaser.State {
             npcName: element.npcName,
             eventNPC: element.eventNPC,
             
-            eventID: element.eventID
+            eventID: element.eventID,
+            
+            staticObject: element.staticObject
         }
+        
+//        console.log("hello made it here", NPCs[i]);
         //making cinematic NPCs unable to move
         if(NPCs[i].hismove.eventID == "dov1" || NPCs[i].hismove.eventID == "james1" || NPCs[i].hismove.eventID == "raymond1"){
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID == "se6note" || NPCs[i].hismove.eventID == "ne1lamp" || NPCs[i].hismove.eventID == "se14comp" || NPCs[i].hismove.eventID == "dormComp" || NPCs[i].hismove.npcName == "jessie" || NPCs[i].hismove.npcName == "microwaveItem" || NPCs[i].hismove.npcName == "jakub" || NPCs[i].hismove.npcName == "henryLaptop" || NPCs[i].hismove.npcName == "KETLLE" || NPCs[i].hismove.npcName == "bookcaseNPC" || NPCs[i].hismove.npcName == "NACHOS" || NPCs[i].hismove.npcName == "monk1" || NPCs[i].hismove.npcName == "monk2" || NPCs[i].hismove.npcName == "finalBlock" || NPCs[i].hismove.npcName == "fire" || NPCs[i].hismove.npcName == "se6blockNPC"){
+        if(NPCs[i].hismove.eventID == "se6note" || NPCs[i].hismove.eventID == "ne1lamp" || NPCs[i].hismove.eventID == "se14comp" || NPCs[i].hismove.eventID == "dormComp" || NPCs[i].hismove.npcName == "jessie" || NPCs[i].hismove.npcName == "microwaveItem" || NPCs[i].hismove.npcName == "jakub" || NPCs[i].hismove.npcName == "henryLaptop" || NPCs[i].hismove.npcName == "KETLLE" || NPCs[i].hismove.npcName == "bookcaseNPC" || NPCs[i].hismove.npcName == "NACHOS" || NPCs[i].hismove.npcName == "monk1" || NPCs[i].hismove.npcName == "monk2" || NPCs[i].hismove.npcName == "finalBlock" || NPCs[i].hismove.npcName == "fire" || NPCs[i].hismove.npcName == "se6blockNPC" || NPCs[i].hismove.staticObject == "donotmove"){
             NPCs[i].hismove.cantMove = true;
         }
         
-        if(NPCs[i].hismove.eventID != "se6note" && NPCs[i].hismove.eventID != "ne1lamp" && NPCs[i].hismove.eventID != "se14comp" && NPCs[i].hismove.eventID != "dormComp" && NPCs[i].hismove.npcName != "microwaveItem" && NPCs[i].hismove.npcName != "henryLaptop" && NPCs[i].hismove.npcName != "KETLLE" && NPCs[i].hismove.npcName != "bookcaseNPC" && NPCs[i].hismove.npcName != "NACHOS" && NPCs[i].hismove.npcName != "finalBlock" && NPCs[i].hismove.npcName != "fire" && NPCs[i].hismove.npcName != "se6blockNPC"){
+        if(NPCs[i].hismove.eventID != "se6note" && NPCs[i].hismove.eventID != "ne1lamp" && NPCs[i].hismove.eventID != "se14comp" && NPCs[i].hismove.eventID != "dormComp" && NPCs[i].hismove.npcName != "microwaveItem" && NPCs[i].hismove.npcName != "henryLaptop" && NPCs[i].hismove.npcName != "KETLLE" && NPCs[i].hismove.npcName != "bookcaseNPC" && NPCs[i].hismove.npcName != "NACHOS" && NPCs[i].hismove.npcName != "finalBlock" && NPCs[i].hismove.npcName != "fire" && NPCs[i].hismove.npcName != "se6blockNPC" && NPCs[i].hismove.staticObject != "donotmove"){
             NPCs[i].animations.add("left", [6, 8, 7, 8], walkingAnimFPS, true);
             NPCs[i].animations.add("right", [9, 11, 10, 11], walkingAnimFPS, true);
             NPCs[i].animations.add("up", [0, 2, 1, 2], walkingAnimFPS, true);
@@ -762,7 +766,8 @@ class abstractLevel extends Phaser.State {
             }
         }
         
-        if(eventNumber < 5 || eventNumber >= 25){
+        if((eventNumber < 5) || (eventNumber >= 25)){
+            console.log(NPCs[i].hismove);
             if(NPCs[i].hismove.npcName == "ramin"){
                 NPCs[i].x = -100000;
                 NPCs[i].y = -100000;

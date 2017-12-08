@@ -122,8 +122,19 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("jessie_spritesheet", "/assets/characters/spritesheet/Jessie/Jessie.png", 128, 128);
         this.load.spritesheet("monk_spritesheet", "/assets/characters/spritesheet/npc/npc.png", 128, 128);
         this.load.spritesheet("ramin_spritesheet", "/assets/characters/spritesheet/ramin/ramin-sprite.png", 128, 128);
+        
         this.load.spritesheet("genericman_spritesheet", "/assets/characters/spritesheet/generic-man/genericman-sprite.png", 128, 128);
         this.load.spritesheet("genericwoman_spritesheet", "/assets/characters/spritesheet/generic-woman/genericwoman-sprite.png", 128, 128);
+        
+        this.load.spritesheet("genericman_spritesheet2", "/assets/characters/spritesheet/generic-man/modifications/genericman-sprite2.png", 128, 128);
+        this.load.spritesheet("genericman_spritesheet3", "/assets/characters/spritesheet/generic-man/modifications/genericman-sprite3.png", 128, 128);
+        this.load.spritesheet("genericman_spritesheet4", "/assets/characters/spritesheet/generic-man/modifications/genericman-sprite4.png", 128, 128);
+        this.load.spritesheet("genericman_spritesheet5", "/assets/characters/spritesheet/generic-man/modifications/genericman-sprite5.png", 128, 128);
+        
+        this.load.spritesheet("genericwoman_spritesheet2", "/assets/characters/spritesheet/generic-woman/modifications/genericwoman-sprite2.png", 128, 128);
+        this.load.spritesheet("genericwoman_spritesheet3", "/assets/characters/spritesheet/generic-woman/modifications/genericwoman-sprite3.png", 128, 128);
+        this.load.spritesheet("genericwoman_spritesheet4", "/assets/characters/spritesheet/generic-woman/modifications/genericwoman-sprite4.png", 128, 128);
+        this.load.spritesheet("genericwoman_spritesheet5", "/assets/characters/spritesheet/generic-woman/modifications/genericwoman-sprite5.png", 128, 128);
         
         //FIRE ANIMATION
         this.load.spritesheet("fire_spritesheet", "/assets/images/fireSpriteSheet/fireSpriteSheet.png", 128, 128);
@@ -134,6 +145,10 @@ TopDownGame.Preload.prototype = {
         
         //PIN ANIMATION
         this.load.spritesheet("pin-animation", "/assets/ui/pin-animation/pin-animation.png", 128, 128);
+        this.load.spritesheet("pin-animation-green", "/assets/ui/pin-animation/pin-animation-green.png", 128, 128);
+        this.load.spritesheet("pin-animation-purple", "/assets/ui/pin-animation/pin-animation-purple.png", 128, 128);
+        this.load.spritesheet("pin-animation-yellow", "/assets/ui/pin-animation/pin-animation-yellow.png", 128, 128);
+        this.load.spritesheet("pin-animation-brown", "/assets/ui/pin-animation/pin-animation-brown.png", 128, 128);
         
         
     //chat heads
