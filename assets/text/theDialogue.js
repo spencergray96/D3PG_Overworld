@@ -4944,6 +4944,292 @@ var theDialogue = {
             }
         },
         
+        lightswitch:{
+            profile:
+                "raymondCH",            
+            txt:{
+                0:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                1:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                2:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                3:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                4:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                5:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                6:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                7:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                8:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                9:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                10:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                11:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                12:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                13:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                14:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                15:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                16:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                17:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+                18:"Raymond: It would be funny to turn the lights off...;;But we probably shouldn't.",
+            }
+        },
+        
+        payphone:{
+            profile:
+                "spencerCH",            
+            txt:{
+                0:"Spencer: Why is there a pay phone on this table?",
+                1:"Spencer: Why is there a pay phone on this table?",
+                2:"Spencer: Why is there a pay phone on this table?",
+                3:"Spencer: Why is there a pay phone on this table?",
+                4:"Spencer: Why is there a pay phone on this table?",
+                5:"Spencer: Why is there a pay phone on this table?",
+                6:"Spencer: Why is there a pay phone on this table?",
+                7:"Spencer: Why is there a pay phone on this table?",
+                8:"Spencer: Why is there a pay phone on this table?",
+                9:"Spencer: Why is there a pay phone on this table?",
+                10:"Spencer: Why is there a pay phone on this table?",
+                11:"Spencer: Why is there a pay phone on this table?",
+                12:"Spencer: Why is there a pay phone on this table?",
+                13:"Spencer: Why is there a pay phone on this table?",
+                14:"Spencer: Why is there a pay phone on this table?",
+                15:"Spencer: Why is there a pay phone on this table?",
+                16:"Spencer: Why is there a pay phone on this table?",
+                17:"Spencer: Why is there a pay phone on this table?",
+                18:"Spencer: Why is there a pay phone on this table?",
+            }
+        },
+        
+        sw3couch:{
+            profile:
+                "jamesCH",            
+            txt:{
+                0:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                1:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                2:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                3:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                4:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                5:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                6:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                7:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                8:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                9:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                10:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                11:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                12:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                13:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                14:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                15:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                16:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                17:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+                18:"James: I really want to sit down...;;But it's like... there's a force-field protuding from it...;;I can't even get close...",
+            }
+        },
+        
+        sw3locker:{
+            profile:
+                "dovCH",            
+            txt:{
+                0:"Dov: Looks like a locker to me.",
+                1:"Dov: Looks like a locker to me.",
+                2:"Dov: Looks like a locker to me.",
+                3:"Dov: Looks like a locker to me.",
+                4:"Dov: Looks like a locker to me.",
+                5:"Dov: Looks like a locker to me.",
+                6:"Dov: Looks like a locker to me.",
+                7:"Dov: Looks like a locker to me.",
+                8:"Dov: Looks like a locker to me.",
+                9:"Dov: Looks like a locker to me.",
+                10:"Dov: Looks like a locker to me.",
+                11:"Dov: Looks like a locker to me.",
+                12:"Dov: Looks like a locker to me.",
+                13:"Dov: Looks like a locker to me.",
+                14:"Dov: Looks like a locker to me.",
+                15:"Dov: Looks like a locker to me.",
+                16:"Dov: Looks like a locker to me.",
+                17:"Dov: Looks like a locker to me.",
+                18:"Dov: Looks like a locker to me.",
+            }
+        },
+        
+        sw3lockeddoor:{
+            profile:
+                "jamesCH",            
+            txt:{
+                0:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                1:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                2:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                3:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                4:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                5:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                6:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                7:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                8:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                9:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                10:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                11:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                12:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                13:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                14:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                15:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                16:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                17:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+                18:"James: I wonder why this door is locked?;;Maybe we'll find out in the sequel...",
+            }
+        },
+        
+        outlet:{
+            profile:
+                "raymondCH",            
+            txt:{
+                0:"Raymond: If this is the outlet, where is the inlet?",
+                1:"Raymond: If this is the outlet, where is the inlet?",
+                2:"Raymond: If this is the outlet, where is the inlet?",
+                3:"Raymond: If this is the outlet, where is the inlet?",
+                4:"Raymond: If this is the outlet, where is the inlet?",
+                5:"Raymond: If this is the outlet, where is the inlet?",
+                6:"Raymond: If this is the outlet, where is the inlet?",
+                7:"Raymond: If this is the outlet, where is the inlet?",
+                8:"Raymond: If this is the outlet, where is the inlet?",
+                9:"Raymond: If this is the outlet, where is the inlet?",
+                10:"Raymond: If this is the outlet, where is the inlet?",
+                11:"Raymond: If this is the outlet, where is the inlet?",
+                12:"Raymond: If this is the outlet, where is the inlet?",
+                13:"Raymond: If this is the outlet, where is the inlet?",
+                14:"Raymond: If this is the outlet, where is the inlet?",
+                15:"Raymond: If this is the outlet, where is the inlet?",
+                16:"Raymond: If this is the outlet, where is the inlet?",
+                17:"Raymond: If this is the outlet, where is the inlet?",
+                18:"Raymond: If this is the outlet, where is the inlet?",
+            }
+        },
+        
+        d3pgComputer:{
+            profile:
+                "spencerCH",            
+            txt:{
+                0:"Spencer: Looks like someone was playing a game called D3PG...",
+                1:"Spencer: Looks like someone was playing a game called D3PG...",
+                2:"Spencer: Looks like someone was playing a game called D3PG...",
+                3:"Spencer: Looks like someone was playing a game called D3PG...",
+                4:"Spencer: Looks like someone was playing a game called D3PG...",
+                5:"Spencer: Looks like someone was playing a game called D3PG...",
+                6:"Spencer: Looks like someone was playing a game called D3PG...",
+                7:"Spencer: Looks like someone was playing a game called D3PG...",
+                8:"Spencer: Looks like someone was playing a game called D3PG...",
+                9:"Spencer: Looks like someone was playing a game called D3PG...",
+                10:"Spencer: Looks like someone was playing a game called D3PG...",
+                11:"Spencer: Looks like someone was playing a game called D3PG...",
+                12:"Spencer: Looks like someone was playing a game called D3PG...",
+                13:"Spencer: Looks like someone was playing a game called D3PG...",
+                14:"Spencer: Looks like someone was playing a game called D3PG...",
+                15:"Spencer: Looks like someone was playing a game called D3PG...",
+                16:"Spencer: Looks like someone was playing a game called D3PG...",
+                17:"Spencer: Looks like someone was playing a game called D3PG...",
+                18:"Spencer: Looks like someone was playing a game called D3PG...",
+            }
+        },
+        
+        se14garbage:{
+            profile:
+                "dovCH",            
+            txt:{
+                0:"Dov: Oh, look!;;It's James!",
+                1:"Dov: Oh, look!;;It's James!",
+                2:"Dov: Oh, look!;;It's James!",
+                3:"Dov: Oh, look!;;It's James!",
+                4:"Dov: Oh, look!;;It's James!",
+                5:"Dov: Oh, look!;;It's James!",
+                6:"Dov: Oh, look!;;It's James!",
+                7:"Dov: Oh, look!;;It's James!",
+                8:"Dov: Oh, look!;;It's James!",
+                9:"Dov: Oh, look!;;It's James!",
+                10:"Dov: Oh, look!;;It's James!",
+                11:"Dov: Oh, look!;;It's James!",
+                12:"Dov: Oh, look!;;It's James!",
+                13:"Dov: Oh, look!;;It's James!",
+                14:"Dov: Oh, look!;;It's James!",
+                15:"Dov: Oh, look!;;It's James!",
+                16:"Dov: Oh, look!;;It's James!",
+                17:"Dov: Oh, look!;;It's James!",
+                18:"Dov: Oh, look!;;It's James!",
+            }
+        },
+        
+        bench:{
+            profile:
+                "dovCH",            
+            txt:{
+                0:"Dov: You guys wanna see my bench press?",
+                1:"Dov: You guys wanna see my bench press?",
+                2:"Dov: You guys wanna see my bench press?",
+                3:"Dov: You guys wanna see my bench press?",
+                4:"Dov: You guys wanna see my bench press?",
+                5:"Dov: You guys wanna see my bench press?",
+                6:"Dov: You guys wanna see my bench press?",
+                7:"Dov: You guys wanna see my bench press?",
+                8:"Dov: You guys wanna see my bench press?",
+                9:"Dov: You guys wanna see my bench press?",
+                10:"Dov: You guys wanna see my bench press?",
+                11:"Dov: You guys wanna see my bench press?",
+                12:"Dov: You guys wanna see my bench press?",
+                13:"Dov: You guys wanna see my bench press?",
+                14:"Dov: You guys wanna see my bench press?",
+                15:"Dov: You guys wanna see my bench press?",
+                16:"Dov: You guys wanna see my bench press?",
+                17:"Dov: You guys wanna see my bench press?",
+                18:"Dov: You guys wanna see my bench press?",
+            }
+        },
+        
+        se14recycle:{
+            profile:
+                "spencerCH",            
+            txt:{
+                0:"Spencer: So this is where James gets his jokes right?",
+                1:"Spencer: So this is where James gets his jokes right?",
+                2:"Spencer: So this is where James gets his jokes right?",
+                3:"Spencer: So this is where James gets his jokes right?",
+                4:"Spencer: So this is where James gets his jokes right?",
+                5:"Spencer: So this is where James gets his jokes right?",
+                6:"Spencer: So this is where James gets his jokes right?",
+                7:"Spencer: So this is where James gets his jokes right?",
+                8:"Spencer: So this is where James gets his jokes right?",
+                9:"Spencer: So this is where James gets his jokes right?",
+                10:"Spencer: So this is where James gets his jokes right?",
+                11:"Spencer: So this is where James gets his jokes right?",
+                12:"Spencer: So this is where James gets his jokes right?",
+                13:"Spencer: So this is where James gets his jokes right?",
+                14:"Spencer: So this is where James gets his jokes right?",
+                15:"Spencer: So this is where James gets his jokes right?",
+                16:"Spencer: So this is where James gets his jokes right?",
+                17:"Spencer: So this is where James gets his jokes right?",
+                18:"Spencer: So this is where James gets his jokes right?",
+            }
+        },
+        
+        se14books:{
+            profile:
+                "raymondCH",            
+            txt:{
+                0:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                1:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                2:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                3:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                4:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                5:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                6:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                7:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                8:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                9:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                10:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                11:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                12:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                13:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                14:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                15:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                16:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                17:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+                18:"Raymond: There's a book titled 'Dad Jokes for Dummies'",
+            }
+        },
+        
 //GENERIC BOYS
         
         guy4:{

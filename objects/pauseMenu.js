@@ -413,9 +413,9 @@ class pauseMenu extends abstractObject {
                 this.pauseMap.destroy();
                 if(this.game.state.current == "overworld"){
                     this.pinMarker.destroy();
-                    for(var i = 0; i < this.staticMarkers.length; i++){
-                        this.staticMarkers[i].destroy();
-                    }
+                }
+                for(var i = 0; i < this.staticMarkers.length; i++){
+                    this.staticMarkers[i].destroy();
                 }
             }
             
