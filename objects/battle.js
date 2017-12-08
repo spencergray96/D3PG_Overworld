@@ -40,19 +40,7 @@ class battle extends abstractObject {
             
             characterX1Pos: 490,
             characterX2Pos: 430            
-        }
-        
-        this.textPos = {
-            text1YPos: 135,
-            text2YPos: 285,
-            text3YPos: 300,
-            text4YPos: 425,
-            
-            textX1Pos: 250,
-            textX2Pos: 400,
-            textX3Pos: 490            
-        }
-        
+        }        
         
         this.damageOffset = 235;
         this.enemyDamageOffset = 175;
@@ -89,6 +77,8 @@ class battle extends abstractObject {
         this.displayArr = [];
         
         this.charArr = [];
+        
+        this.levelArr = [];
         
         this.style = {
             font: "12pt Final-Fantasy-36-Font",
@@ -139,7 +129,15 @@ class battle extends abstractObject {
             boundsAlignH: "left", 
             boundsAlignV: "top", 
             wordWrap: true, wordWrapWidth: 600
-        };        
+        };
+        this.style7 = {
+            font: "12pt Final-Fantasy-36-Font",
+            fill: "#0f0", 
+            align: "left",
+            boundsAlignH: "left", 
+            boundsAlignV: "top", 
+            wordWrap: true, wordWrapWidth: 600
+        }; 
         
         //Testing button
         this.tildeBut = this.game.input.keyboard.addKey(Phaser.Keyboard.TILDE);
@@ -193,10 +191,17 @@ class battle extends abstractObject {
             characterX2Pos: 430            
         }        
         
-        this.levelUpScreen();
-
-        this.textWriting(0);
-
+        this.textPos = {
+            text1YPos: 135,
+            text2YPos: 295,
+            text3YPos: 450,
+            text4YPos: 615,
+            
+            textX1Pos: 270,
+            textX2Pos: 400,
+            textX3Pos: 490,
+            textX4Pos: 640
+        }        
     }
 
     updateThis(game, player) {
@@ -205,15 +210,57 @@ class battle extends abstractObject {
         this.setupBattle();
     }
     
-    textWriting(num){
-        this.imageThing = this.game.add.text(Object.values(this.textPos)[4], Object.values(this.textPos)[num], "Level: \nEvasion: \nDefence: ", this.style6);
+    textWriting(num, theStyle){
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[4], Object.values(this.textPos)[num], "LEVEL: \nMAX HP: \nMAX EN: ", theStyle);
         this.imageThing.lineSpacing = 15;
         this.imageThing.fixedToCamera = true;
-        
-        this.imageThing = this.game.add.text(Object.values(this.textPos)[5], Object.values(this.textPos)[num], "1\n2\n3", this.style6);
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[5], Object.values(this.textPos)[num], Object.values(playerStats)[num].level + "\n" + Object.values(playerStats)[num].maxHP + "\n" + Object.values(playerStats)[num].maxEN, theStyle);
         this.imageThing.lineSpacing = 15;
-        this.imageThing.fixedToCamera = true;        
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[6], Object.values(this.textPos)[num], "ATTACK: \nDEFENCE: \nEVASION: ", theStyle);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[7], Object.values(this.textPos)[num], Object.values(playerStats)[num].attack + "\n" + Object.values(playerStats)[num].defence + "\n" + parseInt(Object.values(playerStats)[num].evasion) + "%", theStyle);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
     }
+
+    textWriting2(num, theStyle){        
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[4], Object.values(this.textPos)[num], "LEVEL: \nMAX HP: \nMAX EN: ", this.style6);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[5], Object.values(this.textPos)[num], Object.values(playerStats)[num].level + "\n" + Object.values(playerStats)[num].maxHP + "\n" + Object.values(playerStats)[num].maxEN, theStyle);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[6], Object.values(this.textPos)[num], "ATTACK: \nDEFENCE: \nEVASION: ", this.style6);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+
+        this.imageThing = this.game.add.text(Object.values(this.textPos)[7], Object.values(this.textPos)[num], Object.values(playerStats)[num].attack + "\n" + Object.values(playerStats)[num].defence + "\n" + parseInt(Object.values(playerStats)[num].evasion) + "%", theStyle);
+        this.imageThing.lineSpacing = 15;
+        this.imageThing.fixedToCamera = true;
+
+        this.levelArr.push(this.imageThing);
+    }    
     
     battleProfile(num, width, height, posX, posY, xOffset){
         this.profile = this.game.add.image(posX, posY + xOffset, playerStats[num].ch);
@@ -223,55 +270,99 @@ class battle extends abstractObject {
     }    
     
     levelUpScreen(){
-        this.levelWidth = this.game.width - this.game.width/7;
-        this.levelBoxHeight1 = this.game.height/16;
-        this.levelBoxHeight2 = this.levelBoxHeight1*3.3;
-        
-        this.levelUpWindow = this.game.add.image(this.levelUpX1, this.levelUpY1, "mainBox", this.style);
-        this.levelUpWindow.width = this.game.width - this.game.width/8;
-        this.levelUpWindow.height = this.game.height - this.game.height/8;
-        this.levelUpWindow.fixedToCamera = true;
-        
-        this.upperBox = this.game.add.image(this.levelUpX2, this.levelUpY1 + 8, "longBox", this.style);
-        this.upperBox.width = this.levelWidth;
-        this.upperBox.height = this.levelBoxHeight1;
-        this.upperBox.fixedToCamera = true;   
-        
-        this.levelUpText = this.game.add.text(this.levelUpX1 + 25, this.levelUpY1  + 25, "Everyone Leveled up! Congrats!", this.style);
-        this.levelUpText.fixedToCamera = true;        
-        
-        this.statsBox1 = this.game.add.image(this.levelUpX2, this.levelUpY2, "longBox", this.style);
-        this.statsBox1.width = this.levelWidth;
-        this.statsBox1.height = this.levelBoxHeight2;
-        this.statsBox1.fixedToCamera = true;
-        
-        this.statsBox2 = this.game.add.image(this.levelUpX2, this.levelUpY3, "longBox", this.style);
-        this.statsBox2.width = this.levelWidth;
-        this.statsBox2.height = this.levelBoxHeight2;
-        this.statsBox2.fixedToCamera = true;
+        this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, ()=>{
+            this.levelWidth = this.game.width - this.game.width/7;
+            this.levelBoxHeight1 = this.game.height/16;
+            this.levelBoxHeight2 = this.levelBoxHeight1*3.3;
 
-        this.battleProfile(0, 100, 100, this.levelUpX3, this.levelUpY2, 25);   
-        
-        this.statsBox3 = this.game.add.image(this.levelUpX2, this.levelUpY4, "longBox", this.style);
-        this.statsBox3.width = this.levelWidth;
-        this.statsBox3.height = this.levelBoxHeight2;
-        this.statsBox3.fixedToCamera = true;
-        
-        this.battleProfile(1, 100, 100, this.levelUpX3, this.levelUpY3, 25);           
-        
-        this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
-        this.statsBox4.width = this.levelWidth;
-        this.statsBox4.height = this.levelBoxHeight2;
-        this.statsBox4.fixedToCamera = true;         
+            this.levelUpWindow = this.game.add.image(this.levelUpX1, this.levelUpY1, "mainBox", this.style);
+            this.levelUpWindow.width = this.game.width - this.game.width/8;
+            this.levelUpWindow.height = this.game.height - this.game.height/8;
+            this.levelUpWindow.fixedToCamera = true;
 
-        this.battleProfile(2, 100, 100, this.levelUpX3, this.levelUpY4, 25);   
+            this.upperBox = this.game.add.image(this.levelUpX2, this.levelUpY1 + 8, "longBox", this.style);
+            this.upperBox.width = this.levelWidth;
+            this.upperBox.height = this.levelBoxHeight1;
+            this.upperBox.fixedToCamera = true;   
+
+            this.levelUpText = this.game.add.text(this.levelUpX1 + 25, this.levelUpY1  + 25, "Everyone Leveled up! Congrats!", this.style);
+            this.levelUpText.fixedToCamera = true;        
+
+            this.statsBox1 = this.game.add.image(this.levelUpX2, this.levelUpY2, "longBox", this.style);
+            this.statsBox1.width = this.levelWidth;
+            this.statsBox1.height = this.levelBoxHeight2;
+            this.statsBox1.fixedToCamera = true;
+
+            this.statsBox2 = this.game.add.image(this.levelUpX2, this.levelUpY3, "longBox", this.style);
+            this.statsBox2.width = this.levelWidth;
+            this.statsBox2.height = this.levelBoxHeight2;
+            this.statsBox2.fixedToCamera = true;
+
+            this.battleProfile(0, 100, 100, this.levelUpX3, this.levelUpY2, 25);   
+
+            this.statsBox3 = this.game.add.image(this.levelUpX2, this.levelUpY4, "longBox", this.style);
+            this.statsBox3.width = this.levelWidth;
+            this.statsBox3.height = this.levelBoxHeight2;
+            this.statsBox3.fixedToCamera = true;
+
+            this.battleProfile(1, 100, 100, this.levelUpX3, this.levelUpY3, 25);           
+
+            this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
+            this.statsBox4.width = this.levelWidth;
+            this.statsBox4.height = this.levelBoxHeight2;
+            this.statsBox4.fixedToCamera = true;         
+
+            this.battleProfile(2, 100, 100, this.levelUpX3, this.levelUpY4, 25);   
+
+            this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
+            this.statsBox4.width = this.levelWidth;
+            this.statsBox4.height = this.levelBoxHeight2;
+            this.statsBox4.fixedToCamera = true;  
+
+            this.battleProfile(3, 100, 100, this.levelUpX3, this.levelUpY5, 30);            
+        }, this);        
+    }
+    
+    updateLevelInfo(){
         
-        this.statsBox4 = this.game.add.image(this.levelUpX2, this.levelUpY5, "longBox", this.style);
-        this.statsBox4.width = this.levelWidth;
-        this.statsBox4.height = this.levelBoxHeight2;
-        this.statsBox4.fixedToCamera = true;  
-        
-        this.battleProfile(3, 100, 100, this.levelUpX3, this.levelUpY5, 30);
+        if (!this.endBattle){
+            this.endBattle = true;
+            
+            this.textWriting(0, this.style6);
+            this.textWriting(1, this.style6);
+            this.textWriting(2, this.style6);
+            this.textWriting(3, this.style6);           
+           }
+        else{
+            for(var i=0; i < this.levelArr.length; i++){
+                this.levelArr[i].destroy();
+            }
+            this.updateStats();
+            this.levelArr = [];
+            
+            
+            
+            this.textWriting2(0, this.style7);
+            this.textWriting2(1, this.style7);
+            this.textWriting2(2, this.style7);
+            this.textWriting2(3, this.style7);
+            this.endBattle = false;
+            this.endBattle2 = true;
+        }        
+    }
+    
+    updateStats(){
+        for(var i=0; i < playerStats.length; i++){
+            Object.values(playerStats)[i].level += 1;
+            Object.values(playerStats)[i].maxHP += 50;
+            Object.values(playerStats)[i].maxEN += 3;
+            Object.values(playerStats)[i].attack += 25;
+            Object.values(playerStats)[i].defence += 10;
+            this.evasionNum = parseInt(Object.values(playerStats)[i].evasion);
+            this.evasionNum += 1.25;
+            Object.values(playerStats)[i].evasion = JSON.stringify(this.evasionNum)+"%";
+            
+        }
     }
     
     setupBattle(){
@@ -667,7 +758,7 @@ class battle extends abstractObject {
         }
         for(var i=0; i < this.teamStats.length; i++){
             this.teamStats[i].destroy();
-        }        
+        }
         this.displayArr = [];
         this.teamStats = [];
         this.ENStats = [];        
@@ -717,8 +808,14 @@ class battle extends abstractObject {
                         
                         this.noDeath();
                     }
-                    else{
+                    if(!this.waiting && !this.endBattle){
                         this.mainMenuControls();
+                    }
+                    if(this.endBattle){
+                        this.updateLevelInfo();
+                    }
+                    if(this.endBattle2){
+                        this.closeBattle();
                     }
                 }
             }
@@ -727,7 +824,7 @@ class battle extends abstractObject {
                     this.enterIsDown = false;
                 }
             }
-            if ((this.backBut.isDown || this.escBut.isDown) && !this.waiting){
+            if ((this.backBut.isDown || this.escBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.backIsDown){
                     this.backIsDown = true;
                     this.goBack();
@@ -739,7 +836,7 @@ class battle extends abstractObject {
                 }
             }           
             
-            if ((this.cursors.up.isDown || this.wBut.isDown) && !this.waiting){
+            if ((this.cursors.up.isDown || this.wBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.upIsDown){
                     this.upIsDown = true;
                     this.eraseCursor();
@@ -752,7 +849,7 @@ class battle extends abstractObject {
                     this.upIsDown = false;
                 }
             }
-            if ((this.cursors.down.isDown || this.sBut.isDown) && !this.waiting){
+            if ((this.cursors.down.isDown || this.sBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.downIsDown){
                     this.downIsDown = true;
                     this.eraseCursor();
@@ -765,7 +862,7 @@ class battle extends abstractObject {
                     this.downIsDown = false;
                 }
             }
-            if ((this.cursors.left.isDown || this.aBut.isDown) && !this.waiting){
+            if ((this.cursors.left.isDown || this.aBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.leftIsDown){
                     this.leftIsDown = true;
                     this.eraseCursor();
@@ -778,7 +875,7 @@ class battle extends abstractObject {
                     this.leftIsDown = false;
                 }
             }  
-            if ((this.cursors.right.isDown || this.dBut.isDown) && !this.waiting){
+            if ((this.cursors.right.isDown || this.dBut.isDown) && !this.waiting && !this.endBattle){
                 if(!this.rightIsDown){
                     this.rightIsDown = true;
                     this.eraseCursor();
@@ -1203,6 +1300,9 @@ class battle extends abstractObject {
                 console.log("you beat the boss");
                 this.game.time.events.remove(Phaser.Timer.SECOND * this.attackDelay, this.destroyDamageText, this);
                 this.endEvent();
+//                this.levelUpScreen();
+        this.game.time.events.add(Phaser.Timer.SECOND * 2.1, this.updateLevelInfo, this);                
+                
                 
             }
         }
@@ -1212,11 +1312,16 @@ class battle extends abstractObject {
     }
     
     endEvent(){
-        this.game.time.events.add(Phaser.Timer.SECOND * 1, ()=>{
+        this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, ()=>{
+            console.log("go awayawyawyayway ga;yna");
+            this.levelUpScreen();
             this.game.add.tween(this.enemy).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
         }, this);
-        this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, this.closeBattle, this);
     }
+    
+    
+    
+//        this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, this.closeBattle, this);    
     
     closeBattle(){
         bossNum++;
@@ -1308,7 +1413,6 @@ class battle extends abstractObject {
         }
         
     }
-    
     
     nextPlayerCursor(){
         if(battling){

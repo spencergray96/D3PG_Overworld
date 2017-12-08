@@ -60,7 +60,7 @@ var playerStats = [
         skillMult: 1.5,
         skillColor: 0x00ff00,
         
-        level: experiencePoints[0].level,
+        level: 1,
         nextLevel: levels[experiencePoints[0].level].nextXP - experiencePoints[0].xp,
         
         basicWeapon: "TV",
@@ -86,7 +86,7 @@ var playerStats = [
         skillMult: 1.5,
         skillColor: 0xff0000,
         
-        level: experiencePoints[1].level,
+        level: 1,
         nextLevel: levels[experiencePoints[1].level].nextXP - experiencePoints[1].xp,
         
         basicWeapon: "pickle",
@@ -112,7 +112,7 @@ var playerStats = [
         skillMult: 1.5,
         skillColor: 0x0000ff,
         
-        level: experiencePoints[2].level,
+        level: 1,
         nextLevel: levels[experiencePoints[2].level].nextXP - experiencePoints[2].xp,
         
         basicWeapon: "laptop",
@@ -138,7 +138,7 @@ var playerStats = [
         skillMult: 1.5,
         skillColor: 0xffff00,
         
-        level: experiencePoints[3].level,
+        level: 1,
         nextLevel: levels[experiencePoints[3].level].nextXP - experiencePoints[3].xp,
         
         basicWeapon: "chopsticks",
