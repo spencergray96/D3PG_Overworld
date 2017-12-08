@@ -26,9 +26,10 @@ class sw03 extends abstractLevel {
         }};
 
     static updatables() {
-        window.battleClass = new battle();        
+//        window.battleClass = new battle();
         return [
-            window.battleClass,
+//            window.battleClass,
+            new battle(),
             new door(),
             new spawn(),
             new textEvent(),

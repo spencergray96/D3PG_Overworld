@@ -48,6 +48,7 @@ class overworld extends abstractLevel {
         window.battleClass = new battle();
         return [
             window.battleClass,
+            new battle(),
             new door(),
             new spawn(),
             new pauseMenu(),

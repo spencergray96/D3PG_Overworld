@@ -1,4 +1,5 @@
 var battling = false;
+var battleProc = false;
 var bossNum = 0;
 
 class battle extends abstractObject {
@@ -25,6 +26,7 @@ class battle extends abstractObject {
         this.damageY = 100;
         
         this.turnWalking = false;
+        this.waiting = false;
         
         this.attackDelay = 1;
         this.enemyDelay = 1;
@@ -44,8 +46,6 @@ class battle extends abstractObject {
         
         this.damageOffset = 235;
         this.enemyDamageOffset = 175;
-        
-        this.waiting = false;
         
         this.weaponAlignment = 325;
 
@@ -208,6 +208,10 @@ class battle extends abstractObject {
         super.updateThis(game, player);
         this.createControls();
         this.setupBattle();
+        if(battleProc){
+            battleProc = false;
+            this.startBattle();
+        }
     }
     
     textWriting(num, theStyle){
@@ -836,8 +840,7 @@ class battle extends abstractObject {
             if (this.enterBut.isDown){
                 if(!this.enterIsDown){
                     this.enterIsDown = true;
-                    if(this.waiting){
-                        
+                    if(this.waiting){   
                         this.noDeath();
                     }
                     if(!this.waiting && !this.endBattle){
@@ -1086,6 +1089,7 @@ class battle extends abstractObject {
     }
 
     noDeath(){
+        if(Object.values(playerStats)[0].currentEN){}
         if(!this.waiting){
             this.waiting = true;
             this.noDeathBox = this.game.add.image(this.game.width/3, this.game.height/3, "singleBox", this.style);
@@ -1098,7 +1102,8 @@ class battle extends abstractObject {
             this.resetStats();
         }
         
-        else{
+        else if(this.waiting){
+            console.log("are we some how getting to here???");
             this.waiting = false;
             this.noDeathBox.destroy();
             this.noDeathMessage.destroy();
@@ -1107,8 +1112,8 @@ class battle extends abstractObject {
     }
     
     noRun(){
-        if(!this.waiting){
-            this.waiting = true;
+        if(!this.noRunning){
+            this.noRunning = true;
             this.noDeathBox = this.game.add.image(this.game.width/8, this.game.height/3, "singleBox", this.style);
             this.noDeathBox.height = 100;        
             this.noDeathBox.width = 600;
@@ -1117,10 +1122,13 @@ class battle extends abstractObject {
             this.noDeathMessage.setTextBounds(this.game.width/8, this.game.height/3, this.noDeathBox.width, this.noDeathBox.height);
             this.noDeathMessage.fixedToCamera = true;
             this.resetStats();
+            console.log(this.waiting);
         }
         
         else{
-            this.waiting = false;
+            this.noRunning = false;
+            console.log("goodbye");
+            
             this.noDeathBox.destroy();
             this.noDeathMessage.destroy();
             this.resetStats();
@@ -1333,7 +1341,7 @@ class battle extends abstractObject {
                 this.game.time.events.remove(Phaser.Timer.SECOND * this.attackDelay, this.destroyDamageText, this);
                 this.endEvent();
 //                this.levelUpScreen();
-        this.game.time.events.add(Phaser.Timer.SECOND * 2.1, this.updateLevelInfo, this);                
+                this.game.time.events.add(Phaser.Timer.SECOND * 2.1, this.updateLevelInfo, this);                
                 
                 
             }
@@ -1357,15 +1365,16 @@ class battle extends abstractObject {
     
     closeBattle(){
         bossNum++;
-        eventNumber++;
-        this.testing = false;
-        battling = false;
+//        eventNumber++;
+//        eventTextNumber = 0;
         this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, ()=>{
             this.game.camera.fade(0x000000, 1000);
             this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, ()=>{
                 this.clearEverything();                
                 this.game.camera.resetFX();
                 enemyStats[bossNum].currentHP = enemyStats[bossNum].currentHP;
+                this.testing = false;
+                battling = false;
             }, this);
             
         }, this);

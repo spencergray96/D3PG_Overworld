@@ -302,6 +302,21 @@ class abstractLevel extends Phaser.State {
         this.player.mymove.speed = playerSpeed;
         
         this.game.world.bringToTop(this.fadeContainer);
+        
+        //REMOVING RAMIN BECAUSE ACTION IS BROKEN NOW
+        
+        if(eventNumber >= 25 && eventNumber <= 34){
+            for(var i = 0; i < NPCs.length - 1; i++){
+            if(NPCs[i].hismove.npcName == "ramin"){
+                NPCs[i].x = 0;
+                NPCs[i].y = 0;
+                NPCs[i].hismove.x = 0;
+                NPCs[i].hismove.x2 = 0;
+                NPCs[i].hismove.y = 0;
+                NPCs[i].hismove.y2 = 0;
+            }
+        }
+        }
     }
 
     checkForRunning(){
@@ -767,7 +782,6 @@ class abstractLevel extends Phaser.State {
         }
         
         if((eventNumber < 5) || (eventNumber >= 25)){
-            console.log(NPCs[i].hismove);
             if(NPCs[i].hismove.npcName == "ramin"){
                 NPCs[i].x = -100000;
                 NPCs[i].y = -100000;

@@ -1335,101 +1335,115 @@ var theDialogue = {
 		"Spencer: What? No.;;We are The Slugs",
 	event:""
 },
-{
-	profile:
-		"dovCH",
-	txt:
-		"Dov: (And Dov)",
-	event:""
-},
-{
-	profile:
-		"spencerCH",
-	txt:
-		"Spencer: And Dov.",
-	event:""
-},
-{
-	profile:
-		"jamesCH",
-	txt:
-		"James: We were wondering if you could tell Ramin that we passed your course;;with flying colours?",
-	event:""
-},
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: What?;;Colours don't fly!",
-	event:""
-},
+//{
+//	profile:
+//		"dovCH",
+//	txt:
+//		"Dov: (And Dov)",
+//	event:""
+//},
+//{
+//	profile:
+//		"spencerCH",
+//	txt:
+//		"Spencer: And Dov.",
+//	event:""
+//},
+//{
+//	profile:
+//		"jamesCH",
+//	txt:
+//		"James: We were wondering if you could tell Ramin that we passed your course;;with flying colours?",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: What?;;Colours don't fly!",
+//	event:""
+//},
+//{
+//	profile:
+//		"raymondCH",
+//	txt:
+//		"Raymond: ...;;Do you mind if we get your seal of approval?",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Seal? No.;;I can only tell Ramin you did well in my course",
+//	event:""
+//},
+//{
+//	profile:
+//		"dovCH",
+//	txt:
+//		"Dov: ...;;Yeah. That's what we were asking for.",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Why didn't you just say so?",
+//	event:""
+//},
+//{
+//	profile:
+//		"dovCH",
+//	txt:
+//		"Dov: ...;;Really?",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Sure, just help me turn these dumb lights off;;I haven't been able to turn them off all day",
+//	event:""
+//},
+//{
+//	profile:
+//		"raymondCH",
+//	txt:
+//		"Raymond: Why don't you call tech support?",
+//	event:""
+//},
+//{
+//	profile:
+//		"galynaCH",
+//	txt:
+//		"Galyna: Aren't you guys tech support?",
+//	event:""
+//},
 {
 	profile:
 		"raymondCH",
 	txt:
-		"Raymond: ...;;Do you mind if we get your seal of approval?",
-	event:""
+		"Raymond: OK;;FINE;;Are we really doing this?;;Let's fight.;...",
+	event:"action"
 },
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Seal? No.;;I can only tell Ramin you did well in my course",
-	event:""
-},
-{
-	profile:
-		"dovCH",
-	txt:
-		"Dov: ...;;Yeah. That's what we were asking for.",
-	event:""
-},
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Why didn't you just say so?",
-	event:""
-},
-{
-	profile:
-		"dovCH",
-	txt:
-		"Dov: ...;;Really?",
-	event:""
-},
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Sure, just help me turn these dumb lights off;;I haven't been able to turn them off all day",
-	event:""
-},
-{
+            {
 	profile:
 		"raymondCH",
 	txt:
-		"Raymond: Why don't you call tech support?",
-	event:""
-},
-{
-	profile:
-		"galynaCH",
-	txt:
-		"Galyna: Aren't you guys tech support?",
-	event:""
-},
-{
-	profile:
-		"raymondCH",
-	txt:
-		"Raymond: OK;;FINE;;Are we really doing this?;;Let's fight.",
+		"Raymond: ...",
 	event:"end"
 },
 
         ],
 //10 after beating galyna
         galynaConvo2:[
+            {
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Oh you are right! It was EVERYTHING to do with my grammar;;You guys ARE distinct!;;You pass with flying colours!",
+	event:""
+},
             {
 	profile:
 		"galynaCH",
@@ -2099,7 +2113,7 @@ var theDialogue = {
 		"arronCH",
 	txt:
 		"Arron: Hey, welcome back guys. Did you find my LAMP?",
-	event:""
+	event:"action"
 },
 {
 	profile:
@@ -3135,7 +3149,7 @@ var theDialogue = {
                     "spencerCH",
                 txt:
                     "Spencer: yah whatever dood",
-                event:""
+                event:"action"
             },
             {
                 profile:
@@ -3152,7 +3166,21 @@ var theDialogue = {
                     "",
                 txt:
                     "Daemon: i would have gotten away with it too, if it weren't for you damn kids",
-                event:"action"
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "Daemon: i would have gotten away with it too, if it weren't for you damn kids",
+                event:""
+            },
+            {
+                profile:
+                    "",
+                txt:
+                    "elfman: test estsetsetsetset",
+                event:""
             },
             {
                 profile:

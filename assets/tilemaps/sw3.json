@@ -369,8 +369,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":2816,
-                 "y":3840
+                 "x":1152,
+                 "y":4992
                 }, 
                 {
                  "height":128,
@@ -1586,6 +1586,27 @@
                  "width":128,
                  "x":4864,
                  "y":5504
+                }, 
+                {
+                 "height":128,
+                 "id":61,
+                 "name":"",
+                 "properties":
+                    {
+                     "destination":"se14",
+                     "type":"door"
+                    },
+                 "propertytypes":
+                    {
+                     "destination":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":1280,
+                 "y":4992
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1604,7 +1625,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":61,
+ "nextobjectid":62,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

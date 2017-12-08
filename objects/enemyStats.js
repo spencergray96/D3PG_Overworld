@@ -3,7 +3,7 @@ var enemyStats = [
         name: "Galyna",
         baseCharacter: "galynaBattle",
         ch: "galynaCH",
-        currentHP: 10,
+        currentHP: 15,
         maxHP: 150,
         currentEN: 10,
         maxEN: 10,

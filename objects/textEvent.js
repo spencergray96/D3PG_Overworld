@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 32;
+var eventNumber = 0;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -349,6 +349,7 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "arron"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("arron", 15);
+                    chapter = 8;
                     isEventing = true;
                 }
             }
@@ -358,7 +359,6 @@ class textEvent extends abstractObject {
             if(currentNPC.hismove.npcName === "arron"){
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("arron", 16);
-                    chapter = 8;
                     isEventing = true;
                 }
             }
@@ -438,6 +438,7 @@ class textEvent extends abstractObject {
 //event 25
         if(eventNumber == 25 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "daemon"){
+                console.log("recognzie event 25 and daemon@@@@@@@@@@@@@@@@@@@");
                 if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("daemon", 25);
                     isEventing = true;
@@ -637,7 +638,7 @@ class textEvent extends abstractObject {
             
             if (eventTextNumber < Object.values(theDialogue.events)[eventNumber].length - 1){
 //                console.log("made it to the master switch statement - 1");
-                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber]);
+//                    console.log(Object.values(theDialogue.events)[eventNumber][eventTextNumber]);
                 if (Object.values(theDialogue.events)[eventNumber][eventTextNumber].event == "action"){
 
                     // this is where actions for the events will be called //
@@ -717,6 +718,9 @@ class textEvent extends abstractObject {
                         case 22:
                             this.event22switch();
                             break;    
+                        case 24:
+                            this.event24switch();
+                            break;
                         case 25:
                             this.event25switch();
                             break;
@@ -1060,6 +1064,14 @@ class textEvent extends abstractObject {
                 break;
             case 1:
                 this.event22s1();
+                break;
+        }
+    }
+    
+    event24switch(){
+        switch(subEventNumber){
+            case 0:
+                this.event24s0();
                 break;
         }
     }
@@ -1773,12 +1785,16 @@ class textEvent extends abstractObject {
     
 //EVENT 9    
     event9s0(){
-        this.continueThing.destroy();
+//        this.continueThing.destroy();
         console.log("start battle here!");
-        //
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            this.goBackTest();
-        }, this);
+//        this.game.camera.fade();
+        battleProc = true;
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.isText = 2;
+//        }, this);
+        
+        eventNumber++;
+        eventTextNumber = 0;
     }
     
 //EVENT 13    
@@ -1845,12 +1861,17 @@ class textEvent extends abstractObject {
     
 //EVENT 15    
     event15s0(){
-        this.continueThing.destroy();
+//        this.continueThing.destroy();
         console.log("start battle here!");
         //
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            this.goBackTest();
-        }, this);
+        battleProc = true;
+        console.log("IS GALYNAS BATTLE SOMEHOW PROCING THIS EVENT !15?????");
+//        chapter = 8;
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.goBackTest();
+//        }, this);
+        eventNumber++;
+        eventTextNumber = 0;
     }
     
 //EVENT 18    
@@ -1929,6 +1950,13 @@ class textEvent extends abstractObject {
     }
     
     event22s1(){
+    }
+    
+//EVENT 24    
+    event24s0(){
+        battleProc = true;
+        eventNumber++;
+        eventTextNumber = 0;
     }
     
 //EVENT 25    
