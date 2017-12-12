@@ -96,6 +96,8 @@
         <div id="conta">
             <button id="buttonEvent5">EVENT 5</button>
             <br/>
+            <button id="buttonEvent52">EVENT 5-2</button>
+            <br/>
             <button id="buttonEvent9">EVENT 9</button>
             <br/>
             <button id="buttonEvent34">EVENT 34</button>
@@ -119,12 +121,18 @@
         };
 
         var buttonEvent5 = document.getElementById("buttonEvent5");
+        var buttonEvent5point2 = document.getElementById("buttonEvent52");
         var buttonEvent9 = document.getElementById("buttonEvent9");
         var buttonEvent34 = document.getElementById("buttonEvent34");
         var buttonEvent38 = document.getElementById("buttonEvent38");
         
         buttonEvent5.addEventListener("click", function(){
             eventNumber = 5;
+            console.log(eventNumber);
+        });
+        
+        buttonEvent5point2.addEventListener("click", function(){
+            TopDownGame.game.state.start("se14");
             console.log(eventNumber);
         });
                                       

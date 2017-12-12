@@ -3457,21 +3457,21 @@ var theDialogue = {
                 profile:
                     "dovCH",
                 txt:
-                    "Dov: the second cave event",
+                    "Dov: What is that?",
                 event:""
             },
             {
                 profile:
                     "spencerCH",
                 txt:
-                    "Spencer: let's keep going",
+                    "Spencer: Huh?",
                 event:"action"
             },
             {
                 profile:
                     "dovCH",
                 txt:
-                    "Dov: bye bye",
+                    "Dov: Weird",
                 event:"end"
             },
         ],
@@ -3493,7 +3493,7 @@ var theDialogue = {
             },
             {
                 profile:
-                    "",
+                    "monkCH",
                 txt:
                     "Monk of Ramin: Patience, my lord",
                 event:""
@@ -3502,7 +3502,7 @@ var theDialogue = {
                 profile:
                     "dovCH",
                 txt:
-                    "Dov: I always get the bad filler text;;I am sad boy",
+                    "Dov: We better do something...;;I guess",
                 event:"action"
             },
             {
@@ -3516,7 +3516,7 @@ var theDialogue = {
                 profile:
                     "raminCH",
                 txt:
-                    "Ramin: insert hank hill gasping noise here",
+                    "Ramin: WHAT??",
                 event:"action"
             },
             {
@@ -3530,7 +3530,7 @@ var theDialogue = {
                 profile:
                     "jamesCH",
                 txt:
-                    "James: These nerds look pretty strong",
+                    "James: These guys look pretty strong",
                 event:""
             },
             {
@@ -3579,14 +3579,14 @@ var theDialogue = {
                 profile:
                     "raminCH",
                 txt:
-                    "Ramin: Who are you guys? you will pay for this.",
+                    "Ramin: ...;;You will pay for this!",
                 event:"action"
             },
             {
                 profile:
                     "spencerCH",
                 txt:
-                    "Spencer: We will see about;;that.",
+                    "Spencer: We will see about that.",
                 event:"end"
             },
         ],

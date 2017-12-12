@@ -11,6 +11,8 @@ class splash extends Phaser.State {
         this.sprite = this.splashVideo.addToWorld(game.world.centerX, game.world.centerY, 0.5, 0.5, 1, 1);
         this.splashVideo.play(true);
         
+        this.d3pgtitle = this.game.add.image(this.game.width/16, this.game.height/6, "d3pg-title");
+        
         this.pressEnter = this.game.add.sprite(this.game.width/8, (this.game.height - this.game.height/4), "press-enter");
         this.enterToZero();
         

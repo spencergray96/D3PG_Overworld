@@ -202,7 +202,8 @@ TopDownGame.Preload.prototype = {
         //SPLASH VIDEO
         this.load.video("splash", '/assets/ui/map/splashScreen-lowres.mp4');
         this.load.spritesheet("press-enter", '/assets/ui/splash-screen/press-enter-spritesheet.png', 610, 60);
-        this.load.image("full-blank", '/assets/ui/splash-screen/fullBlank.png', 610, 60);
+        this.load.image("full-blank", '/assets/ui/splash-screen/fullBlank.png');
+        this.load.image("d3pg-title", '/assets/ui/splash-screen/d3pg-title.png');
         
     //AUDIO
         //SONGS
