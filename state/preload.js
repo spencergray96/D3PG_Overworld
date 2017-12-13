@@ -250,6 +250,6 @@ TopDownGame.Preload.prototype = {
     },
     
     create: function(){
-        this.state.start("se14");
+        this.state.start("sw03");
     }
 };
