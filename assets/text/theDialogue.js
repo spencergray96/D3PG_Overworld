@@ -3845,7 +3845,7 @@ var theDialogue = {
 	profile:
 		"jamesCH",
 	txt:
-		"James: What do you mean by ‘CHEESE that isn’t ours’?",
+		"James: Sure, so we should head back to NE1 to find the laptop,;;but what do you mean by ‘CHEESE that isn’t ours’?",
 	event:""
 },
 {
@@ -3866,42 +3866,338 @@ var theDialogue = {
 	profile:
 		"spencerCH",
 	txt:
-		"Spencer: We should go talk to one of the construction workers;;in front of THE STAND.;;I’m pretty sure he’ll take us back to SW3.",
+		"Spencer: We should go talk to one of the construction workers in;;front of THE STAND.;;I’m pretty sure he’ll take us back to SW3.;;We should be able to find the CHEESE there.",
 	event:""
 },
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: I saw JESSIE microwaving something in ROOM 113 when we;;talked to ????? earlier today.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: ???!? ?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: No, ?????.;;Don't ask.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Okay.;;I won't..",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...So the microwave is in THIS building somewhere?;;ROOM 113?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Sure, why not.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: So that leaves the KETTLE in THE STAND, right?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Yeah.;;Make sure when you fight Ramin, you mention to him that;;I STILL haven't been reimbursed for that thing yet",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Can do.;;How do we get to THE STAND again?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: There's probably another construction worker by THE STAND.;;He should be able to take us there",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Isn't that guy how we get to SW3?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: No, there is another one",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Another SW3?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: No...;;Two construction workers.;;We already have James and Ray to drop dad jokes,;;If you join in, I'M TURNING THIS GAME OFF!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;Ok..",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: You guys really need to do this on your own time.;;Just do my dumb side quest, then I'll tell you where Ramin is.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yeah, let's just do what Henry said and do his dumb sidequest so;;we can continue the game;;LAPTOP in NE1;;CHEESE that's not ours in SW3;;Henry's KETTLE in THE STAND;;and the only working MICROWAVE in ROOM 113 in SE14",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Sounds right to me.;;Come talk to me if you forget and I'll tell you again.",
+	event:"end"
+},
+
 
         ],
 //gathering stuff for henry
         //talk to jessie
         jessieMicrowave:[
             {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: can we take this microwave",
-                event:""
-            },
-            {
-                profile:
-                    "",
-                txt:
-                    "Jessie: no no no no no no no no no",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: pleeease",
-                event:"action"
-            },
-            {
-                profile:
-                    "",
-                txt:
-                    "Jessie: ok here you go lol make this dialogue longer please",
-                event:"end"
-            },
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Hey JESSIE, can we have this MICROWAVE? ",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: No.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Why?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: I'm using it.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: We need it though",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: I'm still not done with it, so no.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: So... can we have it when you're done with it?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: Why?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: So we can finish an errand for Henry.",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: Hmm...;;AUGUST made this, you'll have to ask him.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: What do you mean AUGUST made it?;;You're using it.;;AUGUST studied in Digital Design and Development with us;;I KNOW he can't build a MICROWAVE;;Can't we just take it AFTER you're done with it?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: Maybe.;;After I'm done with it.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Fine.;;Good enough.;;How much longer?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: Just a little bit more;;...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: ...Almost",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...How long now?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: ...Pretty soon",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: ...;;Okay! Done!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Can we have the MICROWAVE now?",
+	event:""
+},
+{
+	profile:
+		"jessieCH",
+	txt:
+		"Jessie: Okay.",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yup;;Now we have the only working MICROWAVE on campus.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Sucks to be the next person who needs to use the MICROWAVE",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Don’t YOU always need to use the MICROWAVE, Dov?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Right.;;Sucks to be me;;Let’s stop wasting time and get on with this quest.",
+	event:"end"
+},
+
         ],
         //talk to jakub
         jakubNachos:[
@@ -4520,8 +4816,8 @@ var theDialogue = {
                 12:"Henry: Hopefully my running shoes prove useful to you guys on your quest",
                 13:"Henry: Hopefully my running shoes prove useful to you guys on your quest",
                 14:"Henry: Hopefully my running shoes prove useful to you guys on your quest",
-                15:"Henry: If you want to get those letters from Ramin, then you still need to;;bring me 4 things.;;My laptop, which I left in building NE1, room 346,;;I'll also need the only working microwave on campus.;;Next is the kettle that somone stole. You should check The Stand.;;Finally, you must bring me some cheese that isn't yours.",
-                16:"Henry: If you want to get those letters from Ramin, then you still need to;;bring me 4 things.;;My laptop, which I left in building NE1, room 346,;;I'll also need the only working microwave on campus.;;Next is the kettle that somone stole. You should check The Stand.;;Finally, you must bring me some cheese that isn't yours.",
+                15:"Henry: If you want to get those letters from Ramin, then you still need to;;bring me 4 things.;;My LAPTOP, which I left in building NE1, ROOM 346,;;I'll also need the only working MICROWAVE on campus, from SE14.;;Next is the KETTLE that AUGUST took. You should check THE STAND.;;Finally, you must bring me some CHEESE that isn't yours from SW3.",
+                16:"Henry: If you want to get those letters from Ramin, then you still need to;;bring me 4 things.;;My LAPTOP, which I left in building NE1, ROOM 346,;;I'll also need the only working MICROWAVE on campus, from SE14.;;Next is the KETTLE that AUGUST took. You should check THE STAND.;;Finally, you must bring me some CHEESE that isn't yours from SW3.",
                 17:"Henry: Check the bookcase in the corner by Ramin's desk.;;You should find the entrance to the tunnel there.",
                 18:"Henry: What are you guys waiting for? Do what you came here to do!!",
             }
