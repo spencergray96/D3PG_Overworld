@@ -250,6 +250,6 @@ TopDownGame.Preload.prototype = {
     },
     
     create: function(){
-        this.state.start("splash");
+        this.state.start("se14");
     }
 };

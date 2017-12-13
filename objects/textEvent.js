@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 0;
+var eventNumber = 26;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -1962,7 +1962,14 @@ class textEvent extends abstractObject {
     
 //EVENT 24    
     event24s0(){
+        //        this.continueThing.destroy();
+        console.log("start battle here!");
+//        this.game.camera.fade();
         battleProc = true;
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.isText = 2;
+//        }, this);
+        
         eventNumber++;
         eventTextNumber = 0;
     }
