@@ -3,6 +3,7 @@ var chapter = 0;
 var eventTrigger = false;
 
 var eventNumber = 32;
+
 var subEventNumber = 0;
 var eventTextNumber = 0;
 

@@ -21,6 +21,8 @@ class battle extends abstractObject {
         this.itemMenu = false;
         this.run = false;
         
+        this.triggered = false;
+        
         this.damageAmount = "raymondCH";
         this.damageX = 100;
         this.damageY = 100;
@@ -839,12 +841,16 @@ class battle extends abstractObject {
         this.levelArr = [];
         this.teamStats = [];
         this.ENStats = [];        
-        this.testing = false;
-        this.setup = false;
         this.activeCharVar = 0;
         this.eraseCursor();       
         battling = false;
-        disableControls = false;        
+        this.setup = false;
+        this.testing = false;
+        this.game.time.events.add(Phaser.Timer.SECOND * this.closWindowDelay, ()=>{
+            disableControls = false;
+            this.triggered = false;
+            this.endBattle2 = false;            
+        }, this);       
     }  
     
     eraseCursor(){
@@ -892,7 +898,9 @@ class battle extends abstractObject {
                     this.enterIsDown = true;
                     
                     this.sfx = this.game.add.audio('UISelect2');
-                    this.sfx.play();
+                    if(!this.triggered){
+                        this.sfx.play();
+                    }
                     
                     if(this.waiting){   
                         this.noDeath();
@@ -901,9 +909,12 @@ class battle extends abstractObject {
                         this.mainMenuControls();
                     }
                     if(this.endBattle && !this.endBattle2){
+                        console.log("ONCE?");
                         this.updateLevelInfo();
                     }
-                    else if(this.endBattle2){
+                    else if(this.endBattle2 && !this.triggered){
+                        this.triggered = true;
+                        console.log("hello?");
                         this.closeBattle();
                     }
                 }
@@ -1428,7 +1439,6 @@ class battle extends abstractObject {
     
     endEvent(){
         this.game.time.events.add(Phaser.Timer.SECOND * this.attackDelay, ()=>{
-            console.log("go awayawyawyayway ga;yna");
             this.levelUpScreen();
             this.game.add.tween(this.enemy).to( { alpha: 0 }, Phaser.Timer.SECOND * this.attackDelay, "Linear", true);
         }, this);
@@ -1448,8 +1458,7 @@ class battle extends abstractObject {
                 this.clearEverything();                
                 this.game.camera.resetFX();
                 enemyStats[bossNum].currentHP = enemyStats[bossNum].currentHP;
-                this.testing = false;
-                battling = false;
+
                 
                 
             }, this);
@@ -1459,6 +1468,8 @@ class battle extends abstractObject {
 //        music.pause();
 //        music.destroy();
 //        this.selectMusic();
+
+        
     }
     
     destroyDamageText(){
