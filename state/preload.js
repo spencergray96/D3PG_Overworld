@@ -250,6 +250,6 @@ TopDownGame.Preload.prototype = {
     },
     
     create: function(){
-        this.state.start("sw03");
+        this.state.start("overworld");
     }
 };
