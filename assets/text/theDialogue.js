@@ -4202,125 +4202,521 @@ var theDialogue = {
         //talk to jakub
         jakubNachos:[
             {
-                profile:
-                    "",
-                txt:
-                    "Jakub: this is jakub's event",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: let's take em?",
-                event:""
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: I doubt it",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: Interesting",
-                event:"end"
-            },
-        ],
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Hey, can we have these nachos?",
+	event:""
+},
+{
+	profile:
+		"jakubCH",
+	txt:
+		"Jakub: No.;;They’re mine.;;But I need to go to the bathroom, can you keep an eye on them for me?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Uhh...;;Okay, sure.",
+	event:""
+},
+{
+	profile:
+		"jakubCH",
+	txt:
+		"Jakub: Promise not to take them while I’m gone?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Yup. Promise.;;You can definitely trust us",
+	event:""
+},
+{
+	profile:
+		"jakubCH",
+	txt:
+		"Jakub: Alright, cool. Thanks. I’ll be back soon.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Take your time.",
+	event:"action"
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: We're totally taking these, right?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Yep.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Yeah.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: You gotta do what you gotta do.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Sorry, Jakub.",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Let's keep going,;;don't want Jakub knowing that we stole his nachos.;;When worse comes to worst, we'll blame Henry.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Sounds like a plan.",
+	event:"end"
+},
+],
         //finding the laptop
         henryslaptop:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: here it is boys",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: nice",
-                event:"end"
-            },
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Well, this is Henry’s LAPTOP.;;Does he actually lose his LAPTOP that often?",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: How often?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Err...;;*THAT* often.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: In that case, I don’t know.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Well...;;What constitutes as 'often'?",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Please, no.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yeah, not starting one of these conversations right now.;;Let's finish Henry's stupid sidequest.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Yup. This is one of those rare times I agree with Spencer.;;No time for meaningless conversations, let’s get a move on.",
+	event:"end"
+},
+
         ],
         //finding the kettle
         henryskettle:[
             {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: oh baby",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: nice nice nice nice nice nice",
-                event:"end"
-            },
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: I wonder why AUGUST brought Henry's KETTLE here?",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yeah, we could be asking those hard hitting questions,;;or we could be continuing with Henry's SUPERB side quest.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I don't think it's superb,;;It's just dumb.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Man, can we just get this over with?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yeah. Let’s keep going.",
+	event:"end"
+},
+
         ],
 //empty henry event, trust me, leave this here
         ohHenry:[
+            {
+	profile:
+		"",
+	txt:
+		"...",
+	event:""
+},
         ],
-//talk henry post collection
+//32 talk henry post collection
         henryAllItems:[
             {
-                profile:
-                    "",
-                txt:
-                    "Henry: ah i see you have grown in power",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: seems like it haha",
-                event:""
-            },
-            {
-                profile:
-                    "",
-                txt:
-                    "Henry: let us fight now",
-                event:"action"
-            },
-            {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: sure thing neighbourino",
-                event:"end"
-            },
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Hey guys, you find everything I asked for?",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah man, we got the stuff.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: It took a while, but we did.;;Why did you want us to do this again?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: No real reason, I just wanted you to do a bunch of errands for me.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Really? No game references, or stronger weapons?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Why would I do that? You think this is a game or something?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: So why did you make us grab your LAPTOP?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I didn't want to go to do it myself.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: And the CHEESE that's not ours?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Haha,;;NACHO CHEESE,;;Get it?",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What about the KETTLE?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Yeah,;;Can't lose that baby,;;STILL haven't been reimbursed for that thing.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: The MICROWAVE?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I thought it would be funny,;;if the last working MICROWAVE went missing.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;That was it?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Well, you guys grew in character, if that counts.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Dude, not cool.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Here, I'll do you guys a favour,;;I'm going to assess you guys and tell you if you can take on Ramin.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;I guess that's better than nothing.;;...",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:"end"
+},
+
         ],
 //talk henry after fight
         henryIsDefeated:[
             {
-                profile:
-                    "",
-                txt:
-                    "Henry: ahhh you got me",
-                event:""
-            },
-            {
-                profile:
-                    "jamesCH",
-                txt:
-                    "James: yeah we did;;Time to go fight Ramin",
-                event:""
-            },
-            {
-                profile:
-                    "",
-                txt:
-                    "Henry: behind the bookcase in the corner... now fly you fools!",
-                event:"end"
-            },
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Ahh you got me.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Ahh you got me.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Did we pass?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: If only you guys were as good in REACT as you guys are at fighting.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: So...;;That's it?;;You're not going to give us anything or tell us where Ramin is?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I don't need to give you anything.;;You had the skills in you all along.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: You have no idea how lame that was.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Be that as it may, You still have it in you guys to get those letters;;from Ramin;;The only difference now is that the Instructors in;;The Digital Design and Development program;;vouch for you guys.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Wow,;;just because people vouch for us;;we get stronger?;;That can't be right.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Okay,;;fine.;;I'll make your weapons golden or something.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Thanks, I guess.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: You know, Dov.;;I can see you as a CEO of a company one day.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Thanks, Henry.;;Why do you say that?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: No reason.;;I just have a feeling, from what I've seen so far.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Okay...?;; Thanks.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: So...;;Mind telling us where Ramin is now?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Umm...;;Maybe check his BOOKSHELF. He is always standing there.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: The BOOKSHELF?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Yeah,;;the one in the corner of this room.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...Okay?;;We will do that.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Good luck getting those letters from Ramin.",
+	event:"end"
+},
+
         ],
 //inspect bookcase
         bookCaseTely:[
@@ -4951,25 +5347,25 @@ var theDialogue = {
             profile:
                 "jessieCH",
             txt:{
-                0:"Jessie: This is the only working microwave left on campus!!",
-                1:"Jessie: This is the only working microwave left on campus!!",
-                2:"Jessie: This is the only working microwave left on campus!!",
-                3:"Jessie: This is the only working microwave left on campus!!",
-                4:"Jessie: This is the only working microwave left on campus!!",
-                5:"Jessie: This is the only working microwave left on campus!!",
-                6:"Jessie: This is the only working microwave left on campus!!",
-                7:"Jessie: This is the only working microwave left on campus!!",
-                8:"Jessie: This is the only working microwave left on campus!!",
-                9:"Jessie: This is the only working microwave left on campus!!",
-                10:"Jessie: This is the only working microwave left on campus!!",
-                11:"Jessie: This is the only working microwave left on campus!!",
-                12:"Jessie: This is the only working microwave left on campus!!",
-                13:"Jessie: This is the only working microwave left on campus!!",
-                14:"Jessie: This is the only working microwave left on campus!!",
-                15:"Jessie: This is the only working microwave left on campus!!",
-                16:"Jessie: I sort of regret giving you that microwave now...",
-                17:"Jessie: I sort of regret giving you that microwave now...",
-                18:"Jessie: I sort of regret giving you that microwave now...",
+                0:"Jessie: This is the only working MICROWAVE left on campus!!",
+                1:"Jessie: This is the only working MICROWAVE left on campus!!",
+                2:"Jessie: This is the only working MICROWAVE left on campus!!",
+                3:"Jessie: This is the only working MICROWAVE left on campus!!",
+                4:"Jessie: This is the only working MICROWAVE left on campus!!",
+                5:"Jessie: This is the only working MICROWAVE left on campus!!",
+                6:"Jessie: This is the only working MICROWAVE left on campus!!",
+                7:"Jessie: This is the only working MICROWAVE left on campus!!",
+                8:"Jessie: This is the only working MICROWAVE left on campus!!",
+                9:"Jessie: This is the only working MICROWAVE left on campus!!",
+                10:"Jessie: This is the only working MICROWAVE left on campus!!",
+                11:"Jessie: This is the only working MICROWAVE left on campus!!",
+                12:"Jessie: This is the only working MICROWAVE left on campus!!",
+                13:"Jessie: This is the only working MICROWAVE left on campus!!",
+                14:"Jessie: This is the only working MICROWAVE left on campus!!",
+                15:"Jessie: This is the only working MICROWAVE left on campus!!",
+                16:"Jessie: I sort of regret giving you that MICROWAVE now...",
+                17:"Jessie: I sort of regret giving you that MICROWAVE now...",
+                18:"Jessie: I sort of regret giving you that MICROWAVE now...",
             }
         },
         jakub:{

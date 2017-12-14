@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 27;
+var eventNumber = 32;
 var subEventNumber = 0;
 var eventTextNumber = 0;
 
@@ -1114,6 +1114,8 @@ class textEvent extends abstractObject {
             case 0:
                 this.event29s0();
                 break;
+            case 1:
+                this.event29s1();
         }
     }
     
@@ -1462,7 +1464,10 @@ class textEvent extends abstractObject {
                     this.isText = 0;
 
                     eventTextNumber = 0;
-                    Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                
+                    if(!gotLaptop){
+                        Object.values(theDialogue.events)[eventNumber][0].event = "action";
+                    }
                 
                     this.optionBox.destroy();
                     this.text2.destroy();
@@ -2193,6 +2198,13 @@ class textEvent extends abstractObject {
         }, this);
     }
     
+    event29s1(){
+        this.continueThing.destroy();
+        this.game.time.events.add(Phaser.Timer.SECOND * 0.001, function(){
+            this.goBackTest();
+        }, this);
+    }
+    
 //EVENT 30    
     event30s0(){
         this.continueThing.destroy();
@@ -2212,12 +2224,16 @@ class textEvent extends abstractObject {
     
 //EVENT 32    
     event32s0(){
-        this.continueThing.destroy();
-        console.log("battle here!");
+        //        this.continueThing.destroy();
+        console.log("start battle here!");
+//        this.game.camera.fade();
+        battleProc = true;
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.isText = 2;
+//        }, this);
         
-        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
-            this.goBackTest();
-        }, this);
+        eventNumber++;
+        eventTextNumber = 0;
     }
     
 //EVENT 33    

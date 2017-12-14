@@ -369,8 +369,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":2816,
-                 "y":3840
+                 "x":1664,
+                 "y":4736
                 }, 
                 {
                  "height":128,
@@ -1607,6 +1607,87 @@
                  "width":128,
                  "x":1280,
                  "y":4992
+                }, 
+                {
+                 "height":128,
+                 "id":62,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"bench",
+                     "sprite":"dov",
+                     "spritesheet":"",
+                     "staticObject":"donotmove",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "staticObject":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":4096,
+                 "y":3840
+                }, 
+                {
+                 "height":128,
+                 "id":63,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"bench",
+                     "sprite":"dov",
+                     "spritesheet":"",
+                     "staticObject":"donotmove",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "staticObject":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":4096,
+                 "y":3712
+                }, 
+                {
+                 "height":128,
+                 "id":64,
+                 "name":"",
+                 "properties":
+                    {
+                     "npcName":"se14recycle",
+                     "sprite":"dov",
+                     "spritesheet":"",
+                     "staticObject":"donotmove",
+                     "type":"testingObj"
+                    },
+                 "propertytypes":
+                    {
+                     "npcName":"string",
+                     "sprite":"string",
+                     "spritesheet":"string",
+                     "staticObject":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":4096,
+                 "y":3200
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1625,7 +1706,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":62,
+ "nextobjectid":65,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",
