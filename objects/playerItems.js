@@ -59,7 +59,7 @@ var playerItems = [
         name: "2L of Pepsi",
         quantity: 30,
         targets: 1,
-        energy: 100,
+        energy: 10000,
         healing: 100,
         description: "Sugary! Heals all ENERGY and 100 HP for 1 person"
     },

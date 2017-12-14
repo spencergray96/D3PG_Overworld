@@ -710,342 +710,342 @@ var theDialogue = {
         ],
 //5 first Ramin conversation
         ramin01:[
-//            {
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Well well well... If it isn't Dov and the Slugs;;I was sort of hoping I would never see any of you again after you graduated;;What's up?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: Nice to see you as well, Ramin;;We were hoping that you could write us all letters of recommendation",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Ahahahahahaha;;Definitely not.",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: C'mon, give us a break man",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Well Joe;;You slugs have never made anything that impressed me",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: What about the iCrap??",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: It's Crap!",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: What about Vicissitude?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Ok, now you're just making things up",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Proxy???",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: It didn't rock me.",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Damn,;;You're rhyme game is weak, man",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Who is asking for the favour here?;;Keep this up and the person who's writing those letters will not be...;;me",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Alright alright, I get it. Enough with the Proxy rhymes;;Isn't there anything we can do?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: No.",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: Please?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Spencer, because you asked nicely...;;Still no.;;Ask someone else",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: PLEEEAAASSSEEE?;;It's the only way I'll be able to get a job",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Hmm...;;I am not a heartless person;;I'll write those letters for you ONLY if you can prove to me that;;you guys are good at Digital Design and Development",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: And how do we do that?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: I don't know... Make an RPG or something",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: ...;;How long do we have?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Maybe like 20 minutes then I need to leave",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: ...;;Any other way?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: I suppose if you get three D3 instructors to vouch for your skills,;;I will gladly write them",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Well Henry is here already, I'm sure he'll vouch for us",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: (Dude, he said no already!)",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: No! Henry does not count!",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: Wait why don't I count?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Because I said so",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: What? No pun?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: No.;;Is it too late to ask why you are all merged together like that?;;It's gross.",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...;;Yeah.;;Too late to ask;;Anyways, if not Henry, then who should we ask?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Well it's pretty obvious to me;;you guys lack the ability to think critically",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: I don't like where this is going...",
-//	event:""
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: Also, I've never viewed your approaches as particularly ethical",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Here it comes...",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: (That's what she said)",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: Really?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raminCH",
-//	txt:
-//		"Ramin: ...;;I guess what I'm saying is that you should go speak to...;;Galyna.",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...",
-//	event:"" 
-//},
-//            {
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: ...",
-//	event:"" 
-//},
-//            {
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...",
-//	event:"" 
-//},
-//            {
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: ...",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: Great. Where was her office again?",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: I think it was in SE6",
-//	event:""
-//},
+            {
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Well well well... If it isn't Dov and the Slugs;;I was sort of hoping I would never see any of you again after you graduated;;What's up?",
+	event:"" 
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Nice to see you as well, Ramin;;We were hoping that you could write us all letters of recommendation",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Ahahahahahaha;;Definitely not.",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: C'mon, give us a break man",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Well Joe;;You slugs have never made anything that impressed me",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: What about the iCrap??",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: It's Crap!",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: What about Vicissitude?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Ok, now you're just making things up",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Proxy???",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: It didn't rock me.",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Damn,;;You're rhyme game is weak, man",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Who is asking for the favour here?;;Keep this up and the person who's writing those letters will not be...;;me",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Alright alright, I get it. Enough with the Proxy rhymes;;Isn't there anything we can do?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: No.",
+	event:"" 
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Please?",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Spencer, because you asked nicely...;;Still no.;;Ask someone else",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: PLEEEAAASSSEEE?;;It's the only way I'll be able to get a job",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Hmm...;;I am not a heartless person;;I'll write those letters for you ONLY if you can prove to me that;;you guys are good at Digital Design and Development",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: And how do we do that?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I don't know... Make an RPG or something",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:"" 
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;How long do we have?",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Maybe like 20 minutes then I need to leave",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:"" 
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Any other way?",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I suppose if you get three D3 instructors to vouch for your skills,;;I will gladly write them",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Well Henry is here already, I'm sure he'll vouch for us",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: (Dude, he said no already!)",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: No! Henry does not count!",
+	event:"" 
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Wait why don't I count?",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Because I said so",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: What? No pun?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: No.;;Is it too late to ask why you are all merged together like that?;;It's gross.",
+	event:"" 
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;Yeah.;;Too late to ask;;Anyways, if not Henry, then who should we ask?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Well it's pretty obvious to me;;you guys lack the ability to think critically",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: I don't like where this is going...",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Also, I've never viewed your approaches as particularly ethical",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Here it comes...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: (That's what she said)",
+	event:"" 
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Really?",
+	event:"" 
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: ...;;I guess what I'm saying is that you should go speak to...;;Galyna.",
+	event:"" 
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:"" 
+},
+            {
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:"" 
+},
+            {
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:"" 
+},
+            {
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:"" 
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Great. Where was her office again?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I think it was in SE6",
+	event:""
+},
 {
 	profile:
 		"raminCH",
@@ -1071,104 +1071,104 @@ var theDialogue = {
 		"Henry: WAIT!!",
 	event:"action"
 },
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: I almost forgot, you guys should have my shoes!",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: What? Why?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: They're running shoes!;;You can move much faster with them than normal shoes",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: How do we all wear one pair?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: ...;;I'll leave the logistics up to you guys;;I'm sure you'll figure it out",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Regardless, it's still gross",
-//	event:""
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: Well...;;If you really don't want them...",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: No!;;Fine!;;We'll take them.;;I don't want to spend any more time than I need to with these guys",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Rude.",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: But true",
-//	event:""
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: Anyways, hold the CTRL button down to run.;;If you go into a building you'll need to let go before pressing it again",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Man... I feel like I'm in a simulation or something;;Why does everyone keep saying this weird stuff?;;Ramin was the only one who sounded normal",
-//	event:""
-//},
-//{
-//	profile:
-//		"henryCH",
-//	txt:
-//		"Henry: ...;;I don't care;;But good luck getting the letters! I'll be rooting for The Slugs",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: And Dov?",
-//	event:""
-//},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I almost forgot, you guys should have my shoes!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What? Why?",
+	event:"" 
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: They're running shoes!;;You can move much faster with them than normal shoes",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: How do we all wear one pair?",
+	event:"" 
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: ...;;I'll leave the logistics up to you guys;;I'm sure you'll figure it out",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Regardless, it's still gross",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Well...;;If you really don't want them...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: No!;;Fine!;;We'll take them.;;I don't want to spend any more time than I need to with these guys",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Rude.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: But true",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Anyways, hold the SHIFT button down to run.;;If you go into a building you'll need to let go before pressing it again",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Man... I feel like I'm in a simulation or something;;Why does everyone keep saying this weird stuff?;;Ramin was the only one who sounded normal",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: ...;;I don't care;;But good luck getting the letters! I'll be rooting for The Slugs",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: And Dov?",
+	event:""
+},
 {
 	profile:
 		"henryCH",
@@ -1176,27 +1176,27 @@ var theDialogue = {
 		"Henry: And Dov.;;Anyways I've got to get back to work now... See ya",
 	event:"action"
 },
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: That was nice of Henry;;You remember how he helped every single team with their projects?",
-//	event:"" 
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Yeah,;;He's the hero we need,;;Not the one we deserve",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: I'm pretty sure you said that in the wrong order, James",
-//	event:""
-//},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: That was nice of Henry;;You remember how he helped every single team with their projects?",
+	event:"" 
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah,;;He's the hero we need,;;Not the one we deserve",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I'm pretty sure you said that in the wrong order, James",
+	event:""
+},
 {
 	profile:
 		"jamesCH",
@@ -1335,90 +1335,90 @@ var theDialogue = {
 		"Spencer: What? No.;;We are The Slugs",
 	event:""
 },
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: (And Dov)",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: And Dov.",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: We were wondering if you could tell Ramin that we passed your course;;with flying colours?",
-//	event:""
-//},
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: What?;;Colours don't fly!",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...;;Do you mind if we get your seal of approval?",
-//	event:""
-//},
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: Seal? No.;;I can only tell Ramin you did well in my course",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...;;Yeah. That's what we were asking for.",
-//	event:""
-//},
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: Why didn't you just say so?",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...;;Really?",
-//	event:""
-//},
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: Sure, just help me turn these dumb lights off;;I haven't been able to turn them off all day",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: Why don't you call tech support?",
-//	event:""
-//},
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: Aren't you guys tech support?",
-//	event:""
-//},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: (And Dov)",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: And Dov.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: We were wondering if you could tell Ramin that we passed your course;;with flying colours?",
+	event:""
+},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: What?;;Colours don't fly!",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...;;Do you mind if we get your seal of approval?",
+	event:""
+},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Seal? No.;;I can only tell Ramin you did well in my course",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;Yeah. That's what we were asking for.",
+	event:""
+},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Why didn't you just say so?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;Really?",
+	event:""
+},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Sure, just help me turn these dumb lights off;;I haven't been able to turn them off all day",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Why don't you call tech support?",
+	event:""
+},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Aren't you guys tech support?",
+	event:""
+},
 {
 	profile:
 		"raymondCH",
@@ -1458,34 +1458,34 @@ var theDialogue = {
 		"James: Ok... but can you vouch for us?",
 	event:""
 },
-//{
-//	profile:
-//		"galynaCH",
-//	txt:
-//		"Galyna: Sure, I will email Ramin.;;It will be the same as a seal of approval",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: Thanks, Galyna",
-//	event:""
-//},
+{
+	profile:
+		"galynaCH",
+	txt:
+		"Galyna: Sure, I will email Ramin.;;It will be the same as a seal of approval",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Thanks, Galyna",
+	event:""
+},
 {
 	profile:
 		"galynaCH",
@@ -1746,195 +1746,195 @@ var theDialogue = {
         ],
 //12 first talk to aaron
         arronFirstConvo:[
-//            {
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: Hey, what's up guys?",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Hey, long time no talk;;How's D3 treating you?",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: Oh, I took some time off for school stuff and such.;;Hey James, I still remember that joke you told me about the houses",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Yeah,;;It's a good one.",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...;;Huh? Are you going to repeat the joke?",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: Everyone knows explaining jokes kills them",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Yeah Ray,;;Get with the times.",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: ... Moving forward...,;;Hey, do you mind helping us convince Ramin we don't suck at coding?",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: Sure! I'd love to help.;;But you guys have to do something for me first...",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...And what would that be?",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: I need help installing LAMP",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...You mean MAMP?",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: What?;;Why would I need help installing MAMP?",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: Oh.;;I guess you wouldn't.;;This better not be a joke",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: ...;;Have I ever been less than serious?",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: Yeah,;;You DEFINITELY have.",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: No,;;This time I'm serious!",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: Hi Serious, I'm James",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: ...",
-//	event:""
-//},
-//{
-//	profile:
-//		"jamesCH",
-//	txt:
-//		"James: ...;;...;;...Was it THAT bad?",
-//	event:""
-//},
-//{
-//	profile:
-//		"dovCH",
-//	txt:
-//		"Dov: Yes.;;Yes it was.",
-//	event:""
-//},
-//{
-//	profile:
-//		"arronCH",
-//	txt:
-//		"Arron: ...Just bring my LAMP to me.;;I think Hapoo ran off with it. He was heading towards building NE1",
-//	event:""
-//},
-//{
-//	profile:
-//		"raymondCH",
-//	txt:
-//		"Raymond: Ok. That's doable. We'll get your LAMP for you.",
-//	event:""
-//},
-//{
-//	profile:
-//		"spencerCH",
-//	txt:
-//		"Spencer: I think our best bet is to try following the road past SE6, where;;we were earlier",
-//	event:""
-//},
+            {
+	profile:
+		"arronCH",
+	txt:
+		"Arron: Hey, what's up guys?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Hey, long time no talk;;How's D3 treating you?",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: Oh, I took some time off for school stuff and such.;;Hey James, I still remember that joke you told me about the houses",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah,;;It's a good one.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...;;Huh? Are you going to repeat the joke?",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: Everyone knows explaining jokes kills them",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah Ray,;;Get with the times.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ... Moving forward...,;;Hey, do you mind helping us convince Ramin we don't suck at coding?",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: Sure! I'd love to help.;;But you guys have to do something for me first...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...And what would that be?",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: I need help installing LAMP",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...You mean MAMP?",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: What?;;Why would I need help installing MAMP?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Oh.;;I guess you wouldn't.;;This better not be a joke",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: ...;;Have I ever been less than serious?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Yeah,;;You DEFINITELY have.",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: No,;;This time I'm serious!",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Hi Serious, I'm James",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: ...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...;;...;;...Was it THAT bad?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Yes.;;Yes it was.",
+	event:""
+},
+{
+	profile:
+		"arronCH",
+	txt:
+		"Arron: ...Just bring my LAMP to me.;;I think Hapoo ran off with it. He was heading towards building NE1",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Ok. That's doable. We'll get your LAMP for you.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: I think our best bet is to try following the road past SE6, where;;we were earlier",
+	event:""
+},
 {
 	profile:
 		"dovCH",
