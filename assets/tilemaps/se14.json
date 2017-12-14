@@ -149,7 +149,7 @@
                      "eventNPC":"true",
                      "npcName":"guy3",
                      "sprite":"dov",
-                     "spritesheet":"james_spritesheet",
+                     "spritesheet":"genericman_spritesheet",
                      "type":"testingObj"
                     },
                  "propertytypes":

@@ -1,90 +1,90 @@
 var playerItems = [
     energydrink = {
-        name: "Energy Drink",
-        quantity: 1,
+        name: "Monster",
+        quantity: 4,
         targets: 1,
-        energy: 5,
+        energy: 20,
         healing: 0,
-        description: "Energy Drink"
+        description: "Energizing! Restores 20 ENERGY for 1 person"
     },
     hotdog = {
         name: "7-11 Hotdog",
-        quantity: 2,
+        quantity: 5,
         targets: 1,
         energy: 0,
         healing: 20,
-        description: "7-11 Hotdog"
+        description: "2 for $5? Heals 20 HP for 1 person"
     },
     candy = {
         name: "Sour Candy",
-        quantity: 1,
+        quantity: 10,
         targets: 1,
         energy: 3,
         healing: 10,
-        description: "Sour Candy"
+        description: "Heals 3 ENERGY and 10 HP for 1 person"
     },
     kitkat = {
         name: "KitKat Bar",
-        quantity: 1,
+        quantity: 8,
         targets: 1,
         energy: 6,
         healing: 0,
-        description: "KitKat Bar"
+        description: "Give us a break! Heals 6 ENERGY for 1 person"
     },
     instaNoodles = {
         name: "Instant Noodles",
-        quantity: 1,
+        quantity: 3,
         targets: 1,
         energy: 0,
         healing: 25,
-        description: "Instant Noodles"
+        description: "Heals 25 HP for 1 person"
     },
     chips = {
         name: "Doritos",
-        quantity: 1,
-        targets: 1,
-        energy: 0,
-        healing: 30,
-        description: "Doritos"
-    },
-    soup = {
-        name: "Hot Soup",
         quantity: 2,
         targets: 1,
         energy: 0,
+        healing: 30,
+        description: "Despacitos? Heals 30 HP for 1 person"
+    },
+    soup = {
+        name: "Hot Soup",
+        quantity: 100,
+        targets: 1,
+        energy: 0,
         healing: 1,
-        description: "Hot Soup"
+        description: "Hot! Heals 1 HP for 1 person"
     },
     test = {
-        name: "test product 1",
-        quantity: 1,
+        name: "2L of Pepsi",
+        quantity: 30,
         targets: 1,
         energy: 100,
         healing: 100,
-        description: "test product 1"
+        description: "Sugary! Heals all ENERGY and 100 HP for 1 person"
     },
     test = {
-        name: "test product 2",
-        quantity: 1,
+        name: "Cold Pizza Slice",
+        quantity: 8,
         targets: 1,
-        energy: 100,
-        healing: 100,
-        description: "test product 2"
+        energy: 0,
+        healing: 50,
+        description: "Heals 50 HP for 1 person"
     },
     test = {
-        name: "test product 3",
-        quantity: 1,
+        name: "Parmesan Cheese",
+        quantity: 4,
         targets: 1,
-        energy: 100,
-        healing: 100,
-        description: "test product 3"
+        energy: 0,
+        healing: 15,
+        description: "Heals 15 HP for 1 person"
     },
     test = {
-        name: "test product 4",
+        name: "Hearty Breakfast",
         quantity: 1,
         targets: 1,
-        energy: 100,
-        healing: 100,
-        description: "test product 4"
+        energy: 999,
+        healing: 10000,
+        description: "Fully heals 1 person"
     }
 ]

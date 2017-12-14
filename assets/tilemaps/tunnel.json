@@ -75,8 +75,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":9472,
-                 "y":5120
+                 "x":6016,
+                 "y":6784
                 }, 
                 {
                  "height":128,
@@ -252,7 +252,7 @@
                  "visible":true,
                  "width":128,
                  "x":7424,
-                 "y":9600
+                 "y":10112
                 }, 
                 {
                  "height":128,
@@ -2533,6 +2533,94 @@
                  "width":128,
                  "x":5504,
                  "y":6400
+                }, 
+                {
+                 "height":128,
+                 "id":115,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"35",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":7424,
+                 "y":9600
+                }, 
+                {
+                 "height":128,
+                 "id":116,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"35",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":7552,
+                 "y":9600
+                }, 
+                {
+                 "height":128,
+                 "id":117,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"35",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":7296,
+                 "y":9600
+                }, 
+                {
+                 "height":128,
+                 "id":118,
+                 "name":"",
+                 "properties":
+                    {
+                     "eventID":"tunnelCameraFinal",
+                     "eventNPC":"true",
+                     "staticObject":"donotmove",
+                     "type":"walkable"
+                    },
+                 "propertytypes":
+                    {
+                     "eventID":"string",
+                     "eventNPC":"string",
+                     "staticObject":"string",
+                     "type":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":128,
+                 "x":5888,
+                 "y":5504
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2562,7 +2650,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":115,
+ "nextobjectid":119,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.0.3",

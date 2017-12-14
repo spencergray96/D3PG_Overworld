@@ -496,7 +496,7 @@ class battle extends abstractObject {
     }
     
     makeWeapons(){
-        if (eventNumber < 32){
+        if (eventNumber < 35){
             switch(this.activeCharVar){
                 case 0:
                     this.animateWeapons(playerStats[0].basicWeapon, this.characterPos.character1YPos);

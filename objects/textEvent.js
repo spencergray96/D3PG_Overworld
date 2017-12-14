@@ -2,7 +2,7 @@ var texting = false;
 var chapter = 0;
 var eventTrigger = false;
 
-var eventNumber = 32;
+var eventNumber = 11;
 
 var subEventNumber = 0;
 var eventTextNumber = 0;
@@ -764,6 +764,9 @@ class textEvent extends abstractObject {
                         case 40:
                             this.event40switch();
                             break;
+                        case 41:
+                            this.event41switch();
+                            break;
                     }
                     
                     if(currentNPC.hismove.npcName != "conWorker1" && currentNPC.hismove.npcName != "conWorkerNE1" && currentNPC.hismove.npcName != "conWorker2" && currentNPC.hismove.npcName != "conWorkerTheStand" && currentNPC.hismove.npcName != "conWorker3" && currentNPC.hismove.npcName != "conWorkerSW3"){
@@ -1208,6 +1211,16 @@ class textEvent extends abstractObject {
         switch(subEventNumber){
             case 0:
                 this.event40s0();
+                break;
+        }
+    }
+    
+    event41switch(){
+        console.log("made it to the event switch");
+        switch(subEventNumber){
+            case 0:
+                console.log("made it to case 0");
+                this.event41s0();
                 break;
         }
     }
@@ -2296,7 +2309,7 @@ class textEvent extends abstractObject {
         }
         this.game.camera.follow(this.targetNPC1, Phaser.Camera.FOLLOW_LOCKON, 0.015, 0.015);
         
-        music.fadeOut(1500)
+        music.fadeOut(1500);
         
         this.game.time.events.add(Phaser.Timer.SECOND * 1.5, function(){
             music.destroy();
@@ -2511,19 +2524,58 @@ class textEvent extends abstractObject {
     }
         
     event40s0(){
+        //        this.continueThing.destroy();
+        console.log("start battle here!");
+//        this.game.camera.fade();
+        battleProc = true;
+//        this.game.time.events.add(Phaser.Timer.SECOND * 0.01, function(){
+//            this.isText = 2;
+//        }, this);
+        
+        eventNumber++;
+        eventTextNumber = 0;
+        
+        this.game.time.events.add(Phaser.Timer.SECOND * 5, function(){
+            this.targetNPC4.x = 0;
+            this.targetNPC4.y = 0;
+
+            this.targetNPC5.frame = 8;
+        }, this);
+        
+    }
+    
+    event41s0(){
         this.eraseText();
         this.continueThing.destroy();
-        console.log("fight here");
         
-        music.pause();
-        this.game.camera.fade('#000000');
-//        music.pause();
-//        music.destroy();
-//        TopDownGame.game.state.start("splash2");
+        for(var i = 0; i < walkablesArr.length - 1; i++){
+            console.log("every npc");
+            if(walkablesArr[i].coolProperties.eventNPC && walkablesArr[i].coolProperties.eventID == "tunnelCameraFinal"){
+                console.log("found the right one");
+                this.targetNPC6 = walkablesArr[i];
+                console.log(walkablesArr[i]);
+            }
+        }
         
-//        this.game.time.events.add(Phaser.Timer.SECOND * 1, function(){
-//            this.goBackTest();
-//        }, this);
+        this.game.camera.follow(this.targetNPC6, Phaser.Camera.FOLLOW_LOCKON, 0.0015, 0.0015);
+        
+        console.log("here 1");
+        
+        this.fadeContainer2 = this.game.add.image(0, 0, "full-blank");
+        this.fadeContainer2.alpha = 0;
+        this.fadeContainer2.fixedToCamera = true;
+        
+        this.theend = this.game.add.image(0, 0, "theend");
+        this.theend.alpha = 0;
+        this.theend.fixedToCamera = true;
+        
+        this.game.add.tween(this.fadeContainer2).to({alpha: 1}, Phaser.Timer.SECOND * 6, "Linear", true);
+        
+        this.game.add.tween(this.theend).to({alpha: 1}, Phaser.Timer.SECOND * 6, "Linear", true);
+        
+        disableControls = true;
+        
+        music.fadeOut(4500)
     }
         
 }

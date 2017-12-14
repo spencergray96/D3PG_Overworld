@@ -585,7 +585,7 @@ class abstractLevel extends Phaser.State {
     }
     
     createEnterPress(){
-        if(this.enterKey.isDown && !isPaused){
+        if(this.enterKey.isDown && !isPaused && this.w.isUp && this.a.isUp && this.s.isUp && this.d.isUp && this.cursors.up.isUp && this.cursors.left.isUp && this.cursors.down.isUp && this.cursors.right.isUp){
             switch(lastWalkingDirection){
                 case "up":
                     for(var i = 0; i < NPCs.length - 1; i++){

@@ -4567,7 +4567,7 @@ var theDialogue = {
 },
 
         ],
-//talk henry after fight
+//33 talk henry after fight
         henryIsDefeated:[
             {
 	profile:
@@ -4718,267 +4718,961 @@ var theDialogue = {
 },
 
         ],
-//inspect bookcase
+//34 inspect bookcase
         bookCaseTely:[
             {
-                profile:
-                    "",
-                txt:
-                    "What's this?",
-                event:""
-            },
-            {
-                profile:
-                    "jamesCH",
-                txt:
-                    "James: Let's check it out",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: I have a bad feeling about this",
-                event:"end"
-            },
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Huh,;;That’s weird.;;Looks like there’s enough room for us to squeeze behind this bookshelf.;;I don’t remember this being here...",
+	event:"end"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: You don’t remember?;;Does that mean you often looked behind Ramin’s bookshelf?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Well,;;No...;;But...;;Shut up.",
+	event:"end"
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Heh.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Welp, nothing else to say here;;Let's do some spelunking.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Isn't the word spelunking reserved for exploring caves?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Uhh...;;James!;;Look over there!",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Where?!",
+	event:"end"
+},
+
         ],
-//enter cave
+//35 enter cave
         enterCave:[
             {
-                profile:
-                    "jamesCH",
-                txt:
-                    "James: Spooky Boogy...",
-                event:""
-            },
-            {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: You've seen psycho pass?",
-                event:"end"
-            },
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: See? I told you it would be a cave!",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: You know what, Spencer?;;You're not wrong.;;How did you know there would be a cave behind the BOOKSHELF?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...Lucky Guess?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Guys,;;Can we address the fact that there is A CAVE underneath SE14?!;;How are you guys not more surprised about this?!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Let's explore this cave and figure out what's going on;;Ramin must be up to no good",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: So we are just IGNORING the ridiculousness of;;a CAVE underneath BCIT?",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Dov,;;right now,;;I think we are all more concerned with getting recommendation letters.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah, Dov. You have to prioritize.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...;;Okay,;;fine.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Let's go find Ramin.;;I think the pillars should show us the way.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...And how do you know that?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...Another lucky guess?",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Figures...;;Whatever.",
+	event:"end"
+},
+
         ],
-//ruin shoes
+//36 ruin shoes
         ruinTheShoes:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: OW!!",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: Now you've done it, Dov.",
-                event:"end"
-            },
+	profile:
+		"dovCH",
+	txt:
+		"Dov: OW!! !@#$%",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: C'mon, Dov!;;You wrecked Henry's RUNNING SHOES!;;Be more careful with gifts.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah Dov, this is why we can't have nice things.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Look, there was no way of passing these spikes.;;Why am I responsible for this?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Obviously because you were the one controlling our legs.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I hate you guys.;;I can't wait until we un-merge and this vicissitude ends.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...;;I still don’t know what vicissitude means...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Hah!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Welp, I guess we can't run with SHIFT anymore,;;or AT ALL for that matter.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: I guess we have to look for Ramin by FOOT,;;Err..;;Something something runningShoes = false;",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I hate you sooo much right now.",
+	event:"end"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Tell me something I don't already know.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Well,;;For starters,;;this is like the TWENTIETH time tha-",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Wait, I forgot...;;I don’t care about what you have to say.;;Let’s keep looking for Ramin.",
+	event:"end"
+},
+
         ],
-//first cave shake
+//37 first cave shake
         firstCaveShake:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: what is that??",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: ahhhhhhh",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: SpOoKy.",
-                event:"end"
-            },
+	profile:
+		"jamesCH",
+	txt:
+		"James: Do you guys feel that?",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: AHH!",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: James, why is your phone sooo loud?!",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: I SWEAR I have NOTHING to do with these tremors!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Whatever, man,;;suuure you don't;;not a coincidence that this ALWAYS happens when you're with us.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: What do you meeeeeean?!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: What do you mean, 'What do you mean?';;I think it’s pretty clear what I mean.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...;;I wasn't expecting a response to that...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: GUYS!;;I’m pretty sure James has nothing to do with it.;;We should keep moving.;;I feel like we’re getting closer.",
+	event:"end"
+},
+
         ],
-//second cave shake
+//38 second cave shake
         secondCaveShake:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: What is that?",
-                event:""
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: Huh?",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: Weird",
-                event:"end"
-            },
+	profile:
+		"jamesCH",
+	txt:
+		"James: AHH!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Again?",
+	event:"action"
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Okay,;;that time it MIGHT have been m-",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: My bad,;;PROXY was going off.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: How do you even have service down here?!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Oh, right.;;I don't;;Guess it wasn't PROXY.;;Must have been James.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: You should turn your phone to silent, James.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: But I don't have service down here either...",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Let's get to the bottom of this.;;Ramin will probably have answers for us.",
+	event:"end"
+},
+
         ],
-//FIND RAMIN
+//39 FIND RAMIN
         findRamin:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: What in the world-?;;Am I seeing things?",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: How much longer??",
-                event:""
-            },
-            {
-                profile:
-                    "monkCH",
-                txt:
-                    "Monk of Ramin: Patience, my lord",
-                event:""
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: We better do something...;;I guess",
-                event:"action"
-            },
-            {
-                profile:
-                    "raymondCH",
-                txt:
-                    "Raymond: The gig is up, RAMIN",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: WHAT??",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Monks! Get them!",
-                event:"action"
-            },
-            {
-                profile:
-                    "jamesCH",
-                txt:
-                    "James: These guys look pretty strong",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: Never fear!",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: Wow it's Henry, he's here to help us!",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: That's right. Watch this.",
-                event:"action"
-            },
-            {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: That guy got destroyed! Haha!",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Useless Monk! Don't just stand there!!",
-                event:""
-            },
-            {
-                profile:
-                    "henryCH",
-                txt:
-                    "Henry: I'll get this guy! Go take care of Ramin!!",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: ...;;You will pay for this!",
-                event:"action"
-            },
-            {
-                profile:
-                    "spencerCH",
-                txt:
-                    "Spencer: We will see about that.",
-                event:"end"
-            },
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What the f-",
+	event:"action"
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: What's taking so long?!;;If we don't get this done by the time The Slugs get here,;;all will be lost!",
+	event:""
+},
+{
+	profile:
+		"monkCH",
+	txt:
+		"Monk of Ramin: Patience, my lord.;;The ritual is almost complete.;;Just a few moments and the world will be-",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: HOLD IT!",
+	event:"action"
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: WHAT!?",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What are you up to Ramin?!;;I'm assuming no good?!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Ah! The Slugs!",
+	event:"action"
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...and Dov?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Whatever.;;You've got some nerve, getting in my way.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Judging by your response,;;you MUST be up to no good!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: What? No!;;You wouldn’t understand!;;Monks!;;Buy me some time!;;Slugs, this is for your own good!",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Fudge.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Wait,;;Why are we scared?;;We just took on four different instructors getting here,;;this should be easy...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Good point.;;It's still scary though, random people in robes walking towards us...",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Hold it!",
+	event:"action"
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Henry!;;Here to save the day!",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Yeah, watch this!",
+	event:"action"
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Haha, that guy got destroyed!",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Cool!;;Do that again!",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I can only do that once...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Why?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I don’t know...;;But what I do know is that we need to defeat Ramin,;;and put an end to his plans!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Henry?!;;You TOO?;;I can’t believe you would try to get in my way.;;You know how important this is!",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I know,;;but I have my own reasons, too!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Enough fooling around. Monk, get them!",
+	event:"action"
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Useless!",
+	event:""
+},
+{
+    profile:
+        "henryCH",
+    txt:
+        "Henry: I'll get the other Monk! Go take care of Ramin!!",
+    event:"action"
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: You guys wouldn’t dare try to stop me!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: You overestimate our decision making abilities!",
+	event:"action"
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Come at me, then!",
+	event:"end"
+},
+
         ],
-////ABOUT TO FIGHT RAMIN
+//40 ABOUT TO FIGHT RAMIN
         procRamin:[
             {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: It ends here!!",
-                event:"action"
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: You are making a big;;Mistake!!",
-                event:""
-            },
-            {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: Don't do it, guys",
-                event:"end"
-            },
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I'm warning you,;;We don't have to do this.",
+	event:"end"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: We need those recommendation letters,;;this has to happen.;;...",
+	event:"action"
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:"end"
+},
+
         ],
-//POST BEATING RAMIN
+//41 POST BEATING RAMIN
         postRamin:[
             {
-                profile:
-                    "dovCH",
-                txt:
-                    "Dov: easy stuff!!",
-                event:""
-            },
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: You FOOLS!;;HENRY!;;DO YOU KNOW WHAT YOU'VE DONE?!",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: You FOOLS!;;HENRY!;;DO YOU KNOW WHAT YOU'VE DONE?!",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: I don't care,;;this is AWESOME!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: ...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Not only did you get in my way,;;but you've now DOOMED us all!",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What do you mean?;;I am pretty sure YOU were the one that was up to no good...?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: Well,;;if you guys would have listened, instead of just fighting me,;;we wouldn't be in this mess that YOU caused.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Oh.;;What EXACTLY is going on?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: WELL,;;if you haven't noticed, we are living in a simulation!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Ramin, are you feeling okay?;;That sounds like crazy talk to me...",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: LOOK AROUND YOU!!",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: ...",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Everything DOES look more pixelated than normal...",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Now that you mention it...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: I hate it when you guys are right.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: What were you trying to do, Ramin??",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I was trying to rip a hole in this bug I found behind this throne,;;it was our ticket out of here and back to reality;;but now that the developers KNOW about this bug,;;it will be patched and we'll be STUCK here until we find another one!;;That day might never come!;;Basically, by getting in my way, you’ve DOOMED all of us.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Ahahah!;;Thanks, Slugs.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: and Dov.",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: ...;;That bug is being fixed as we speak!;;Now we’ll all be stuck in here forever!!;;There’s no breaking free now.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Henry, you played us harder than Spencer plays RuneScape.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Yeah, he has like 305 million xp or something,;;I'm guessing that's high.",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Yeah,;;it is.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...Can we still get those letters of recommendation?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Well,;;I guess I DO owe you guys something for helping me.",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: What?;;That’s all you guys care about?;;You’re not even the slightest bit upset that we’re stuck now?",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Nah,;;I can use my sick coding skills to give myself unlimited power,;;I can do whatever I want here!;;There are no rules or laws!",
+	event:""
+},
+{
+	profile:
+		"jamesCH",
+	txt:
+		"James: Huh.;;...;;can we go now?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: OKAY.;;FINE, JOE;;Thanks A LOT, SLUGS.",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: (And Dov)",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: AND DOV.;;I never trusted you guys in the first place...;;I knew I should have locked the door to this place.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Can we go now?",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: ...;;Really?;;To where?;;Your pixelated homes?",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: ...;;Man, this ending is worse than the ending of Super Mario Bros 2...",
+	event:""
+},
+{
+	profile:
+		"raminCH",
+	txt:
+		"Ramin: I guess it’s time for Henry and I to rumble...;;If you’re lucky, I’ll save our asses.;;But you guys should probably get out of here...;;It’s gonna get dangerous.;;This will be our last chance to get out of this world...",
+	event:""
+},
+{
+	profile:
+		"dovCH",
+	txt:
+		"Dov: Damn, good luck, Ramin.;;We’ll be waiting for your victory...",
+	event:""
+},
+{
+	profile:
+		"henryCH",
+	txt:
+		"Henry: Ahahaha... As if You’d be able to defeat me.;;But yeah, thanks again, Dov and the Slugs.;;Now get out of here before you get yourselves killed.",
+	event:""
+},
+{
+	profile:
+		"spencerCH",
+	txt:
+		"Spencer: Cool.;;See ya.",
+	event:""
+},
+{
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: Man, writing endings is hard...",
+	event:"action"
+},
             {
-                profile:
-                    "raminCH",
-                txt:
-                    "Ramin: you guys beat me!",
-                event:"end"
-            },
+	profile:
+		"raymondCH",
+	txt:
+		"Raymond: ...",
+	event:"end"
+},
+
         ],
 //leave this empty event here, trust me
         emptyEvent:[

@@ -104,6 +104,8 @@ TopDownGame.Preload.prototype = {
         
         this.load.spritesheet("loading_spritesheet", "/assets/ui/loadingSprite/loadingspritesheet.png", 533, 200);
         
+        this.load.image("theend", "/assets/ui/endcard/theend.png");
+        
         //character spritesheets
         
         //main characters
@@ -250,6 +252,6 @@ TopDownGame.Preload.prototype = {
     },
     
     create: function(){
-        this.state.start("sw03");
+        this.state.start("se14");
     }
 };

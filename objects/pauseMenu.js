@@ -201,8 +201,8 @@ class pauseMenu extends abstractObject {
             fill: "#fff", 
             align: "left", // the alignment of the text is independent of the bounds, try changing to 'center' or 'right'
             boundsAlignH: "left", 
-            boundsAlignV: "top", 
-            wordWrap: true, wordWrapWidth: 2000
+            boundsAlignV: "top",
+            wordWrap: true, wordWrapWidth: 800
         };
         
         isPaused = true;
@@ -1204,6 +1204,7 @@ class pauseMenu extends abstractObject {
 //            this.itemDescBox.height = itemTitleBoxHeight;
             
             this.itemDescription = this.game.add.text(characterHeadx, (headerY + itemDescYindent), itemsArr[cursorPosItems].description, this.styleHeader);
+            this.itemDescription.lineSpacing = 12;
             this.itemDescription.fixedToCamera = true;
         }
         
@@ -1265,6 +1266,7 @@ class pauseMenu extends abstractObject {
     updateItemDesc(){
         this.itemDescription.destroy();
         this.itemDescription = this.game.add.text(characterHeadx, (headerY + itemDescYindent), itemsArr[cursorPosItems].description, this.styleHeader);
+        this.itemDescription.lineSpacing = 12;
         this.itemDescription.fixedToCamera = true;
     }
     

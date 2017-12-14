@@ -920,33 +920,6 @@
                  "width":128,
                  "x":2944,
                  "y":3200
-                }, 
-                {
-                 "height":128,
-                 "id":44,
-                 "name":"",
-                 "properties":
-                    {
-                     "eventNPC":"true",
-                     "npcName":"henryLaptop",
-                     "sprite":"dov",
-                     "spritesheet":"henryLaptop",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "eventNPC":"string",
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":2816,
-                 "y":2688
                 }],
          "opacity":1,
          "type":"objectgroup",
