@@ -1055,7 +1055,7 @@ class battle extends abstractObject {
                     break;
                 case 1:
                     console.log("Items chosen");
-                    alert("import Items lol");
+                    this.noItem();
                     this.eraseCursor();
                     this.makeCursors();                            
                     break;
@@ -1195,7 +1195,7 @@ class battle extends abstractObject {
             this.noDeathBox.height = 100;        
             this.noDeathBox.width = 600;
             this.noDeathBox.fixedToCamera = true;
-            this.noDeathMessage = this.game.add.text(0, 50, "Even Heroes Can't Run From Life", this.style3);
+            this.noDeathMessage = this.game.add.text(0, 40, "Even Heroes Can't Run From Life", this.style3);
             this.noDeathMessage.setTextBounds(this.game.width/8, this.game.height/3, this.noDeathBox.width, this.noDeathBox.height);
             this.noDeathMessage.fixedToCamera = true;
             this.resetStats();
@@ -1211,6 +1211,30 @@ class battle extends abstractObject {
             this.resetStats();
         }        
     }
+
+    noItem(){
+        if(!this.noItems){
+            this.noItems = true;
+            this.noItemBox = this.game.add.image(this.game.width/8, this.game.height/3, "singleBox", this.style);
+            this.noItemBox.height = 100;        
+            this.noItemBox.width = 600;
+            this.noItemBox.fixedToCamera = true;
+            this.noItemMessage = this.game.add.text(0, 40, "Using Items? Download the DLC!", this.style3);
+            this.noItemMessage.setTextBounds(this.game.width/8, this.game.height/3, this.noItemBox.width, this.noItemBox.height);
+            this.noItemMessage.fixedToCamera = true;
+            this.resetStats();
+            console.log(this.waiting);
+        }
+        
+        else{
+            this.noItems = false;
+            console.log("goodbye");
+            
+            this.noItemBox.destroy();
+            this.noItemMessage.destroy();
+            this.resetStats();
+        }        
+    }    
     
     selectDelay(){
         console.log("lol, delay");

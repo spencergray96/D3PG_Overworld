@@ -50,7 +50,7 @@ var playerStats = [
         ch: "spencerCH",
         currentHP: 1,
         maxHP: 100,
-        currentEN: 10,
+        currentEN: 1,
         maxEN: 10,
         attack: 15,
         weapon: "default",

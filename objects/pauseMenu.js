@@ -152,6 +152,10 @@ class pauseMenu extends abstractObject {
         if(!texting && !battling){
             if(this.spaceKey.isDown && (this.backKey.isUp || this.escKey.isUp) && !isPaused && this.player.body.velocity.x == 0 && this.player.body.velocity.y == 0){
                 this.createPauseMenu();
+                
+                this.sfx = this.game.add.audio('UISelect2');
+                this.sfx.play();
+                
             } else if(this.spaceKey.isUp && (this.backKey.isDown || this.escKey.isDown) && isPaused){
                 this.destroyPauseMenu();
             }
@@ -321,6 +325,10 @@ class pauseMenu extends abstractObject {
                 cursorPosMain = 0;
                 
                 this.destroyObjective();
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
+                
             } else if(!disableControls && itemScreenOn && !selectingCharacter && !selectingCharToReOrder && !viewingMap){
                 
                 if(uphandExists){
@@ -357,6 +365,11 @@ class pauseMenu extends abstractObject {
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
                 
+                
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
+                
             } else if(!disableControls && itemScreenOn && selectingCharacter || parm == "goBackToItems" && !selectingCharToReOrder && !viewingMap){
                 backKeyIsPushed = true;
                 selectingCharacter = false;
@@ -366,6 +379,11 @@ class pauseMenu extends abstractObject {
                 visibleItems = [];
                 justUsedItem = true;
                 this.itemsMenu();
+                
+                if(this.backKey.isDown || this.escKey.isDown){
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
+                }
                 
             } else if(selectingCharToReOrder && reOrderPhase == 0 && !viewingMap){
                 backKeyIsPushed = true;
@@ -378,6 +396,9 @@ class pauseMenu extends abstractObject {
                 this.hand.width = mainMenuHandWidth;
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
             
             } else if(selectingCharToReOrder && reOrderPhase == 1 && !viewingMap){
                 backKeyIsPushed = true;
@@ -385,6 +406,9 @@ class pauseMenu extends abstractObject {
                 reOrderPhase = 0;
                 
                 this.selectedCharHand.destroy();
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
                 
             } else if(selectingCharToViewStatus && !viewingStatus && !viewingMap){
                 backKeyIsPushed = true;
@@ -397,6 +421,9 @@ class pauseMenu extends abstractObject {
                 this.hand.height = mainMenuHandHeight;
                 this.hand.fixedToCamera = true;
                 
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
+                
             } else if(!selectingCharToViewStatus && viewingStatus && !viewingMap){
                 backKeyIsPushed = true;
                 for(var i = 0; i < tempDisplayArray.length; i++){
@@ -405,6 +432,9 @@ class pauseMenu extends abstractObject {
                 tempDisplayArray = [];
                 selectingCharToViewStatus = true;
                 viewingStatus = false;
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
                 
             } else if(viewingMap){
                 backKeyIsPushed = true;
@@ -416,6 +446,9 @@ class pauseMenu extends abstractObject {
                 for(var i = 0; i < this.staticMarkers.length; i++){
                     this.staticMarkers[i].destroy();
                 }
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
             }
             
         }
@@ -464,6 +497,9 @@ class pauseMenu extends abstractObject {
             switch(cursorPosMain){
                 case 0:
                     console.log("at the top of the menu");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
                     break;
                 case 1:
                     cursorPosMain = 0;
@@ -473,6 +509,9 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosMain = 1;
@@ -482,6 +521,9 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     cursorPosMain = 2;
@@ -491,6 +533,9 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 
             }
@@ -506,6 +551,9 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 1:
                     cursorPosMain = 2;
@@ -515,6 +563,9 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosMain = 3;
@@ -524,9 +575,15 @@ class pauseMenu extends abstractObject {
                     this.hand.width = mainMenuHandWidth;
                     this.hand.height = mainMenuHandHeight;
                     this.hand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     console.log("at the bottom of the menu");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
                     break;
             }
         }
@@ -536,10 +593,15 @@ class pauseMenu extends abstractObject {
             switch(cursorPosItems){
                 case 0:
                     if(itemsArr[0] === selectableItems[0]){
+                        this.sfx = this.game.add.audio('UIBump');
+                        this.sfx.play();
                     } else if(itemsArr[0] !== selectableItems[0]){
                         if(selectableItems.length > itemsArr.length){
                             movingItemsArr--;
                             this.reOrderItemDisplay("goingup");
+                            
+                            this.sfx = this.game.add.audio('UIMove');
+                            this.sfx.play();
                         }
                     }
                     break;
@@ -551,6 +613,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosItems = 1;
@@ -560,6 +625,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     cursorPosItems = 2;
@@ -569,6 +637,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 4:
                     cursorPosItems = 3;
@@ -578,6 +649,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 5:
                     cursorPosItems = 4;
@@ -587,6 +661,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 6:
                     cursorPosItems = 5;
@@ -596,6 +673,9 @@ class pauseMenu extends abstractObject {
                     this.itemsHand.width = mainMenuHandWidth;
                     this.itemsHand.height = mainMenuHandHeight;
                     this.itemsHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
             }
             
@@ -614,6 +694,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 1:
@@ -625,6 +708,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 2:
@@ -636,6 +722,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 3:
@@ -647,6 +736,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 4:
@@ -658,6 +750,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 5:
@@ -669,6 +764,9 @@ class pauseMenu extends abstractObject {
                         this.itemsHand.width = mainMenuHandWidth;
                         this.itemsHand.height = mainMenuHandHeight;
                         this.itemsHand.fixedToCamera = true;
+                        
+                        this.sfx = this.game.add.audio('UIMove');
+                        this.sfx.play();
                     }
                     break;
                 case 6:
@@ -676,11 +774,15 @@ class pauseMenu extends abstractObject {
                         this.downhand.alpha = 0;
                     }
                     if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr] === 'undefined') {
-                        
+                        this.sfx = this.game.add.audio('UIBump');
+                        this.sfx.play();
                     } else if(typeof selectableItems[howManyItemsToDisplay + movingItemsArr] !== 'undefined'){
                         if(selectableItems.length > itemsArr.length){
                             movingItemsArr++;
                             this.reOrderItemDisplay("goingdown");
+                            
+                            this.sfx = this.game.add.audio('UIMove');
+                            this.sfx.play();
                         }
                     }
 //                    console.log("get to here");
@@ -694,6 +796,10 @@ class pauseMenu extends abstractObject {
             switch(cursorPosSelectingChars){
                 case 0:
                     console.log("top of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
+                    break;
                 case 1:
                     cursorPosSelectingChars = 0;
                     this.selectingCharHand.destroy();
@@ -702,6 +808,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingChars = 1;
@@ -711,6 +820,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     cursorPosSelectingChars = 2;
@@ -720,6 +832,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
             }
         }
@@ -735,6 +850,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 1:
                     cursorPosSelectingChars = 2;
@@ -744,6 +862,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingChars = 3;
@@ -753,9 +874,15 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     console.log("bottom of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
                     break;
             }
         }
@@ -766,6 +893,10 @@ class pauseMenu extends abstractObject {
             switch(cursorPosSelectingCharsToReOrder){
                 case 0:
                     console.log("top of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
+                    break;
                 case 1:
                     cursorPosSelectingCharsToReOrder = 0;
                     this.selectingCharHand.destroy();
@@ -774,6 +905,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingCharsToReOrder = 1;
@@ -783,6 +917,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     cursorPosSelectingCharsToReOrder = 2;
@@ -792,6 +929,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
             }
         }
@@ -807,6 +947,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 1:
                     cursorPosSelectingCharsToReOrder = 2;
@@ -816,6 +959,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingCharsToReOrder = 3;
@@ -825,9 +971,15 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     console.log("bottom of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
                     break;
             }
         }
@@ -837,6 +989,10 @@ class pauseMenu extends abstractObject {
             switch(cursorPosSelectingCharsToViewStatus){
                 case 0:
                     console.log("top of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
+                    break;
                 case 1:
                     cursorPosSelectingCharsToViewStatus = 0;
                     this.selectingCharHand.destroy();
@@ -845,6 +1001,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingCharsToViewStatus = 1;
@@ -854,6 +1013,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     cursorPosSelectingCharsToViewStatus = 2;
@@ -863,6 +1025,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
             }
         }
@@ -878,6 +1043,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 1:
                     cursorPosSelectingCharsToViewStatus = 2;
@@ -887,6 +1055,9 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 2:
                     cursorPosSelectingCharsToViewStatus = 3;
@@ -896,9 +1067,15 @@ class pauseMenu extends abstractObject {
                     this.selectingCharHand.width = mainMenuHandWidth;
                     this.selectingCharHand.height = mainMenuHandHeight;
                     this.selectingCharHand.fixedToCamera = true;
+                    
+                    this.sfx = this.game.add.audio('UIMove');
+                    this.sfx.play();
                     break;
                 case 3:
                     console.log("bottom of the character list");
+                    
+                    this.sfx = this.game.add.audio('UIBump');
+                    this.sfx.play();
                     break;
             }
         }
@@ -963,18 +1140,30 @@ class pauseMenu extends abstractObject {
                 case 0:
                     console.log("items");
                     this.itemsMenu();
+                    
+                    this.sfx = this.game.add.audio('UISelect2');
+                    this.sfx.play();
                     break;
                 case 1:
                     console.log("status");
                     this.selectCharToViewStats();
+                    
+                    this.sfx = this.game.add.audio('UISelect2');
+                    this.sfx.play();
                     break;
                 case 2:
                     console.log("reorder");
                     this.reorder();
+                    
+                    this.sfx = this.game.add.audio('UISelect2');
+                    this.sfx.play();
                     break;
                 case 3:
                     console.log("map");
                     this.pauseMapfunc();
+                    
+                    this.sfx = this.game.add.audio('UISelect2');
+                    this.sfx.play();
                     break;
             }
         }
@@ -1058,6 +1247,9 @@ class pauseMenu extends abstractObject {
             this.selectingCharHand.width = mainMenuHandWidth;
             this.selectingCharHand.height = mainMenuHandHeight;
             this.selectingCharHand.fixedToCamera = true;
+            
+            this.sfx = this.game.add.audio('UISelect2');
+            this.sfx.play();
         }
         
         if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 0 && !viewingStatus && !viewingMap){
@@ -1089,6 +1281,9 @@ class pauseMenu extends abstractObject {
             this.selectedCharHand.fixedToCamera = true;
             
             console.log(firstChosenNPC);
+            
+            this.sfx = this.game.add.audio('UISelect2');
+            this.sfx.play();
         }
         
         if(!disableControls && isPaused && !enterKeyIsPushed && !itemScreenOn && !selectingCharacter && selectingCharToReOrder && reOrderPhase == 1 && !viewingStatus && !viewingMap){
@@ -1140,6 +1335,9 @@ class pauseMenu extends abstractObject {
             this.selectingCharHand.width = mainMenuHandWidth;
             this.selectingCharHand.height = mainMenuHandHeight;
             this.selectingCharHand.fixedToCamera = true;
+            
+            this.sfx = this.game.add.audio('UISelect');
+            this.sfx.play();
         }
         
         if(!disableControls && isPaused && !enterKeyIsPushed && selectingCharToViewStatus && !viewingStatus && !viewingMap){
@@ -1148,6 +1346,9 @@ class pauseMenu extends abstractObject {
             viewingStatus = true;
             console.log(playerStats[cursorPosSelectingCharsToViewStatus]);
             this.createStatusScreen();
+            
+            this.sfx = this.game.add.audio('UISelect2');
+            this.sfx.play();
         }
     }
     
@@ -1276,10 +1477,19 @@ class pauseMenu extends abstractObject {
         if(selectedItem.targets == 1 && selectedItem.quantity > 0){
             if(playerStats[parm].currentHP != playerStats[parm].maxHP && selectedItem.healing > 0){
                 this.consumeItem(parm);
+                
+                this.sfx = this.game.add.audio('UISelect');
+                this.sfx.play();
             } else if(playerStats[parm].currentEN != playerStats[parm].maxEN && selectedItem.energy > 0){
                 this.consumeItem(parm);
+                
+                this.sfx = this.game.add.audio('UISelect');
+                this.sfx.play();
             } else {
                 console.log("couldn't use the item");
+                
+                this.sfx = this.game.add.audio('UIBump');
+                this.sfx.play();
             }
         }
     }
