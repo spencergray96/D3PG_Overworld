@@ -106,8 +106,8 @@
                  "type":"",
                  "visible":true,
                  "width":128,
-                 "x":4480,
-                 "y":4864
+                 "x":10240,
+                 "y":6400
                 }, 
                 {
                  "height":128,
@@ -1690,33 +1690,6 @@
                  "width":128,
                  "x":15616,
                  "y":7296
-                }, 
-                {
-                 "height":128,
-                 "id":99,
-                 "name":"",
-                 "properties":
-                    {
-                     "eventNPC":"true",
-                     "npcName":"henryLaptop",
-                     "sprite":"dov",
-                     "spritesheet":"henryLaptop",
-                     "type":"testingObj"
-                    },
-                 "propertytypes":
-                    {
-                     "eventNPC":"string",
-                     "npcName":"string",
-                     "sprite":"string",
-                     "spritesheet":"string",
-                     "type":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":128,
-                 "x":8064,
-                 "y":2560
                 }],
          "opacity":1,
          "type":"objectgroup",
