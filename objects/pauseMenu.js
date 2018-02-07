@@ -272,14 +272,14 @@ class pauseMenu extends abstractObject {
             
             
             if(this.hpArray.length < 4){
-                this.newHP = this.game.add.text(charInfoX, charInfoY2, "HP: " + (playerStats[i].currentHP + "/" + playerStats[i].maxHP), this.style);
+                this.newHP = this.game.add.text(charInfoX, charInfoY2, "HP: " + (playerStats[i].currentHP + "" + playerStats[i].maxHP), this.style);
                 this.hpArray.push(this.newHP);
                 this.newHP.fixedToCamera = true;
             }
             charInfoY2 += charInfoIncrement;
             
             if(this.enArray.length < 4){
-                this.newEN = this.game.add.text(charInfoX, charInfoY3, "Energy: " + (playerStats[i].currentEN + "/" + playerStats[i].maxEN), this.style);
+                this.newEN = this.game.add.text(charInfoX, charInfoY3, "Energy: " + (playerStats[i].currentEN + "" + playerStats[i].maxEN), this.style);
                 this.enArray.push(this.newEN);
                 this.newEN.fixedToCamera = true;
             }
@@ -1713,11 +1713,11 @@ class pauseMenu extends abstractObject {
         this.newDesc.fixedToCamera = true;
         tempDisplayArray.push(this.newDesc);
 
-        this.newHP = this.game.add.text(characterHeadx, 280, "HP: " + (selectedCharToViewStatus.currentHP + "/" + selectedCharToViewStatus.maxHP), this.style);
+        this.newHP = this.game.add.text(characterHeadx, 280, "HP: " + (selectedCharToViewStatus.currentHP + "" + selectedCharToViewStatus.maxHP), this.style);
         this.newHP.fixedToCamera = true;
         tempDisplayArray.push(this.newHP);
 
-        this.newEN = this.game.add.text(characterHeadx, 320, "Energy: " + (selectedCharToViewStatus.currentEN + "/" + selectedCharToViewStatus.maxEN), this.style);
+        this.newEN = this.game.add.text(characterHeadx, 320, "Energy: " + (selectedCharToViewStatus.currentEN + "" + selectedCharToViewStatus.maxEN), this.style);
         this.newEN.fixedToCamera = true;
         tempDisplayArray.push(this.newEN);
         

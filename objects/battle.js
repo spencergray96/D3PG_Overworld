@@ -697,7 +697,7 @@ class battle extends abstractObject {
         
         this.teamStats.push(this.player1);
         
-        this.player1MaxHealth = this.game.add.text(this.infoX3, this.infoY1, "/" + playerStats[0].maxHP, this.style2);
+        this.player1MaxHealth = this.game.add.text(this.infoX3, this.infoY1, "" + playerStats[0].maxHP, this.style2);
         this.player1MaxHealth.fixedToCamera = true;
         
         this.teamStats.push(this.player1MaxHealth);
@@ -713,7 +713,7 @@ class battle extends abstractObject {
         
         this.teamStats.push(this.player1CurrentEN);
         
-        this.player1MaxEN = this.game.add.text(this.infoX5, this.infoY1, "/" + playerStats[0].maxEN, this.style2);      
+        this.player1MaxEN = this.game.add.text(this.infoX5, this.infoY1, "" + playerStats[0].maxEN, this.style2);      
         this.player1MaxEN.fixedToCamera = true;
         
         this.teamStats.push(this.player1MaxEN);
@@ -729,7 +729,7 @@ class battle extends abstractObject {
 
         this.teamStats.push(this.player2);
 
-        this.player2MaxHealth = this.game.add.text(this.infoX3, this.infoY2, "/" + playerStats[1].maxHP, this.style2);
+        this.player2MaxHealth = this.game.add.text(this.infoX3, this.infoY2, "" + playerStats[1].maxHP, this.style2);
         this.player2MaxHealth.fixedToCamera = true;
 
         this.teamStats.push(this.player2MaxHealth);
@@ -745,7 +745,7 @@ class battle extends abstractObject {
         
         this.teamStats.push(this.player2CurrentEN);
         
-        this.player2MaxEN = this.game.add.text(this.infoX5, this.infoY2, "/" + playerStats[1].maxEN, this.style2);      
+        this.player2MaxEN = this.game.add.text(this.infoX5, this.infoY2, "" + playerStats[1].maxEN, this.style2);      
         this.player2MaxEN.fixedToCamera = true;
         
         this.teamStats.push(this.player2MaxEN);
@@ -761,7 +761,7 @@ class battle extends abstractObject {
 
         this.teamStats.push(this.player3);
         
-        this.player3MaxHealth = this.game.add.text(this.infoX3, this.infoY3, "/" + playerStats[2].maxHP, this.style2);
+        this.player3MaxHealth = this.game.add.text(this.infoX3, this.infoY3, "" + playerStats[2].maxHP, this.style2);
         this.player3MaxHealth.fixedToCamera = true;
 
         this.teamStats.push(this.player3MaxHealth);        
@@ -777,7 +777,7 @@ class battle extends abstractObject {
         
         this.teamStats.push(this.player3CurrentEN);
         
-        this.player3MaxEN = this.game.add.text(this.infoX5, this.infoY3, "/" + playerStats[2].maxEN, this.style2);      
+        this.player3MaxEN = this.game.add.text(this.infoX5, this.infoY3, "" + playerStats[2].maxEN, this.style2);      
         this.player3MaxEN.fixedToCamera = true;        
         
         this.teamStats.push(this.player3MaxEN);
@@ -793,7 +793,7 @@ class battle extends abstractObject {
 
         this.teamStats.push(this.player4);
 
-        this.player4MaxHealth = this.game.add.text(this.infoX3, this.infoY4, "/" + playerStats[3].maxHP, this.style2);
+        this.player4MaxHealth = this.game.add.text(this.infoX3, this.infoY4, "" + playerStats[3].maxHP, this.style2);
         this.player4MaxHealth.fixedToCamera = true;
         
         this.teamStats.push(this.player4MaxHealth);
@@ -809,7 +809,7 @@ class battle extends abstractObject {
         
         this.teamStats.push(this.player4CurrentEN);
         
-        this.player4MaxEN = this.game.add.text(this.infoX5, this.infoY4, "/" + playerStats[3].maxEN, this.style2);      
+        this.player4MaxEN = this.game.add.text(this.infoX5, this.infoY4, "" + playerStats[3].maxEN, this.style2);      
         this.player4MaxEN.fixedToCamera = true;
         
         this.teamStats.push(this.player4MaxEN);

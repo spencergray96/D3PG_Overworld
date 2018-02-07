@@ -8,7 +8,7 @@ TopDownGame.Boot.prototype = {
     //assets we'll use in the loading screen
         this.load.image('preloadbar', 'assets/images/preloader-bar.png');
         
-        this.load.spritesheet("loading_spritesheet", "/assets/ui/loadingSprite/loadingspritesheet.png", 533, 55);
+        this.load.spritesheet("loading_spritesheet", "assets/ui/loadingSprite/loadingspritesheet.png", 533, 55);
     },
     
   create: function() {
