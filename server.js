@@ -17,7 +17,7 @@ app.use("/misc",express.static("D3PG_Overworld/misc"));
 console.log(__dirname);
 
 app.get('/',function(req,res){
-    res.sendFile(__dirname+'/index.html');
+    res.sendFile('/index.html');
 });
 
 server.listen(8080,function(){ // Listens to port 8080
