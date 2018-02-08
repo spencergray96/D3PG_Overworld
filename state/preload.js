@@ -202,37 +202,37 @@ TopDownGame.Preload.prototype = {
         this.load.spritesheet("CANDLE", "assets/images/candleNPC.png", 128, 128);
         
         //SPLASH VIDEO
-        this.load.video("splash", '/assets/ui/map/splashScreen-lowres.mp4');
-        this.load.spritesheet("press-enter", '/assets/ui/splash-screen/press-enter-spritesheet.png', 610, 60);
-        this.load.image("full-blank", '/assets/ui/splash-screen/fullBlank.png');
-        this.load.image("d3pg-title", '/assets/ui/splash-screen/d3pg-title.png');
+        this.load.video("splash", 'assets/ui/map/splashScreen-lowres.mp4');
+        this.load.spritesheet("press-enter", 'assets/ui/splash-screen/press-enter-spritesheet.png', 610, 60);
+        this.load.image("full-blank", 'assets/ui/splash-screen/fullBlank.png');
+        this.load.image("d3pg-title", 'assets/ui/splash-screen/d3pg-title.png');
         
     //AUDIO
         //SONGS
-        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.mp3');
-        this.load.audio('overworld-music', '/assets/audio/songs/makinItWork.mp3');
-        this.load.audio('cave-music', '/assets/audio/songs/osrs-inadequacy.mp3');
-        this.load.audio('se6-music', '/assets/audio/songs/osrs-witching.mp3');
-        this.load.audio('ne1-music', '/assets/audio/songs/osrs-danceofdeath.mp3');
-        this.load.audio('dorm-music', '/assets/audio/songs/osrs-spirit.mp3');
-        this.load.audio('stand-music', '/assets/audio/songs/osrs-mudskipper.mp3');
-        this.load.audio('se14-music', '/assets/audio/songs/osrs-homesweethome.mp3');
-        this.load.audio('sw3-music', '/assets/audio/songs/osrs-pheasantPeasant.mp3');
-        this.load.audio('findRamin-music', '/assets/audio/songs/osrs-maus.mp3');
-        this.load.audio('attack2-music', '/assets/audio/songs/osrs-attack2.mp3');
+        this.load.audio('intro-music', 'assets/audio/songs/Dov_intro_music.mp3');
+        this.load.audio('overworld-music', 'assets/audio/songs/makinItWork.mp3');
+        this.load.audio('cave-music', 'assets/audio/songs/osrs-inadequacy.mp3');
+        this.load.audio('se6-music', 'assets/audio/songs/osrs-witching.mp3');
+        this.load.audio('ne1-music', 'assets/audio/songs/osrs-danceofdeath.mp3');
+        this.load.audio('dorm-music', 'assets/audio/songs/osrs-spirit.mp3');
+        this.load.audio('stand-music', 'assets/audio/songs/osrs-mudskipper.mp3');
+        this.load.audio('se14-music', 'assets/audio/songs/osrs-homesweethome.mp3');
+        this.load.audio('sw3-music', 'assets/audio/songs/osrs-pheasantPeasant.mp3');
+        this.load.audio('findRamin-music', 'assets/audio/songs/osrs-maus.mp3');
+        this.load.audio('attack2-music', 'assets/audio/songs/osrs-attack2.mp3');
         
         //SOUND EFFECTS
-        this.load.audio('intro-music', '/assets/audio/songs/Dov_intro_music.mp3');
+        this.load.audio('intro-music', 'assets/audio/songs/Dov_intro_music.mp3');
         
-        this.load.audio('UIBump', '/assets/audio/sfx/UIBump.wav');
-        this.load.audio('UICan', '/assets/audio/sfx/UICan.wav');
-        this.load.audio('UIChopstick', '/assets/audio/sfx/UIChopstick.wav');
-        this.load.audio('UIKitKat', '/assets/audio/sfx/UIKitKat.wav');
-        this.load.audio('UIMove', '/assets/audio/sfx/UIMove.wav');
-        this.load.audio('UIPickle', '/assets/audio/sfx/UIPickle.wav');
-        this.load.audio('UISelect', '/assets/audio/sfx/UISelect.wav');
-        this.load.audio('UISelect2', '/assets/audio/sfx/UISelect2.wav');
-        this.load.audio('UISlash', '/assets/audio/sfx/UISlash.wav');
+        this.load.audio('UIBump', 'assets/audio/sfx/UIBump.wav');
+        this.load.audio('UICan', 'assets/audio/sfx/UICan.wav');
+        this.load.audio('UIChopstick', 'assets/audio/sfx/UIChopstick.wav');
+        this.load.audio('UIKitKat', 'assets/audio/sfx/UIKitKat.wav');
+        this.load.audio('UIMove', 'assets/audio/sfx/UIMove.wav');
+        this.load.audio('UIPickle', 'assets/audio/sfx/UIPickle.wav');
+        this.load.audio('UISelect', 'assets/audio/sfx/UISelect.wav');
+        this.load.audio('UISelect2', 'assets/audio/sfx/UISelect2.wav');
+        this.load.audio('UISlash', 'assets/audio/sfx/UISlash.wav');
         
     //battle sprites
         this.load.spritesheet("spencer_spritesheet_battle", "assets/characters/spritesheet/attack-animation/fix/spencer/spencerBattleFix.png", 256, 128);
