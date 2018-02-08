@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Final-Fantasy-36-Font';
-    src:url('/fonts/PressStart2P.ttf') format('truetype');
+    src:url('https://fonts.googleapis.com/css?family=Press+Start+2P') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
