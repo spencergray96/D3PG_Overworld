@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a61093d-8930-406c-88d8-06fc936cfdda" name="Default" comment="" />
+    <list default="true" id="7a61093d-8930-406c-88d8-06fc936cfdda" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/state/preload.js" afterPath="$PROJECT_DIR$/state/preload.js" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,12 +167,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1518047550608</updated>
-      <workItem from="1518047552393" duration="1285000" />
+      <workItem from="1518047552393" duration="1542000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1285000" />
+    <option name="totallyTimeSpent" value="1542000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
