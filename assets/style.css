@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'Final-Fantasy-36-Font';
-    src:url('https://fonts.googleapis.com/css?family=Press+Start+2P') format('truetype');
+    src:url('/fonts/PressStart2P.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 body {
-    font-family: 'Final-Fantasy-36-Font';
+    font-family: 'Press Start 2P', cursive;;
     background-color: black;
     padding: 0px;
     margin: 0;
