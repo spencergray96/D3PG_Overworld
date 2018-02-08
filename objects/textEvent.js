@@ -14,7 +14,7 @@ var isEventing = false;
 var raminFirstSpawn = 5;
 var raminSpawnedse14 = false;
 
-var runningShoes = true;
+var runningShoes = false;
 var noteProcurement = 8;
 
 //collecting the final 4 items
