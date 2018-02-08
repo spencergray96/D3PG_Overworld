@@ -1321,7 +1321,7 @@ var theDialogue = {
         ],
 //9 talking to galyna
         galynaConvo:[
-            {
+{
 	profile:
 		"galynaCH",
 	txt:

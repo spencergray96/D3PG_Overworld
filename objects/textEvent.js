@@ -294,17 +294,21 @@ class textEvent extends abstractObject {
 //event 9
         if(eventNumber == 9 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName === "galyna"){
+                if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("galyna", 9);
                     chapter = 5;
                     isEventing = true;
+                }
             }
         }
 //ADJUST HERE WITH BATTLE 1 change !== into === and makes sure that becomes true after battle #1
 //event 10
         if(eventNumber == 10 && currentNPC != null && !eventTrigger){
             if(currentNPC.hismove.npcName !== "postGalyna"){
+                if(currentNPC.hismove.eventNPC == "true"){
                     this.callEvent("postGalyna", 10);
                     isEventing = true;
+                }
             }
         }
 //DONE ADJUSTING FOR BATTLE
