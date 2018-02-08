@@ -164,7 +164,7 @@ TopDownGame.Preload.prototype = {
         //main characters
         this.load.image("spencerCH", "assets/characters/chatHeads/Spencerflipped.png");
         this.load.image("dovCH", "assets/characters/chatHeads/Doveflipped.png");
-        this.load.image("jamesCH", "assets/characters/chatHeads/james2flipped.png");
+        // this.load.image("jamesCH", "assets/characters/chatHeads/james2flipped.png");
         this.load.image("raymondCH", "assets/characters/chatHeads/Raymondflipped.png");
         //others
         this.load.image("jessieCH", "assets/characters/chatHeads/Jessie.png");
